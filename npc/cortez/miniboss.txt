@@ -1,0 +1,61 @@
+valkyrie,48,73,0	warp	valk01	1,1,valkyrie,48,64,0
+valkyrie,48,66,0	warp	valk02	1,1,valkyrie,48,75,0
+
+//gld_dun01	mapflag	gvg_dungeon
+//gld_dun02	mapflag	gvg_dungeon
+//gld_dun03	mapflag	gvg_dungeon
+//gld_dun04	mapflag	gvg_dungeon
+
+pay_fild05	mapflag	nomemo
+
+force_1-1	mapflag	nopenalty
+//force_1-1	mapflag	gvg_dungeon
+force_1-1	mapflag	nomemo
+force_1-1	mapflag	nosave	SavePoint
+force_1-1	mapflag	pvp_nocalcrank
+
+valkyrie	mapflag	nosave	SavePoint
+
+// format:
+// map,x,y,x,y	monster NAME	id,qtde,mintime,maxtime
+//pvp_n_1-5,0,0,0,0	monster	Pharoh	1157,1,60000,66000
+
+
+//Mastering, Eclipse, Dragon Fly, Toad, Vocal e Vagabond Wolf
+// 30 min Ghostring, Angelling e Chepet
+
+force_1-1,0,0,0,0	monster	Vocal	1088,3,0,60000
+force_1-1,0,0,0,0	monster	Toad	1089,3,0,60000
+force_1-1,0,0,0,0	monster	Mastering	1090,3,0,40000
+force_1-1,0,0,0,0	monster	Dragon Fly	1091,3,0,60000
+force_1-1,0,0,0,0	monster	Eclipse	1093,3,0,60000
+force_1-1,0,0,0,0	monster	Giant Whisper	1186,3,0,60000
+force_1-1,0,0,0,0	monster	Vagabond Wolf	1092,1,0,60000
+force_1-1,0,0,0,0	monster	Chepet	1250,1,0,60000
+force_1-1,0,0,0,0	monster	Ghostring	1120,2,1200000,2000000
+force_1-1,0,0,0,0	monster	Angeling	1096,2,1200000,2000000
+
+// 10 Raydric, 5 Wanderer, 5 Ancient Mummy, Devilling, Archangeling
+// 3 Tower Keeper, 2 Mobster, 2 Mutant Dragonoid, Executioner, Chimera
+// Gryphon, Goblin Leader, Mysteltainn, Kobold Leader e Bloody Knight
+// Não achei: Zealotus, Ogretooth
+
+pay_fild05,0,0,0,0	monster	Incubus	1374,3,0,0
+pay_fild05,0,0,0,0	monster	Succubus	1370,3,0,0
+pay_fild05,0,0,0,0	monster	Apocalypse	1365,1,0,0
+pay_fild05,0,0,0,0	monster	Raydric	1163,20,0,0
+pay_fild05,0,0,0,0	monster	Mysteltainn	1203,1,1800000,1800000
+pay_fild05,0,0,0,0	monster	Executioner	1205,1,1800000,1800000
+pay_fild05,0,0,0,0	monster	Wanderer	1208,10,0,0
+pay_fild05,0,0,0,0	monster	Gryphon	1259,2,0,0
+pay_fild05,0,0,0,0	monster	Mutant Dragonoid	1262,3,0,0
+pay_fild05,0,0,0,0	monster	Tower Keeper	1270,6,0,0
+pay_fild05,0,0,0,0	monster	Ancient Mummy	1297,10,0,0
+pay_fild05,0,0,0,0	monster	Chimera	1283,2,0,0
+pay_fild05,0,0,0,0	monster	Bloody Knight	1268,2,0,0
+pay_fild05,0,0,0,0	monster	Alice	1275,2,0,0
+pay_fild05,0,0,0,0	monster	Kobold Leader	1296,2,0,0
+pay_fild05,0,0,0,0	monster	Goblin Leader	1299,2,0,0
+pay_fild05,0,0,0,0	monster	Mobster	1313,3,0,0
+pay_fild05,0,0,0,0	monster	Arch Angeling	1388,2,1200000,1200000
+pay_fild05,0,0,0,0	monster	Deviling	1582,2,1200000,1200000

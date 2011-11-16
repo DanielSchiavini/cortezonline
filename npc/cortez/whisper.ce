@@ -1,0 +1,63 @@
+
+prontera,0,0,0	script	evento	-1,{
+	end;
+	OnWhisperGlobal:
+		if(getgmlevel()>=10){
+			if(getstrlen(@whispervar0$)<10 || getstrlen(@whispervar0$)==49){
+				announce "Por favor inclua uma descrição do seu evento, de ao menos 10 caracteres e no máximo 50.",bc_self,0xFF3366;
+				input @whispervar0$;
+			}
+			if(getstrlen(@whispervar0$)>=10){
+				dispbottom "Evento salvo: [Evento] "+@whispervar0$;
+				logmes "[Evento] "+@whispervar0$;
+				set @whispervar0$,"";
+			}else{
+				dispbottom "Log do evento cancelado.";
+			}
+		}else{
+			dispbottom "Você não tem acesso à este comando";
+		}
+		end;
+		
+}
+
+prontera,0,0,0	script	bans	-1,{
+	end;
+	OnWhisperGlobal:
+		if(getgmlevel()>=50){
+			if(@whispervar3$==""){
+				dispbottom "Formato: Personagem#Tempo#Motivo#Detalhes";
+				dispbottom "Para enviar arquivos favor cadastrar pelo site.";
+			}else{
+				dispbottom "Ainda não implementado";
+				//insert into forum.bans (data,char,tempo,motivo,detalhes)
+			}
+		}else{
+			dispbottom "Você não tem acesso à este comando";
+		}
+		end;
+}
+
+prontera,0,0,0	script	recall	-1,{
+	end;
+	OnWhisperGlobal:
+	if(getgmlevel()>=60){
+		if(@whispervar0$!=""){
+			set @char_id,getcharid(0,@whispervar0$);
+			if(@char_id){
+				warpchar "prontera",72,59,@char_id;
+				warp "prontera",72,60;
+			}else{
+				dispbottom "Personagem "+@whispervar0$+" não localizado";
+			}
+		}
+	}
+}
+
+prontera,0,0,0	script	prof	-1,{
+	end;
+	OnWhisperGlobal:
+	if(callfunc("podeusarcmd"))
+		callfunc "Mestra das Classes";
+	end;
+}

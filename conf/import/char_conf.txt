@@ -1,0 +1,36 @@
+console_silent: 0
+console: off
+email_creation: 0
+
+char_maintenance: 0
+char_new: 1
+char_new_display: 0
+max_connect_user: 30
+
+gm_allow_level: 4
+autosave_time: 60
+
+save_log: yes
+
+start_point: prontera,76,55
+start_weapon: 1203
+start_armor: 2301
+start_zeny: 20000
+
+fame_list_alchemist: 10
+fame_list_blacksmith: 10
+fame_list_taekwon: 10
+
+guild_exp_rate: 50
+
+unknown_char_name: Nome000
+
+name_ignoring_case: 0
+char_name_option: 1
+//char_name_letters: <>+(){}[]/\|,@ #$%^`"':;+¡¢¤¦§¨ª¬«¯»®©¹²³¼½¾‘’¥€×şé®ğßø¶´æµ¿'†£øæĞØº°™å•
+char_name_letters: abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890~!@&*áéíóúàâêôãõç.
+
+char_del_level: 102
+
+guild_max_member: 2
+guild_max_extension: 1

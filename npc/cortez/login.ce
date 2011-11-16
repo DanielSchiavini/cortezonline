@@ -1,0 +1,147 @@
+//	OPÇÕES DO CHAR (variável #opt)
+//	1	flag de que já usou
+//	2	usou o script como VIP
+//	4	main on (cancelado)
+//	8	showexp on (cancelado)
+//
+//	Variável #autoloot ()
+//		Define a % de autoloot da conta (0 = off)
+//
+
+prontera,0,0,0	script	#LoginEvent	-1,{
+	OnPCLoginEvent:
+		announce "Seja bem vindo ao Cortez Online "+$serv$+" - leia as regras! cortezonline.org",bc_self,0x6699FF;
+		if(getgmlevel()>=10){
+			atcommand "@autoloot 100";
+			atcommand "@hide";
+			atcommand "@main on";
+			if(getgmlevel()<30){
+				atcommand "@battleignore";
+				resetstatus;
+				set StatusPoint, 0;
+				if(Zeny>0){
+					query_logsql "INSERT INTO zenylog(time,char_id,src_id,type,amount,map)VALUES(now(),"+getcharid(0)+","+getcharid(0)+",'N',-"+Zeny+",'senha')";
+					set Zeny, 0;
+				}
+			}else{
+				atcommand "@monsterignore";
+			}
+			close;
+		}
+	
+	if(!#opt&1){
+		mes "^336699[Equipe Cortez]^333333";
+		mes "Olá "+strcharinfo(0)+"! Seja bem vindo ao Cortez Online!";
+		mes "Aqui você pode conhecer as principais novidades do servidor!";
+		next;
+		mes "^336699[Equipe Cortez]^333333";
+		mes "Sempre que precisar de mais informações, procure o 'Serviços Cortez Online', que fica no centro da nossa cidade principal!";
+		next;
+		menu "Saber Mais",-,"Ver depois",L_Sair,"Não quero ver isso",L_Autoloot;
+		
+		mes "^336699[Equipe Cortez]^333333";
+		mes "O Cortez Online é um servidor de ragnarok, mas é diferente dos outros.";
+		next;
+		mes "^336699[Equipe Cortez]^333333";
+		mes "Temos um monte de itens diferentes, personagens diferentes, tudo diferente!";
+		next;
+		mes "^336699[Equipe Cortez]^333333";
+		mes "Além disso, estamos sempre procurando manter o equilíbrio.";
+		next;
+		mes "^336699[Equipe Cortez]^333333";
+		mes "Eu gostaria de saber... Você já conhece o ragnarok?";
+		next;
+		menu "Não, é minha primeira vez",-,"Conheço mas quero saber mais",-,"Já Conheço, obrigado!",L_Autoloot,"Ir Embora",L_Sair;
+		
+		mes "^336699[Equipe Cortez]^333333";
+		mes "Quase todos os grandes jogadores de ragnarok aprenderam tudo que sabem com outros jogadores";
+		next;
+		mes "^336699[Equipe Cortez]^333333";
+		mes "E a forma que a maioria usa para aprender, é entrar em fóruns sobre o jogo";
+		next;
+		mes "^336699[Equipe Cortez]^333333";
+		mes "Por isso, pedimos que todos os jogadores entrem em nosso fórum para aprender e dar sugestões";
+		next;
+		mes "^336699[Equipe Cortez]^333333";
+		mes "Assim, podem aprender mais e se divertir também!";
+		next;
+		
+		L_Autoloot:
+			if(getgmlevel()<=0) goto L_Confirma;
+			mes "^336699[Equipe Cortez]^333333";
+			mes "Você tem a opção de sempre pegar itens que caem dos monstros automaticamente (autoloot)";
+			mes "Deseja utilizar esta opção?";
+			next;
+			menu "Sim",-,"Não",L_Confirma;
+			
+			mes "^336699[Equipe Cortez]^333333";
+			mes "Agora, você deve digitar a porcentagem dos itens que deseja pegar";
+			next;
+			mes "^336699[Equipe Cortez]^333333";
+			mes "Se, por exemplo, digitar 10, os itens com 10% de chance de cair e abaixo disso irão para sua mão.";
+			mes "Se deseja pegar todos, digite 100";
+			next;
+			input #autoloot;
+			if(#autoloot>100)
+				atcommand "@alootid "+#autoloot;
+			else if(#autoloot>0)
+				atcommand "@autoloot "+#autoloot;
+		
+		L_Confirma:
+			mes "^336699[Equipe Cortez]^333333";
+			if(getgmlevel()){
+				mes "Muito obrigado pela doação, e boa diversão!";
+				set #opt, #opt | 3;
+			}else{
+				mes "Muito Obrigado, e novamente, seja bem vindo!";
+				set #opt, #opt | 1;
+			}
+			next;
+			mes "^336699[Equipe Cortez]^333333";
+			mes "Lembrando, o NPC 'Serviços Cortez' fica sempre no centro da cidade, com uma roupa de rei";
+			mes "Boa diversão!";
+			
+		L_Sair:
+			close2;
+	}else{
+		//if((#opt & 4)>0) atcommand "@main on";
+		if(getgmlevel()>0){
+			if(!(#opt & 2)){
+				mes "^336699[Equipe Cortez]^333333";
+				mes "Olá "+strcharinfo(0)+"!";
+				mes "Viemos avisar que sua VIP já está funcionando!";
+				mes "Qualquer dúvida, entre em nosso fórum!";
+				next;
+				goto L_Autoloot;
+			}
+			if(#autoloot>0){
+				if(#autoloot>100)
+					atcommand "@alootid "+#autoloot;
+				else
+					atcommand "@autoloot "+#autoloot;
+			}
+		}else {
+			if((#opt & 2)>0){
+				mes "^336699[Equipe Cortez]^333333";
+				mes "Olá "+strcharinfo(0)+"..";
+				mes "Agradecemos a doacão, mas viemos informar que seu período de conta VIP acabou.";
+				mes "Visite nosso fórum, pois estamos sempre procurando sugestões para melhorar o servidor!";
+				mes "Boa diversão";
+				set #autoloot,0;
+				set #opt,1;
+				close2;
+			}
+			if($serv==6){
+				atcommand "@autoloot 1";
+			}
+		}
+	}
+	if((Class==Job_Star_Gladiator || Class==Job_Star_Gladiator2) && JobLevel>=50)
+		skill 444,1,0;
+	end;
+	
+	OnPCLogoutEvent:
+	if(Class==Job_Star_Gladiator || Class==Job_Star_Gladiator2)
+		sc_end SC_FUSION;
+	end;
+}

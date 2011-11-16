@@ -1,0 +1,32 @@
+-	script	noite	-1,{
+end;
+
+OnInit:
+	if(gettime(3) > 7 && gettime(3) < 19) {
+		day;
+	} else {
+		night;
+	}
+	end;
+
+
+OnClock0700:
+	announce "O Sol se levanta sobre toda Rune-Midgard...",0;
+	sleep 3000;
+	day;
+	end;
+
+OnClock1200:
+	announce "Mais uma tarde no horizonte, o Sol está em seu ponto mais alto...",0;
+	end;
+
+OnClock1900:
+	announce "Anoitece e os habitantes de Rune-Midgard retornam para suas casas...",0;
+	sleep 3000;
+	night;
+	end;
+
+OnClock0000:
+	announce "Uma escuridão sinistra cai sobre o Mundo dos Homens...",0;
+	end;
+}

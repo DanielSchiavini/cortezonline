@@ -1,0 +1,137 @@
+prontera,62,67,3	script	Doações	803,{		//790//845
+L_START:
+	mes "^336699[Doações]^333333";
+	mes "Olá! Sou eu quem cuida das doações por aqui...";
+	mes "Caso ainda não tenha doado, pode conseguir mais informações.";
+	mes "Se você doou algo pro servidor, pode retirar sua recompensa aqui!";
+	next;
+	menu "Mais informações",L_Info,"Itens Disponíveis",-,"Verificar crédito",L_VerCreditos;
+L_Itens:
+	mes "^336699[Doações]^333333";
+	mes "Deseja ver qual tipo de item?";
+	next;
+	set .@tipo, select("Voltar", "Itens", "Cartas", "Equips", "Cartas MVP");
+	close2;
+	switch(.@tipo)
+	{
+		case 2:	set .@tipo$, "VipItens";	break;
+		case 3:	set .@tipo$, "VipCartas";	break;
+		case 4:	set .@tipo$, "VipEquips";	break;
+		case 5:	set .@tipo$, "VipMvps";		break;
+		default: end;
+	}
+	query_sql "Select amount-claimed From ro.donate Where account_id = "+getcharid(3), #CASHPOINTS;
+	dispbottom "Você tem " + #CASHPOINTS + " ROPS disponíveis.";
+	callshop .@tipo$, 1;
+	npcshopattach .@tipo$;
+	end;
+	
+L_Info:
+	mes "^336699[Doações]^333333";
+	mes "Todo mês nós gastamos muito dinheiro com o servidor.";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "Por isso, você poderia nos ajudar doando qualquer quantia.";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "Para mostrar nossa gratidão, iremos te dar alguns prêmios!";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "Alguns itens estão disponíveis aqui! Se quiser outros itens, é só pedir ao [GM] Baltazar.";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "A cada R$ 1,00 doados, você ganha de brinde 2 dias de conta VIP, e 1 crédito no npc. Você pode doar quanto quiser!";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "Se não quiser os créditos nesse NPC, pode escolher por receber 4 dias de conta VIP por R$ 1 doado.";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "Ao adquirir uma conta VIP, você vai poder resetar seu personagem no nível 99!";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "Além disso, vai ganhar mais pontos ao resetar, e vai poder também usar alguns comandos, como @autoloot, @mobinfo, @mobsearch, @storage e @gstorage, por exemplo!";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "E ainda mais! Poderá utilizar vários serviços, como retirada de cartas e resetadora, por exemplo, sem gastar nenhum zeny!";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "O servidor irá melhorar com esse dinheiro, trazendo mais pessoas e menos lag!";
+	next;
+	menu "Voltar",L_START,"Sair",-;
+	close;
+
+L_VerCreditos:
+	mes "^336699[Doações]^333333";
+	if(!#CASHPOINTS){
+		mes "Desculpe, você não tem nenhum ROPS.";
+		mes "Se você doou e ainda não retirou seu prêmio, dê a nós um tempo pra processar sua doação.";
+		menu "Eu ainda não doei",-,"Ok, vou esperar",-;
+	}else{
+		mes "Você tem " + #CASHPOINTS + " ROPS!";
+		mes "Deseja retirar um item agora?";
+		next;
+		menu "Sim, por favor",L_Itens,"Sair",-;
+		mes "^336699[Doações]^333333";
+		mes "Tudo bem, você pode retirar os itens a qualquer hora!";
+	}
+	close;
+
+OnBuyItem:
+	for(set @i, 0; @i < getarraysize(@bought_nameid); set @i, @i + 1){
+		if(@bought_quantity[@i] <= 0){
+			dispbottom "Nenhum "+@bought_nameid[@i]+"?";
+			break;
+		}
+		
+		query_sql "Select price From ro.donate_item_db Where id =" + @bought_nameid[@i], .@total;
+		set .@total, .@total * @bought_quantity[@i];
+		if(.@total >= #CASHPOINTS){
+			set #CASHPOINTS, #CASHPOINTS-.@total;
+			query_sql "Update ro.donate Set claimed=claimed+" + .@total + " Where account_id = '"+getcharid(3)+"'";
+			query_sql "Insert Into ro.donate_log (dt,item,qtde,vlr,account_id,serv) Values (Now(),"+@bought_nameid[@i]+","+@bought_quantity[@i]+","+ .@total + "," + getcharid(3) + ","+ $serv + ")";
+			getitem @bought_nameid[@i],@bought_quantity[@i];
+		} else {
+			dispbottom "Você não tem créditos suficientes.";
+			break;
+		}
+	}
+	deletearray @bought_quantity, getarraysize(@bought_quantity);
+	deletearray @bought_nameid, getarraysize(@bought_nameid);
+	dispbottom "Transação concluída.";
+	close;
+
+OnInit:
+	sleep 5000;
+L_Reload:
+	query_sql "Select npc From ro.donate_tipos", .@npcs$;
+	for(set .@i, 0; .@i < getarraysize(.@npcs$); set .@i, .@i + 1){
+		// Clearing NPCs
+		npcshopitem .@npcs$[.@i],501,1000;
+		debugmes "cleaning npc "+.@npcs$[.@i];
+		
+		// Adding items
+		query_sql "Select id, price From ro.donate_item_db i join ro.donate_tipos t on t.id_tipo = i.tipo Where npc = '" + .@npcs$[.@i] + "' and serv in (0," + $serv + ") Order by name", .@ids, .@prices;
+		for(set .@j, 0; .@j < getarraysize(.@ids); set .@j, .@j + 1){
+			npcshopadditem .@npcs$[.@i], .@ids[.@j], .@prices[.@j];
+			debugmes "Adding item: "+ .@npcs$[.@i] + "@ "+ .@ids[.@j] + ":" + .@prices[.@j];
+		}
+		deletearray .@ids$, getarraysize(.@ids$);
+		deletearray .@prices$, getarraysize(.@prices$);
+		
+		// Clearing NPCs
+		npcshopdelitem .@npcs$[.@i],501;
+		debugmes "redpot from npc "+.@npcs$[.@i];
+	}
+	deletearray .@npcs$, getarraysize(.@npcs$);
+	
+	if(playerattached()){
+		dispbottom "Itens de doação recarregados";
+	}else{
+		debugmes "Itens de doação recarregados";
+	}
+}
+
+-	cashshop	VipItens	-1,501:-1,502:-1,503:-1;
+-	cashshop	VipCartas	-1,501:-1,502:-1,503:-1;
+-	cashshop	VipEquips	-1,501:-1,502:-1,503:-1;
+-	cashshop	VipMvps	-1,501:-1,502:-1,503:-1;

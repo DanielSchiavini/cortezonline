@@ -1,0 +1,368 @@
+//callfunc("log_mes","mes","Char/NPC name","map","acc_id=1","char_id=150000");
+function	script	log_mes	{
+	query_logsql "INSERT INTO npclog (npc_date,account_id,char_id,char_name,map,mes) Values (now(),"+(0+getarg(3,"1"))+","+(0+getarg(4,"150000"))+",'"+escape_sql(getarg(1))+"','"+escape_sql(getarg(2))+"','"+escape_sql(getarg(0))+"')";
+	return;
+}
+
+//callfunc("send_mail",0=dest_id,1=dest_name,2=send_id(0),3=send_name(Server),4=title,5=message,6=zeny,7=nameid,8=amount);
+function	script	send_mail	{
+	set .@zeny,getarg(6,0);
+	set .@nameid, getarg(7,0);
+	set .@amount, getarg(8,0);
+	query_sql "INSERT INTO mail(send_name,send_id,dest_name,dest_id,title,message,time,status,zeny,nameid,amount,identify)VALUES('"+escape_sql(getarg(3,"Server"))+"',"+escape_sql(getarg(2,"0"))+",'"+escape_sql(getarg(1))+"',"+escape_sql(getarg(0))+",'"+escape_sql(getarg(4,"Mensagem"))+"',Replace('"+escape_sql(getarg(5,""))+"','\n','\n\r '),unix_timestamp(),0,"+.@zeny+","+.@nameid+","+.@amount+",1);";
+	return 1;
+}
+
+//Function F_UseBloodyBranch (int number_of_branches, string map, int x1, int y1, string trigger, int x2=x1, int y2=y1)
+function	script	F_UseBloodyBranch	{
+	if(playerattached()) dispbottom "MVPs:";
+	for(set .@cont, 0; .@cont<getarg(0); set .@cont, .@cont+1){
+		set .@id, $MVPs[rand(1,getarraysize($MVPs))-1];
+		areamonster getarg(1),getarg(2),getarg(3),getarg(5,getarg(2)),getarg(6,getarg(3)),"--ja--",.@id,1,getarg(4);
+		if(playerattached()) dispbottom " " + (.@cont+1) + ". " + strmobinfo(2, .@id) + " (" + .@id + ")";
+	}
+	return .@id;
+	
+	OnInit:
+		deletearray $MVPs[0],getarraysize($MVPs);
+		setarray $MVPs[0],1038,1039,1046,1059,1086,1087,1096,1112,1115,1120,1147,1150,1157,1159,1190,1251,1252,1272,1312,1373,1388,1389,1418,1492,1511,1518,1582,1583,1623,1658,1685,1688,1734,1768,2250,2251;
+		end;
+}
+
+//Function F_UseDeadBranch (int number_of_branches, string map, int x, int y, string trigger, int x2=x1, int y2=y1)
+function	script	F_UseDeadBranch	{
+	for(set .@cont, 0; .@cont<getarg(0); set .@cont, .@cont+1){
+		areamonster getarg(1),getarg(2),getarg(3),getarg(5,getarg(2)),getarg(6,getarg(3)),"--ja--",-1,1,getarg(4);
+	}
+	return getarg(0);
+}
+
+// if(callfunc("podeusarcmd"))
+function	script	podeusarcmd	{
+	if(getgmlevel()==0){
+		dispbottom "Este comando é apenas para jogadores com conta VIP.";
+	//}else if(Hp==0){
+	//	dispbottom "Use este comando quando estiver vivo.";
+	}else if(getmapxy(.@mapname$,@mapx,@mapy,0) == -1) {
+		return 0;
+	}else if(getmapflag(.@mapname$, mf_nogo) || getmapflag(.@mapname$, mf_pvp) || getmapflag(.@mapname$, mf_gvg)){
+		dispbottom "Não é possível usar comandos neste mapa!";
+	}else{
+		return 1;
+	}
+	return 0;
+}
+
+
+//Function F_PercentHeal (int item_id, int hp_percentage = 0, int sp_percentage = 0)
+	// Copiado de: http://www.eathena.ws/board/?showtopic=241801&p=1318430#entry1318430
+	// Com efeitos: http://www.eathena.ws/board/lofiversion/index.php/t217475.html
+	// Com itemtype 11: http://www.eathena.ws/board/index.php?showtopic=155858&view=findpost&p=858166
+function	script	F_PercentHeal	{
+	if(YggDelay > gettimetick(1)){
+		dispbottom "Aguarde mais "+(YggDelay-gettimetick(1))+"s antes de usar este item.";
+		getitem getarg(0), 1; //gives them back the item they just used
+	}else{
+		percentheal getarg(1,0), getarg(2,0);
+		set YggDelay, gettimetick(1) + 15; // delay 15s
+	}
+	end;
+}
+
+//Function F_Dispell (int char_id = 0)
+function	script	F_Dispell	{
+	set .@char, getarg(0,0);
+	if(.@char) debugmes "F_Dispell não aceita outro char";
+	skilleffect 289,1;
+	// 2 slashes  - commented on const.txt
+	/// 3 slashes - commented by me
+	sc_end SC_STONE;	//0
+	sc_end SC_FREEZE;	//1
+	sc_end SC_STUN;	//2
+	sc_end SC_SLEEP;	//3
+	sc_end SC_POISON;	//4
+	sc_end SC_CURSE;	//5
+	sc_end SC_SILENCE;	//6
+	sc_end SC_CONFUSION;	//7
+	sc_end SC_BLIND;	//8
+	sc_end SC_BLEEDING;	//9
+	sc_end SC_DPOISON;	//10
+	sc_end SC_PROVOKE;	//20
+	sc_end SC_ENDURE;	//21
+	sc_end SC_TWOHANDQUICKEN;	//22
+	sc_end SC_CONCENTRATE;	//23
+	sc_end SC_HIDING;	//24
+	sc_end SC_CLOAKING;	//25
+	sc_end SC_ENCPOISON;	//26
+	sc_end SC_POISONREACT;	//27
+	sc_end SC_QUAGMIRE;	//28
+	sc_end SC_ANGELUS;	//29
+	sc_end SC_BLESSING;	//30
+	sc_end SC_SIGNUMCRUCIS;	//31
+	sc_end SC_INCREASEAGI;	//32
+	sc_end SC_DECREASEAGI;	//33
+	sc_end SC_SLOWPOISON;	//34
+	sc_end SC_IMPOSITIO;	//35
+	sc_end SC_SUFFRAGIUM;	//36
+	sc_end SC_ASPERSIO;	//37
+	sc_end SC_BENEDICTIO;	//38
+	sc_end SC_KYRIE;	//39
+	sc_end SC_MAGNIFICAT;	//40
+	sc_end SC_GLORIA;	//41
+	sc_end SC_AETERNA;	//42
+	sc_end SC_ADRENALINE;	//43
+	sc_end SC_WEAPONPERFECTION;	//44
+	sc_end SC_OVERTHRUST;	//45
+	sc_end SC_MAXIMIZEPOWER;	//46
+	sc_end SC_TRICKDEAD;	//47
+	sc_end SC_LOUD;	//48
+	sc_end SC_ENERGYCOAT;	//49
+	sc_end SC_BROKENARMOR;	//50
+	sc_end SC_BROKENWEAPON;	//51
+	///sc_end SC_HALLUCINATION;	//52
+	///sc_end SC_WEIGHT50;	//53
+	///sc_end SC_WEIGHT90;	//54
+	sc_end SC_ASPDPOTION0;	//55
+	sc_end SC_ASPDPOTION1;	//56
+	sc_end SC_ASPDPOTION2;	//57
+	sc_end SC_ASPDPOTION3;	//58
+	///sc_end SC_SPEEDUP0;	//59
+	///sc_end SC_SPEEDUP1;	//60
+	sc_end SC_ATKPOTION;	//61
+	sc_end SC_MATKPOTION;	//62
+	sc_end SC_WEDDING;	//63
+	sc_end SC_SLOWDOWN;	//64
+	///sc_end SC_ANKLE;	//65
+	sc_end SC_KEEPING;	//66
+	sc_end SC_BARRIER;	//67
+	sc_end SC_STRIPWEAPON;	//68
+	sc_end SC_STRIPSHIELD;	//69
+	sc_end SC_STRIPARMOR;	//70
+	sc_end SC_STRIPHELM;	//71
+	sc_end SC_CP_WEAPON;	//72
+	sc_end SC_CP_SHIELD;	//73
+	sc_end SC_CP_ARMOR;	//74
+	sc_end SC_CP_HELM;	//75
+	sc_end SC_AUTOGUARD;	//76
+	sc_end SC_REFLECTSHIELD;	//77
+	sc_end SC_SPLASHER;	//78
+	sc_end SC_PROVIDENCE;	//79
+	sc_end SC_DEFENDER;	//80
+	sc_end SC_MAGICROD;	//81
+	sc_end SC_SPELLBREAKER;	//82
+	///sc_end SC_AUTOSPELL;	//83
+	sc_end SC_SIGHTTRASHER;	//84
+	///sc_end SC_AUTOBERSERK;	//85
+	sc_end SC_SPEARQUICKEN;	//86
+	sc_end SC_AUTOCOUNTER;	//87
+	sc_end SC_SIGHT;	//88
+	///sc_end SC_SAFETYWALL;	//89
+	sc_end SC_RUWACH;	//90
+	sc_end SC_EXTREMITYFIST;	//91
+	sc_end SC_EXPLOSIONSPIRITS;	//92
+	///sc_end SC_COMBO;	//93
+	sc_end SC_BLADESTOP_WAIT;	//94
+	sc_end SC_BLADESTOP;	//95
+	sc_end SC_FIREWEAPON;	//96
+	sc_end SC_WATERWEAPON;	//97
+	sc_end SC_WINDWEAPON;	//98
+	sc_end SC_EARTHWEAPON;	//99
+	sc_end SC_VOLCANO;	//100
+	sc_end SC_DELUGE;	//101
+	sc_end SC_VIOLENTGALE;	//102
+	sc_end SC_WATK_ELEMENT;	//103
+	sc_end SC_ARMOR;	//104
+	sc_end SC_ARMOR_ELEMENT;	//105
+	///sc_end SC_NOCHAT;	//106
+	sc_end SC_BABY;	//107
+	sc_end SC_AURABLADE;	//108
+	sc_end SC_PARRYING;	//109
+	sc_end SC_CONCENTRATION;	//110
+	sc_end SC_TENSIONRELAX;	//111
+	sc_end SC_BERSERK;	//112
+	sc_end SC_FURY;	//113
+	sc_end SC_GOSPEL;	//114
+	sc_end SC_ASSUMPTIO;	//115
+	sc_end SC_BASILICA;	//116
+	///sc_end SC_GUILDAURA;	//117
+	sc_end SC_MAGICPOWER;	//118
+	///sc_end SC_EDP;	//119
+	sc_end SC_TRUESIGHT;	//120
+	sc_end SC_WINDWALK;	//121
+	///sc_end SC_MELTDOWN;	//122
+	///sc_end SC_CARTBOOST;	//123
+	sc_end SC_CHASEWALK;	//124
+	sc_end SC_REJECTSWORD;	//125
+	sc_end SC_MARIONETTE;	//126
+	sc_end SC_MARIONETTE2;	//127
+	sc_end SC_CHANGEUNDEAD;	//128
+	sc_end SC_JOINTBEAT;	//129
+	sc_end SC_MINDBREAKER;	//130
+	sc_end SC_MEMORIZE;	//131
+	sc_end SC_FOGWALL;	//132
+	///sc_end SC_SPIDERWEB;	//133
+	sc_end SC_DEVOTION;	//134
+	sc_end SC_SACRIFICE;	//135
+	sc_end SC_STEELBODY;	//136
+	sc_end SC_ORCISH;	//137
+	///sc_end SC_READYSTORM;	//138
+	///sc_end SC_READYDOWN;	//139
+	///sc_end SC_READYTURN;	//140
+	///sc_end SC_READYCOUNTER;	//141
+	///sc_end SC_DODGE;	//142
+	sc_end SC_RUN;	//143
+	sc_end SC_SHADOWWEAPON;	//144
+	sc_end SC_ADRENALINE2;	//145
+	sc_end SC_GHOSTWEAPON;	//146
+	sc_end SC_KAIZEL;	//147
+	sc_end SC_KAAHI;	//148
+	sc_end SC_KAUPE;	//149
+	sc_end SC_ONEHAND;	//150
+	sc_end SC_PRESERVE;	//151
+	sc_end SC_BATTLEORDERS;	//152
+	sc_end SC_REGENERATION;	//153
+	sc_end SC_DOUBLECAST;	//154
+	sc_end SC_GRAVITATION;	//155
+	sc_end SC_MAXOVERTHRUST;	//156
+	sc_end SC_LONGING;	//157
+	sc_end SC_HERMODE;	//158
+	sc_end SC_SHRINK;	//159
+	sc_end SC_SIGHTBLASTER;	//160
+	sc_end SC_WINKCHARM;	//161
+	sc_end SC_CLOSECONFINE;	//162
+	sc_end SC_CLOSECONFINE2;	//163
+	///sc_end SC_DANCING;	//164
+	sc_end SC_ELEMENTALCHANGE;	//165
+	sc_end SC_RICHMANKIM;	//166
+	sc_end SC_ETERNALCHAOS;	//167
+	sc_end SC_DRUMBATTLE;	//168
+	sc_end SC_NIBELUNGEN;	//169
+	sc_end SC_ROKISWEIL;	//170
+	sc_end SC_INTOABYSS;	//171
+	sc_end SC_SIEGFRIED;	//172
+	sc_end SC_WHISTLE;	//173
+	sc_end SC_ASSNCROS;	//174
+	sc_end SC_POEMBRAGI;	//175
+	sc_end SC_APPLEIDUN;	//176
+	sc_end SC_MODECHANGE;	//177
+	sc_end SC_HUMMING;	//178
+	sc_end SC_DONTFORGETME;	//179
+	sc_end SC_FORTUNE;	//180
+	sc_end SC_SERVICE4U;	//181
+	sc_end SC_STOP;	//182
+	sc_end SC_SPURT;	//183
+	sc_end SC_SPIRIT;	//184
+	sc_end SC_COMA;	//185
+	sc_end SC_INTRAVISION;	//186
+	sc_end SC_INCALLSTATUS;	//187
+	sc_end SC_INCSTR;	//188
+	sc_end SC_INCAGI;	//189
+	sc_end SC_INCVIT;	//190
+	sc_end SC_INCINT;	//191
+	sc_end SC_INCDEX;	//192
+	sc_end SC_INCLUK;	//193
+	sc_end SC_INCHIT;	//194
+	///sc_end SC_INCHITRATE;	//195
+	sc_end SC_INCFLEE;	//196
+	sc_end SC_INCFLEERATE;	//197
+	sc_end SC_INCMHPRATE;	//198
+	sc_end SC_INCMSPRATE;	//199
+	///sc_end SC_INCATKRATE;	//200
+	sc_end SC_INCMATKRATE;	//201
+	sc_end SC_INCDEFRATE;	//202
+	///sc_end SC_STRFOOD;	//203
+	///sc_end SC_AGIFOOD;	//204
+	///sc_end SC_VITFOOD;	//205
+	///sc_end SC_INTFOOD;	//206
+	///sc_end SC_DEXFOOD;	//207
+	///sc_end SC_LUKFOOD;	//208
+	///sc_end SC_HITFOOD;	//209
+	///sc_end SC_FLEEFOOD;	//210
+	///sc_end SC_BATKFOOD;	//211
+	///sc_end SC_WATKFOOD;	//212
+	///sc_end SC_MATKFOOD;	//213
+	sc_end SC_SCRESIST;	//214
+	///sc_end SC_XMAS;	//215
+	///sc_end SC_WARM;	//216
+	sc_end SC_SUN_COMFORT;	//217
+	sc_end SC_MOON_COMFORT;	//218
+	sc_end SC_STAR_COMFORT;	//219
+	sc_end SC_FUSION;	//220
+	sc_end SC_SKILLRATE_UP;	//221
+	sc_end SC_SKE;	//222
+	sc_end SC_KAITE;	//223
+	sc_end SC_SWOO;	//224
+	sc_end SC_SKA;	//225
+	sc_end SC_TKREST;	//226
+	sc_end SC_MIRACLE;	//227
+	sc_end SC_MADNESSCANCEL;	//228
+	sc_end SC_ADJUSTMENT;	//229
+	sc_end SC_INCREASING;	//230
+	sc_end SC_GATLINGFEVER;	//231
+	sc_end SC_TATAMIGAESHI;	//232
+	sc_end SC_UTSUSEMI;	//233
+	sc_end SC_BUNSINJYUTSU;	//234
+	sc_end SC_KAENSIN;	//235
+	sc_end SC_SUITON;	//236
+	///sc_end SC_NEN;	//237
+	sc_end SC_KNOWLEDGE;	//238
+	///sc_end SC_SMA;	//239
+	sc_end SC_FLING;	//240
+	sc_end SC_AVOID;	//241
+	sc_end SC_CHANGE;	//242
+	sc_end SC_BLOODLUST;	//243
+	sc_end SC_FLEET;	//244
+	sc_end SC_SPEED;	//245
+	sc_end SC_DEFENCE;	//246
+	//sc_end SC_INCASPDRATE;	//247
+	sc_end SC_INCFLEE2;	//248
+	///sc_end SC_JAILED;	//249
+	sc_end SC_ENCHANTARMS;	//250
+	sc_end SC_MAGICALATTACK;	//251
+	//sc_end 253: //SC_CRITICALWOUND
+	sc_end SC_SUMMER;	//256
+	///sc_end SC_EXPBOOST;	//257
+	///sc_end SC_ITEMBOOST;	//258
+	///sc_end SC_BOSSMAPINFO;	//259
+	///sc_end SC_LIFEINSURANCE;	//260
+	sc_end SC_INCCRI;	//261
+	//sc_end SC_INCDEF;	//262
+	//sc_end SC_INCBASEATK;	//263
+	//sc_end SC_FASTCAST 264
+	sc_end SC_MDEF_RATE;	//265
+	//sc_end SC_HPREGEN;	//266
+	sc_end SC_INCHEALRATE;	//267
+	///sc_end SC_PNEUMA;	//268
+	///sc_end SC_AUTOTRADE;	//269
+	sc_end SC_KSPROTECTED;	//270
+	sc_end SC_ARMOR_RESIST;	//271
+	sc_end SC_SPCOST_RATE;	//272
+	sc_end SC_COMMONSC_RESIST;	//273
+	sc_end SC_SEVENWIND;	//274
+	sc_end SC_DEF_RATE;	//275
+	//sc_end SC_SPREGEN;	//276
+	sc_end SC_WALKSPEED;	//277
+	sc_end SC_REBIRTH;	//284
+	//sc_end SC_SKILLCASTRATE;	//285
+	//sc_end SC_DEFRATIOATK;	//286
+	//sc_end SC_HPDRAIN;	//287
+	//sc_end SC_SKILLATKBONUS;	//288
+	sc_end SC_ITEMSCRIPT;	//289
+	sc_end SC_S_LIFEPOTION;	//290
+	sc_end SC_L_LIFEPOTION;	//291
+	///sc_end SC_JEXPBOOST;	//292
+	//sc_end SC_IGNOREDEF;	//293
+	///sc_end SC_HELLPOWER;	//294
+	///sc_end SC_INVINCIBLE;	//295
+	///sc_end SC_INVINCIBLEOFF;	//296
+	///sc_end SC_MANU_ATK;	//297
+	///sc_end SC_MANU_DEF;	//298
+	///sc_end SC_SPL_ATK;	//299
+	///sc_end SC_SPL_DEF;	//300
+	///sc_end SC_MANU_MATK;	//301
+	///sc_end SC_SPL_MATK;	//302
+	//if(.@char) sc_end SC_ENDURE, .@char; else sc_end SC_ENDURE;
+	set .@char, 0;
+	return 1;
+}
+

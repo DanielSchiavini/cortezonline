@@ -1,0 +1,64 @@
+//Create Table log.pvplog(id int primary key auto_increment,`time` datetime not null default '0000-00-00 00:00:00',char_kill_id int not null default 0,char_kill_name varchar(30) not null default '',char_die_id int not null default 0,char_die_name varchar(30) not null default '',map varchar(11) not null default '') Engine=MyISAM;
+//Create Index idx_pvplog On Log.pvplog (char_kill_id,char_die_id,map);
+
+poring_w01,0,0,0	script	ranking_pvp	-1,{
+	OnPCKillEvent:
+	//Se não achar o mapa
+	if(getmapxy(.@mapname$,@mapx,@mapy,0) == -1) end;
+	//Se não for um dos mapas habilitados (para o Killing Spree), cancela a execução
+	if(.@mapname$!="poring_w01" && .@mapname$!="sec_in02" && .@mapname$!="guild_vs3" && .@mapname$!="guild_vs5") end; //pvp, pvp exp, pvp ini, evento pvp
+	set .@ranking, (.@mapname$=="poring_w01");
+	set .@CharName$, strcharinfo(0);
+	
+	if(attachrid(killedrid)){
+		if(.@CharName$!="")
+			query_logsql "Insert Into PvpLog (`time`,char_kill_id,char_kill_name,char_die_id,char_die_name,map) Values (now(),'"+getcharid(0,.@CharName$)+"','"+.@CharName$+"','"+getcharid(0)+"','"+strcharinfo(0)+"','"+.@mapname$+"')";
+		//Zerando pra quem morreu
+		if(PK_Spree>0) set PK_Spree,0;
+		if(.@ranking){
+			set PK_Morreu, PK_Morreu + 1;
+			announce "Você morreu para " + .@CharName$ + ". Frag: " + PK_Matou + "/" + PK_Morreu,bc_self,0xFF3366;
+			set .@CharName$, strcharinfo(0);
+		}
+		//Adicionando stats pro matador
+		if(attachrid(killerrid)){
+			set PK_Spree, PK_Spree+1;
+			if(.@ranking){
+				set PK_Matou, PK_Matou + 1;
+				announce "Você matou " + .@CharName$ + ". Frag: " + PK_Matou + "/" + PK_Morreu,bc_self,0xFF3366;
+			}
+			set .@CharName$,"";
+			if(PK_Spree>1){
+				announce "Você matou " + PK_Spree + "x sem morrer.",bc_self,0xFF3366;
+			}
+			if(PK_Spree<=30){
+				switch(PK_Spree){
+					case 2:	soundeffect "double_kill.wav",0; break;
+					case 3:	soundeffect "triple_kill.wav",0; break;
+					case 4:	soundeffect "monsterkill.wav",0; break;
+					case 6:	soundeffect "killingspree.wav",0; break;
+					case 8:	soundeffect "dominating.wav",0; break;
+					case 10:soundeffect "unstoppable.wav",0; break;
+					case 15:soundeffect "godlike.wav",0; break;
+					case 20:soundeffect "godlike.wav",0; break;
+				}
+			}
+			attachrid(killedrid);
+		}
+		
+		if($eventopvp){
+			if(.@mapname$=="guild_vs5"){
+				sleep2 2000;
+				atcommand "@alive";
+				warp "SavePoint",0,0;
+				if(getmapusers("guild_vs5")==1 && attachrid(killerrid))
+					callfunc "premio_eventoPvp";
+			}else if(.@mapname$=="guild_vs2-2"){
+				sleep2 2000;
+				atcommand "@alive";
+				warp "SavePoint",0,0;
+			}
+		}
+	}
+	end;
+}

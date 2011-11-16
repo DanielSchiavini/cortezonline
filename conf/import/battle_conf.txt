@@ -1,0 +1,3 @@
+
+//client.conf
+display_version: no

@@ -1,0 +1,16 @@
+prontera,84,64,6	script	Audições#ctz	807,{
+	mes "[Agente de leilão]";
+	mes "Olá, estou aqui para oferecer-lhe leilões!";
+	mes "Gostaria de ver o que tenho disponível?";
+	next;
+	if (select("Sim:Não") == 1) {
+		mes "[Agente de leilão]";
+		mes "Está certo. Dê uma olhada no que tenho a oferecer...";
+		close2;
+		OpenAuction;
+		end;
+	}
+	mes "[Agente de leilão]";
+	mes "Tudo bem, então. Se você mudar de idéia, volte e confira as ofertas.";
+	close;
+}
