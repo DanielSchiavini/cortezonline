@@ -1,0 +1,29 @@
+// _________                                    
+// \_   ___ \_______  ____   ____  __ __  ______
+// /    \  \/\_  __ \/  _ \ /    \|  |  \/  ___/
+// \     \____|  | \(  <_> )   |  \  |  /\___ \ 
+//  \______  /|__|   \____/|___|  /____//____  >
+//         \/                   \/           \/  
+//-----------------------------------------------
+// 1.0 Traduzido por Dubugras
+//-----------------------------------------------
+
+// Poring Box Summonable Monsters Database
+//
+// Structure of Database:
+// MobID,DummyName,Rate
+1002,Poring,1000000
+1031,Poporing,1000000
+1062,Poring Noel,200000
+1090,Mastering,400000
+1096,Angeling,200000
+1113,Drops,1000000
+1120,Ghostring,200000
+1242,Marin,1000000
+1388,ArchAngeling,200000
+1582,Deviling,200000
+1613,Metaling,1000000
+1784,Stapo,800000
+1836,Magmaring,800000
+1977,Heavy Metaling,400000
+2199,Siorava,800000

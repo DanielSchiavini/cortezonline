@@ -1,0 +1,880 @@
+//===== Cronus Script ======================================== 
+//= Quests Repetitivas - bRO 
+//===== Por: ================================================= 
+//= DoJo
+//===== Versão: ============================================== 
+//= 1.0
+//===== Compatível com: ====================================== 
+//= Emulador [3010]; Cliente [EP 12.1]
+//===== Descrição: =========================================== 
+//= [Conversão do Aegis]
+//===== Comentários adicionais: ============================== 
+//= 1.0 Conversão do Aegis [DoJo]
+//============================================================ 
+
+// Cuir - 25 Peles de Anolian
+//===========================================================
+cmd_fild01,362,256,3	script	Cuir#Gator_Hunt	106,{
+	if (BaseLevel > 44) {
+		if (BaseLevel < 81) {
+			mes "[Cuir]";
+			mes "Você parece um aventureiro resistente!";
+			mes "Que acha de me ajudar a ganhar uma";
+			mes "grana vendendo peles de jacaré?";
+			next;
+			mes "[Cuir]";
+			mes "Se você me trouxer ^00CC0020 Peles de Anolian^000000, eu posso ajudar você a ficar mais forte.";
+			next;
+			if(select("Eu tenho as Peles de Anolian:Mas jacarés mordem!") == 1) {
+				if ((MaxWeight-Weight) < 2000) {
+					mes "[Cuir]";
+					mes "Ei, parece que você vai ser esmagado pelo";
+					mes "peso nas suas costas. Volte quando";
+					mes "não estiver carregando tanta coisa.";
+					close;
+				}
+				if (countitem(7003) > 19) {
+					mes "[Cuir]";
+					mes "Eu agradeço pelas ^00CC0020 Peles de Anolian^000000!";
+					mes "Espero que continue me ajudando a juntar essas peles.";
+					mes "Os fabricantes de armadura no mundo inteiro estão atrás delas.";
+					delitem 7003,20;
+					getexp 68950,43300;
+					getitem 503,10;
+					close;
+				}
+				else {
+					mes "[Cuir]";
+					mes "Eu reconheço uma pele de jacaré quando a vejo e isso não é ^00CC0020 Peles de Anolian^000000.";
+					close;
+				}
+			}
+			mes "[Cuir]";
+			mes "Eu preciso de ^00CC0020 Peles de Anolian^000000.";
+			close;
+		}
+		else {
+			mes "[Cuir]";
+			mes "Você é poderoso demais para esta tarefa, e eu preciso das peles em boas condições, não destruídas!";
+			close;
+		}
+	}
+	else {
+		mes "[Cuir]";
+		mes "Você certamente é corajoso, mas a coragem se torna loucura se continuar a ir para o Leste.";
+		mes "Talvez quando ficar mais forte você e eu possamos fazer negócio.";
+		close;
+	}
+}
+
+// Yullo - 25 Espinhos de Porco-Espinho
+//============================================================
+mjolnir_01,296,29,5	script	Yullo#Caramel_Hunt	95,{
+	if (BaseLevel > 23) {
+		if (BaseLevel < 61) {
+			mes "[Yullo]";
+			mes "Não posso mais, estou falando sério.";
+			mes "Olha pra mim, é sério, não posso trazer mais dessas coisas.";
+			next;
+			mes "[Yullo]";
+			mes "quer saber, tenho uma idéia.";
+			mes "Se trouxer tudo pra mim, dou a você uma recompensa pelo seu esforço!";
+			next;
+			mes "[Yullo]";
+			mes "Bem, então eu preciso de 25 Espinhos de Porco-Espinho.";
+			mes "Diga-me que você tem alguns ou que pode me ajudar.";
+			next;
+			if(select("Eu tenho Espinhos de Porco-Espinho:Bem, não creio que possa ajudar.") == 1) {
+				if ((MaxWeight-Weight) < 2000) {
+					mes "[Yullo]";
+					mes "Ei, parece que você vai ser esmagado pelo";
+					mes "peso nas suas costas. Volte quando";
+					mes "não estiver carregando tanta coisa.";
+					close;
+				}
+				if (countitem(1027) > 24) {
+					mes "[Yullo]";
+					mes " ótimo, você já tem o bastante!";
+					mes "Uma pequena recompensa, como prometido.";
+					delitem 1027,25;
+					getexp 10425,6272;
+					getitem 501,10;
+					close;
+				}
+				else {
+					mes "[Yullo]";
+					mes "Onde estão os Espinhos de Porco-Espinho? Você acha que eu consigo perceber?";
+					close;
+				}
+			}
+			mes "[Yullo]";
+			mes "Eu preciso de ^00CC0025 Espinhos de Porco-Espinho^000000.";
+			close;
+		}
+		else {
+			mes "[Yullo]";
+			mes "Olá, meu nome é Yullo.";
+			mes "Espere um pouco, o seu nível não é alto demais para isso?";
+			close;
+		}
+	}
+	else {
+		mes "[Yullo]";
+		mes "Humm, talvez esse pedido seja difícil demais para você. Volte quando crescer e ficar mais forte.";
+		close;
+	}
+}
+
+// Nutters - 25 Avelãs
+//===========================================================
+//mjolnir_01,293,20,3	script	Nutters#Coco_Hunt	779,{
+//	if (BaseLevel > 17) {
+//		if (BaseLevel < 60) {
+//			mes "[Nutters]";
+//			mes "Eu...Eu não consigo encontrar nenhuma.";
+//			mes "As pestes dos Kokos esconderam todas as Avelãs.";
+//			next;
+//			mes "[Nutters]";
+//			mes "Poderia me ajudar a achar ^00cc0025 Avelãs^000000? Eu darei a você a maior recompensa que puder.";
+//			next;
+//			if(select("Eu tenho 25 Avelãs:Pode voltar depois?") == 1) {
+//				if ((MaxWeight-Weight) < 2000) {
+//					mes "[Nutters]";
+//					mes "Ei, parece que você vai ser esmagado pelo";
+//					mes "peso nas suas costas. Volte quando";
+//					mes "não estiver carregando tanta coisa.";
+//					close;
+//				}
+//				if (v[Acorn] > 24) {
+//					mes "[Nutters]";
+//					mes "Que ótimo, você encontrou o esconderijo deles. Me dá, me dá!!!";
+//					next;
+//					mes "[Nutters]";
+//					mes "Ah é, desculpe-me, mas eu adoro assar avelãs. Humm.";
+//					mes "Aqui está o que prometi a você.";
+//					delitem 1026,25;
+//					getexp 3600,3905;
+//					getitem 502,5;
+//					close;
+//				}
+//				else {
+//					mes "[Nutters]";
+//					mes "Onde estão minhas ^00cc00Avelãs^000000? Ei, eu não estou brincando, é melhor não escondê-las de mim.";
+//					close;
+//				}
+//			}
+//			mes "[Nutters]";
+//			mes "Eu preciso de ^00CC0025 Avelãs^000000.";
+//			close;
+//		}
+//		else {
+//			mes "[Nutters]";
+//			mes "Você é forte demais para lutar contra esses monstros!";
+//			close;
+//		}
+//	}
+//	else {
+//		mes "[Nutters]";
+//		mes "Você é muito baixinho para lutar contra esses monstros por mim. Dá pra crescer um pouco antes de voltar?";
+//		close;
+//	}
+//}
+
+// Laertes - 25 Pó de Borboleta
+//============================================================
+prt_fild04,356,148,3	script	Laertes#Creamy_Hunt	798,{
+	if (BaseLevel > 14) {
+		if (BaseLevel < 45) {
+			mes "[Laertes]";
+			mes "Bom Dia!";
+			next;
+			mes "[Laertes]";
+			mes "Eu trabalho para um farmacêutico em Prontera";
+			mes "Eu preciso de um bom suprimento";
+			mes "de ^FF0000Pó de Borboleta^000000";
+			next;
+			if(select("Eu tenho Pó de Borboleta:Do que você precisava?") == 1) {
+				if ((MaxWeight-Weight) < 2000) {
+					mes "[Laertes]";
+					mes "Ei, parece que você vai ser esmagado pelo";
+					mes "peso nas suas costas. Volte quando";
+					mes "não estiver carregando tanta coisa.";
+					close;
+				}
+				if (countitem(924) > 24) {
+					mes "[Laertes]";
+					mes "Ei, obrigado de novo.";
+					mes "Aqui está, como prometi.";
+					delitem 924,25;
+					getexp 2950,1125;
+					getitem 502,5;
+					close;
+				}
+				else {
+					mes "[Laertes]";
+					mes "Não parece que";
+					mes "você tem o suficiente.";
+					next;
+					mes "[Laertes]";
+					mes "Se você me trouxer";
+					mes "^FF000025 Pó de Borboleta^000000,";
+					mes "vou dar a você suprimentos médicos.";
+					close;
+				}
+			}
+			mes "[Laertes]";
+			mes "Se você me trouxer";
+			mes "^FF000025 Pó de Borboleta^000000,";
+			mes "vou dar a você suprimentos médicos.";
+			close;
+		}
+		else {
+			mes "[Laertes]";
+			mes "Bom Dia!";
+			next;
+			mes "Eu trabalho para um farmacêutico em Prontera";
+			mes "Eu venho até aqui para juntar materiais";
+			mes "para remédios.";
+			close;
+		}
+	}
+	else {
+		mes "O seu nível está muito baixo!";
+		next;
+		mes "Vá matar mais Porings!";
+		close;
+	}
+}
+
+// Camponês - 50 Bactérias
+//============================================================
+ein_fild01,43,249,0	script	Camponês#Pungus_Hunt	898,{
+	if (BaseLevel > 59) {
+		if (BaseLevel < 75) {
+			mes "[Camponês]";
+			mes "Ei, você aí. Você mesmo!";
+			mes "Acha que pode me ajudar com um problema?";
+			next;
+			mes "[Camponês]";
+			mes "Estou tentando ir pelo meu caminho,";
+			mes "mas não consigo passar por esses";
+			mes "Pungus. Você pode me ajudar";
+			mes "trazendo ^FF0000Bactérias^000000?";
+			mes "Eu vou dar uma recompensa a você por me ajudar com isso.";
+			next;
+			if(select("Eu tenho Bactérias:Do que você precisava?") == 2) {
+				mes "[Camponês]";
+				mes "Eu preciso ver que você juntou";
+				mes "^FF000050 Bactérias^000000,";
+				mes "antes de dar a sua recompensa.";
+				close;
+			}
+			if ((MaxWeight-Weight) < 2000) {
+				mes "[Camponês]";
+				mes "Ei, parece que você vai ser esmagado pelo";
+				mes "peso nas suas costas. Volte quando";
+				mes "não estiver carregando tanta coisa.";
+				close;
+			}
+			if (countitem(7119) > 49) {
+				mes "[Camponês]";
+				mes "Eu tinha minhas dúvidas, mas você provou seu valor.";
+				delitem 7119,50;
+				getexp 250266,144452;
+				getitem 504,10;
+				close;
+			}
+			else {
+				mes "[Camponês]";
+				mes "Parece que";
+				mes "você não tem o suficiente.";
+				next;
+				mes "[Camponês]";
+				mes "Eu preciso ver que você juntou";
+				mes "^FF000050 Bactérias^000000,";
+				mes "antes de dar a sua recompensa.";
+				close;
+			}
+		} else {
+			mes "[Camponês]";
+			mes "Ah, tá. Acho que não...";
+			next;
+			mes "[Camponês]";
+			mes " é, desculpe por não poder conversar agora.";
+			close;
+		}
+	}
+	else {
+		mes "[Camponês]";
+		mes " é impressionante, realmente. Eu só queria poder passar por isso aí.";
+		close;
+	}
+}
+
+// Li - 50 Chifres de Dokebi
+//===========================================================
+pay_fild10,108,357,5	script	Li#Dokebi_Hunt	90,{
+	if (BaseLevel > 34) {
+		if (BaseLevel < 71) {
+			mes "[Li]";
+			mes "Olá!";
+			next;
+			mes "[Li]";
+			mes "Como vidente profissional,";
+			mes "eu preciso de uma reserva";
+			mes "de ^FF0000Chifres de Dokebi^000000";
+			mes "para dar boa sorte aos meus clientes.";
+			next;
+			if(select("Eu tenho alguns Chifres de Dokebi:Do que você precisava?") == 2) {
+				mes "[Li]";
+				mes "Se você me trouxer";
+				mes "^FF000050 Chifres de Dokebi^000000,";
+				mes "Posso te dar boa sorte.";
+				close;
+			}
+			if ((MaxWeight-Weight) < 2000) {
+				mes "[Li]";
+				mes "Ei, parece que você vai ser esmagado pelo";
+				mes "peso nas suas costas. Volte quando";
+				mes "não estiver carregando tanta coisa.";
+				close; 
+			}
+			if (countitem(1021) > 49) {
+				mes "[Li]";
+				mes "Ah, que bom!";
+				mes "Obrigado pelos chifres.";
+				dropitem 1021,50;
+				getexp 42000,36000;
+				close;	
+			}
+			else {
+				mes "[Li]";
+				mes "Parece que";
+				mes "você não tem o suficiente.";
+				next;
+				mes "[Li]";
+				mes "Eu preciso de ^FF000050 Chifres de Dokebi^000000.";
+				mes "para o meu negócio de vidente.";
+				close;	
+			}
+		}
+		else {
+			mes "[Li]";
+			mes "Olá.";
+			mes "Eu sou vidente";
+			mes "em Payon.";
+			close;
+		}
+	}
+	else {
+		mes "[Li]";
+		mes "Este lugar é perigoso!";
+		next;
+		mes "[Li]";
+		mes "Você deveria partir agora!";
+		close;
+	}
+}
+
+// Lilla - 50 Folhas Afiadas
+//===========================================================
+um_fild01,34,281,5	script	Lilla#Dryad_Hunt	724,{
+	if ( BaseLevel > 59) {
+		if (BaseLevel < 86) {
+			mes "[Lilla]";
+			mes "Ora, ora, olá!";
+			mes "Você parece ser alguém que ajudaria uma pessoa indefesa como eu.";
+			next;
+			mes "[Lilla]";
+			mes "Eu preciso muito de ^00cc0050 Folhas Afiadas^000000 para um chá no meu jardim.";
+			mes "Você tem algumas?";
+			next;
+			if(select("Eu tenho 50 Folhas Afiadas:O quê? Desculpe, estava pensando em outra coisa.") == 2) {
+				mes "[Lilla]";
+				mes "Eu preciso de ^00CC0050 Folhas Afiadas^000000.";
+				close;
+			}
+			if ((MaxWeight-Weight) < 2000) {
+				mes "[Lilla]";
+				mes "Ei, parece que você vai ser esmagado pelo";
+				mes "peso nas suas costas. Volte quando";
+				mes "não estiver carregando tanta coisa.";
+				close;
+			}
+			if (countitem(7100) > 49) {
+				mes "[Lilla]";
+				mes "Ei, mas que gentileza da sua parte. Eu agradeço muito por me ajudar!";
+				next;
+				mes "[Lilla]";
+				mes "Oh, eu quase me esqueci. Tenho algo para você ^_^";
+				mes "Muito obrigada novamente por sua ajuda.";
+				delitem 7100,50;
+				getexp 262485,141835;
+				getitem 504,10
+				close;
+			}
+			else {
+				mes "[Lilla]";
+				mes "Ora, eu posso ser bonitinha e meio tola, mas não brinque comigo.";
+				close;
+			}
+		}
+		else {
+			mes "[Lilla]";
+			mes "Desculpe-me, mas você é um pouco velho e assustador demais para conversar!";
+			close;
+		}
+	}
+	else {
+		mes "[Lilla]";
+		mes "Você é muito pequenininho para me ajudar. Mas obrigada pela oferta.";
+		close;
+	}
+}
+
+// Shone - 25 Earthworm Peeling
+//============================================================
+moc_fild17,208,346,5	script	Shone#iROExp	707,{
+	if((BaseLevel < 25)) {
+		mes "[Shone]";
+		mes "You need some help, but I can't";
+		mes "provide that for you. Come back";
+		mes "when you are stronger and have";
+		mes "earned much more wisdom.";
+		close;
+	}
+	else if((BaseLevel > 60)) {
+		mes "[Shone]";
+		mes "You are much to strong to be";
+		mes "fighting these things!";
+		next;
+		close;
+	}
+	mes "[Shone]";
+	mes "Wait! You can see me?";
+	mes "Oh well, I haven't yet mastered my";
+	mes "skills.";
+	next;
+	mes "[Shone]";
+	mes "Hey do you think you can help me? I";
+	mes "am trying to collect ^00CE0025 Earthworm^000000";
+	mes "^00CE00Peelings^000000. I will reward you if you";
+	mes "help.";
+	next;
+	if (select("I have 25 Earthworm Peelings:What was it again?") == 2) {
+		mes "[Shone]";
+		mes "I need ^00CE0025 Earthworm Peelings^000000.";
+		close;
+	}
+	if (countitem(1055) < 25) {
+		mes "[Shone]";
+		mes "I don't see any ^00CE00Earthworm Peelings^000000.";
+		mes "Are you trying to scam me?";
+		close;
+	}else{
+		delitem 1055,25;
+		getitem 502,10;
+		getexp 15775,1125;
+		mes "[Shone]";
+		mes "Thank you for the 25 Earthworm";
+		mes "Peelings!";
+		mes "Here is that reward I promised you,";
+		mes "I hope you will take this wisdom I";
+		mes "have passed on to you and share it";
+		mes "with others.";
+		close;
+	}
+}
+
+// Langry - 25 Fluff
+//============================================================
+gef_fild07,321,193,3	script	Langry#iROExp	754,{
+	if((BaseLevel < 2)) {
+		mes "[Langry]";
+		mes "You may just be the most unlikely";
+		mes "person ever,";
+		mes "recycle a few Fabres and come";
+		mes "back.";
+		close;
+	}
+	if((BaseLevel > 20)) { mes "[Langry]"; }
+	mes "Hello, my name is Langry.";
+	mes "I have to complete this community";
+	mes "service, but I am just too lazy.";
+	next;
+	if((BaseLevel > 20)) { close; }
+	mes "[Langry]";
+	mes "Do you think you can help me?";
+	mes "Please?";
+	next;
+	mes "[Langry]";
+	mes "I need to collect ^0000CE25 Fluff^000000 to";
+	mes "complete this community service";
+	mes "project.";
+	mes "You know what I can even reward you";
+	mes "a little for helping me.";
+	next;
+	if (select("I have some Fluff:What was that again?") == 2) {	
+		mes "[Langry]";
+		mes "I need ^00CE0025 Fluff^000000.";
+		close;
+	}
+	if (countitem(914) < 25) {
+		mes "[Langry]";
+		mes "I see no fluff, wait yea I do it's";
+		mes "the lies coming from your mouth.";
+		close;
+	}else{
+		delitem 914,25;
+		getexp 385,30;
+		mes "[Langry]";
+		mes "Thank you for the Fluff. This helps";
+		mes "me out greatly.";
+		mes "Oh and here you go, this should";
+		mes "help you get stronger, faster!";
+		close;
+	}
+}
+
+// Halgus - 25 Chrysalis
+//============================================================
+gef_fild04,191,54,4	script	Halgus#iROExp	123,{
+	if((BaseLevel < 2)) {
+		mes "[Halgus]";
+		mes "Please return to me when you are a";
+		mes "little stronger.";
+		close;
+	}
+	else if((BaseLevel > 20)) {
+		mes "[Halgus]";
+		mes "You are way to strong to be";
+		mes "hunting these little things.";
+		next;
+		close;
+	}
+	mes "[Halgus]";
+	mes "New here are you? Well look, I like";
+	mes "helping new faces around here.";
+	mes "And lets be honest you are not the";
+	mes "prettiest looking face I have seen.";
+	next;
+	mes "[Halgus]";
+	mes "None-the-less my daughter would";
+	mes "like a new necklace.";
+	mes "I am not rich by any means so I am";
+	mes "looking to collect Chrysalis from";
+	mes "the Pupa's in this area.";
+	next;
+	mes "[Halgus]";
+	mes "Can you collect ^00CE0025 Chrysalis^000000 and";
+	mes "return them to me, I promise to";
+	mes "reward you well.";
+	next;
+	if (select("I have Chrysalis:What did you need?") == 2) {
+		mes "[Halgus]";
+		mes "I need ^00CE0025 Chrysalis^000000.";
+		close;
+	}
+	if (countitem(915) < 25) {
+		mes "[Halgus]";
+		mes "I need ^00CE0025 Chrysalis^000000 and no less";
+		mes "please.";
+		close;
+	}else{
+		delitem 915,25;
+		getexp 385,30;
+		mes "[Halgus]";
+		mes "Amazing you found so many that";
+		mes "fast.";
+		mes "Like I promised, give me the";
+		mes "Chrysalis and I will reward you";
+		mes "with my wisdom.";
+		close;
+		
+	}
+}
+
+// Lemly - 25 Frill
+//===========================================================
+moc_fild17,66,273,5	script	Lemly#iROExp	725,{
+	if((BaseLevel < 30)) {
+		mes "What are you doing here?";
+		next;
+		mes "The desert will kill you here!";
+		close;
+	}
+	else if((BaseLevel > 65)) {
+		mes "[Lemly]";
+		mes "Hey there.";
+		next;
+		mes "[Lemly]";
+		mes "These lizards are gross.";
+		next;
+		mes "[Lemly]";
+		mes "I can't believe I am stuck";
+		mes "doing this.";
+		close;
+	}
+	mes "[Lemly]";
+	mes "Hey there cutie!";
+	next;
+	mes "[Lemly]";
+	mes "I am looking for lizard";
+	mes "^FF0000Frills^000000.";
+	next;
+	mes "The lizards around here";
+	mes "have a natural stealth";
+	mes "property that the assassin";
+	mes "guild wants to study.";
+	next;
+	if(select("I have some Frills:What did you need?") == 2) {
+		mes "[Lemly]";
+		mes "I need";
+		mes "^FF000025 Frill^000000";
+		mes "for the assassin guild.";
+		close;
+	}
+	if (countitem(1012) < 25) {
+		mes "[Lemly]";
+		mes "Sigh,";
+		mes "Please don't waste my time.";
+		next;
+		mes "[Lemly]";
+		mes "I need";
+		mes "^FF000025 Frill^000000";
+		mes "for the assassin guild.";
+		close;
+	}else{
+		delitem 1012,25;
+		getexp 30000,23000;
+		mes "[Lemly]";
+		mes "Hey, thank you.";
+		mes "These are pretty icky though.";
+		close;
+	}
+}
+
+// Private Jeremy - 25 Stone Heart
+//===========================================================
+moc_fild11,57,138,7	script	Private Jeremy#iROExp	707,{
+	if((BaseLevel < 25)) {
+		mes "[Private Jeremy]";
+		mes "It is dangerous here";
+		mes "citizen.";
+		close;
+	}	
+	mes "[Private Jeremy]";
+	mes "Greetings citizen!";
+	next;
+	if((BaseLevel > 60)) {
+		mes "[Private Jeremy]";
+		mes "Please do not interrupt";
+		mes "my mission for the";
+		mes "Morroc Guard.";
+		close;
+	}
+	mes "[Private Jeremy]";
+	mes "The Morroc guard";
+	mes "need ^FF0000Stone Hearts^000000";
+	mes "for our training regimen";
+	next;
+	if(select("I have Stone Hearts:What did you need?") == 2) {
+		mes "[Private Jeremy]";
+		mes "The Morroc Guard needs";
+		mes "^FF000025 Stone Heart^000000,";
+		mes "for our training regimen.";
+		close;
+	}
+	if (countitem(953) < 25) {
+		mes "[Private Jeremy]";
+		mes "It doesn't look";
+		mes "like you have enough.";
+		next;
+		mes "[Private Jeremy]";
+		mes "The Morroc Guard needs";
+		mes "^FF000025 Stone Heart^000000,";
+		mes "for our training regimen.";
+		close;
+	}else{
+		delitem 953,25;
+		getexp 14000,9000;
+		mes "[Private Jeremy]";
+		mes "The Morroc Guard thanks you,";
+		mes "citizen.";
+		close;
+	}
+}
+
+// Gregor - 25 Bill of Birds
+//===========================================================
+moc_fild02,74,329,3	script	Gregor#iROExp	97,{
+	if((BaseLevel < 10)) {
+		mes "[Gregor]";
+		mes "He there.";
+		next;
+		mes "[Gregor]";
+		mes "Those pickys over there";
+		mes "seem to be about your";
+		mes "speed.";
+		close;
+	}
+	else if((BaseLevel > 30)) {
+		mes "[Gregor]";
+		mes "Here peco peco peco";
+		next;
+		mes "[Gregor]";
+		mes "Come here peco.";
+		close;
+	}
+	mes "[Gregor]";
+	mes "Peco Pecos are fascinating.";
+	mes "I need some";
+	mes "^FF0000Bill of Birds^000000";
+	mes "for my, uh, research...";
+	next;
+	if(select("I have some Bill of Birds:What did you need?") == 2) {
+		mes "[Gregor]";
+		mes "Can you help me";
+		mes "out and bring me";
+		mes "^FF000025 Bill of Birds^000000?";
+		close;
+	}
+	if (countitem(925) < 25) {
+		mes "[Gregor]";
+		mes "It doesn't look";
+		mes "like you have enough.";
+		next;
+		mes "[Gregor]";
+		mes "Can you help me";
+		mes "out and bring me";
+		mes "^FF000025 Bill of Birds^000000?";
+		close;
+	}else{
+		delitem 925,25;
+		getexp 4000,2000;
+		mes "[Gregor]";
+		mes "Thank you so much.";
+		next;
+		mes "[Gregor]";
+		mes "This is gonna be";
+		mes "delicious!";
+		close;
+	}
+}
+
+// Lella - 50 Huge Leaf
+//============================================================
+ayo_fild01,44,241,5	script	Lella#iROExp	877,{
+	if((BaseLevel < 36)) {
+		mes "[Lella]";
+		mes "Quickly escape before they get";
+		mes "their claws into your sanity!";
+		close;
+	}
+	else if((BaseLevel > 65)) {
+		mes "[Lella]";
+		mes "Not sure why you are here,";
+		mes "but I can't offer you a bounty";
+		mes "as there would be no effort";
+		mes "in it for you!";
+		close;
+	}
+	mes "[Lella]";
+	mes "Why hello!";
+	mes "You look like someone who is";
+	mes "willing to help someone who is";
+	mes "slowly going mad.";
+	next;
+	mes "[Lella]";
+	mes "I really need to gather ^00CE0050 Huge^000000";
+	mes "^00CE00Leaf^000000 for my sanity.";
+	mes "Do you have any?";
+	next;
+	if(select("I have 50 Huge Leaf:What, sorry I was day dreaming") == 2) {
+		mes "[Lella]";
+		mes "I need ^00CE0050 Huge Leafs^000000.";
+		close;
+	}
+	if (countitem(7198) < 50) {
+		mes "[Lella]";
+		mes "Meow meow meow meow meow...";
+		mes "NOOOOOOOOOOOO.";
+		close;
+	}else{
+		mes "[Lella]";
+		mes "Wonderful I can tell it is just a";
+		mes "little bit quieter around here!";
+		next;
+		delitem 7198,50;
+		getitem 503,10;
+		getexp 25740,31512;
+		mes "[Lella]";
+		mes "The more leafs I collect the";
+		mes "quieter it seems around here.";
+		close;
+	}
+}
+
+// Vegetable Farmer - 50 Antelope Horn
+//============================================================
+ein_fild06,82,171,7	script	Vegetable Farmer#iROExp	919,{
+	if((BaseLevel < 70)) {
+		mes "[Vegetable Farmer]";
+		mes "My greens, where did they all go?";
+		mes "Oh, no..no!!!";
+		close;
+	}
+	else if((BaseLevel > 84)) {
+		mes "[Vegetable Farmer]";
+		mes "Oh boy, Oh boy!";
+		next;
+		mes "[Vegetable Farmer]";
+		mes "Sorry I can't talk right now";
+		mes "I am in a world of hurt here,";
+		mes "these darn Goats are going to kill";
+		mes "me.";
+		close;
+	}
+	mes "[Vegetable Farmer]";
+	mes "Oh great!";
+	mes "You are here to help me right?";
+	mes "If not, then I am in a world of hurt.";
+	next;
+	mes "[Vegetable Farmer]";
+	mes "These Goats keep eating my";
+	mes "vegetables.";
+	mes "Can you do what you can to help";
+	mes "me?";
+	mes "I need ^FF0000Antelope Horns^000000";
+	mes "to show for your hard work, and I";
+	mes "will reward you.";
+	next;
+	if(select("I have Antelope Horns:What did you need?") == 2) {
+		mes "[Vegetable Farmer]";
+		mes "I need to see that you have";
+		mes "gathered";
+		mes "^FF000050 Antelope Horns^000000,";
+		mes "and then I can reward you.";
+		close;
+	}
+	if (countitem(7106) < 50) {
+		mes "[Vegetable Farmer]";
+		mes "It doesn't look";
+		mes "like you have enough.";
+		next;
+		mes "[Vegetable Farmer]";
+		mes "I need to see that you have";
+		mes "gathered";
+		mes "^FF000050 Antelope Horns^000000,";
+		mes "and then I can reward you.";
+		close;
+	}else{
+		delitem 7106,50;
+		getitem 504,10;
+		getexp 258490,155155;
+		mes "[Vegetable Farmer]";
+		mes "Amazing, you did that with speed. I";
+		mes "am truly grateful.";
+		close;
+	}
+}

@@ -1,0 +1,32 @@
+//===== Cronus Script ========================================
+//= Kafras de Izlude
+//===== Por: =================================================
+//= Dojo
+//===== Versão Atual: ========================================
+//= [Conversão Aegis]
+//= 1.0
+//===== Compatibilidade: =====================================
+//= Cronus / eAthena
+//===== Comentários Adicionais: ==============================
+//= 1.0 Primeira Versão [Dojo]
+//============================================================
+
+izlude,134,88,3	script	Funcionária Kafra::kaf_izlude	117,{
+	cutin "kafra_01",2;
+	cleararray @wrpC$[0],"",getarraysize(@wrpC$);
+	setarray @wrpD$[0], "Geffen", "Prontera", "Morroc", "Al De Baran";
+	setarray @wrpP[0], 1200, 1200, 1200, 1800;
+	set @wrpC$[0], @wrpD$[0]+" -> "+@wrpP[0];
+	set @wrpC$[1], @wrpD$[1]+" -> "+@wrpP[1];
+	set @wrpC$[2], @wrpD$[2]+" -> "+@wrpP[2];
+	set @wrpC$[3], @wrpD$[3]+" -> "+@wrpP[3];
+	set @wrpC$[4], "Cancel";
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,0,1,40,820;
+
+	M_Save:
+		savepoint "izlude",94,103;
+		callfunc "F_KafEnd",0,1,"na cidade de Izlude";
+}

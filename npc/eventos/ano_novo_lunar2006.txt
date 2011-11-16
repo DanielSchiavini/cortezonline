@@ -1,0 +1,312 @@
+//===== Cronus Script ========================================
+//= Ano novo Lunar 2006 bRO
+//===== Por: =================================================
+//= Keoy
+//===== Versão Atual: ========================================
+//= 1.1
+//===== Compatibilidade: =====================================
+//= Emulador [3019]; Cliente [EP 12.1]
+//===== Descrição: ===========================================
+//= [Conversão do Aegis]
+//= Evento Lunar 01/02/2006 (bRO)
+//= Quest do envelope vermelho, capacete espacial,
+//= Osso seco
+//===== Comentários Adicionais: ==============================
+//= 1.0 Convertido do Aegis [Keoy]
+//= 1.1 Otimizado [Keoy]
+//============================================================
+
+//============================================================
+// Quest do envelope vermelho
+//============================================================
+gonryun,160,133,0	script	Lai-See	817,{
+
+	mes "[Lai-See]";
+	if ( countitem(7111) > 9 && countitem(7216) > 2 && countitem(1024) > 9 && countitem(7101) > 4 && countitem(525) > 1 && Zeny > 9999 )
+	{
+		mes "Ah, você trouxe todos os itens para fazer o Envelope Vermelho.";
+		mes "Gostaria de fazer um agora?";
+		next;
+		switch (select("Sim, com certeza'.","Acho melhor não."))
+		{
+			case 1:
+				mes "[Lai-See]";
+				mes "Ótimo.";
+				mes "Por favor, me dê alguns segundos.";
+				next;
+				mes "[Lai-See]";
+				mes ". . . . . . . . . . .";
+				next;
+				mes "[Lai-See]";
+				mes ". . . . . . . . .";
+				next;
+				mes "[Lai-See]";
+				mes ". . . . . . .";
+				next;
+				mes "[Lai-See]";
+				mes ". . . .";
+				next;
+				mes "[Lai-See]";
+				mes ". . ";
+				next;
+				mes "[Lai-See]";
+				mes "Pronto!";
+				mes "Espero que ele lhe traga felicidade e muito amor";
+				mes "no ano lunar que se inicia.";
+				delitem 7111,10;	// Smooth_Paper
+				delitem 7216,3;		// Red_Scarf
+				delitem 1024,10;	// Chinese_Ink
+				delitem 7101,5;		// Peco_Wing_Feather
+				delitem 525,2;		// Panacea
+				set Zeny,Zeny - 10000;
+				getitem 12134,1;	// Red_Envelope
+				close;
+			case 2:
+				mes "[Lai-See]";
+				mes "Por favor, sinta-se a vontade de me procurar novamente";
+				mes "quando quiser fazer um Envelope Vermelho.";
+				close;
+		}
+	}
+	mes "Bem-vindo a Kunlun. Esta é uma época do ano muito importante para nós,";
+	mes "pois estamos celebrando o Ano Novo Lunar.";
+	mes "Uma de nossas tradições é entregar Envelopes Vermelhos";
+	mes "para pessoas queridas, como forma de lhes desejar um feliz ano novo.";
+	next;
+	mes "[Lai-See]";
+	mes "Estes Envelopes levam em seu interior os mais sinceros votos de felicidade.";
+	mes "Trata-se de um presente maravilhoso tanto para quem oferta como para quem recebe.";
+	mes "Os Envelopes Vermelhos podem ser entregues para qualquer pessoa";
+	mes "desde que ela seja especial para quem está oferecendo.";
+	mes "Siga esta recomendação e você estará ajudando a manter a chama desta nossa tradição acesa.";
+	next;
+	mes "[Lai-See]";
+	mes "Se você conhece alguém especial e que gostaria de presentear com um Envelope Vermelho,";
+	mes "é só você me trazer alguns itens que eu faço um para você. São eles.";
+	next;
+	mes "10 Pedaços de Papel,";
+	mes "3 Panos Vermelhos,";
+	mes "10 Tintas de Polvo,";
+	mes "5 Penas de Grand Peco,";
+	mes "2 Panacéias e";
+	mes "10.000 Zeny";
+	next;
+	mes "[Lai-See]";
+	mes "Só preciso disso para fazer um Envelope Vermelho.";
+	mes "Acho que você se sentirá tão bem";
+	mes "ao expressar seus sentimentos por alguém especial através deste envelope,";
+	mes "que vai querer fazer isso outras vezes.";
+	close;
+}
+
+//============================================================
+// Quest do Osso seco
+//============================================================
+gonryun,146,57,5	script	Zodíaco	773,{
+
+	mes "[Zodíaco]";
+	if ( oversea_event >= 271 )
+	{
+		mes "Oh, desculpe-me mas eu não posso";
+		mes "ajudá-lo a conseguir um Filhote de Lobo do Deserto";
+		mes "para a nossa comemoração de ano novo. Bom, você sabe o que as pessoas dizem...";
+		mes "estes animais podem ser bonitinhos e fofinhos, mas também";
+		mes "são barulhentos e fazem muita sujeira. Quem sabe você não tem mais sorte na próxima vez que tentar conquistar";
+		mes "a lealdade de um amigo de 4 patas.";
+		close;
+	}
+	else if (oversea_event == 270 && countitem(932) > 9 && countitem(538) > 9 && countitem(1003) > 4 && countitem(1019) > 4)
+	{
+		mes "Excelente!";
+		mes "Deixe-me pegar minhas ferramentas";
+		mes "para podermos voltar ao trabalho assando";
+		mes "e adicionando aroma de biscoito a este osso.";
+		mes "Acho que esta será uma isca bem apetitosa.";
+		next;
+		mes "[Zodíaco]";
+		mes ". . . . . . . . . .";
+		next;
+		mes "[Zodíaco]";
+		mes ". . . . . . . .";
+		next;
+		mes "[Zodíaco]";
+		mes ". . . . . .";
+		next;
+		mes "[Zodíaco]";
+		mes ". . . .";
+		next;
+		mes "[Zodíaco]";
+		mes ". .";
+		next;
+		mes "[Zodíaco]";
+		mes "Ah, perfeito! Ele não ficou queimado,";
+		mes "mas mesmo assim está crocante.";
+		mes "Você não acha que ele está com uma aparência deliciosa?";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "........Hmmmmm, mas isto é comida de cachorro, certo?";
+		next;
+		mes "[Zodíaco]";
+		mes "Ohhh sim... Você não achou que eu ia com...";
+		mes "*saliva escorrendo pelo canto de sua boca*";
+		mes "Esqueça!!! Bom, aqui está, um Osso Seco Delicioso para você capturar um Filhote de Lobo do Deserto!";
+		delitem 932,10;		// Skel_Bone
+		delitem 538,10;		// Well_Baked_Cookie
+		delitem 1003,5;		// Coal
+		delitem 1019,5;		// Wooden_Block
+		set oversea_event,271;
+		getitem 628,1;		// Well_Dried_Bone
+		close;
+	}
+	else if (oversea_event == 270)
+	{
+		mes "Então você trouxe todos os itens que lhe pedi?";
+		mes "Eu acho que não.";
+		close;
+	}
+	mes "Nós temos aqui em Kunlun diversas tradições.";
+	mes "Uma delas é a comemoração da chegada do Ano Novo Lunar.";
+	mes "Gostaria de saber um pouco mais?";
+	next;
+	switch (select("Com certeza.","Hmmmm... Melhor não."))
+	{
+		case 1:
+			next;
+			mes "[Zodíaco]";
+			mes "Todo ano lunar recebe o nome de um animal,";
+			mes "e este será o Ano do Cachorro.";
+			mes "Puxa vida, mas que animal nobre... tão leal e esperto.";
+			mes "Nosso plano para comemorar a chegada do ano novo é ter o maior número possível";
+			mes "de cachorros correndo por aí.";
+			mes "Minha Nossa... Já posso até ouvir!";
+			next;
+			mes "[Au!Au!Au!Au!Au!]";
+			next;
+			mes "[Zodíaco]";
+			mes "Você gostaria de comemorar com a gente? ";
+			next;
+			switch (select("Com certeza. Adoraria criar um cachorrinho.","Hmmmm... Acho que não é uma boa idéia."))
+			{
+				case 1:
+					mes "[Zodíaco]";
+					mes " Ótimo! O que eu preciso é que você ";
+					mes "traga um cachorrinho";
+					mes "aqui para Kunlun.";
+					mes "Com a sua ajuda conseguiremos";
+					mes "vários deles";
+					mes "para a nossa comemoração.";
+					mes "Porém, como você pode perceber, estamos em uma ilha flutuante";
+					mes "e os cachorros certamente não são conhecidos";
+					mes "por suas habilidades em escalar, pular ou voar,";
+					mes "não é mesmo?";
+					next;
+					mes "["+strcharinfo(0)+"]";
+					mes "Hmmmm... Então tudo o que preciso fazer é atrair um cachorrinho até aqui? ";
+					next;
+					mes "[Zodíaco]";
+					mes "Você não entendeu nada! Você terá que domesticá-lo.";
+					mes "Cachorros são tão leais que uma vez que você os domestique,";
+					mes "eles irão segui-lo por onde for, como um...";
+					mes "bem... como um cachorro!";
+					next;
+					mes "[Zodíaco]";
+					mes "Eu posso fazer para você alguns";
+					mes "quitutes deliciosos que serão irresistíveis para domesticar";
+					mes "o Filhote de Lobo do Deserto. Dessa forma, você poderá atraí-los para Kunlun.";
+					mes "Você acha que consegue";
+					mes "me trazer os itens que preciso?";
+					next;
+					switch (select("Acho que sim.","Não... Acho que não conseguirei"))
+					{
+						case 1:
+							mes "[Zodíaco]";
+							mes "Anote aí.";
+							mes "10 Ossos,";
+							mes "10 Biscoitos de Gengibre,";
+							mes "5 Carvões e";
+							mes "5 Troncos";
+							next;
+							mes "[Zodíaco]";
+							mes "Com estes itens eu farei";
+							mes "um pequeno forno para";
+							mes "cozinhar os ossos e dar a eles";
+							mes "um aroma de biscoito que";
+							mes "o tornará irresistível para estes pequenos filhotes.";
+							set oversea_event,270;
+							close;
+						case 2:
+							mes "["+strcharinfo(0)+"]";
+							mes "Espere um pouco. Pensando melhor, acho que é muita responsabilidade";
+							mes "cuidar de um animalzinho.";
+							next;
+							mes "[Zodíaco]";
+							mes "Tudo bem, você quem sabe...";
+							close;
+					}
+				case 2:
+					mes "["+strcharinfo(0)+"]";
+					mes "Espere um pouco. Pensando melhor, acho que é muita responsabilidade";
+					mes "cuidar de um animalzinho.";
+					next;
+					mes "[Zodíaco]";
+					mes "Tudo bem, você quem sabe...";
+					close;
+			}
+		case 2:
+			mes "[Zodíaco]";
+			mes "Hmmm... Você não está interessado na minha história?";
+			close;
+	}
+}
+//============================================================
+// Quest do capacte espacial
+//============================================================
+gonryun,123,160,7	script	Sauren	777,{
+
+	mes "[Sauren]";
+	if ( oversea_event == 271 && countitem(9010) > 0 )
+	{
+		mes "Ahhhh, você tinha que trazer";
+		mes "este animal barulhento para perto de mim?";
+		mes "Só de ouvir esta coisa latindo";
+		next;
+		mes "[Sauren]";
+		mes "e imaginar o que ele está prestes a fazer bem aqui no meu";
+		mes "sapato já me deixa louco da vida.";
+		mes "Animais não são uma coisa boa, disso eu estou certo.";
+		next;
+		mes "[Sauren]";
+		mes "Olha, eu te darei 10 zenys";
+		mes "se você me deixar levar este animal";
+		mes "para bem longe daqui. O que você acha?";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "Sem chance! ";
+		mes "Ele é meu amigo!";
+		mes "Sinto muito pelo pelos seus sapatos,";
+		mes "mas eu não vou dá-lo a você.";
+		next;
+		mes "[Sauren]";
+		mes "Tudo bem então... mas você poderia pelo menos";
+		mes "fazer ele ficar quieto?";
+		mes "Tome, tente usar este aquário!";
+		set oversea_event,272;
+		getitem 10003,1;		// Transparent_Headgear
+		close;
+	}
+	mes "Droga... eles estão planejando";
+	mes "uma enorme comemoração para este ano.";
+	next;
+	mes "[Sauren]";
+	mes ". . . . . . . .";
+	next;
+	mes "[Sauren]";
+	mes "Meus anos de sossego se acabaram,";
+	mes "pois chegamos ao Ano do Cachorro.";
+	mes "Por que este não é o ano";
+	mes "do coelho ou de algum outro animal menos barulhento?";
+	next;
+	mes "[Sauren]";
+	mes "(Hmpf...)";
+	close;
+}

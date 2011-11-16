@@ -1,0 +1,290 @@
+//===== Cronus Script ========================================
+//= Vendedor de Materiais
+//===== Por: =================================================
+//= Minos
+//===== Versão Atual: ========================================
+//= 1.1
+//===== Compatível Com: ======================================
+//= Emulador [3010+]; Cliente [EP 12.1]
+//===== Descrição: ===========================================
+//= [Conversão do Aegis]
+//===== Comentários Adicionais: ==============================
+//= 1.0 Conversão do Aegis [Minos]
+//= 1.1 Revisado e otimizado [Mara]
+//============================================================
+
+geffen_in,110,172,0	script	Christopher	63,{
+	
+	mes "[Christopher Gilenlow]";
+	mes "Bem-vindo à forja do Christopher!";
+	mes "Eu tenho tudo relativo a refinaria...";
+	mes "Então... O que deseja?";
+	next;
+	switch (select ("Comprar bigornas.:Comprar materiais de refinaria.:Comprar metais.:Refinar pedras brutas.:Cancelar."))
+	{
+		case 1:
+			mes "[Christopher Gilenlow]";
+			mes "Bigornas mais duras fazem armas melhores.";
+			mes "Mas, como já deve saber, metais mais duros são também mais caros!";
+			mes "Fique a vontade, e procure por uma que possa comprar!";
+			next;
+			switch (select ("Bigorna - 30000z.:Bigorna de Oridecon - 120000z.:Bigorna de Ouro - 300000z.:Bigorna mais Dura.:Cancelar."))
+			{
+				case 1:
+					if (Zeny < 30000)
+					{
+						mes "[Christopher Gilenlow]";
+						mes "Sinto muito! Você não tem dinheiro o suficiente! Não quero ficar no prejuízo!";
+						close;
+					}
+					getitem 986,1; //Bigorna
+					set Zeny,Zeny-30000;
+					mes "[Christopher Gilenlow]";
+					mes "Esta é útil e barata!";
+					mes "Obrigado de qualquer forma! Diga-me o que quiser!";
+					close;
+					
+				case 2:
+					if (Zeny < 120000)
+					{
+						mes "[Christopher Gilenlow]";
+						mes "Sinto muito! Você não tem dinheiro o suficiente! Não quero ficar no prejuízo!";
+						close;
+					}
+					getitem 987,1; //Bigorna de Oridecon
+					set Zeny,Zeny-120000;
+					mes "[Christopher Gilenlow]";
+					mes "Você tem gosto por bigornas boas. Isso... esta é perfeita para um ferreiro como você!";
+					mes "Obrigado de qualquer forma! Diga-me o que quiser!";
+					close;
+					
+				
+				case 3:
+					if (Zeny < 300000)
+					{
+						mes "[Christopher Gilenlow]";
+						mes "Sinto muito! Você não tem dinheiro o suficiente! Não quero ficar no prejuízo!";
+						close;
+					}
+					getitem 988,1; //Bigorna de Ouro
+					set Zeny,Zeny-300000;
+					mes "[Christopher Gilenlow]";
+					mes "Grande escolha! Você escolheu uma bigorna com o metal mais bonito e forte.";
+					mes "Com esta, você será um grande ferreiro!";
+					mes "Obrigado de qualquer forma! Diga-me o que quiser!";
+					close;
+					
+				case 4:
+					mes "[Christopher Gilenlow]";
+					mes "Não temos bigornas mais fortes que a de ouro.";
+					mes "'Linggel', o lendário fabricante de bigornas, pode ter feito melhores. Do contrário, não há bigornas mais fortes que essa no mundo.";
+					close;
+					
+				
+				case 5:
+					mes "[Christopher Gilenlow]";
+					mes "Apenas me diga o que quiser! Até logo!";
+					close;
+			}
+			
+			
+		case 2:
+			mes "[Christopher Gilenlow]";
+			mes "Um bom ferreiro sempre usa boas ferramentas!";
+			mes "Se você comprar ferramentas do Christopher, você será um grande ferreiro.";
+			mes "Escolha aquela que gostar!";
+			next;
+			switch (select("Fornalha portável - 150z.:Martelo de Ferro - 1000z.:Martelo de Ouro - 3000z.:Martelo de Oridecon - 5000z.:Cancelar."))
+			{
+				case 1:
+					set .@item[0],612; // ID
+					set .@item[1],150; // Preco
+			        mes "[Christopher Gilenlow]";
+					mes "Isto é essencial para a refinaria!!";
+					break;
+				
+				case 2:
+					set .@item[0],613; // ID
+					set .@item[1],1000; // Preco
+					break;
+				
+				case 3:
+			        set .@item[0],614; // ID
+					set .@item[1],3000; // Preco
+					break;
+				
+				case 4:
+		            set .@item[0],615; // ID
+					set .@item[1],5000; // Preco
+					break;
+				
+				case 5:
+					mes "[Christopher Gilenlow]";
+					mes "Apenas me diga o que quiser! Até logo!";
+					close;
+					
+			}
+			mes "[Christopher Gilenlow]";
+			mes "Certo! Quantos vai querer? Se não quiser nenhum escolha '0'!";
+			next;
+			while (1)
+			{
+				input .@quant;
+				if (.@quant == 0 || .@quant < 0 )
+				{
+					mes "[Christopher Gilenlow]";
+					mes "Tudo bem! Nada então! Até logo!";
+					close;
+				} else if ( .@quant > 500 )
+				{
+					mes "[Christopher Gilenlow]";
+					mes "Escolha menos que 500!";
+					next;
+				} 
+				else {
+					break;
+				}
+			}
+			
+			if (Zeny < (.@item[1]*.@quant) )
+			{
+				mes "[Christopher Gilenlow]";
+				mes "Sinto muito! Você não tem dinheiro o suficiente! Não quero ficar no prejuízo!";
+				close;
+			}
+			
+			if (checkweight(.@item[0],.@quant) == 0)
+			{
+				mes "[Christopher Gilenlow]";
+				mes "Você não me parece estar bem! Porque não verifica sua bagagem antes de comprar itens?";
+				close;
+			}
+			
+			set Zeny,Zeny - (.@item[1]*.@quant) ;
+	        getitem .@item[0],.@quant;
+			mes "[Christopher Gilenlow]";
+			mes "Muito obrigado! Apenas me diga o que quiser!";
+			close;
+		
+		case 3:
+			set @now_weight,MaxWeight - Weight;
+			mes "[Christopher Gilenlow]";
+			mes "Eu trouxe itens de alto grau de pureza!";
+			mes "Bem... O que vai querer?";
+			next;
+			switch (select("Fracon - 200z.:Emveretarcon - 1000z.:Cancelar."))
+			{
+				case 1:
+				    set .@item[0],1010;
+					set .@item[1],200;
+					break;
+					
+				case 2:
+				    
+					set .@item[0],1011;
+					set .@item[1],1000;
+					break;
+					
+			    case 3:
+	                mes "[Christopher Gilenlow]";
+					mes "Apenas diga-me o que quiser! Até logo!";
+					close;
+            }					
+				    
+					mes "[Christopher Gilenlow]";
+					mes "Quantos vai querer? Se não quiser nenhum escolha '0'.";
+					next;
+					while (1)
+					{
+						input .@quant;
+						if (.@quant == 0 || .@quant < 0)
+						{
+							mes "[Christopher Gilenlow]";
+							mes "Tudo bem! Nenhuma então. Até  logo!";
+						    close;
+						} 
+						else if (.@quant > 500)
+						{
+							mes "[Christopher Gilenlow]";
+							mes "Escolha menos que 500!";
+						    next;
+							
+						} else {
+							break;
+						}
+					}
+				
+					if (Zeny < (.@item[1]*.@quant) )
+					{
+						mes "[Christopher Gilenlow]";
+						mes "Sinto muito! Você não tem dinheiro o suficiente! Não quero ficar no prejuízo!... Eu tenho família prá sustentar....";
+						close;
+					}
+					
+					if (checkweight(.@item[0],.@quant) == 0)
+					{
+						mes "[Christopher Gilenlow]";
+						mes "Você não me parece estar legal! Por que não verifica sua bagagem antes de comprar itens?";
+						close;
+					}
+					
+					getitem .@item[0],.@quant;
+					set Zeny,Zeny - (.@item[1]*.@quant);
+					mes "[Christopher Gilenlow]";
+					mes "Muito obrigado! Diga-me o que quiser!";
+					close;
+					
+		case 4:
+			mes "[Christopher Gilenlow]";
+			mes "Você pode fazer Oridecon e Elunium aqui.";
+			mes "5 pedras brutas podem ser refinadas em um metal de alta pureza!";
+			mes "Então... Qual vai querer?";
+			switch (select("Fazer Oridecon:Fazer Elunium:Cancelar."))
+			{
+				case 1:
+					if (countitem(756) < 5) //Minério de Oridecon
+					{
+						mes "[Christopher Gilenlow]";
+						mes "Eu disse que não pode fazer Oridecon sem 5 pedras de Oridecon!";
+						close;
+					}
+					else
+					{
+						delitem 756,5; //Minério de Oridecon
+						getitem 984,1; //Oridecon
+						mes "[Christopher Gilenlow]";
+						mes "Ok! Aqui está o Oridecon. Visite-me a qualquer hora!";
+						close;
+					}
+					
+				case 2:
+					if (countitem(757) < 5) //Minério de Elunium
+					{
+						mes "[Christopher Gilenlow]";
+						mes "Eu disse que não pode fazer Elunium sem 5 pedras de Elunium!";
+						close;
+					}
+					else
+					{
+						delitem 757,5; //Minério de Elunium
+						getitem 985,1; //Elunium
+						mes "[Christopher Gilenlow]";
+						mes "Ok! Aqui está o Elunium. Visite-me a qualquer hora!";
+						close;
+					}
+					
+				case 3:
+					mes "[Christopher Gilenlow]";
+					mes "Apenas me diga o que quiser! Até logo!";
+					close;
+					
+			}
+			
+		case 5:
+			mes "[Christopher Gilenlow]";
+			mes "Apenas me diga o que quiser! Até logo!";
+			close;
+			
+	}
+	
+}

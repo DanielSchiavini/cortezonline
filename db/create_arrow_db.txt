@@ -1,0 +1,291 @@
+// _________                                    
+// \_   ___ \_______  ____   ____  __ __  ______
+// /    \  \/\_  __ \/  _ \ /    \|  |  \/  ___/
+// \     \____|  | \(  <_> )   |  \  |  /\___ \ 
+//  \______  /|__|   \____/|___|  /____//____  >
+//         \/                   \/           \/  
+//-----------------------------------------------
+// 1.0 Traduzida a estrutura [Vianna]
+// 1.1 Traduzido restante do arquivo [Jokker]
+//-----------------------------------------------
+
+// Database de criação de flechas com a habilidade 'Fabricar Flechas' (AC_MAKINGARROW) 
+//
+// Estrutura da Database
+// MaterialID,FlechaID1,Quant1,...,FlechaID5,Quant5
+
+// Velha Caixa Azul --> 50x Flecha Afiada, 50x Flecha Sonífera
+603,1764,50,1768,50
+// Galho Seco --> 40x Flecha Emudecedora
+604,1769,40
+// Amuleto --> 40x Flecha Amaldiçoada
+609,1761,40
+// Garrafa Vazia --> 2x Flecha de Ferro
+713,1770,2
+// Emperium --> 600x Flecha Incorpórea, 600x Flecha Emudecedora, 600x Flecha de Oridecon
+714,1757,600,1769,600,1765,600
+// Gema Amarela --> 30x Flecha de Pedra, 1x Flecha Sonífera
+715,1756,30,1768,1
+// Gema Vermelha --> 10x Flecha Enferrujada, 1x Flecha Envenenada, 1x Flecha Amaldiçoada
+716,1762,10,1763,1,1761,1
+// Gema Azul --> 30x Flecha de Cristal, 1x Flecha Congelante
+717,1754,30,1759,1
+// Ruby Amaldiçoado --> 50x Flecha Amaldiçoada, 10x Flecha Sonífera
+724,1761,50,1768,10
+// Diamante Rachado --> 50x Flecha Afiada
+733,1764,50
+// Minério de Oridecon --> 50x Flecha de Oridecon
+756,1765,50
+// Minério de Elunium --> 200x Flecha de Aço, 5x Flecha Atordoante
+757,1753,200,1758,5
+// Raiz de Árvore --> 7x Flecha
+902,1750,7
+// Cauda de Escorpião --> 3x Flecha Enferrujada
+904,1762,3
+// Jellopy --> 4x Flecha
+909,1750,4
+// Garleta --> 12x Flecha de Ferro
+910,1770,12
+// Scell --> 8x Flecha de Aço
+911,1753,8
+// Zargonio --> 50x Flecha de Prata
+912,1751,50
+// Dente de Morcego --> 1x Flecha Sombria
+913,1767,1
+// Garra de Lobo --> 15x Flecha de Ferro
+920,1770,15
+// Presa de Orc --> 30x Flecha de Ferro, 5x Flecha de Aço, 10x Flecha de Pedra
+922,1770,30,1753,5,1756,10
+// Chifre Diabólico --> 20x Flecha Sombria, 10x Flecha Luminosa, 5x Flecha Atordoante
+923,1767,20,1760,10,1758,5
+// Canino Venenoso --> 1x Flecha Envenenada
+937,1763,1
+// Ferrão de Abelha --> 1x Flecha Enferrujada
+939,1762,1
+// Chifre --> 35x Flecha de Ferro
+947,1770,35
+// Espinho de Cacto --> 50x Flecha
+952,1750,50
+// Guelra --> 80x Flecha de Ferro, 150x Flecha de Cristal
+956,1770,80,1754,150
+// Unha Apodrecida --> 1x Flecha Enferrujada, 1x Flecha Sombria
+957,1762,1,1767,1
+// Mandibula Horrenda --> 5x Flecha Sombria
+958,1767,5
+// Escama Fétida --> 1x Flecha Venenosa
+959,1763,1
+// Insígnia do Herói --> 1x Flecha de Oridecon, 5x Flecha Atordoante
+968,1765,1,1758,5
+// Ouro --> 50x Flecha Luminosa, 50x Flecha de Oridecon
+969,1760,50,1765,50
+// Oridecon --> 250x Flecha de Oridecon
+984,1765,250
+// Elunium --> 1000x Flecha de Aço, 50x Flecha Atordoante
+985,1753,1000,1758,50
+// Sangue Escarlate --> 2000x Flecha de Fogo
+990,1752,2000
+// Cristal Azul --> 500x Flecha de Cristal
+991,1754,500
+// Frescor do Vento --> 500x Flecha de Vento
+992,1755,500
+// Vida Verdejante --> 500x Flecha de Pedra
+993,1756,500
+// Coração Flamejante --> 6000x Flecha de Fogo, 5x Flecha Emudecedora
+994,1752,6000,1769,5
+// Gelo Místico --> 1500x Flecha de Cristal, 5x Flecha Congelante
+995,1754,1500,1759,5
+// Vento Bruto --> 1500x Flechas de Vento, 5x Flecha Sonífera
+996,1755,1500,1768,5
+// Natureza Grandiosa --> 1500x Flecha de Pedra, 5x Flecha Luminosa
+997,1756,1500,1760,5
+// Ferro --> 100x Flecha de Ferro
+998,1770,100
+// Aço --> 100x Flecha de Aço
+999,1753,100
+// Fragmento Estelar --> 30x Flecha Luminosa
+1000,1760,30
+// Poeira Estelar --> 10x Flecha Luminosa
+1001,1760,10
+// Minério de Ferro --> 50x Flecha de Ferro
+1002,1770,50
+// Carvão --> 8x Flecha Sombria
+1003,1767,8
+// Fracon --> 50x Flecha de Ferro
+1010,1770,50
+// Emveretarcon --> 200x Flecha de Ferro, 40x Flecha de Prata
+1011,1770,200,1751,40
+// Garras de Toupeira --> 50x Flecha de Ferro, 60x Flecha de Pedra
+1018,1770,50,1756,60
+// Tronco --> 40x Flecha
+1019,1750,40
+// Chifre de Dokebi --> 40x Flecha de Ferro, 2x Flecha Sombria
+1021,1770,40,1767,2
+// Espinho de Porco Espinho --> 70x Flecha, 30x Flecha de Pedra
+1027,1750,70,1756,30
+// Foice de Louva-a-Deus --> 1x Flecha Afiada
+1031,1764,1
+// Canino de Dragão --> 1x Flecha de Oridecon, 50x Flecha de Ferro
+1035,1765,1,1770,50
+// Pequeno Chifre Maligno --> 2x Flecha Amaldiçoada, 50x Flecha de Ferro
+1038,1761,2,1770,50
+// Lampião --> 80x Flecha de Ferro
+1041,1770,80
+// Garra de Orc --> 10x Flecha de Aço
+1043,1753,10
+// Presa de Zenorc --> 5x Flecha Enferrujada
+1044,1762,5
+// Dente Fossilizado --> 20x Flecha de Aço, 300x Flecha de Cristal
+1053,1753,20,1754,300
+// Presa --> 2x Flecha Afiada, 40x Flecha de Prata
+1063,1764,2,1751,40
+// Rédeas --> 100x Flecha de Ferro, 50x Flecha de Aço
+1064,1770,100,1753,50
+// Tronco de Alta Qualidade --> 20x Flecha
+1066,1750,20
+// Tronco Sólido --> 20x Flecha
+1067,1750,20
+// Tronco Estéril --> 20x Flecha
+1068,1750,20
+// Ponteiro --> 5x Flecha de Sonífera, 100x Flecha
+1095,1768,5,1750,100
+// Algemas --> 50x Flecha de Aço
+1098,1753,50
+// Chifre de Unicórnio --> 1000x Flecha de Prata
+2257,1751,1000
+// Máscara do Fantasma --> 200x Flecha de Aço, 40x Flecha Emudecedora
+2281,1753,200,1769,40
+// Máscara Assustadora --> 200x Flecha Afiada, 300x Flecha de Aço
+2288,1764,200,1753,300
+// Máscara de Solda --> 200x Flecha de Aço, 40x Flecha Atordante
+2292,1753,200,1758,40
+// Jaqueta Brilhante [1] --> 1000x Flecha Luminosa
+2319,1760,1000
+// Armadura de Madeira --> 700x Flecha, 500x Flecha de Ferro
+2328,1750,700,1770,500
+// Armadura de Madeira [1] (Slotted) --> 1000x Flecha, 700x Flecha de Ferro
+2329,1750,1000,1770,700
+// Manto Prateado --> 700x Flecha de Prata
+2332,1751,700
+// Manto Prateado [1] --> 1000x Flecha de Prata, 10x Flecha Incorpórea
+2333,1751,1000,1757,10
+// Grilhões --> 700x Flecha de Ferro, 50x Flecha de Aço
+2408,1770,700,1753,50
+// Coleira de Matyr --> 150x Flecha de Vento, 100x Flecha de Aço, 10x Flecha Afiada
+2618,1755,150,1753,100,1764,10
+// Barbatanas --> 600x Flecha de Cristal, 200x Flecha de Aço
+5014,1754,600,1753,200
+// Dente de Ogro --> 30x Flecha de Aço, 5x Flecha Enferrujada
+7002,1753,30,1762,5
+// Chifre Firme --> 2x Flecha Atordoante
+7008,1758,2
+// Cauda de Escorpião de Aço --> 250x Flecha de Aço, 1x Flecha Envenenada
+7010,1753,250,1763,1
+// Graveto de Visco --> 1000x Flecha Emudecedora
+7018,1769,1000
+// Susurros de Loki --> 1000x Flecha Sombria
+7019,1767,1000
+// Pesadelo Maternal --> 1000x Flecha Amaldiçoada
+7020,1761,1000
+// Tolice de Cego --> 200x Flecha Luminosa
+7021,1760,200
+// Bainha Velha --> 1000x Flecha de Oridecon
+7022,1765,1000
+// Lâmina Perdida nas Trevas --> 600x Flecha Afiada, 200x Flecha Sombria
+7023,1764,600,1767,200
+// Lâmina Ensanguentada --> 600x Flecha Afiada, 200x Flecha Amaldiçoada
+7024,1764,600,1761,200
+// Lamento de Lúcifer --> 800x Flecha Atordoante, 400x Flecha Emudecedora, 800x Flecha Sonífera
+7025,1758,800,1769,400,1768,800
+// Chave para a Torre do Relógio --> 50x Flecha de Oridecon
+7026,1765,50
+// Chave para o Subterrâneo --> 100x Flecha Sombria
+7027,1767,100
+// Palito de Fósforo --> 3000x Flecha de Fogo
+7035,1752,3000
+// Presa de Hati --> 300x Flecha de Cristal
+7036,1754,300
+
+//Novos Ingredientes
+
+// Cubo de Gelo --> 100x Flecha de Cristal
+7066,1754,100
+// Pedaço de Pedra --> 50x Flecha de Pedra, 30x Flecha Atordoante
+7067,1756,50,1758,30
+// Madeira Queimada --> 250x Flecha de Fogo
+7068,1752,250
+// Armadura Destruída --> 150x Flecha de Aço
+7069,1753,150
+// Coração Incandescente --> 150x Flecha de Fogo
+7097,1752,150
+// Lenha em brasa --> 100x Flecha de Fogo
+7098,1752,100
+// Folha Afiada --> 30x Flecha Afiada
+7100,1764,30
+// Pedaço de Escudo Colossal --> 100x Flecha de Aço, 100x Flecha de Oridecon, 300x Flecha Incorpórea
+7108,1753,100,1765,100,1757,300
+// Lâmina de Lança Colossal --> 100x Flecha de Oridecon
+7109,1765,100
+// Ferradura em Chamas --> 100x Flecha de Aço
+7120,1753,100
+// Pele de Dragão --> 10x Flecha de Aço, 50x Flecha Amaldiçoada, 50x Flecha Emudecedora
+7123,1753,10,1761,50,1769,50
+// Pedaço de Bambu --> 100x Flecha
+7150,1750,100
+// Pele de Sapo --> 20x Flecha Envenenada
+7155,1763,20
+// Antenas Afiadas --> 20x Flecha Afiada
+7163,1764,20
+// Pêssego Petrificado --> 30x Flecha Atordoante
+7164,1758,30
+// Garras de Leopardo --> 10x Flecha Afiada
+7172,1764,10
+// Armadura de Dullahan --> 150x Flecha Sombria
+7210,1767,150
+// Corrente --> 50x Flecha de Aço, 50x Flecha Sombria
+7221,1753,50,1767,50
+// Olho de Gato --> 200x Flecha de Vento
+7263,1755,200
+// Fragmento de Cristal Negro --> 30x Flecha Amaldiçoada, 50x Flecha Sombria
+7315,1761,30,1767,50
+// Perna de Inseto --> 10x Flecha Afiada, 50x Flecha Envenenada
+7316,1764,10,1763,50
+// Picareta Velha --> 100x Flecha Afiada, 50x Flecha de Aço
+7318,1762,100,1753,50
+// Placa de Ferro Usada --> 100x Flecha Enferrujada, 100x Flecha de Aço
+7319,1762,100,1753,100
+// Fragmento de Cristal --> 10x Flecha Luminosa, 30x Flecha Sonífera
+7321,1760,10,1768,30
+// Chaleira Surrada --> 50x Flecha de Aço
+7323,1753,50
+// Desejo das Trevas --> 30x Flecha Amaldiçoada, 30x Flecha Envenenada, 50x Flecha Sombria
+7340,1761,30,1763,30,1767,50
+// Ornamento Dourado --> 200x Flecha de Prata, 300x Flecha Sagrada
+7435,1751,200,1772,300
+// Selo Maldito --> 50x Flecha Amaldiçoada, 50x Flecha Emudecedora
+7442,1761,50,1769,50
+// Bijuteria Verde --> 100x Flecha de Pedra, 80x Flecha Envenenada
+7445,1756,100,1763,80
+// Bijuteria Azul --> 50x Flecha de Vento, 50x Flecha de Cristal, 80x Flecha Congelante
+7446,1755,50,1754,50,1759,80
+// Bijuteria Vermelha --> 100x Flecha de Fogo, 80x Flecha Luminosa
+7447,1752,100,1760,80
+// Bijuteria Amarela --> 50x Flecha de Prata, 50x Flecha Incorpórea, 80x Flecha Sonífera
+7448,1751,50,1757,50,1768,80
+// Peça de Armadura de Esqueleto --> 500x Flecha Incorpórea, 200x Flecha Sombria, 100x Flecha de Oridecon
+7450,1757,500,1767,200,1765,100
+// Escama de Dragão de Fogo --> 300x Flecha de Fogo, 300x Flecha Atordoante
+7451,1752,300,1758,300
+// Flor de Valhalla --> 600x Flecha Incorpórea, 600x Flecha Sagrada, 600x Flecha Afiada
+7510,1757,600,1772,600,1764,600
+// Runa da Escuridão --> 300x Flecha Sombria, 150x Flecha Luminosa
+7511,1767,300,1760,150
+// Coração Glacial --> 50x Flecha de Cristal, 50x Flecha Congelante
+7561,1754,50,1759,50
+// Escama de Gelo --> 150x Flecha de Cristal, 400x Flecha Congelante, 200x Flecha Emudecedora
+7562,1754,150,1759,400,1769,200
+// Desejo das Trevas Escarlate --> 200x Flecha Amaldiçoada, 200x Flecha Envenenada, 100x Flecha Sombria
+7566,1761,200,1763,200,1767,100
+// Crânio Atordoante --> 50x Flecha Sombria, 50x Flecha Amaldiçoada
+7752,1767,50,1761,50
+// Utensílio Rural Quebrado --> 50x Flecha de Aço, 10x Flecha Ferro, 20x Flecha Amaldiçoada
+7753,1762,50,1770,10,1761,20

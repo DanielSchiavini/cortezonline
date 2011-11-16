@@ -1,0 +1,24 @@
+//===== Cronus Script ========================================
+//= Kafra de Brasilis
+//===== Por: =================================================
+//= Dojo
+//===== Versão Atual: ========================================
+//= [Conversão Aegis]
+//= 1.0
+//===== Compatibilidade: =====================================
+//= Cronus / eAthena
+//===== Comentários Adicionais: ==============================
+//= 1.0 Primeira Versão [Dojo]
+//============================================================
+
+brasilis,197,221,4	script	Funcionária Kafra::kaf_bra	117,{
+	cutin "kafra_01",2;
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,3,0,80,700;
+
+	M_Save:
+		savepoint "brasilis",197,219;
+		callfunc "F_KafEnd",0,1,"na cidade de Brasilis";
+}

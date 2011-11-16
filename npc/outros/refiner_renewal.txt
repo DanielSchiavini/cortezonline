@@ -1,0 +1,314 @@
+//===== Cronus Script ======================================== 
+//= Refinador Bestry / Austry
+//===== Por: ================================================= 
+//= Mara
+//===== Versão: ============================================== 
+//= 1.0
+//===== Compatível com: ====================================== 
+//= Emulador [3010]; Cliente [EP 12.1]
+//===== Descrição: =========================================== 
+//= [Conversão do Aegis]
+//===== Comentários adicionais: ============================== 
+//= 1.0 Conversão do Aegis [Mara]
+//=
+//= A tradução não está totalmente fiel ao bRO.
+//= Foi realizada parcialmente uma tradução livre do arquivo.
+//============================================================ 
+
+//============================================================
+//= Bestry - Refinador de itens acima de +10 a +20.
+//============================================================
+function	script	F_NewRefiner	{
+	mes "[Bestry]";
+	mes "Eu sou o melhor ferreiro de todos!";
+	mes "Eu não trabalho com itens comuns,";
+	mes "apenas com itens com nível acima de +10.";
+	next;
+	mes "[Bestry]";
+	mes "Eu posso fazer o meu serviço se você tiver algum item com nível superior a +10.";
+	mes "Qual arma você quer que seja refinada?";
+	next;
+	setarray .@pos$[1], "Topo", "Vestimenta", "Mão Esquerda", "Mão Direita", "Capa", "Sapatos", "Acessório1", "Acessório2", "Meio", "Baixo";
+	for (set .@i, 1; .@i < 11; set .@i, .@i + 1)
+	{
+		if (getequipisequiped(.@i))
+			set .@menu$, .@menu$ + getequipname(.@i);
+		else
+			set .@menu$, .@menu$ + .@pos$[.@i] + "-[Desequipado]";
+		set .@menu$, .@menu$ + ":";
+	}
+	set .@part, select (.@menu$);
+	mes "[Bestry]";
+	if (!getequipisenableref(.@part))
+	{
+		switch (.@part)
+		{
+			case 1:
+				mes "Você não precisa equipar o item primeiro?";
+				break;
+			case 2:
+				mes "Onde está o item?";
+				break;
+			case 3:
+			case 4:
+				mes "Eu não posso trabalhar sem itens...";
+				break;
+			case 5:
+				mes "Você sabe o que é uma capa?";
+				break;
+			case 6:
+				mes "Você precisa equipar seus sapatos.";
+				break;
+			case 7:
+			case 8:
+				mes "Acessório? Não tem nada equipado.";
+				break;
+			case 9:
+				mes "Eu não vejo nenhuma arma para refinar...";
+				break;
+			case 10:
+				mes "Acho que você ainda está com o uniforme da escola...";
+				break;
+		}
+		close;
+	}
+	if (!getequipisidentify(.@part))
+	{
+		mes "Este item não está identificado...";
+		close;
+	}
+	if (getequiprefinerycnt(.@part) < 10)
+	{
+		mes "Não mencionei antes? Não mexo com armas abaixo do nível +10.";
+		close;
+	}
+	if (!getequipisequiped(.@part))
+	{
+		mes "Eu não posso trabalhar sem itens...";
+		close;
+	}
+	set .@getequipid, getequipid(.@part);
+	set .@refinerycnt, getequiprefinerycnt(.@part);
+	if (!getequipweaponlv(.@part))
+	{
+		set .@place$, "armor";
+		set .@item, 6223;
+	}
+	else
+	{
+		set .@place$, "weapon";
+		set .@item, 6224;
+	}
+	mes "Hmm uma "+.@place$+", certo?";
+	mes "Se você quer refinar uma "+.@place$+",";
+	mes "Irei precisar de 1 ^003366"+getitemname(.@item)+"^000000 e 200,000 zeny.";
+	mes "Você tem certeza que deseja continuar?";
+	next;
+	if (select ("Sim:Não") == 1)
+	{
+		mes "[Bestry]";
+		if (getequippercentrefinery(.@part) < 100)
+		{
+			mes "Esta "+.@place$+" já foi refinada diversas vezes.";
+			mes "Pode ser destruída se eu tentar de novo.";
+			mes "Não será quebrada, mas há uma pequena chance.";
+			next;
+			mes "[Bestry]";
+			mes "A "+.@place$+" terá ^FF0000redução no nível de aprimoramento^000000,";
+			mes "ou se for quebrada, você perderá ^FF0000todas as cartas^000000 ou propriedades especiais do equipamento.";
+			next;
+			mes "[Bestry]";
+			mes "Você ainda quer que eu refine o equipamento?";
+			mes "Acho que já lhe dei todos os avisos.";
+			next;
+			if (select ("Sim:Não") == 2)
+			{
+				mes "[Bestry]";
+				mes "Bem, sem desafios é como vamos..";
+				mes "Sem riscos.. uma escolha sábia.";
+				close;
+			}
+			if (countitem(.@item) > 0 && Zeny > 199999)
+			{
+				delitem .@item, 1;
+				set Zeny, Zeny - 200000;
+			}
+			else
+			{
+				mes "[Bestry]";
+				mes "Você não parece ter Zeny suficiente ou "+getitemname(.@item)+".";
+				mes "Volte quando você tiver os itens.";
+				close;
+			}
+		}
+		if (!getequipisequiped(.@part))
+		{
+			mes "Olhe... você não está com o item equipado...";
+			close;
+		}
+		if (getequiprefinerycnt(.@part) != .@refinerycnt || getequipid(.@part) != .@getequipid)
+		{
+			emotion e_an;
+			mes "Espere um segundo...";
+			mes "Você está pensando que eu sou idiota?!";
+			mes "Você trocou de item enquanto eu não estava olhando! Saia daqui agora!";
+			close;
+		}
+		mes "Clang! Clang! Clang! Clang!";
+		if(getequippercentrefinery(.@part) > rand(100))
+		{
+			successrefitem .@part;
+			next;
+			emotion e_no1;
+			mes "[Bestry]";
+			mes "Muito bom! Sucesso!!!";
+			mes "Eu sou o melhor Ferreiro de todos.";
+			close;
+		}
+		else
+		{
+			downrefitem .@part;
+			next;
+			set .@rand1, rand(1, 2);
+			if (.@rand1 == 1)
+				emotion e_cash;
+			else
+				emotion e_omg;
+			set .@rand2, rand(1, 2);
+			mes "[Bestry]";
+			if (.@rand2 == 1)
+			{
+				mes "Ahhh!!!";
+				next;
+				mes "[Bestry]";
+				mes "Meu deus!";
+				mes "O nível de aprimoramento diminuiu...";
+			}
+			else
+			{
+				mes "Hmmm!";
+				next;
+				mes "[Bestry]";
+				mes "Oh meu...! Eu falhei ao refinar o objeto...";
+				mes "Eu não queria!";
+			}
+			mes "Eu posso ter cometido um erro mas mesmo assim sou o melhor ferreiro de todos.";
+			mes "Apenas não era pra ser.";
+			next;
+			mes "[Bestry]";
+			mes "Farei um trabalho melhor na próxima vez! Não se preocupe!";
+			close;
+		}
+	}
+	else
+	{
+		mes "[Bestry]";
+		mes "Hm.. deixa pra lá...";
+		close;
+	}
+	return;
+}
+
+prt_in,90,72,5	script	Bestry#prt	826,{
+	callfunc "F_NewRefiner";
+}
+
+morocc_in,64,41,5	script	Bestry#moc	826,{
+	callfunc "F_NewRefiner";
+}
+
+payon_in01,18,132,3	script	Bestry#pay	826,{
+	callfunc "F_NewRefiner";
+}
+
+//============================================================
+//= Austry - Negociador de Carnium/Bradium
+//============================================================
+function	script	F_NewItemExchanger	{
+	if (checkweight(1201,1) == 0)
+	{
+		mes "- Wait a minute !! -";
+		mes "- Currently you're carrying -";
+		mes "- too many items with you. -";
+		mes "- Please try again -";
+		mes "- after you loose some weight. -";
+		close;
+	}
+	mes "[Austry]";
+	mes "Se você me trouxer alguns Oridecons ou Eluniuns,";
+	mes "posso trocá-los por";
+	mes "Bradium ou Carnium,";
+	mes "Lembrando que existe uma taxa de 50.000 zenys.";
+	next;
+	switch (select ("Oridecon por Bradium.:Elunium por Carnium.:Bradium refinado por Carnium.:Não, obrigado."))
+	{
+		mes "[Austry]";
+		
+		case 1:
+			if (countitem(984) > 2 && Zeny > 49999)
+			{
+				delitem 984, 3;
+				set Zeny, Zeny - 50000;
+				getitem 6224, 1;
+				mes "Ok! Here's your Bradium.";
+				mes "Take it and use it well.";
+				close;
+			}
+			else
+				callsub S_NoZeny;
+			break;
+		
+		case 2:
+			if (countitem(985) > 2 && Zeny > 49999)
+			{
+				delitem 985, 3;
+				set Zeny, Zeny - 50000;
+				getitem 6223, 1;
+				mes "Ok! Here'd your Carnium.";
+				mes "Take it and use it well.";
+				close;
+			}
+			else
+				callsub S_NoZeny;
+			break;
+
+		case 3:
+			if (countitem(6090) > 2 && Zeny > 49999)
+			{
+				delitem 6090, 3;
+				set Zeny, Zeny - 50000;	
+				getitem 6223, 1;
+				mes "Refining with Refined Bradium";
+				mes "can be a little expensive. I can";
+				mes "trade it for some Carnium.";
+				mes "Take it and use it well.";
+				close;
+			}
+			else
+				callsub S_NoZeny;
+			break;
+
+		case 4:
+			mes "Hum...";
+			close;
+	}
+	close;
+	
+	S_NoZeny:
+		mes "Acho que você não tem dinheiro suficiente...";
+		mes "Sem dinheiro, nada de trocas.";
+		mes "Por favor, verifique seu dinheiro e tente novamente.";
+		close;
+}
+
+prt_in,85,71,5	script	Austry#prt	826,{
+	callfunc "F_NewItemExchanger";
+}
+
+morocc_in,60,38,5	script	Austry#moc	826,{
+	callfunc "F_NewItemExchanger";
+}
+
+payon_in01,14,125,5	script	Austry#pay	826,{
+	callfunc "F_NewItemExchanger";
+}

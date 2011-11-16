@@ -1,0 +1,72 @@
+//===== Cronus Script ========================================
+//= Quest da Rebelião dos Mercenários
+//===== Por: =================================================
+//= Wilk Maia
+//===== Versão Atual: ========================================
+//= 1.2
+//===== Compatível Com: ======================================
+//= Emulador [3010+]; Cliente [EP 12.1]
+//===== Descrição: ===========================================
+//= [Conversão do Aegis]
+//===== Comentários Adicionais: ==============================
+//= 1.0 Conversão do Aegis [Wilk Maia]
+//= 1.1 Revisado [Minos]
+//= 1.2 Otimizado [Mara]
+//============================================================
+
+hu_in01,246,107,3	script	Estalagem#hugel	53,{
+	
+	mes "[Estalagem]";
+	mes "Bem-vindo à Estalagem de Hugel.";
+	mes "Em que posso ajudar?";
+	next;
+	switch (select ("Salvar o Ponto:Descansar – 5.000z:Sair"))
+	{
+		case 1:
+			mes "[Estalagem]";
+			mes "O seu Ponto de Retorno foi salvo.";
+			mes "Obrigado por sua preferência.";
+			savepoint "hu_in01",263,95;
+			next;
+			mes "[Estalagem]";
+			mes "Espero que você goste da sua estada em Hugel.";
+			close;
+
+		case 2:
+			if (Zeny > 4999)
+			{
+				mes "[Estalagem]";
+				mes "Aproveite a sua estada.";
+				close2;
+				set Zeny,Zeny-5000;
+				percentheal 100,100;
+				warp "hu_in01",267,5;
+				end;
+			}
+			mes "[Estalagem]";
+			mes "A taxa de serviço é de 5.000 zenys.";
+			mes "Por favor, verifique seu dinheiro novamente.";
+			close;
+			
+		case 3:
+			mes "[Estalagem]";
+			mes "Por favor, volte sempre";
+			close;
+	}
+}
+
+hu_in01,365,170,3	script	Garota#hg	793,{
+	
+	mes "[Garota]";
+	mes "Eu adoro sentar na frente do fogão porque é muito quentinho!";
+	mes "Ah... isso é tão relaxante... me dá um soninho... Zzzzzz Zzzz";
+	close;
+}
+
+hu_in01,377,106,3	script	Vovó do Bar#hg	892,{
+	
+	mes "[Vovó do Bar]";
+	mes "Recentemente, estamos tendo muitos turistas na cidade.";
+	mes "Eles me deixam muito ocupada, mas eu estou feliz de ver que gostam da comida. Hohoho!";
+	close;
+}

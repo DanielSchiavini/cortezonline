@@ -1,0 +1,67 @@
+//===== Cronus Script ========================================
+//= Kafras de Payon
+//===== Por: =================================================
+//= Dojo
+//===== Versão Atual: ========================================
+//= [Conversão Aegis]
+//= 1.0
+//===== Compatibilidade: =====================================
+//= Cronus / eAthena
+//===== Comentários Adicionais: ==============================
+//= 1.0 Primeira Versão [Dojo]
+//============================================================
+
+// Main Town, South ----------------------------------------------------------
+payon,181,104,4	script	Funcionária Kafra::kaf_payon	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSetPay";
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,0,1,60,930;
+
+	M_Save:
+		savepoint "payon",160,58;
+		callfunc "F_KafEnd",0,1,"na cidade de Payon";
+}
+
+// Main Town, Middle North --------------------------------------------------
+payon,175,226,4	script	Funcionária Kafra::kaf_payon2	116,{
+	cutin "kafra_02",2;
+	callfunc "F_KafSetPay";
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,0,1,60,930;
+
+	M_Save:
+		savepoint "payon",257,242;
+		callfunc "F_KafEnd",0,1,"na cidade de Payon";
+}
+
+// Archer Village ------------------------------------------------------------
+pay_arche,55,123,0	script	Funcionária Kafra::kaf_payon3	115,{
+	cutin "kafra_03",2;
+	callfunc "F_KafSetPay";
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,5,1,90,1200;
+
+	M_Save:
+		savepoint "pay_arche",49,144;
+		callfunc "F_KafEnd",0,1,"na Caverna de Payon";
+}
+
+
+// Function: Sets variables for Payon Kafras ---------------------------------
+function	script	F_KafSetPay	{
+	cleararray @wrpC$[0],"",getarraysize(@wrpC$);
+	setarray @wrpD$[0], "Alberta", "Prontera", "Morroc";
+	setarray @wrpP[0], 1200, 1200, 1200;
+	set @wrpC$[0], @wrpD$[0]+" -> "+@wrpP[0];
+	set @wrpC$[1], @wrpD$[1]+" -> "+@wrpP[1];
+	set @wrpC$[2], @wrpD$[2]+" -> "+@wrpP[2];
+	set @wrpC$[3], "Cancel";
+	return;
+}

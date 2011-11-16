@@ -1,0 +1,3 @@
+//O limite de linhas é 128. Caso precise de mais, modifique a linha MOTD_LINE_SIZE em pc.c
+Seja bem vindo ao Cortez! Votem: www.cortezonline.org
+NUNCA passe a sua senha para ninguém, nem mesmo GMs!

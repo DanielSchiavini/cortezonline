@@ -1,0 +1,131 @@
+//===== Cronus Script ======================================== 
+//= Quests Diárias
+//===== Por: ================================================= 
+//= DoJo
+//===== Versão: ============================================== 
+//= 1.1
+//===== Compatível com: ====================================== 
+//= Emulador [3010]; Cliente [EP 12.1]
+//===== Descrição: =========================================== 
+//= [Conversão do Aegis]
+//===== Comentários adicionais: ============================== 
+//= 1.0 Conversão do Aegis [DoJo]
+//= 1.1 NPC Otimizado [DoJo]
+//=
+//= Notas: São quests que ficam ativas 1 semana, mas apenas
+//= um NPC que fica ativo, o resto só é ativado em eventos
+//= ou comemorações. 
+//============================================================ 
+
+// Quest Diária do Dízimo
+// ==========================================================
+prontera,165,191,3	script	Membro da Igreja#Event	790,{
+	if(daily_dizimo > gettimetick(2)){
+		mes "[Membro da Igreja]";
+		mes "O dia ainda não terminou. Você só pode doar uma vez por dia.";
+		close;
+	}
+	if (BaseLevel < 60) {
+		mes "[Membro da Igreja]";
+		mes "Hmm, talvez o que eu ia pedir para você seja um pouco demais.";
+		mes "Volte quando você estiver mais forte.";
+		close;
+	}
+	if (daily_dizimo <= gettimetick(2)) {
+		mes "[Membro da Igreja]";
+		mes "Olá, " + strcharinfo(0) + ". Você poderia ajudar nossa igreja, doando uma quantia em dinheiro?";
+		mes "Eu lhe darei uma recompensa pela ajuda!";
+		next;
+		if ((BaseLevel > 59) && (BaseLevel < 81) && (Zeny > 39999)) {
+			if(select("Sim, quero doar sim!:Não quero doar.") == 2) {
+				mes "[Membro da Igreja]";
+				mes "Não me façar perder o meu tempo!";
+				close;
+			}
+			mes "[Membro da Igreja]";
+			mes "Você deve doar ^FF000040.000^000000 zenys. Aceita doar esta quantia?";
+			next;
+			if(select("Aceito!:Não, muito caro!") == 2) {
+				mes "[Membro da Igreja]";
+				mes "Se não quer doar, porque está aqui?";
+				close;
+			}
+			mes "[Membro da Igreja]";
+			mes "Muito obrigado " + strcharinfo(0) + ".";
+			mes "Aqui está sua recompensa. Que Odin the abençoe.";
+			close2;
+			set @rand,rand(1,3);
+			set Zeny, Zeny - 40000;
+			getitem 504,@rand; //White_Potion
+			getexp 120000,75000;
+			set daily_dizimo,(gettimetick(2)+86400);
+			completequest 9027;
+			end;
+		}
+		else if ((BaseLevel > 80) && (BaseLevel < 96) && (Zeny > 79999)) {
+			if(select("Sim, quero doar sim!:Não quero doar.") == 2) {
+				mes "[Membro da Igreja]";
+				mes "Não me façar perder o meu tempo!";
+				close;
+			}
+			mes "[Membro da Igreja]";
+			mes "Você deve doar ^FF000080.000^000000 zenys. Aceita doar esta quantia?";
+			next;
+			if(select("Aceito!:Não, muito caro!") == 2) {
+				mes "[Membro da Igreja]";
+				mes "Se não quer doar, porque está aqui?";
+				close;
+			}
+			mes "[Membro da Igreja]";
+			mes "Muito obrigado " + strcharinfo(0) + ".";
+			mes "Aqui está sua recompensa. Que Odin the abençoe.";
+			close2;
+			set @rand,rand(1,2);
+			set Zeny, Zeny - 80000;
+			getitem 505,@rand; //Blue_Potion
+			getexp 300000,75000;
+			set daily_dizimo,(gettimetick(2)+86400);
+			completequest 9027;
+			end;
+		}
+		else if ((BaseLevel > 95) && (Zeny > 199999)) {
+			if(select("Sim, quero doar sim!:Não quero doar.") == 2) {
+				mes "[Membro da Igreja]";
+				mes "Não me façar perder o meu tempo!";
+				close;
+			}
+			mes "[Membro da Igreja]";
+			mes "Você deve doar ^FF0000200.000^000000 zenys. Aceita doar esta quantia?";
+			next;
+			if(select("Aceito!:Não, muito caro!") == 2) {
+				mes "[Membro da Igreja]";
+				mes "Se não quer doar, porque está aqui?";
+				close;
+			}
+			mes "[Membro da Igreja]";
+			mes "Muito obrigado " + strcharinfo(0) + ".";
+			mes "Aqui está sua recompensa. Que Odin the abençoe.";
+			close2;
+			set @new_rand,rand(1,5);
+			set @rand,rand(1,2);
+			set Zeny, Zeny - 200000;
+			getitem 505,@rand; //Blue_Potion
+			getexp 600000,150000;
+			set daily_dizimo,(gettimetick(2)+86400);
+			if (@new_rand == 4) {
+				getitem 607,1; //Yggdrasilberry
+			}
+			completequest 9027;
+			end;
+		}
+		else {
+			mes "[Membro da Igreja]";
+			mes "É uma pena, hoje em dia as";
+			mes "pessoas não contribuem mais com";
+			mes "a Igreja.";
+			close;
+		}
+	}
+}
+
+// ====================== File End ==========================

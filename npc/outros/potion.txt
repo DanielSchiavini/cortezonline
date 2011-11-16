@@ -1,0 +1,364 @@
+//  _______________________________________________________
+// /                                                       \
+// |                  ____            __                    |
+// |                 / __ \____      / /___                 |
+// |                / / / / __ \__  / / __ \                |
+// |               / /_/ / /_/ / /_/ / /_/ /                |
+// |              /_____/\____/\____/\____/                 |
+// |                        Scripts                         |
+// |--------------------------------------------------------|
+// |                 [Conversão do AEGIS]                   |
+// |--------------------------------------------------------|
+// | NPC: Troca de Itens por Poções                         |
+// |--------------------------------------------------------|
+// | Versão Atual: 1.0         | Compatível com: eAthena    |
+// |--------------------------------------------------------|
+// | 27/06/2010: Primeira Versão [DoJo]                     |
+// |--------------------------------------------------------|
+// | Créditos: Gravity                                      |
+// |--------------------------------------------------------|
+// | Notas:                                                 |
+// |                                                        |
+// |                                                        |
+// |                                                        |
+// \_______________________________________________________/
+
+prontera,123,102,5	script	Mercador#pron	85,{
+	set .@now_weight,MaxWeight-Weight;
+	if (.@now_weight < 6301 || checkweight(1201,1) == 0) {
+		mes "[Mercador]";
+		mes "Haha! Você não é um super-homem!";
+		mes "Porque está carregando muitos itens?!";
+		mes "É melhor guardar alguns em algum";
+		mes "armazém Kafra.";
+		close;
+	}
+	mes "[Mercador]";
+	mes "Bom dia!";
+	mes "Você tem algum item de coleção, como";
+	mes "Cascas ou Felpas?";
+	mes "...quem sabe Jellopys?";
+	mes "Ah, sim, eu preciso disso para uma coisa.";
+	next;
+	mes "[Mercador]";
+	mes "Claro que não estou pedindo para me dar de graça!";
+	mes "Que tal.. se eu der 1 Poção Vermelha por 5 Cascas ou 10 Felpas ou ";
+	mes "10 Jellopys?";
+	next;
+	switch(select("Claro!:Eu acho isso um roubo...:Não, obrigado.")) {
+	case 1:
+		mes "[Mercador]";
+		mes "Então, quais itens você trouxe para mim?";
+		mes "Cascas? Felpas? Ou Jellopys?";
+		next;
+		switch(select("Cascas:Jellopys:Felpas:Não tenho nada disso")) {
+		case 1: callfunc "F_TrocaPot",955,1,"as";
+		case 2: callfunc "F_TrocaPot",916,7,"os";
+		case 3: callfunc "F_TrocaPot",909,10,"as";
+		case 4:
+			mes "[Mercador]";
+			mes "Claro, sem problema.";
+			close;
+		}
+	case 2:
+		mes "[Mercador]";
+		mes "Você acha que isso é um roubo?";
+		mes "Você é que não sabe de nada!";
+		mes "Se vir o custo desses itens, verá que";
+		mes "sou eu quem está tendo prejuízo.";
+		mes "Se não quiser trocar, então tá!";
+		close;
+	case 3:
+		mes "[Mercador]";
+		mes "Ah, sem problema.";
+		mes "Bah!";
+		close;
+	}
+}
+ 
+morocc,180,259,3	script	Mercador#morroc	85,{
+	set .@now_weight,MaxWeight-Weight;
+	if (.@now_weight < 6301 || checkweight(1201,1) == 0) {
+		mes "[Mercador]";
+		mes "Haha! Você não é um super-homem!";
+		mes "Porque está carregando muitos itens?";
+		mes "É melhor guardar alguns em algum";
+		mes "armazém Kafra.";
+		close;
+	}
+	mes "[Mercador]";
+	mes "Bom dia!";
+	mes "Você tem algum item de coleção como";
+	mes "Cascas ou Plumas de Ave?";
+	mes "...quem sabe Jellopys?..";
+	mes "Ah, sim, eu preciso disso para uma coisa.";
+	next;
+	mes "[Mercador]";
+	mes "Claro que não estou pedindo para me dar de graça!";
+	mes "Que tal.. se eu der 1 Poção Vermelha por 5 Cascas ou 7 Plumas de Ave ou";
+	mes "10 Jellopys???";
+	next;
+	switch(select("Claro!:Eu acho isso um roubo...:Não, obrigado.")) {
+	case 1:
+		mes "[Mercador]";
+		mes "Então, quais itens você trouxe para mim?";
+		mes "Cascas? Plumas de Ave? Ou Jellopys?";
+		next;
+		switch(select("Cascas:Plumas de Ave:Jellopys:Não tenho nada disso")) {
+		case 1: callfunc "F_TrocaPot",935,5,"as";
+		case 2: callfunc "F_TrocaPot",916,7,"as";
+		case 3: callfunc "F_TrocaPot",909,10,"os";
+		case 4:
+			mes "[Mercador]";
+			mes "Claro, sem problema.";
+			close;
+		}
+	case 2:
+		mes "[Mercador]";
+		mes "Você acha que isso é um roubo?!";
+		mes "Você é que não sabe de nada!";
+		mes "Se vir o custo desses itens, verá que";
+		mes "sou eu quem está tendo prejuízo.";
+		mes "Se não quiser trocar, então tá!";
+		close;
+	case 3:
+		mes "[Mercador]";
+		mes "Ah, sem problema.";
+		mes "Bah!";
+		close;
+	}
+}
+
+payon,200,134,5	script	Mercador#pay	85,{
+	set .@now_weight,MaxWeight-Weight;
+	if (.@now_weight < 6301 || checkweight(1201,1) == 0) {
+		mes "[Mercador]";
+		mes "Haha! Você não é um super-homem!";
+		mes "Porque está carregando muitos itens?";
+		mes "É melhor guardar alguns em algum";
+		mes "armazém Kafra.";
+		close;
+	}
+	mes "[Mercador]";
+	mes "Bom dia!";
+	mes "Você tem algum item de coleção como";
+	mes "Raízes de Árvore?";
+	mes "...quem sabe Jellopys?..";
+	mes "Ah, sim, eu preciso disso para uma coisa.";
+	next;
+	mes "[Mercador]";
+	mes "Claro que não estou pedindo para me dar de graça!";
+	mes "Que tal.. se eu der 1 Poção Vermelha por 6 Raízes de Árvore ou";
+	mes "10 Jellopys???";
+	next;
+	switch(select("Claro!:Eu acho isso um roubo...:Não, obrigado.")) {
+	case 1:
+		mes "[Mercador]";
+		mes "Então, quais itens você trouxe para mim?";
+		mes "Raízes de Árvore? Ou Jellopys?";
+		next;
+		switch(select("Raízes de Árvore:Jellopys:Não tenho nada disso")) {
+		case 1: callfunc "F_TrocaPot",902,6,"as";
+		case 2: callfunc "F_TrocaPot",909,10,"os";
+		case 3:
+			mes "[Mercador]";
+			mes "Claro, sem problema.";
+			close;
+		}
+	case 2:
+		mes "[Mercador]";
+		mes "Você acha que isso é um roubo?!";
+		mes "Você é que não sabe de nada!";
+		mes "Se vir o custo desses itens, verá que";
+		mes "sou eu quem está tendo prejuízo.";
+		mes "Se não quiser trocar, então tá!";
+		close;
+	case 3:
+		mes "[Mercador]";
+		mes "Ah, sem problema.";
+		mes "Bah!";
+		close;
+	}
+}
+
+aldebaran,152,63,5	script	Mercador#alde	85,{
+	set .@now_weight,MaxWeight-Weight;
+	if (.@now_weight < 6301 || checkweight(1201,1) == 0) {
+		mes "[Mercador]";
+		mes "Haha! Você não é um super-homem!";
+		mes "Porque está carregando muitos itens?";
+		mes "É melhor guardar alguns em algum";
+		mes "armazém Kafra.";
+		close;
+	}
+	mes "[Mercador]";
+	mes "Bom dia!";
+	mes "Você tem algum item de coleção como";
+	mes "Peles de Verme ou Penas de Ave?";
+	mes "...quem sabe Jellopys?..";
+	mes "Ah, sim, eu preciso disso para uma coisa.";
+	next;
+	mes "[Mercador]";
+	mes "Claro que não estou pedindo para me dar de graça!";
+	mes "Que tal.. se eu der 1 Poção Vermelha por 1 Pele de Verme ou 7 Plumas de Ave ou";
+	mes "10 Jellopys???";
+	next;
+	switch(select("Claro!:Eu acho isso um roubo...:Não, obrigado.")) {
+	case 1:
+		mes "[Mercador]";
+		mes "Então, quais itens você trouxe para mim?";
+		mes "Peles de Verme? Plumas de Ave? Ou Jellopys?";
+		next;
+		switch(select("Peles de Verme:Plumas de Ave:Jellopys:Não tenho nada disso")) {
+		case 1: callfunc "F_TrocaPot",955,1,"as";
+		case 2: callfunc "F_TrocaPot",916,7,"as";
+		case 3: callfunc "F_TrocaPot",909,10,"os";
+		case 4:
+			mes "[Mercador]";
+			mes "Claro, sem problema.";
+			close;
+		}
+	case 2:
+		mes "[Mercador]";
+		mes "Você acha que isso é um roubo?!";
+		mes "Você é que não sabe de nada!";
+		mes "Se vir o custo desses itens, verá que";
+		mes "sou eu quem está tendo prejuízo.";
+		mes "Se não quiser trocar, então tá!";
+		close;
+	case 3:
+		mes "[Mercador]";
+		mes "Ah, sem problema.";
+		mes "Bah!";
+		close;
+	}
+}
+
+geffen,173,88,5	script	Mercador#geff	85,{
+	set .@now_weight,MaxWeight-Weight;
+	if (.@now_weight < 6301 || checkweight(1201,1) == 0) {
+		mes "[Mercador]";
+		mes "Haha! Você não é um super-homem!";
+		mes "Porque está carregando muitos itens?";
+		mes "É melhor guardar alguns em algum";
+		mes "armazém Kafra.";
+		close;
+	}
+	mes "[Mercador]";
+	mes "Bom dia!";
+	mes "Você tem algum item de coleção como";
+	mes "Cascas ou Crisálidas?";
+	mes "...quem sabe Jellopys?..";
+	mes "Ah, sim, eu preciso disso para uma coisa.";
+	next;
+	mes "[Mercador]";
+	mes "Claro que não estou pedindo para me dar de graça!";
+	mes "Que tal.. se eu der 1 Poção Vermelha por 5 Cascas ou 6 Crisálidas ou";
+	mes "10 Jellopys???";
+	next;
+	switch(select("Claro!:Eu acho isso um roubo...:Não, obrigado.")) {
+	case 1:
+		mes "[Mercador]";
+		mes "Então, quais itens você trouxe para mim?";
+		mes "Cascas? Crisálidas? Ou Jellopys?";
+		next;
+		switch(select("Cascas:Crisálidas:Jellopys:Não tenho nada disso")) {
+		case 1: callfunc "F_TrocaPot",935,5,"as";
+		case 2: callfunc "F_TrocaPot",915,6,"as";
+		case 3: callfunc "F_TrocaPot",909,10,"os";
+		case 4:
+			mes "[Mercador]";
+			mes "Claro, sem problema.";
+			close;
+		}
+	case 2:
+		mes "[Mercador]";
+		mes "Você acha que isso é um roubo?!";
+		mes "Você é que não sabe de nada!";
+		mes "Se vir o custo desses itens, verá que";
+		mes "sou eu quem está tendo prejuízo.";
+		mes "Se não quiser trocar, então tá!";
+		close;
+	case 3:
+		mes "[Mercador]";
+		mes "Ah, sem problema.";
+		mes "Bah!";
+		close;
+	}
+}
+
+// -----------------------------------------
+// Função - Troca de Poções
+// -----------------------------------------
+function	script	F_TrocaPot	{
+	if (countitem(getarg(0)) < getarg(1)) {
+		mes "[Mercador]";
+		mes "Ei, onde estão";
+		mes "tod"+(getarg(2))+" "+(getarg(2))+" "+getitemname(getarg(0))+"";
+		mes "que você me prometeu?";
+		mes "Me dê "+(getarg(2))+" "+getitemname(getarg(0))+"!";
+		close;
+	}
+	else {
+		mes "[Mercador]";
+		mes "Certo, deixe-me contar";
+		mes "quant"+(getarg(2))+" "+getitemname(getarg(0))+" você trouxe.";
+		next;
+		mes "[Mercador]";
+		mes "Você tem";
+		mes "" + countitem(getarg(0)) + " "+getitemname(getarg(0))+".";
+		mes "Eu posso lhe dar";
+		mes "" + (countitem(getarg(0))/getarg(1)) + " Poções Vermelhas por tudo.";
+		next;
+		mes "[Mercador]";
+		mes "Então, o que me diz? Fechado?";
+		next;
+		if (select("Fechado.:Nada feito.") == 1) {
+			mes "[Mercador]";
+			mes "Você sabe quantas Poções Vermelhas";
+			mes "pode receber por essas "+getitemname(getarg(0))+", não sabe?";
+			next;
+			mes "[Mercador]";
+			mes "Você pode pedir por vez";
+			mes "de 1 a 100 Poções Vermelhas.";
+			mes "Se mudar de idéia, digite '0'.";
+			next;
+			while(1) {
+				input .@input,0,101;
+				if (.@input == 0) {
+					mes "[Mercador]";
+					mes "Mas... então por que você perdeu tempo vindo falar comigo?";
+					mes "Não faço negócios com gente esquisita.";
+					close;
+				}
+				else if (.@input > 100) {
+					mes "[Mercador]";
+					mes "Eu não posso dar mais de 100 por vez.";
+					mes "Vamos tentar de novo.";
+					next;
+				}
+				else {
+					break;
+				}
+			}
+			set .@put_out_item,.@input * getarg(1);
+			if (countitem(getarg(0)) < .@put_out_item) {
+				mes "[Mercador]";
+				mes "Não, o número que você escreveu está incorreto.";
+				mes "É melhor verificar quantas poções vermelhas você pode conseguir.";
+				close;
+			}
+			mes "[Mercador]";
+			mes "Pronto!";
+			mes "Veja se está tudo certo.";
+			mes "Obrigado, foi bom negociar com você.";
+			delitem getarg(0),.@put_out_item; //Shell
+			getitem 501,.@input; //Red_Potion
+			close;
+		}
+		mes "[Mercador]";
+		mes "Bah!!! Então tá.";
+		mes "Bah!";
+		close;
+	}
+}

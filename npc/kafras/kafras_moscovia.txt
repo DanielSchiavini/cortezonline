@@ -1,0 +1,149 @@
+//===== Cronus Script ========================================
+//= Kafras de Moscóvia
+//===== Por: =================================================
+//= Dojo
+//===== Versão Atual: ========================================
+//= [Conversão Aegis]
+//= 1.0
+//===== Compatibilidade: =====================================
+//= Cronus / eAthena
+//===== Comentários Adicionais: ==============================
+//= 1.0 Primeira Versão [Dojo]
+//============================================================
+
+moscovia,223,191,4	script	Funcionária Kafra#mosk	114,{
+	cutin "kafra_04",2;
+	mes "[Funcionária Kafra]";
+	mes "Bem-vindo à ";
+	mes "Corporação Kafra.";
+	mes "Os Serviços Kafra";
+	mes "estão sempre ao seu lado.";
+	mes "Como posso ajudar?";
+	next;
+	switch(select("Salvar:Usar Armazém:Alugar um Carrinho:Ver Outras Informações:Cancelar")) {
+	case 1:
+		mes "[Funcionária Kafra]";
+		mes "Seu Ponto de Retorno";
+		mes "foi salvo na cidade de";
+		mes "Moscovia. Obrigada por";
+		mes "usar os Serviços Kafra.";
+		savepoint "moscovia",221,194;
+		close2;
+		cutin "", 255;
+		end;
+	case 2:
+		if(basicskillcheck() && getskilllv("NV_BASIC") < 6){
+			mes "[Funcionária Kafra]";
+			mes "Sinto muito, mas você ";
+			mes "precisa";
+			mes "do Nível de Habilidades Básicas 6 como Aprendiz para";
+			mes "usar o Serviço de Armazenamento.";
+			close2;
+			cutin "", 255;
+			end;
+		}
+		if(countitem(7059)) delitem 7059,1;
+		else {
+			if(Zeny<80) {
+				mes "[Funcionária Kafra]";
+         		mes "Desculpe, mas você não";
+				mes "possui zenys suficientes para usar";
+				mes "o Serviço de Armazenamento. Nossa";
+				mes "taxa de armazenamento é de 80 zenys.";
+				close2;
+				cutin "", 255;
+				end;
+			}
+			set Zeny, Zeny-80;
+			set RESRVPTS, RESRVPTS + (80/5);
+		}
+		mes "[Funcionária Kafra]";
+	    mes "Aqui, deixe-me abrir";
+		mes "o seu Armazém para você.";
+		mes "Obrigada por utilizar";
+		mes "os Serviços Kafra.";
+		callfunc("F_CheckKafCode");	//check your storage password, if set
+		close2;
+		openstorage;
+		cutin "", 255;
+		end;
+	case 3:
+		if(baseClass != Job_Merchant){
+			mes "[Funcionária Kafra]";
+         	mes "Desculpe, mas o";
+			mes "serviço de aluguel do Carrinho";
+			mes "está disponível apenas para Mercadores,";
+			mes "Ferreiros, Alquimistas, Mestres";
+			mes "Ferreiros e Criadores.";
+			close2;
+			cutin "", 255;
+			end;
+		}
+		else if(checkcart() == 1){
+			mes "[Funcionária Kafra]";
+         	mes "Você já ";
+			mes "tem um Carrinho. ";
+			mes "Infelizmente, não podemos";
+			mes "alugar mais de um";
+			mes "para cada cliente ao mesmo tempo.";
+			close2;
+			cutin "", 255;
+			end;
+		}
+		if(countitem(7061) > 0) delitem 7061,1;
+		else {
+			mes "[Funcionária Kafra]";
+	        mes "A taxa de aluguel do Carrinho";
+			mes " é de 700 zenys. Será que";
+			mes "deseja alugar um Carrinho?";
+			next;
+			if(select("Alugar um Carrinho.:Cancelar") == 1) {
+				if(Zeny<700) {
+					mes "[Funcionária Kafra]";
+               		mes "Sinto muito, mas você ";
+					mes "não tem";
+					mes "zenys suficientes para pagar";
+					mes "a taxa de aluguel do Carrinho de 700 zenys.";
+					close2;
+					cutin "", 255;
+					end;
+				}
+				set Zeny,Zeny-700;
+				set RESRVPTS, RESRVPTS + 48;
+			}
+			else {
+				close2;
+				cutin "", 255;
+				end;
+			}
+		}
+		setcart;
+		close2;
+		cutin "", 255;
+		end;
+	case 4:
+		if(select("Verificar Pontos de Reserva Especiais.:Cancelar") == 2) {
+			cutin "", 255;
+			close;
+		}
+		mes "[Funcionária Kafra]";
+		mes strcharinfo(0) + ", você tem um total de";
+		mes RESRVPTS+ " Pontos de Reserva Especiais.";
+		next;
+		mes "[Funcionária Kafra]";
+       	mes "Você pode trocar seus";
+		mes "Pontos de Reserva Especiais por";
+		mes "itens no Escritório Central da Corporação Kafra em Al De Baran. Cada vez que usar";
+		mes "os nossos Serviços, você acumula mais pontos do nosso programa.";
+		close2;
+		cutin "", 255;
+		end;
+	case 5:
+		mes "[Funcionária Kafra]";
+		mes "Nós, da Corporação Kafra,";
+		mes "fazemos o melhor para que você possa receber um serviço de máxima qualidade. Esperamos poder atender às suas necessidades e principais critérios.";
+		close2;
+		cutin "", 255;
+		end;
+	}
+}

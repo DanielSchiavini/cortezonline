@@ -1,0 +1,302 @@
+//===== Cronus Script ========================================
+//= Trocador de Bonecos
+//===== Por: =================================================
+//= Minos
+//===== Versão Atual: ========================================
+//= 1.1
+//===== Compatível Com: ======================================
+//= Emulador [3010]; Cliente [EP 12.1]
+//===== Descrição: ===========================================
+//= [Conversão do Aegis]
+//= NPC trocador de Bonecos
+//===== Comentários Adicionais: ==============================
+//= 1.0 Conversão do Aegis [Minos]
+//= 1.1 Revisado e otimizado [Mara]
+//============================================================
+
+alberta,117,135,0	script	Criança	96,{
+	
+	mes "[Criança]";
+	if (Sex)
+		mes "Oi, grandão! Hehe... Você não gosta de bonecos, não é?? Eu gosto muito muito de bonecos!";
+	else
+		mes "Oi, menina! Ei, ei, você gosta de bonecos? Porque eu amo bonecos! Hehehe!!";
+	next;
+	mes "[Criança]";
+	mes "Bem... Eu queria poder ter um novo... Meu papai me dará um no meu próximo aniversário com certeza...";
+	next;
+	if (select ("Mas que legal...:Você quer um boneco?") == 1)
+	{
+		mes "[Criança]";
+		mes "Hm.. Deixe-me ver que boneco eu quero.. Acho que quero um boneco do Macaco YoYo desta vez. Hehe YoYo... É uma gracinha.";
+		close;
+	}	
+	if ((MaxWeight-Weight) < 1000)
+	{
+		mes "[Criança]";
+		if (Sex)
+			mes "É melhor você diminuir a bagagem... Parece que você está carregando demais...";
+		else
+			mes "Você não está de dieta? Senão, é melhor começar uma.";
+		close;
+	}
+	mes "[Criança]";
+	mes "Como? Mesmo, mesmo? Você vai me dar um boneco? Uau, yupiie!!";
+	mes "Qual que você tem? Vai me dar um?";
+	next;
+	switch (select ("Boneco Poring:Boneco Chon Chon:Boneco de Pelúcia:Boneco Rocker:Boneco Espóro:Boneco Osiris:Boneco Bafomé :Boneco Fumacento:Boneco YoYo:Eu sou sua boneca."))
+	{
+		case 1:
+			if (countitem(741))
+			{
+				delitem 741, 1; //Boneco de Poring
+				mes "[Criança]";
+				mes "Er... Já tenho vários bonecos poring...";
+				mes "Já que você vai me dar mesmo, obrigadinho. Eba, Boneco Poring!";
+				next;
+				mes "[Criança]";
+				mes "OK. Também quero te dar algo... Hehehe...";
+				mes "Eu estava guardando para comer depois... Não diga nada pra minha mamãe...";
+				next;
+				getitem 529, 1; //Bala
+				mes "[Criança]";
+				mes "Não coma muito de uma vez... senão terá que ir ao dentista.";
+				mes "E... obrigado pela boneca.";
+				close;
+			}
+			mes "[Criança]";
+			mes "Espere... Você está tirando sarro de mim..? Você nem mesmo tem uma...";
+			mes "Snif...snif...buáááá.......";
+			next;
+			mes "[Criança]";
+			mes "Buááááááá!!! snif snif";
+			close;
+
+		case 2:
+			if (countitem(742))
+			{
+				delitem 742, 1; //Boneco de Chonchon
+				mes "[Criança]";
+				mes "Como, Ch-chon Chon.... Boneco Chon Chon....";
+				next;
+				mes "[Criança]";
+				if (Sex) mes "É, bem... acho que eu educadamente tenho que aceitar já que você está me dando como um presente... Hm...";
+				next;
+				mes "[Criança]";
+				mes "OK. Também quero te dar algo...";
+				next;
+				getitem 530,1; //Bengala Doce
+				mes "[Criança]";
+				mes "Não coma muito de uma vez... senão terá que ir ao dentista.";
+				mes "E obrigado pela boneca... Acho...";
+				next;
+				mes "[Criança]";
+				mes "(...Phew)";
+				close;
+			}
+			mes "[Criança]";
+			mes "Espere... Você está tirando sarro de mim..? Você nem mesmo tem uma... ";
+			mes "Snif...snif...buáááá.......";
+			next;
+			mes "[Criança]";
+			mes "Buááááááá!!! Snif snif";
+			close;
+
+		case 3:
+			if (countitem(740))
+			{
+				delitem 740, 1; //Boneco de Pelúcia
+				mes "[Criança]";
+				mes "Uau... um Boneco de Pelúcia!";
+				mes "Eu amo bonecos de pelúcia... Hehehe! Obrigada!!";
+				next;
+				mes "[Criança]";
+				mes "OK. Também quero te dar algo... Hehehe...";
+				mes "Ué... Onde eu coloquei?";
+				next;
+				getitem 530, 1; //Bengala Doce
+				mes "[Criança]";
+				if (Sex) mes "Ah!!! Aqui está! Hehe... Eu ganhei do Papai Noel.";
+				mes "E muito obrigado pelo boneco... Vou dormir juntinho com ele.";
+				close;
+			}
+			mes "[Criança]";
+			if (Sex) mes "Espere... Você está tirando sarro de mim..? Você nem mesmo tem um...";
+			mes "Snif... snif... buáááá.......";
+			next;
+			mes "[Criança]";
+			mes "Buááááááá!!! Snif snif";
+			close;
+
+		case 4:
+			if (countitem(752))
+			{
+				delitem 752, 1; //Boneco de Rocker
+				mes "[Criança]";
+				mes "Uau! Boneco Rocker!!";
+				mes "É um Rocker... não gosto muito de Rockers mas gosto do boneco bonitinho.";
+				next;
+				mes "[Criança]";
+				mes "OK. Também quero te dar algo... Hehehe...";
+				mes "Eu ganhei isso do meu vôzinho...";
+				next;
+				getitem 532, 7; //Suco de Banana
+				mes "[Criança]";
+				mes "Tome! Eu tenho mais um monte desses lá em casa.";
+				mes "E muito obrigado pelo boneco, mesmo... Como é lindo...";
+				close;
+			}
+			mes "[Criança]";
+			mes "Espere... Você está tirando sarro de mim..? Você nem mesmo tem um...";
+			mes "Snif...snif...buáááá.......";
+			next;
+			mes "[Criança]";
+			mes "Buááááááá!!! Snif snif";
+			close;
+				
+		case 5:
+			if (countitem(743))
+			{
+				delitem 743, 1; //Boneco de Esporo
+				mes "[Criança]";
+				mes "Co-cogumelo... creeeedo... Eu detesto cogumelos.";
+				mes "Mamãe me fez comer um hoje de manhã...";
+				next;
+				mes "[Criança]";
+				mes "Mas vou aceitar só porque é bonitinho, mas não vou comer nenhum cogumelo! Obrigado.";
+				mes "OK. Também quero te dar algo... Hehehe...!";
+				next;
+				getitem 538, 5; //Biscoito de Gengibre
+				mes "[Criança]";
+				mes "Hehe... Mamãe fez para mim~.";
+				mes "OK. Também quero te dar algo... Hehehe...";
+				next;
+				mes "[Criança]";
+				mes "Obrigado pela boneca!";
+				close;
+			}
+			mes "[Criança]";
+			mes "Espere... Você está tirando sarro de mim..? Você nem mesmo tem um...";
+			mes "Snif...snif...buáááá.......";
+			next;
+			mes "[Criança]";
+			mes "Buááááááá!!! Snif snif";
+			close;
+			
+		case 6:
+			if (countitem(751))
+			{
+				delitem 751, 1; //Boneco de Osíris
+				mes "[Criança]";
+				mes "Credo, que boneco assustador! Estou com medo!!";
+				mes "Nunca vi nenhuma boneco assim.... Onde você conseguiu ele?";
+				next;
+				mes "[Criança]";
+				mes "Quero mostrar pro meu papai... Aposto que ele também vai ficar surpreso.";
+				mes "OK. Também quero te dar algo... Hehehe...";
+				next;
+				getitem 522, 2; //Mastela
+				mes "[Criança]";
+				mes "Achei isso na floresta.";
+				mes "Vou te dar 2 assim pode dividir com "+(Sex ? "seu namorado":"sua namorada")+", hehe!";
+				close;
+			}
+			mes "[Criança]";
+			mes "Espere... Você está tirando sarro de mim..? Você nem mesmo tem um...";
+			mes "Snif...snif...buáááá.......";
+			next;
+			mes "[Criança]";
+			mes "Buááááááá!!! Snif snif";
+			close;
+			
+		case 7:
+			if (countitem(750))
+			{
+				delitem 750, 1; //Boneco de Bafomé
+				mes "[Criança]";
+				mes "Êba, boneco de Bafo? Uau... Nunca vi uma boneco assim antes.";
+				mes "Como é estranho. Bonito e Assustador.";
+				next;
+				mes "[Criança]";
+				mes "OK. Também quero te dar algo... Hehehe...";
+				next;
+				getitem 525, 5; //Panacéia
+				mes "[Criança]";
+				mes "Papai usava quando eu ficava doente.";
+				mes "Eu estou bem agora, pode pegar...";
+				next;
+				mes "[Criança]";
+				mes "Obrigado pela boneca... Não vou perder, prometo.";
+				close;
+			}
+			mes "[Criança]";
+			mes "Espere... Você está tirando sarro de mim..? Você nem mesmo tem um...";
+			mes "Snif... snif... buáááá.......";
+			next;
+			mes "[Criança]";
+			mes "Buááááááá!!! Snif snif";
+			close;
+			
+		case 8:
+			if (countitem(754))
+			{
+				delitem 754, 1; //Boneco de Fumacento
+				mes "[Criança]";
+				mes "Uau, Boneco Fumacento... Que gracinha.";
+				mes "Não gosto de bichos feios, mas esse até que é bonitinho!";
+				next;
+				mes "[Criança]";
+				mes "Hahah! Obrigado!";
+				next;
+				getitem 539, 3; //Pedaço de Bolo
+				mes "[Criança]";
+				mes "Vovó fez isso pra mim. É bem gostoso.";
+				mes "OK. Também quero te dar algo... Hehehe";
+				next;
+				mes "[Criança]";
+				mes "Obrigado pelo boneco. Vou colocar do lado dos bonecos do meu quarto!";
+				close;
+			}
+			mes "[Criança]";
+			mes "Espere... Você está tirando sarro de mim..? Você nem mesmo tem um...";
+			mes "Snif... snif... buáááá.......";
+			next;
+			mes "[Criança]";
+			mes "Buááááááá!!! Snif snif";
+			close;
+			
+		case 9:
+			if (countitem(753))
+			{
+				delitem 753, 1; //Boneco de Yoyo
+				mes "[Criança]";
+				mes "Uaaaaauuu! Boneco YoYo! Linda! Linda! Linda! Linda!!!";
+				if (Sex) mes "Você vai dar ele pra mim de verdade?!";
+				next;
+				mes "[Criança]";
+				mes "Hehehehe, Eu amo a boneca YoYo.";
+				mes "OK. Também quero te dar algo... Hehehe...";
+				next;
+				getitem 608, 1; //Semente de Yggdrasil
+				mes "[Criança]";
+				mes "Acho que isso é alguma semente.";
+				mes "Eu tentei enterrá-la, mas não aconteceu nada. Talvez você queira tentar.";
+				next;
+				mes "[Criança]";
+				mes "Obrigado pelo boneco... Hehehehe";
+				close;
+			}
+			mes "[Criança]";
+			mes "Espere... Você está tirando sarro de mim..? Você nem mesmo tem um...";
+			mes "Snif... snif... buáááá.......";
+			next;
+			mes "[Criança]";
+			mes "Buááááááá!!! Snif snif";
+			close;
+			
+		case 10:
+			mes "[Criança]";
+			mes "Como? Você tá tirando sarro de mim porque eu sou uma criancinha?! Não fale mais comigo...";
+			close;
+	}
+}

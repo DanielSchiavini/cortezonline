@@ -1,0 +1,100 @@
+//===== Cronus Script ========================================
+//= Kafras de Prontera
+//===== Por: =================================================
+//= Dojo
+//===== Versão Atual: ========================================
+//= [Conversão Aegis]
+//= 1.0
+//===== Compatibilidade: =====================================
+//= Cronus / eAthena
+//===== Comentários Adicionais: ==============================
+//= 1.0 Primeira Versão [Dojo]
+//============================================================
+
+// North ==================================
+prontera,152,326,3	script	Funcionária Kafra::kaf_prontera	112,{
+	cutin "kafra_06",2;
+	callfunc "F_KafSetPront";
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,0,0,40,800;
+
+M_Save:
+	savepoint "prontera",157,327;
+	callfunc "F_KafEnd",0,1,"na cidade de Prontera";
+}
+
+// SOUTH ======================================
+prontera,151,29,0	script	Funcionária Kafra::kaf_prontera2	115,{
+	cutin "kafra_03",2;
+	callfunc "F_KafSetPront";
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,0,0,40,800;
+
+	M_Save:
+		savepoint "prontera",150,33;
+		callfunc "F_KafEnd",0,1,"na cidade de Prontera";
+}
+
+//WEST=========================================
+prontera,29,207,6	script	Funcionária Kafra::kaf_prontera3	113,{
+	cutin "kafra_05",2;
+	callfunc "F_KafSetPront";
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,0,0,40,800;
+
+	M_Save:
+		savepoint "prontera",33,208;
+		callfunc "F_KafEnd",0,1,"na cidade de Prontera";
+}
+
+// East ===========================================
+prontera,282,200,2	script	Funcionária Kafra::kaf_prontera4	114,{
+	cutin "kafra_04",2;
+	callfunc "F_KafSetPront";
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,0,0,40,800;
+
+	M_Save:
+		savepoint "prontera",281,203;
+		callfunc "F_KafEnd",0,1,"na cidade de Prontera";
+}
+
+// Center ===========================================
+prontera,146,89,6	script	Funcionária Kafra::kaf_prontera5	117,{
+	cutin "kafra_01",2;
+	callfunc "F_KafSetPront";
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,0,0,40,800;
+
+M_Save:
+	savepoint "prontera",116,73;
+	callfunc "F_KafEnd",0,1,"na cidade de Prontera";
+}
+
+
+// Function: Sets variables for Prontera Kafras ----------------------------
+function	script	F_KafSetPront	{
+	cleararray @wrpC$[0],"",getarraysize(@wrpC$);
+	setarray @wrpD$[0], "Izlude", "Geffen", "Payon", "Morroc", "Vilas dos Orcs", "Alberta";
+	setarray @wrpP[0], 600, 1200, 1200, 1200, 1200, 1800;
+	set @wrpC$[0], @wrpD$[0]+" -> "+@wrpP[0];
+	set @wrpC$[1], @wrpD$[1]+" -> "+@wrpP[1];
+	set @wrpC$[2], @wrpD$[2]+" -> "+@wrpP[2];
+	set @wrpC$[3], @wrpD$[3]+" -> "+@wrpP[3];
+	set @wrpC$[4], @wrpD$[4]+" -> "+@wrpP[4];
+	set @wrpC$[5], @wrpD$[5]+" -> "+@wrpP[5];
+	set @wrpC$[6], "Cancel";
+	setarray @viewpX[0], 151, 29, 282, 152;
+	setarray @viewpY[0], 29, 207, 200, 326;
+	return;
+}	

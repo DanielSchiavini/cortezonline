@@ -1,0 +1,629 @@
+//  _______________________________________________________
+// /                                                       \
+// |                  ____            __                    |
+// |                 / __ \____      / /___                 |
+// |                / / / / __ \__  / / __ \                |
+// |               / /_/ / /_/ / /_/ / /_/ /                |
+// |              /_____/\____/\____/\____/                 |
+// |                       Scripts                          |
+// |--------------------------------------------------------|
+// |                 [Conversão do AEGIS]                   |
+// |--------------------------------------------------------|
+// | NPC: Cabelereiro de Alberta                            |
+// |--------------------------------------------------------|
+// | Versão Atual: 1.0         | Compatível com: eAthena    |
+// |--------------------------------------------------------|
+// | 19/06/2010: Primeira Versão [DoJo]                     |
+// |--------------------------------------------------------|
+// | Créditos: Gravity                                      |
+// |--------------------------------------------------------|
+// | Notas:                                                 |
+// |                                                        |
+// |                                                        |
+// |                                                        |
+// \_______________________________________________________/
+
+alberta_in,55,142,7	script	Estilista#alb	91,{
+	mes "[Verônica]";
+	mes "Olá, Olá!";
+	mes "Você está entrando em um dos melhores salões de beleza, o Salão de Beleza Verônica! Hahaha!!!!";
+	mes "Veio fazer um novo penteado, certo? Em que posso ajudar?";
+	next;
+	switch(select("Mostre-me outros Estilos de Cabelo:Mude meu Estilo de Cabelo.:Pare de Falar.")) {
+	case 1:
+		mes "[Verônica]";
+		mes "Existem 19 estilos de cabelo, do 1 ao 19!!!";
+		mes "Que número quer olhar primeiro?";
+		mes "Se quiser parar de ver, escolha 0.";
+		next;
+		input .@style;
+		if(.@style > 19) {
+			mes "[Verônica]";
+			mes "Desculpa, mas não tem nenhum estilo de cabelo com esse número.";
+			mes "Por favor, escolha entre 1 e 19.";
+			next;
+		}
+		else if(.@style == 0) {
+			cutin "",255;
+			mes "[Verônica]";
+			mes "E então?";
+			mes "Achou um estilo que lhe agrada?";
+			mes "Se quiser, eu adoraria mudar o seu estilo de cabelo!";
+			close;
+		}
+		else {
+			callsub L_cutin,.@style;
+			switch(.@style) {
+			case 1:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Fingir de Morto'!";
+					mes "É muito limpo e confortável.";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Primeiros-Socorros'!";
+					mes "É o estilo que dá uma mão para os cabelos.";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 2:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Perícia com Espada de Duas Mãos'!";
+					mes "é um estilo muito familiar a um famoso espadachim.";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Golpe Fulminante'!";
+					mes "Percebe-se um forte poder oculto dentro dele...";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 3:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Ataque Espiritual'!";
+					mes "Faz sentir o seu poder desconhecido...";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh! O estilo 'Rajada Congelante'!";
+					mes "Frio por fora e quente por dentro...";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 4:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh! O estilo 'Rajada de Flechas'!";
+					mes "Faz com que sua mente fique bem clara.";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Chuva de Flechas'!";
+					mes "É muito refrescante";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 5:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh! O estilo 'Angelus'!";
+					mes "Mostra calma e reverência.";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Cura'!";
+					mes "Mostra uma mente sã.";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 6:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Usar Carrinho'!";
+					mes "Esse estilo é baseado em um carrinho...";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Comércio'!";
+					mes "Para passar a imagem de muito dinheiro.";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 7:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Envenenar'!";
+					mes "Para quem tem uma queda por cobras...";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh! O estilo 'Rajada de Flechas'!";
+					mes "Faz os outros pensarem duas vezes.";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 8:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Impacto de Tyr'!";
+					mes "Vão ficar de queixo caido pelo seu cabelo!";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Glória'!";
+					mes "Sua nobreza e santidade são excelentes. ";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 9:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh! O estilo 'Névoa Tóxica'!";
+					mes "Passa um charme mortal.";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh! O estilo 'Aumento da Recuperação de SP'!";
+					mes "Faz parecer que você com o espírito totalmente recuperado.";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 10:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Esconjurar'!";
+					mes "Faz parecer que com um ataque você consegue fazer os demônios desaparecerem!";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh! O estilo 'Preparar Poção'!";
+					mes "Faz parecer que uma ferida se cura mais rápido!";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 11:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh! O estilo 'Dragonologia'!";
+					mes "Esse estilo é baseado em um misterioso dragão...";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh! O Estilo 'Crux Magnum'!";
+					mes "Parece de uma fé inabalável...";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 12:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Perícia com Maça'!";
+					mes "Parece muito duro e atraente!";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Plágio'!";
+					mes "Não parece que você já viu esse estilo em algum lugar?";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 13:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Tempestade de Raios'!";
+					mes "É como ser atingido pela tempestade!!";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Absorver Esferas Espirituais'!";
+					mes "Ele pega o espírito das pessoas";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 14:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Bis'!";
+					mes "É o estilo que faz as pessoas pedirem para você cantar";
+					mes "O que você acha? Gostou??";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh! O Estilo 'Dança Cigana'!";
+					mes "As pessoas vão achar que você é muito afável...";
+					mes "O que você acha? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 15:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh! O estilo 'Tocaia'!";
+					mes "Parece que você será mordido pelo cabelo!";
+					mes "E então? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh! O estilo 'Contra-ataque'!";
+					mes "Parece que você vai revidar só porque alguém chegou perto!";
+					mes "E então? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 16:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh! O estilo 'Ataque Aéreo'!";
+					mes "Não parece que você vai atacar 5 vezes...?";
+					mes "E então? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh! O estilo 'Instalar Armadilha'!";
+					mes "Esse estilo é difícil de mover.";
+					mes "E então? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 17:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh! O estilo 'Encontrar Minério'!";
+					mes "Passa a impressão de estar sempre pegando coisas.";
+					mes "E então? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Martelo de Thor'!";
+					mes "Eu vou fazer parecer que está com tonturas!";
+					mes "E então? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 18:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Coluna de Fogo'!";
+					mes "Há gerações que esse é um grande estilo...!";
+					mes "E então? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Trovão de Júpiter'!";
+					mes "Parece muito natural.";
+					mes "E então? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			case 19:
+				if (Sex == 1) {
+					mes "[Verônica]";
+					mes "Oh!O estilo 'Punho Supremo de Asura'!";
+					mes "É como acabar com todos ao mesmo tempo!!";
+					mes "E então? Gostou?";
+					close2; cutin "",255; end;
+				}
+				else {
+					mes "[Verônica]";
+					mes "Oh! O estilo 'Furacão'!";
+					mes "Tão refrescante quanto o vento.";
+					mes "E então? Gostou?";
+					close2; cutin "",255; end;
+				}
+			break;
+			}
+		}
+	break;
+	case 2:
+		if (BaseLevel < 60) {
+			mes "[Verônica]";
+			mes "Uau! Esse estilo ficou bem em você!!!";
+			mes "Não mude.";
+			mes "Por que você não decora seu cabelo com acessórios?";
+			close;
+		}
+		else if ((countitem(973) < 3) || (countitem(974) < 3) || (countitem(901) <100) || (countitem(1094) <100) || (countitem(1020) <100) || (countitem(1060) <100) || (countitem(7152) <100) || (Zeny < 99800)) {
+			mes "[Verônica]";
+			mes "Se quiser mudar o seu estilo de cabelo, precisa de vários itens";
+			mes "Já que são muitos itens...";
+			mes "É melhor anotar a lista.";
+			next;
+			mes "[Verônica]";
+			mes "3 Antígenos,";
+			mes "3 Misturas,";
+			mes "100 Tranças,";
+			mes "100 Tranças Curtas,";
+			mes "100 Cabelos Pretos,";
+			mes "100 Cabelos Dourados,";
+			mes "100 Cabelos Perfumados.";
+			next;
+			mes "[Verônica]";
+			mes "E também vai custar 99.800 zenys.";
+			mes "Se tiver tudo isso...";
+			mes "Eu mostro o que posso fazer por você!!HoHoHo.";
+			close;
+		}
+		mes "[Verônica]";
+		mes "Bem, então... Escolha o Estilo de Cabelo que você mais gosta.";
+		mes "Eu vou fazer o melhor que posso";
+		mes "Existem 19 estilos de cabelo.";
+		mes "Escolha entre 1 e 19";
+		next;
+		input .@style;
+		if (.@style > 19) {
+			mes "[Verônica]";
+			mes "Não existe esse estilo de cabelo!";
+			mes "Verifique o número você digitou";
+			close;
+		}
+		else if (.@style == 0) {
+			mes "[Verônica]";
+			mes "Certo, cancelado então.";
+			close;
+		}
+		else if (getlook(1) == .@style) {
+			mes "[Verônica]";
+			mes "Você já tem esse estilo!!";
+			mes "É melhor olhar de novo os Estilos de Cabelo";
+			close;
+		}
+		else {
+			callsub L_Image,.@style;
+			mes "[Verônica]";
+			mes "Esse é o estilo (" + .@style + ").";
+			mes "Vou mudar o seu estilo para esse.";
+			mes "Está bom para você?";
+			next;
+			if(select("Sim! Eu adorei.:Não... não gostei...") == 2) {
+				mes "[Verônica]";
+				mes "Bem - escolha de novo, por favor";
+				mes "Deve haver um estilo que você goste.";
+				mes "Anote o número que você gostar mais e me diga.";
+				close;
+			}
+			if (getlook(6) == 0) {
+				mes "[Verônica]";
+				mes "Você não tingiu o cabelo - nem uma única vez!!";
+				mes "Eu acho que tingir o cabelo deixa ele muito melhor...";
+				mes "Eu posso fazer isso para você... de GRAÇA";
+				mes "Qual a cor que você quer?";
+				next;
+				switch(select("Vermelho:Amarelo:Púrpura:Laranja:Verde:Azul:Branco:Preto:Deixe como está")) {
+				case 1:
+					set .@pallete,8;
+					break;
+				case 2:
+					set .@pallete,1;
+					break;
+				case 3:
+					set .@pallete,2;
+					break;
+				case 4:
+					set .@pallete,3;
+					break;
+				case 5:
+					set .@pallete,4;
+					break;
+				case 6:
+					set .@pallete,5;
+					break;
+				case 7:
+					set .@pallete,6;
+					break;
+				case 8:
+					set .@pallete,7;
+					break;
+				case 9:
+					mes "[Verônica]";
+					mes "Ah... pense bem...";
+					mes "e venha me ver novamente.";
+					mes "Não é só o tipo de cabelo, mas a cor dele também é muito importante.";
+					close;
+				break;
+				}
+			}
+			nude;
+			mes "[Verônica]";
+			mes "Agora, vamos lá - não se mova";
+			mes "Se mover, terá um estilo bem ruim";
+			mes "Confie em mim!!";
+			next;
+			mes "[Verônica]";
+			mes "- Clip clip Clip clip -";
+			mes "- clit clit clit clit -";
+			mes "- Snip snip Snip snip -";
+			next;
+			set Zeny,Zeny-99800;
+			delitem 973,3; //Counteragent
+			delitem 974,3; //Mixture
+			delitem 901,100; //Danggie
+			delitem 1094,100; //Short_Daenggie
+			delitem 1020,100; //Long_Hair
+			delitem 1060,100; //Golden_Hair
+			delitem 7152,100; //Glossy_Hair
+			setlook 1,.@style;
+			setlook 6,.@pallete;
+			cutin "",255;
+			mes "[Verônica]";
+			mes "Uau - ficou muito bom";
+			mes "Espero que você goste desse estilo (" + .@style + ").";
+			mes "Se quiser ter outro estilo de cabelo,";
+			mes "venha me visitar de novo - hahaha";
+			setlook 1,.@style;
+			setlook 6,.@pallete;
+			close;
+		}
+	break;
+	case 3:
+		mes "[Verônica]";
+		mes "Todo mundo tem o direito de ficar bonito...";
+		mes "Eu espero que você ache o estilo de cabelo que fique melhor para você.";
+		mes "Espero mesmo!";
+		close;
+	break;
+	}
+
+L_Image:
+	if(Sex == 1) {
+		if(getarg(0) < 10)
+			cutin "hair_m_0"+getarg(0),4;
+		else
+			cutin "hair_m_"+getarg(0),4;
+	}
+	else {
+		if(getarg(0) < 10)
+			cutin "hair_f_0"+getarg(0),4;
+		else
+			cutin "hair_f_"+getarg(0),4;
+	}
+	return;
+}
+
+alberta,33,141,7	script	Cabeleireiro Cigano	87,{
+	mes "[Bisharm]";
+	mes "Ó meu deus! Ela se diz uma designer!";
+	mes "Uma das melhores?? Ah... nem morto... ";
+	mes "Eu sou o único que sabe quanto vale um cabelo!";
+	mes "Eu sou um CRIADOR de BELEZA!";
+	next;
+	switch(select("O que você faz?:Por favor, crie para mim também!:.....")) {
+	case 1:
+		mes "[Bisharm]";
+		mes "EU? Sou um cabeleireiro.";
+		mes "Eu vou de lugar em lugar... e";
+		mes "dou beleza aos cabelos das pessoas.";
+		mes "Eu ouvi falar que...";
+		mes "tem uma novata que se diz designer de cabelos nesta cidade...";
+		next;
+		mes "[Bisharm]";
+		mes "É por isso que eu vim para cá.";
+		mes "Eu estava observando e descobri que todo mundo pede um menu...";
+		mes "Não é assim que se faz!!";
+		mes "Há alguns casos...";
+		mes "que os cabelos não ficam bons nas pessoas quando se faz o que elas pedem!";
+		next;
+		mes "[Bisharm]";
+		mes "E também é um modo muito amador...";
+		mes "Muito, muito amador...";
+		mes "Não se pode chamar isso de designer de beleza!";
+		mes "Gastando tanto cabelo!";
+		mes "Estou cheio disso e não gosto nada, nada!!";
+		next;
+		mes "[Bisharm]";
+		mes "Se quiser que eu corte o seu cabelo,";
+		mes "basta pedir.";
+		mes "Eu farei para você o meu corte especial.";
+		mes "Que tal?";
+		mes "Nunca deixe uma novata tocar no seu cabelo!";
+		close;
+	break;
+	case 2:
+		if (BaseLevel < 60) {
+			mes "[Bisharm]";
+			mes "Hmm, do meu ponto de vista artístico,";
+			mes "o estilo do seu cabelo fica muito bem em você!";
+			mes "Deixe-o do jeito que está!";
+			mes "Acredite!";
+			close;
+		}
+		else if (Zeny < 199800) {
+			mes "[Bisharm]";
+			mes "Sim? Você não precisa de mais nada. Só precisa de ZENYS!";
+			mes "Basta ter 199.800 zenys.";
+			mes "Mas esse é um preço especial para você...";
+			mes "só estou cobrando a honra de você ter o cabelo cortado por mim.";
+			close;
+		}
+		else {
+			mes "[Bisharm]";
+			mes "Bom, custa 199.800 zenys.";
+			mes "Certo?";
+			mes "Você tem ainda a chance de ir até a novata e cortar seu cabelo lá...";
+			mes "Você é quem sabe...";
+			next;
+			if(select("Por favor, corte o meu cabelo...:Deixa para outra vez, quem sabe?") == 2) {
+				mes "[Bisharm]";
+				mes "Hmm! Tanto faz...!! Você vai se arrepender disso!!";
+				mes "Um dia vai perceber que só um grande artista pode...";
+				mes "sabe criar uma beleza de verdade...";
+				mes "Um dia você vai perceber... um dia...";
+				close;
+			}
+			mes "[Bisharm]";
+			mes "Certo!- vamos lá!!!";
+			mes "Preste atenção!!";
+			next;
+			nude;
+			mes "[Bisharm]";
+			mes "Uuoohhhhhhhhh!!!!";
+			next;
+			mes "[Bisharm]";
+			mes "Super!! Sim!! Ah, sim!!";
+			next;
+			mes "[Bisharm]";
+			mes "Terminado...!! Fantástico... FANTÁSTICO!!";
+			mes "O estilo que ninguém mais poderia criar!!";
+			mes "Nossa... incrível, hahahaha!";
+			set Zeny,Zeny-199800;
+			setlook 1,rand(1,19);
+			setlook 6,rand(1,8);
+			close;
+		}
+	break;
+	case 3:
+		mes "[Bisharm]";
+		mes "Eu sinto pena das pessoas";
+		mes "que deixam seus cabelos serem tocados por uma NOVATA";
+		mes "que não sabe nada do que é beleza!";
+		mes "Eu sinto muita pena delas!!";
+		close;
+	break;
+	}
+}

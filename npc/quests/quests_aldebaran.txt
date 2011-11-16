@@ -1,0 +1,113 @@
+//===== Cronus Script ========================================
+//= Quests de Al De Baran
+//===== Por: =================================================
+//= DoJo
+//===== Versão Atual: ========================================
+//= 1.0
+//===== Compatível Com: ======================================
+//= Cronus SVN
+//===== Descrição: ===========================================
+//= [Conversão do Aegis]
+//= Quests:
+//=  - Espelho de Médico
+//=  - Chapéu com Pluma
+//=  - Máscara do Fantasma
+//=  - Chapéu Chinês
+//===== Comentários Adicionais: ==============================
+//= 1.0 Conversão do Aegis [DoJo]
+//============================================================
+
+//========================================================================================
+// Quest do(a) Espelho de Médico, Chapéu com Pluma, Mascara do Fantasma, Chapéu Chinês
+//========================================================================================
+aldeba_in,152,166,4	script	Mercador	86,{
+	if (checkweight(1201,1) == 0 ) {
+		mes "- Ei, espere aí !! -";
+		mes "- Você não pode receber mais itens -";
+		mes "Porque está carregando muitos itens. -";
+		mes "- Por favor, alivie um pouco a sua carga e tente de novo - ";
+		close;
+	}
+	mes "[Mercador]";
+	mes "Ha! Ha! Ha! Eu sou um Mercador lendário!";
+	mes "Viajei por todo o Continente de Midgard!";
+	mes "Viajo por aí vendendo itens especiais!";
+	next;
+	mes "(1) . ^3355FFEspelho de Médico^000000 : 1 Faixa Marrom + 50 Ferros + 1 Diamante Rachado + 3500 Zeny";
+	mes "(2) . ^3355FFChapéu com Pluma^000000 : 1 Chapéu Romântico + 300 Plumas de Ave + 500 Zeny";
+	mes "(3) . ^3355FFFantasma da Ópera^000000 : 20 Aços + 1 Planta da Melodia + 5000 Zeny";
+	mes "(4) . ^3355FFChapéu Chinês^000000 : 120 Troncos + 10000 Zeny";
+	next;
+	switch(select("Espelho de Médico:Chapéu com Pluma:Fantasma da Ópera:Chapéu Chinês")) {
+	case 1:
+		if ((countitem(2275) > 0) && (countitem(998) > 49) && (countitem(733) > 0) && (Zeny > 3499)) {
+			delitem 733,1; //Crystal_Jewel___
+			delitem 2275,1; //Red_Bandana
+			delitem 998,50; //Iron
+			set Zeny,Zeny - 3500;
+			mes "[Mercador]";
+			mes "Mm... Você tem um CRM? Se você for tão bom quanto o Black Jack, Não precisa!";
+			mes "Mm... Acho que não tem problema! Aqui está!";
+			getitem 2273,1; //Doctor_Cap
+			close;
+		}
+		else {
+			mes "[Mercador]";
+			mes "Viu! Eu te disse para contar denovo!";
+			mes "Você não me parece muito esperto... Pense direito! Certo?";
+			close;
+		}
+	case 2:
+		if ((countitem(2247) > 0) && (countitem(916) > 299) && (Zeny > 499)) {
+			delitem 2247,1; //Oldman's_Romance
+			delitem 916,300; //Feather_Of_Birds
+			set Zeny,Zeny - 500;
+			mes "[Mercador]";
+			mes "Ei... Bom gosto!";
+			mes "Eu sei que foi difícil conseguir esses itens, mas isto vale a pena. Pode levar.";
+			getitem 5018,1; //Feather_Bonnet
+			close;
+		}
+		else {
+			mes "[Mercador]";
+			mes "Viu! Eu disse para contar denovo!";
+			mes "Você não me parece muito esperto... Pense direito! Certo?";
+			close;
+		}
+	case 3:
+		if ((countitem(999) > 19) && (countitem(707) > 0) && (Zeny > 4999)) {
+			delitem 999,20; //Steel
+			delitem 707,1; //Singing_Plant
+			set Zeny,Zeny - 5000;
+			mes "[Mercador]";
+			mes "Está certo...";
+			mes "Parece arrepiante, mas é bem especial... não acha?";
+			mes "... Acho que gostou... Aqui! Pegue!";
+			getitem 2281,1; //Phantom_Of_Opera
+			close;
+		}
+		else {
+			mes "[Mercador]";
+			mes "Viu! Eu disse para contar denovo!";
+			mes "Você não me parece muito esperto... Pense direito! Certo?";
+			close;
+		}
+	case 4:
+		if ((countitem(1019) > 119) && (Zeny > 9999)) {
+			delitem 1019,120; //Wooden_Block
+			set Zeny,Zeny - 10000;
+			mes "[Mercador]";
+			mes "Você sabia que tem uma pessoa que faz um bom Chapéu Chinês em Payon.";
+			mes "Aqui é o único lugar que vende o Chapéu Chinês que ele fez.";
+			mes "Aqui! Pegue!";
+			getitem 2280,1; //Sakkat
+			close;
+		}
+		else {
+			mes "[Mercador]";
+			mes "Viu! Eu disse para contar denovo!";
+			mes "Você não me parece muito esperto... Pense direito! Certo?";
+			close;
+		}
+	}
+}

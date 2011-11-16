@@ -1,0 +1,1362 @@
+//===== Cronus Script ======================================== 
+//= NPCs de Lutie
+//===== Por: ================================================= 
+//= Mara
+//===== Versão: ============================================== 
+//= 1.0
+//===== Compatível com: ====================================== 
+//= Emulador [3010]; Cliente [EP 12.1]
+//===== Descrição: =========================================== 
+//= [Conversão do Aegis]
+//= Todos os NPCs da Cidade de Lutie
+//===== Comentários adicionais: ============================== 
+//= 1.0 Conversão do Aegis [Mara]
+//============================================================ 
+
+aldebaran,168,168,4	script	Papai Noel#lu	718,5,5,{
+	mes "[Papai Noel]";
+	mes "Hoh! Hoh! Hoh!";
+	mes "Feliz Natal!!";
+	mes "Todo mundo - felicidades a vocês!";
+	next;
+	switch (select("Sobre Lutie.","Ir para Lutie.","Cancelar."))
+	{
+		case 1:
+			mes "[Papai Noel]";
+			mes "Lindo Natal...";
+			mes "está chegando...";
+			mes "Cidade Fantasia ^3355FF'Lutie'^000000 !!";
+			mes "Mas que bolos deliciosos...";
+			mes "E que soldadinho bonitinho...";
+			mes "Nesse mundo!";
+			next;
+			mes "[Papai Noel]";
+			mes "Todo ano... por um dia inteiro...";
+			mes "Num clima de festival maravilhoso...";
+			mes "Um lugar místico!";
+			mes "Hoh! Hoh! Hoh!";
+			next;
+			mes "[Papai Noel]";
+			mes "Estou em Lutie para vocês...";
+			mes "Eu sou o Papai Noel!";
+			mes "Pessoal";
+			mes "Vocês querem ver?";
+			close;
+			break;
+		case 2:
+			mes "[Papai Noel]";
+			mes "Hoh! Hoh! Hoh!";
+			mes "A estrada  que leva a Lutie...";
+			mes "Há apenas uma em todo o mundo...";
+			mes "Deve-se atravessar...";
+			mes "Al De Baran!";
+			mes "É o único caminho";
+			next;
+			mes "[Papai Noel]";
+			mes "Para ir diretamente à Cidade Fantasia.";
+			mes "Lutie";
+			mes "Se quiser passar Lutie...";
+			mes "E sair de Al De Baran...";
+			mes "Você pode pedir ao...";
+			mes "Papai Noel";
+			next;
+			mes "Então, pessoal, vocês querem ver?";
+			mes "Hoh! Hoh! Hoh!";
+			mes "Feliz Natal!!";
+			close;
+			warp "xmas_fild01",78,68;
+			break;
+		case 3:
+			mes "[Papai Noel]";
+			mes "Hoh! Hoh! Hoh!";
+			mes "Se quiser ir a Lutie...";
+			mes "Venha a mim a qualquer hora...";
+			mes "E diga-me";
+			mes "Boa sorte pessoal!!";
+			close;
+			break;
+	}
+	end;
+}
+
+xmas_in,100,96,4	script	Papai Noel#lu1	718,5,5,{
+	mes "[Papai Noel]";
+	mes "Hoh! Hoh! Hoh!";
+	mes "Feliz - Natal!!";
+	next;
+	mes "[Papai Noel]";
+	mes "Hoh! Hoh! Hoh!";
+	mes "Sou eu quem traz para todo o mundo...";
+	mes "Presentes de amor...";
+	mes "Papai Noel";
+	mes "Ho! Ho!  Ho! Ho! Hoje será um dia especial...";
+	mes "Para todo mundo!";
+	next;
+	mes "Te darei um presente!";
+	mes "O caminho para sair de Lutie!";
+	mes "Antes de vir para essa cidade,";
+	mes "você vai para o sul";
+	mes "você pode ver a conexão via portal.";
+	next;
+	mes "[Papai Noel]";
+	mes "E se você entrar";
+	mes "nessa conexão,";
+	mes "você voltará para Al De Baran.";
+	mes "Hoh! Hoh! Hoh!";
+	mes "Feliz Natal!!";
+	mes "Boa sorte, companheiro";
+	close;
+	end;
+}
+
+xmas,134,112,4	script	Boneco de Neve#lu	710,5,5,{
+	mes "[Boneco de neve]";
+	mes ". . . . .";
+	mes "Que solidão! Como estou só!";
+	mes "Não posso sair daqui! Estou no mesmo lugar para sempre...";
+	mes "Eu sou um boneco de neve";
+	next;
+	switch (select("^3355FFO que é um boneco de neve?^000000","Perguntar sobre a caverna secreta.","Cancelar."))
+	{
+		case 1:
+			if (xmas_npc < 2)
+			{
+				mes "[Boneco de neve]";
+				mes "As pessoas me constroem...";
+				mes "Os humanos me fizeram...";
+				mes "Um grande boneco de neve...";
+				mes "Eu nasci em um lugar gelado...";
+				mes "Ao norte...";
+				mes "Neva o ano inteiro lá.";
+				next;
+				mes "[Boneco de neve]";
+				mes "É sempre frio.";
+				mes "Tornando-se o lugar perfeito para eu crescer...";
+				mes "O lugar é Lutie!";
+				mes "É uma cidadezinha fria...";
+				mes "Onde minha vida era de fato...";
+				mes "Feliz...";
+				next;
+				mes "[Boneco de neve]";
+				mes "Entretanto... certo dia...";
+				mes "Uma velha malvada chegou...";
+				mes "Seu nome era...";
+				mes "'Melody'...";
+				mes "Escutei que ela veio de um lugar quente...";
+				mes "Um vilerajo dentro de uma caverna...";
+				next;
+				mes "[Boneco de neve]";
+				mes "Esta velha...";
+				mes "Chegou na quarta noite...";
+				mes "Ela apareceu na praça central...";
+				mes "Ela sussurrou terríveis magias...";
+				mes "E de repente uma tempestade veio e... Eu e meu amigo...";
+				mes "Ficamos inconscientes imediatamente...";
+				next;
+				mes "[Boneco de neve]";
+				mes "Não sei por quanto tempo...";
+				mes "Ficamos assim...";
+				mes "Estava aqui quando acordei...";
+				mes "Um lugar calmo e tranquilo...";
+				mes "Lutie";
+				mes "Aqui é como o céu!";
+				next;
+				mes "[Boneco de neve]";
+				mes "Mas perdi todos meus amigos...";
+				mes "Me sinto tão sozinho";
+				mes "Realmente só ";
+				mes "Se você ficar um tempinho me escutando...";
+				mes "Ou então pode me dizer o que quiser...";
+				mes "Ei! Ei! Ei...";
+				close;
+			}
+			else
+			{
+				switch (xmas_npc)
+				{
+					case 2:
+						mes "[Boneco de neve]";
+						mes "Esta história parece vir de..";
+						mes "'Double'";
+						mes "Ei! Ei! Ei... As pessoas de Lutie";
+						mes "E até mesmo eu...";
+						mes "Chamam-me de Boneco de Neve Místico.";
+						mes "Mas sou só um boneco de neve...";
+						next;
+						mes "[Boneco de neve]";
+						mes "Nada mais...";
+						mes "Sinceramente......";
+						mes "Não me conheço muito bem.";
+						mes "Não me conheço mais do que vocês.";
+						mes "Somente finjo...";
+						mes "Que eu me conheço...";
+						next;
+						mes "[Boneco de neve]";
+						mes "O sr. ^3355FF'Peterson'^000000 me disse...";
+						mes "Se algum problema me acontecer...";
+						mes "Eu posso procurá-lo. Ele até me deixou seu cartão.";
+						mes "Mas como não tenho pernas...";
+						mes "Não posso andar até ele...";
+						mes ".........";
+						next;
+						mes "[Boneco de neve]";
+						mes "Eu me pergunto...";
+						mes "Como cheguei aqui...";
+						mes "Por que posso me comunicar com as pessoas...";
+						mes "Através da fala...";
+						mes "Eu......";
+						next;
+						mes "^3355FF-Boneco de neve-^000000.";
+						mes "^3355FF-Pensando profundamente-^000000.";
+						mes "^3355FF-Olhando o cartão do sr. Peterson-^000000.";
+						set xmas_npc,3;
+						close;
+						break;
+					case 3:
+						mes "[Boneco de neve]";
+						mes ". . . . . . . . . . . . . . .";
+						next;
+						mes "^3355FF-Boneco de neve -^000000.";
+						mes "^3355FF-Pensando profundamente-^000000.";
+						mes "^3355FF-Olhando o cartão do sr. Peterson-^000000.";
+						close;
+						break;
+					case 4:
+						mes "[Boneco de neve]";
+						mes "Então conheceu o sr. Peterson antes de vir...";
+						mes "É claro que sabe disso...";
+						mes "Ele é um belo jovem...";
+						mes "Ele está apaixonado pela senhorita 'Double'...";
+						mes "Está...";
+						mes "Ah! Ha! Ha! Ha! Ha!";
+						next;
+						mes "[Boneco de neve]";
+						mes "'Double' deveria ser ...";
+						mes "Mais amigável...";
+						mes "Na verdade Double é amigável com todos...";
+						mes "Mas ela trata de forma diferente o sr. Peterson...";
+						mes "Eu sei que a Double sente o mesmo...";
+						mes "Que o sr. Peterson...";
+						close;
+						break;
+					case 5:
+						mes "[Boneco de neve]";
+						mes "Então você conheceu o ^3355FF' Tio Kan Peludo '^000000...";
+						mes "Antes de vir aqui...";
+						mes "Tio Kan sempre fala alto...";
+						mes "Às vezes ele toma banho e fica com um cheiro estranho.";
+						mes "Mas ele é um homem engraçado e trabalhador.";
+						mes "E todos aqui gostam dele...";
+						next;
+						mes "[Boneco de neve]";
+						mes "Tio Kan...";
+						mes "Gosta de tomar aquelas coisas?!";
+						mes "As pessoas aqui da vila se perguntam...";
+						mes "Por que ele não fica com diarréia...";
+						mes "Ei! Ei! Ei... tio Kantata...";
+						mes "Eu também gosto dele";
+						close;
+						break;
+					case 6:
+						mes "[Boneco de neve]";
+						mes "Então você conheceu a senhora ^3355FF'Tashinze'^000000 que faz o grande Kimchi.";
+						mes "Antes de vir aqui...";
+						mes "Mm... Tenho algo para ela...";
+						mes "Pegue isto. É o que ela quer...";
+						mes "Sal";
+						next;
+						set xmas_npc,7;
+						mes "^3355FF'o maior sal do mundo'^000000.";
+						mes "^3355FF- pegue -^000000.";
+						next;
+						mes "[Boneco de neve]";
+						mes "A senhora Tashinze ela cozinha...";
+						mes "Muito bem... Às vezes ela faz...";
+						mes "Sorvete de uva...";
+						mes "Para mim...";
+						mes "Por favor, entregue o sal...";
+						mes "A ela por mim...";
+						close;
+						break;
+					case 7:
+						mes "[Boneco de neve]";
+						mes "^3355FF'o maior sal do mundo'^000000.";
+						mes "Certifique-se que ela pegue...";
+						close;
+						break;
+					case 8:
+						mes "[Boneco de neve]";
+						mes "'Hasoki' é um palhaço chato.";
+						mes "Ele tem cara de bobo.";
+						mes "Ele nunca faz as pessoas rirem.";
+						mes "Ele não presta para ser palhaço.";
+						mes "Mas... ele se dedica tanto a dois órfãos...";
+						mes "Ele é legal no fundo.";
+						close;
+						break;
+					case 9:
+						mes "[Boneco de neve]";
+						mes "'Charlie' é um romântico...";
+						mes "Além de ser uma criança feliz...";
+						mes "Ele se mete em encrencas e vive dizendo...";
+						mes "- Eu sou Charlie!";
+						mes "Eu gosto de falar sobre mim mesmo...-";
+						mes "Um cara muito impressionante.";
+						close;
+						break;
+					case 10:
+						mes "[Boneco de neve]";
+						mes "....... Minha história prendeu sua atenção...";
+						mes "Fico feliz com isso.";
+						mes "Você não é daqui...";
+						mes "Mas se esforçou para me conhecer.";
+						mes "Fico feliz e agradeço...";
+						mes "Em Lutie, acho que já sabe ...";
+						next;
+						mes "[Boneco de neve]";
+						mes "Ainda melhor...";
+						mes "Qualquer um...";
+						mes "Sobre minha história...";
+						mes "Ei! Ei! Ei...";
+						mes "Meu novo amigo...";
+						mes "Tenho um presente para você.";
+						next;
+						mes "[Boneco de neve]";
+						mes "Dong!  Dong!  Dong!  Dong!  Dong!";
+						mes "Deste bolso...";
+						mes "Pegue o que quiser!!";
+						next;
+						mes "^3355FF-Olhe na sacola-^000000.";
+						set @snownow,rand(1,8);
+						next;
+						switch (@snownow)
+						{
+							case 1:
+								set xmas_npc,11;
+								getitem 529,5; //Bala
+								mes "[Boneco de neve]";
+								mes "UAU! Parabéns!";
+								mes "Você pegou ^3355FFCinco Balas^000000.";
+								mes "Contarei com você daqui em diante.";
+								mes "Para que conte minha história às pessoas.";
+								mes "Venha me visitar sempre que tiver tempo.";
+								mes "Feliz Natal!!";
+								close;
+								break;
+							case 2:
+								set xmas_npc,11;
+								getitem 529,10; //Bala
+								mes "[Boneco de neve]";
+								mes "UAU! Parabéns!";
+								mes "Você pegou ^3355FFDez Balas^000000.";
+								mes "Contarei com você daqui em diante.";
+								mes "Para que conte minha história às pessoas.";
+								mes "Venha me visitar sempre que tiver tempo.";
+								mes "Feliz Natal!!";
+								close;
+								break;
+							case 3:
+								set xmas_npc,11;
+								getitem 530,5; //Bengala Doce
+								mes "[Boneco de neve]";
+								mes "UAU! Parabéns!";
+								mes "Você pegou ^3355FFCinco Bengalas Doces^000000.";
+								mes "Contarei com você daqui em diante.";
+								mes "Para que conte minha história às pessoas.";
+								mes "Venha me visitar sempre que tiver tempo.";
+								mes "Feliz Natal!!!";
+								close;
+								break;
+							case 4:
+								set xmas_npc,11;
+								getitem 530,10; //Bengala Doce
+								mes "[Boneco de neve]";
+								mes "UAU! Parabéns!";
+								mes "Você pegou ^3355FFDez Bengalas Doces^000000.";
+								mes "Contarei com você daqui em diante.";
+								mes "Para que conte minha história às pessoas.";
+								mes "Venha me visitar sempre que tiver tempo.";
+								mes "Feliz Natal!!!";
+								close;
+								break;
+							case 5:
+								set xmas_npc,11;
+								getitem 539,1; //Pedaço de Bolo
+								mes "[Boneco de neve]";
+								mes "UAU! Parabéns!";
+								mes "Você pegou ^3355FFum Pedaço de Bolo^000000.";
+								mes "Contarei com você daqui em diante.";
+								mes "Para que conte minha história às pessoas.";
+								mes "Venha me visitar sempre que tiver tempo.";
+								mes "Feliz Natal!!!";
+								close;
+								break;
+							case 6:
+								set xmas_npc,11;
+								getitem 539,2; //Pedaço de Bolo
+								mes "[Boneco de neve]";
+								mes "UAU! Parabéns!";
+								mes "Você pegou ^3355FFDois Pedaços de Bolo^000000.";
+								mes "Contarei com você daqui em diante.";
+								mes "Para que conte minha história às pessoas.";
+								mes "Venha me visitar sempre que tiver tempo.";
+								mes "Feliz Natal!!!";
+								close;
+								break;
+							case 7:
+								set xmas_npc,11;
+								getitem 538,5; //Biscoito de Gengibre
+								mes "[Boneco de neve]";
+								mes "UAU! Parabéns!";
+								mes "Você pegou ^3355FFCinco Biscoitos de Gengibre^000000.";
+								mes "Contarei com você daqui em diante.";
+								mes "Para que conte minha história às pessoas.";
+								mes "Venha me visitar sempre que tiver tempo.";
+								mes "Feliz Natal!!!";
+								close;
+								break;
+							case 8:
+								set xmas_npc,11;
+								getitem 538,10; //Biscoito de Gengibre
+								mes "[Boneco de neve]";
+								mes "UAU! Parabéns!";
+								mes "Você pegou ^3355FFDez Biscoitos de Gengibre^000000.";
+								mes "Contarei com você daqui em diante.";
+								mes "Para que conte minha história às pessoas.";
+								mes "Venha me visitar sempre que tiver tempo.";
+								mes "Feliz Natal!!!";
+								close;
+								break;
+						}
+						break;
+					case 11:
+						mes "[Boneco de neve]";
+						mes "Vamos lá... pessoal!";
+						mes "Em Lutie...";
+						mes "São sempre bem-vindos...";
+						mes "Especialmente por mim... Boneco de Neve!";
+						mes "Feliz Natal!!";
+						close;
+						break;
+				}
+			}
+		case 2:
+			mes "[Boneco de neve]";
+			mes "Em algum lugar perto de Lutie...";
+			mes "Há um lugar chamado caverna de Natal...";
+			mes "É como uma fábrica de brinquedos...";
+			mes "Toda a decoração é linda...";
+			mes "Algo como um soldadinho.";
+			mes "Uma grande caixa de tesouro.";
+			next;
+			mes "[Boneco de neve]";
+			mes "Muitas pessoas querem ir lá...";
+			mes "Só de pensar as pessoas ficam animadas!";
+			mes "Nem que por uma vez...";
+			mes "Ir lá dar uma olhada...";
+			close;
+			break;
+		case 3:
+			mes "[Boneco de neve]";
+			mes "Até logo! Meu amigo!";
+			mes "Obrigado por tudo...";
+			mes "Venha me visitar a qualquer hora.";
+			mes "Jamais me esquecerei de você!";
+			close;
+			break;
+	}
+	close;
+}
+
+xmas_in,165,174,4	script	Garota do Natal#lu	711,5,5,{
+	if (xmas_npc == 1)
+	{
+		mes "[Double]";
+		mes "Feliz Natal!!";
+		mes "Bem-vindo a Lutie.";
+		mes "Bem-vindo";
+		mes "Bem-vindo...";
+		next;
+		mes "[Double]";
+		mes "Você pegou presentes do Papai Noel...";
+		mes "É muito legal!";
+		mes "Você deve estar alegre.";
+		mes "Há alguém famoso como o Papai Noel...";
+		mes "Aqui em nossa vila.";
+		mes "Quer saber quem ele é?";
+		next;
+		mes "[Double]";
+		mes "Este é o ^3355FF'Boneco de Neve'^000000";
+		mes "Ele entende a nossa língua...";
+		mes "E se comunica com as pessoas.";
+		mes "Um boneco de neve que conhece muitas charadas.";
+		next;
+		mes "[Double]";
+		mes "Se ainda não conheceu o boneco de neve...";
+		mes "Visite-o quando tiver tempo...";
+		mes "Fale com ele.";
+		mes "É divertido.";
+		mes ".........";
+		mes "Bem... Feliz Natal!!";
+		set xmas_npc,2;
+		close;
+	}
+	else
+	{
+		mes "[Double]";
+		mes "Feliz Natal!!";
+		mes "Bem vindo a Lutie.";
+		mes "Bem-vindo";
+		mes "Bem-vindo...";
+		next;
+		mes "[Double]";
+		mes "Conheceu alguém na entrada de Lutie?";
+		mes "Como o Boneco de Neve...";
+		mes "Falou com ele?";
+		mes "Ele é muito solitário...";
+		mes "Ele é feito de neve congelada...";
+		mes "O frio Boneco de Neve...";
+		next;
+		mes "[Double]";
+		mes "Mas ele é um Boneco de Neve gentil...";
+		mes "Eu falo com o 'Boneco de Neve'...";
+		mes "De vez em quando...";
+		mes "Sobre coisas...";
+		mes "Não sei por que Boneco de Neve...";
+		mes "Entende nossa língua...";
+		next;
+		mes "[Double]";
+		mes "Ele pode te responder...";
+		mes ".........";
+		mes "Se tivesse falado com Boneco de Neve...";
+		mes "Teria sentido...";
+		mes "Como ele é místico...";
+		mes "Digo, se tiver a oportunidade... ";
+		next;
+		mes "[Double]";
+		mes "De falar com Boneco de Neve...";
+		mes "Você terá várias perguntas...";
+		mes "Como Boneco de Neve foi criado?";
+		mes "Ou quem o fez?";
+		mes "Ou...";
+		mes "Por que ele fala?";
+		next;
+		mes "[Double]";
+		mes "Onde é a casa do Boneco de Neve?";
+		mes "Há neve o ano inteiro?";
+		mes "Além disso...";
+		mes "Como o Boneco de Neve chegou aqui?";
+		mes "Várias perguntas...";
+		next;
+		mes "[Double]";
+		mes "Recentemente, várias pessoas...";
+		mes "Se interessam pelo Boneco de Neve...";
+		mes "E as pessoas que falam com o Boneco de Neve...";
+		mes "São mais e mais... Após falar com o Boneco de Neve...";
+		mes "Se ainda tiver dúvidas...";
+		mes "Acho...";
+		next;
+		mes "[Double]";
+		mes "Que pode falar com as pessoas da vila...";
+		mes "Você pode descobrir algo...";
+		if (xmas_npc == 0)
+		{
+			mes "Ah é! Agora mesmo na vila...";
+			mes "Estamos comemorando o natal...";
+			mes "Há alguém lá fora...";
+			mes "Que dá presentes para os visitantes...";
+			next;
+			mes "[Double]";
+			mes "Ele é o Papai Noel...";
+			mes "Você o conheceu?";
+			mes "Deveria fazê-lo...";
+			mes "Não demora muito...";
+			mes "Até mais!";
+			mes "Feliz Natal!!";
+			close;
+		}
+		else
+		{
+			close;
+		}
+	}
+	end;
+}
+
+xmas,117,304,4	script	Rapaz do Natal#lu	713,5,5,{
+	if ((xmas_npc == 3) || (xmas_npc == 4))
+	{
+		mes "[Fhos]";
+		mes "Quer dizer que o ^3355FF' Boneco de Neve'^000000 ...";
+		mes "Falou sobre mim?";
+		mes "Uh-uh... Este Boneco de Neve...";
+		mes "Não pode ir à lugar nenhum...";
+		mes "Obrigado por repassar a mensagem...";
+		mes "Vou visitá-lo quando tiver tempo.";
+		next;
+		mes "[Fhos]";
+		mes "Soube que há alguém...";
+		mes "Ninguém sabe porque o Boneco de Neve entende...";
+		mes "e fala a nossa língua...";
+		mes "A menos ^3355FF'tio Kantata'^000000.";
+		mes "Ele sabe tudo...";
+		mes "Há muito tempo atrás alguém visitou Lutie...";
+		next;
+		mes "[Fhos]";
+		mes "... Um pupilo de um alquimista famoso...";
+		mes "O pupilo e";
+		mes "Tio Kantata se conheceram...";
+		mes "E eles falavam sobre...";
+		mes "Alguém que tinha ido à cidade do Boneco de Neve...";
+		next;
+		mes "[Fhos]";
+		mes "Este famoso alquimista...";
+		mes "Ele tentou prolongar...";
+		mes "A vida moribunda do Boneco de Neve...";
+		mes "Aí ele...";
+		mes "Usou umas coisas...";
+		mes "Que são minerais e materiais mágicos...";
+		next;
+		mes "[Fhos]";
+		mes "E aí...";
+		mes "Ele trouxe o Boneco de Neve de volta a vida...";
+		mes "Os detalhes...";
+		mes "Só o ^3355FF'Tio Kantata Peludo'^000000...";
+		mes "Sabe...";
+		mes "Vá visitá-lo se quiser saber mais...";
+		set xmas_npc,4;
+		close;
+	}
+	else
+	{
+		mes "[Fhos]";
+		mes "Feliz Natal!!";
+		mes "Esta cidade abençoada...";
+		mes "e linda que é...";
+		mes "Lutie!";
+		mes "Feliz Natal!!";
+		next;
+		mes "[Fhos]";
+		mes "Lutie...";
+		mes "Não existe somente durante o Natal!!";
+		mes "Não se engane...";
+		mes "Esta é uma cidade linda que te faz sentir o...";
+		mes "Natal...";
+		mes "24 horas por dia e 365 dias por ano...";
+		next;
+		mes "[Fhos]";
+		mes "Se andar pela cidade...";
+		mes "Perceberá...";
+		mes "Esta não é uma cidade de belezas naturais...";
+		mes "E parques temáticos...";
+		mes "Como outras vilas...";
+		mes "Nós temos todo tipo de instalações...";
+		next;
+		mes "[Fhos]";
+		mes "Nós somos tradicionais também...";
+		mes "É um lugar legal... Até para viver.";
+		mes "A vida é fácil aqui...";
+		mes "Nenhuma preocupação...";
+		mes "Então... Que a felicidade esteja com você...";
+		mes "Feliz Natal!!";
+		close;
+	}
+	end;
+}
+
+xmas,176,236,4	script	Tio Peludo#lu	712,5,5,{
+	if (xmas_npc == 4)
+	{
+		if ((countitem(1024) > 0) && (countitem(938) > 0)) //Tinta de Polvo, Muco Pegajoso
+		{
+			mes "[Kantata]";
+			mes "Oh-como?! Heh! Heh! Heh!";
+			mes "Mas que jovem cheio de energia...";
+			mes "Óóóótimo!";
+			mes "Deixe-me provar esta bebida que trouxe...";
+			next;
+			delitem 1024,1; //Tinta de Polvo
+			delitem 938,1; //Muco Pegajoso
+			mes "Dê-lhe^3355FF Tinta^000000";
+			mes "e ^3355FFMuco Pegajoso^000000.";
+			next;
+			mes "[Kantata]";
+			mes "Glub! Glub! Bom!";
+			mes "Mm... Agora posso te contar histórias...";
+			mes "Vamos começar com...";
+			mes "Não sei o que você já sabe...";
+			mes "Mas vou te contar tudo...";
+			mes "Tudo o que sei.";
+			next;
+			mes "[Kantata]";
+			mes "Muito tempo atrás...";
+			mes "Num país bem ao norte...";
+			mes "Um alquimista famoso apareceu...";
+			mes "O alquimista...";
+			mes "Se chamava...";
+			mes "^3355FF'Philip Paris'^000000 !!";
+			next;
+			mes "[Kantata]";
+			mes "Ele queria levar sua alquimia...";
+			mes "Para um outro nível...";
+			mes "Ele viajava ao redor do mundo...";
+			mes "Procurando itens raros e poderosos...";
+			mes "Em sua busca... Ele foi ao norte...";
+			mes "Para uma vila fria...";
+			next;
+			mes "[Kantata]";
+			mes "Mas quando chegou lá...";
+			mes "Ele descobriu algo estranho...";
+			mes "Uma vila deserta cheia de mato...";
+			mes "Parecia triste... Não era a casa de ninguém...";
+			mes "Havia feridos por todo lado.";
+			mes "Eles gemiam...";
+			next;
+			mes "[Kantata]";
+			mes "Pessoas mortas... Sem esperança...";
+			mes "Em todo lugar... Ele entrou em contato com a vila vizinha...";
+			mes "E ajudou aquelas pessoas a recontruir suas casas...";
+			mes "Então sentiu que em algum lugar da vila...";
+			mes "Algo estava triste... ";
+			mes "Ele foi procurar e achou...";
+			next;
+			mes "[Kantata]";
+			mes "O moribundo Boneco de Neve...";
+			mes "Sem dúvida era o mesmo que você viu na entrada de Lutie.";
+			mes "Sua cabeça estava coberta por...";
+			mes "Algo que crescia ao seu lado...";
+			mes "Eram plantas e minerais mágicos...";
+			mes "Boneco de Neve é feito de neve!";
+			next;
+			mes "[Kantata]";
+			mes "Escutei que Boneco de Neve segurava";
+			mes "Duas crianças chorando...";
+			mes "Não se sabe pelo que eles tinham passado...";
+			mes "Para proteger essas crianças...";
+			mes "Ele se sacrificou...";
+			mes "Dedicou-se...";
+			next;
+			mes "[Kantata]";
+			mes "Quando percebeu o que estava acontecendo... ";
+			mes "O alquimista usou suas habilidades e...";
+			mes "Trouxe o Boneco de Neve de volta a vida... e o trouxe ...";
+			mes "Aqui!";
+			mes "A cidade mais segura... Lutie.";
+			mes "Então, Boneco de Neve está aqui desde então...";
+			next;
+			mes "[Kantata]";
+			mes "Heh! Heh! Heh!Heh! Heh! ";
+			mes "É isso... Fim...";
+			mes "É tudo que sei sobre Boneco de Neve...";
+			mes "Tudo...";
+			mes "Deu pra te esclarecer tudo?";
+			mes "Heh! Heh! Heh!";
+			next;
+			mes "[Kantata]";
+			mes "Ah! Bom...";
+			mes "Por que se interessa pelo Boneco de Neve...";
+			mes "Por estar dando presentes às pessoas...";
+			mes "Isto...";
+			mes "Faz agente pensar...";
+			mes "e ouvir..";
+			next;
+			mes "[Kantata]";
+			mes "a senhora que faz o delicioso chocolate kimchi...";
+			mes "^3355FF'Tashinze'^000000...";
+			mes "Sabe porquê...";
+			mes "Acho... que se quiser saber mais...";
+			mes "Procure-a...";
+			mes "Feliz Natal!!";
+			set xmas_npc,5;
+			close;
+		}
+		else
+		{
+			mes "[Kantata]";
+			mes "Oh-como? Fhos te contou...";
+			mes "Mesmo?";
+			mes "Heh! Ha! Heh! Ha!! Mm! Mm!";
+			mes "Eu conheci esse alquimista...";
+			mes "Eu sei de tudo!";
+			mes "Até mesmo como^3355FF'Boneco de Neve'^000000 nasceu!!";
+			next;
+			mes "[Kantata]";
+			mes "Você quer saber bastante?!";
+			mes "Heh! Heh! Heh! Realmente quer saber, não é?";
+			mes "Mas não existe almoço grátis...";
+			mes "Estou com sede...";
+			mes "Traga-me ^3355FF'Tinta'^000000 e ^3355FF'Muco Pegajoso'^000000,";
+			mes "Aí te contarei!";
+			next;
+			mes "[Kantata]";
+			mes "UAU! Ha! Ha!";
+			mes "O que as outras pessoas gostam de beber..";
+			mes "Você não tem nada com isso!!";
+			mes "Traga para mim agora...";
+			mes "Não direi nada se não me trouxer!";
+			mes "Heh! Heh! Heh!Heh! Heh! ";
+			close;
+		}
+	}
+	else
+	{
+		mes "[Kantata]";
+		mes "Feliz Natal!!";
+		mes "Bem-vindo...";
+		mes "À feliz Lutie!";
+		mes "Heh! Heh! Amigo! Seu rosto está vermelho...";
+		mes "Ruborizada... O tempo aqui é mesmo...";
+		mes "Frio! É tão frio que te faz parecer...";
+		next;
+		mes "[Kantata]";
+		mes "Uma ^3355FF'Maçazinha Vermelha'^000000.";
+		mes "Ha! Ha! Ha! Ha! Ha! ";
+		mes "Não pegue uma gripe!";
+		mes "O virus da gripe de Lutie...";
+		mes "É bem forte...";
+		mes ". . . . .";
+		next;
+		mes "[Kantata]";
+		mes "Uh-ha! Falar de resfriados me faz lembrar...";
+		mes "Meus filhos recentemente...";
+		mes "ficaram muito gripadas...";
+		mes "Foi no meio da noite...";
+		mes "Todas farmácias estavam fechadas...";
+		mes "Aí me toquei...";
+		next;
+		mes "[Kantata]";
+		mes "Dentro da caverna secreta de natal do vilarejo...";
+		mes "Talvez lá tivesse alguma bolsa de gelo...";
+		mes "E quer saber... Foi tão engraçado...";
+		mes "Dentro da caverna secreta de natal ...";
+		mes "Achei algo...";
+		mes "Que é ótimo para bolsas de gelo...";
+		next;
+		mes "[Kantata]";
+		mes "Uns carinhas correndo pra lá e pra cá...";
+		mes "Eram ^3355FF'Ice Poring'^000000!";
+		mes "As pessoas os chamam de 'Ice Ball Poring '.";
+		mes "Aí... eu tentei...";
+		mes "Descobri uma maneira de capturar um!";
+		mes "E coloquei na testa de meu filho...";
+		next;
+		mes "[Kantata]";
+		mes "A febre baixou imediatamente.";
+		mes "Heh! Ha! Ha! Ha! Ha! Ha! ";
+		mes "Como é conveniente morar aqui.";
+		mes "Eu falo demais...";
+		mes "Boa sorte de qualquer maneira!";
+		close;
+	}
+	end;
+}
+
+xmas_in,27,103,4	script	Senhora Generosa#lu	701,5,5,{
+	if ((xmas_npc == 5) || (xmas_npc == 6) || (xmas_npc == 7))
+	{
+		switch (xmas_npc)
+		{
+			case 5:
+				mes "[Tashinze]";
+				mes "Como? O tio peludo...";
+				mes "Falou sobre mim...";
+				mes "Ele disse que sou boa para fazer kimchi...";
+				mes "Fico feliz... Acho que ele quer que eu lhe dê kimchi...";
+				mes "Sabia que ele estava tramando!";
+				mes "Heh!Heh! Heh! Porém...";
+				next;
+				mes "[Tashinze]";
+				mes "Sou boazinha... Eu não me importo...";
+				mes "De dar um pouco para ele...";
+				mes "Ótimo... Todos gostam do meu kimchi!";
+				mes "O que?";
+				mes "História sobre o ^3355FF'Boneco de Neve'^000000 ?";
+				mes "Ah sei! Mm... sei um pouco, mas...";
+				next;
+				mes "[Tashinze]";
+				mes "Não existe almoço grátis!";
+				mes "Sabe que senhoras de idade como eu...";
+				mes "No meu mundo...";
+				mes "Nada é de graça... Entendeu?";
+				mes "Deixei umas coisas com o Boneco de Neve por um tempo.";
+				mes "Então...";
+				next;
+				mes "[Tashinze]";
+				mes "Pode pegar pra mim, por favor?";
+				mes "^3355FF'O maior sal do mundo'^000000.";
+				mes "Pegue para mim... Quando faço kimchi...";
+				mes "Tenho que tê-lo...";
+				mes "Ache o Boneco de Neve...";
+				mes "Diga que eu te mandei...";
+				next;
+				mes "[Tashinze]";
+				mes "Aí ele te dará.";
+				mes "Mm... você vai?";
+				mes "Volte logo...";
+				set xmas_npc,6;
+				close;
+				break;
+			case 6:
+				mes "[Tashinze]";
+				mes "Oooo...h!";
+				mes "Onde está?";
+				mes "Ei? Você ainda não pegou?";
+				mes "Oh! Meu Deus! Meu kimchi vai estragar! ";
+				mes "(?)";
+				mes "Vai logo!";
+				next;
+				mes "[Tashinze]";
+				mes "Uh-huh! Mas que rapazinho bobo...";
+				mes "Eu falei para pegar com o Boneco de Neve...";
+				mes "^3355FF'O maior sal do mundo'^000000.";
+				mes "E você ainda não pegou!";
+				mes "Vai logo!";
+				close;
+				break;
+			case 7:
+				mes "[Tashinze]";
+				mes "Oooo...h!";
+				mes "Cadê?";
+				mes "Obrigado jovem rapaz...";
+				next;
+				set xmas_npc,8;
+				mes "Por trazer ^3355FF'O maior sal do mundo'^000000...";
+				mes "Pra mim!";
+				next;
+				mes "[Tashinze]";
+				mes "Agora posso fazer...";
+				mes "O kimchi que todo mundo ama...";
+				mes "Muito obrigada!";
+				mes ".........Mm?";
+				mes "Ah! Certo! Eu prometi...";
+				mes "Te contar a história do Boneco de Neve...";
+				next;
+				mes "[Tashinze]";
+				mes "Não foi?";
+				mes "Se você já ouviu a versão da história do Tio Peludo...";
+				mes "Então deve saber que o Boneco de Neve...";
+				mes "Foi feito com ...";
+				mes "Muitas plantas mágicas...";
+				mes "E minerais da neve.";
+				next;
+				mes "[Tashinze]";
+				mes "Aí não preciso explicar os detalhes...";
+				mes "Por algum motivo...";
+				mes "Boneco de Neve voltou à vida...";
+				mes "'Alquimia de Ressurreição'...";
+				mes "Usou alguns...";
+				mes "Itens de alquimia...";
+				next;
+				mes "[Tashinze]";
+				mes "Quando esses itens foram para o corpo do Boneco de Neve...";
+				mes "E encontraram os elementos antigos... Causou uma reação química. ";
+				mes "O ressucitou e fez um grande clarão...";
+				mes "Fez crescer nele um bolso de presentes...";
+				mes "Nesse bolso...";
+				mes "Há várias coisas que o Boneco de Neve sonha em ter...";
+				next;
+				mes "[Tashinze]";
+				mes "Todos os presentes que ele sempre quer.";
+				mes "Aí ele fica com o poder de um Papai Noel...";
+				mes "Um poder parecido...";
+				mes "Se esse poder...";
+				mes "Cair nas mão erradas...";
+				mes "Estaremos perdidos...";
+				next;
+				mes "[Tashinze]";
+				mes "E como sabe que o Boneco de Neve...";
+				mes "É bom e honesto...";
+				mes "Todas pessoas de Lutie...";
+				mes "Têm bastante fé no Boneco de Neve...";
+				mes "Verdadeiramente.";
+				next;
+				mes "[Tashinze]";
+				mes "Acredito que o...";
+				mes "Boneco de Neve é poderoso...";
+				mes "Porque ele fez grandes atos .";
+				mes "Por isso Papai Noel...";
+				mes "Deu-lhe esse poder... como um presente.";
+				mes "Não acha?";
+				next;
+				mes "[Tashinze]";
+				mes "...Ah! Além disso...";
+				mes "Recentemente, escutei do ^3355FF'Hasoki'^000000...";
+				mes "O palhaço...";
+				mes "um boato...";
+				mes "É bem engraçado... Se quiser saber...";
+				mes "Pergunte ao Hasoki...";
+				close;
+				break;
+		}
+	}
+	else
+	{
+		mes "[Tashinze]";
+		mes "Feliz Natal!!";
+		mes "Oh! Oh! Oh!";
+		mes "Que legal! Como é legal!";
+		mes "Quantos jovens vieram me procurar hoje.";
+		mes "Assim me sinto mais nova...";
+		mes "É maravilhoso!";
+		next;
+		mes "[Tashinze]";
+		mes "Há um lugar em nossa vila chamado caverna secreta de natal.";
+		mes "É como uma fábrica de brinquedos.";
+		mes "É um lugar muito interessante.";
+		mes "Se você já conversou com algumas pessoas...";
+		mes "Você deve saber sobre algo...";
+		mes "Ah! Bom...";
+		next;
+		mes "[Tashinze]";
+		mes "Recentemente, descobri...";
+		mes "Que dentro da caverna...";
+		mes "Os monstros de lá...";
+		mes "Alguns deles se parecem...";
+		mes "Com os da nossa vila...";
+		mes "Idênticos!";
+		next;
+		mes "[Tashinze]";
+		mes "Embora eles pareçam os mesmos...";
+		mes "Ao viver aqui...";
+		mes "Num lugar tão frio...";
+		mes "Eles devem ter características diferentes.";
+		mes "Eles devem se adaptar...";
+		mes "Os filhotes deles nascem aqui.";
+		next;
+		mes "[Tashinze]";
+		mes "Eles estão bem?";
+		mes ".........";
+		mes "Bom! Acho que vou fazer meu kimchi...";
+		mes "Uh-Ha!";
+		mes "Dicas de kimchi?";
+		mes "'Chocolate kimchi' é o melhor!";
+		next;
+		mes "[Tashinze]";
+		mes "Dentro do kimchi...";
+		mes "Coloque recheio...";
+		mes "De chocolate especial...";
+		mes "Deixe em banho maria!!";
+		mes "Heh! Heh!";
+		mes "É bem saboroso! O melhor!";
+		close;
+	}
+	end;
+}
+
+xmas,146,136,4	script	Palhaço de Natal#lu	715,5,5,{
+	mes "[Hasoki]";
+	mes "Feliz Natal a todos!!";
+	mes "Pilele! PilePile! Pilelele!";
+	mes "LaLaLa! LaLaLaLa!";
+	mes "DoluDolulu!";
+	next;
+	switch (select("O que faz um palhaço?","Pergunte sobre o Boneco de Neve.","Cancelar."))
+	{
+		case 1:
+			mes "[Hasoki]";
+			mes "Pilele! PilePilePi!";
+			mes "Uh-huh... Meu Deus!";
+			mes "Estou preparando um show...";
+			mes "Para umas pessoas de Lutie...";
+			mes "Duas crianças adoráveis... Charlie and Marsha...";
+			mes "Assistirão.";
+			next;
+			mes "[Hasoki]";
+			mes "É preciso ser esperto para ser um palhaço...";
+			mes "E talentoso...";
+			mes "E engraçado...";
+			mes "Mas não muito... Tem que ser na medida certa.";
+			mes "Mas não sei o que as crianças andam comendo hoje em dia...";
+			mes "Elas estão muito espertas...";
+			next;
+			mes "[Hasoki]";
+			mes "Então tenho que ser mais criativo...";
+			mes "Para ser e falar engraçado...";
+			mes "E fazê-las rirem!";
+			mes "GaGaWuLaLa!";
+			mes "Pilu! LuPiLePiLe!";
+			mes "Feliz Natal!! DoluDolu!";
+			close;
+			break;
+		case 2:
+			if (xmas_npc == 8)
+			{
+				mes "[Hasoki]";
+				mes "DoluDolu!";
+				mes "Uh-Ha! Você ouviu falar do Boneco de Neve...";
+				mes "E veio me procurar...";
+				mes "Oh-Huh... É claro que sei!";
+				mes "Não é nenhum segredo!";
+				mes "Nem nenhuma novidade!";
+				next;
+				mes "[Hasoki]";
+				mes "É sobre duas crianças que às vezes assistem ao meu show...";
+				mes "São ^3355FF'Charlie'^000000,";
+				mes "E ^3355FF'Marsha'^000000.";
+				mes "Acho que você ouviu do Tio Peludo...";
+				mes "Sobre uma vila ao norte...";
+				mes "Sobre o que aconteceu, não é?";
+				next;
+				mes "[Hasoki]";
+				mes ".......... Então você deve lembrar...";
+				mes "Quando o Boneco de Neve estava morrendo...";
+				mes "Ele pegou duas crianças em seus braços...";
+				mes "Eu vou contar sobre elas agora...";
+				mes "Preste atenção!";
+				mes "Certo! Foi assim!";
+				next;
+				mes "[Hasoki]";
+				mes "Aquelas crianças...";
+				mes "São Charlie e Marsha!";
+				mes "Mas Charlie e Marsha não sabem!";
+				mes "Porém...";
+				mes "Quando falei com Boneco de Neve...";
+				mes "Eu citei Charlie e Marsha.";
+				next;
+				mes "[Hasoki]";
+				mes "Boneco de Neve disse que... essas duas crianças...";
+				mes "Ao meu ver...";
+				mes "Ele estava protegendo as crianças...";
+				mes "Da súbita bola de fogo.";
+				mes "Ele se sacrificou...";
+				next;
+				mes "[Hasoki]";
+				mes "Charlie e Marsha...";
+				mes "Eles devem muito ao Boneco de Neve...";
+				mes "Eles são muito sortudos...";
+				mes "Acho que sabe bastante sobre o Boneco de Neve agora.";
+				mes "Não é?!";
+				mes "Você vai visitar Charlie e Marsha?";
+				next;
+				mes "[Hasoki]";
+				mes "Para descobrir mais sobre eles?!";
+				mes "Eles parecem saber bastante...";
+				mes "Sobre Boneco de Neve.";
+				mes "Vá verificar...";
+				mes "Boa sorte!";
+				mes "Tchau!";
+				set xmas_npc,9;
+				close;
+			}
+			else
+			{
+				mes "[Hasoki]";
+				mes "Uh-huh! Você está falando sobre o ^3355FF'Boneco de Neve'^000000?";
+				mes "Eu sei! Nessa vila...";
+				mes "Todos conhecem o Boneco de Neve.";
+				mes "De vez em quando eu vou conversar com o Boneco de Neve...";
+				mes "Fofocar...";
+				mes "Também às vezes...";
+				next;
+				mes "[Hasoki]";
+				mes "Brincar com ele.";
+				mes "Mas não sei...";
+				mes "Se entende. Mas sempre que termino...";
+				mes "Ele dá risada.";
+				mes "Sabe... Da minha brincadeira...";
+				mes "Faz o Boneco de Neve rir!";
+				next;
+				mes "[Hasoki]";
+				mes "Estou falando...";
+				mes "De um Boneco de Neve em um canto estranho.";
+				mes "GaGaWuLaLa!";
+				mes "DoluDolu!";
+				mes "Feliz Natal!!";
+				close;
+				break;
+			}
+		case 3:
+			mes "[Hasoki]";
+			mes "WoWoh! DolongDolong!";
+			mes "DoluDolu!";
+			mes "Feliz Natal!!";
+			mes "Tenha um bom dia!";
+			close;
+			break;
+	}
+	end;
+}
+
+xmas,206,168,4	script	Crianças#lu1	706,5,5,{
+	if (xmas_npc == 9)
+	{
+		mes "[Charu Charu]";
+		mes "O que? Boneco de Neve?";
+		mes "Heh!Heh! Heh! Um Boneco de Neve legal.";
+		mes "Quer dizer que quer saber...";
+		mes "Sobre o Boneco de Neve? O que tem o Boneco de Neve...";
+		mes "Uh-huh! Tenho uma péssima memória...";
+		mes "Fale com a Marsha por favor!";
+		mes "Fale com a Marsha por favor!!!";
+		close;
+	}
+	else
+	{
+		mes "[Charu Charu]";
+		mes "Feliz Natal pra você!!";
+		mes "Wa! HaHaHa!";
+		mes "Ah! Certo...";
+		mes "Posso... Se você falou com...";
+		mes "Aquele tio palhaço?";
+		mes "Aquele tio é muito...";
+		mes "Sem graça!";
+		next;
+		mes "[Charlie]";
+		mes "Assistir ao show dele...";
+		mes "Faz Marsha e eu nos sentirmos...";
+		mes "Uns bobos!";
+		next;
+		mes "[Marsha]";
+		mes "Não posso falar assim?";
+		mes "Por que ele fez o máximo para nos divertir!";
+		next;
+		mes "[Charlie]";
+		mes "WaHaHa! HaHaHa!";
+		mes "Ah! Entendi!";
+		mes "Mas ainda acho que é sem graça...";
+		mes "Prefiro conversar com o ^3355FF'Boneco de Neve'^000000.";
+		mes "Falar com o Boneco de Neve...";
+		mes "É bem mais legal!";
+		next;
+		mes "[Charlie]";
+		mes "Ah! Se ainda não conheceu o Boneco de Neve...";
+		mes "Vá agora.";
+		mes "Fale com ele.";
+		mes "Sobre qualquer coisa.";
+		mes "Ele é um Boneco de Neve engraçado.";
+		next;
+		mes "[Charu Charu]";
+		mes "Feliz Natal!!";
+		mes "Feliz Natal pra você!!";
+		mes "Feliz Natal!!";
+		close;
+	}
+	end;
+}
+
+xmas,208,168,4	script	Crianças#lu2	703,5,5,{
+	if ((xmas_npc == 9) || (xmas_npc == 10))
+	{
+		switch (xmas_npc)
+		{
+			case 9:
+				mes "[Marsha]";
+				mes "Quer dizer o Boneco de Neve?";
+				mes "Sim, conheço ele.";
+				mes "Ele é legal e engraçado.";
+				mes "Como o Charlie te contou.";
+				mes "Ele é mais engraçado que o tio palhaço.";
+				mes "Ei! Ei! Ei!";
+				next;
+				mes "[Marsha]";
+				mes "Charlie e eu somos órfãos.";
+				mes "Não nos lembramos nem como nossos pais são...";
+				mes "Desde pequenos...";
+				mes "Fomos criados pelo tio Kantata,";
+				mes "E pela senhora Tashinze,";
+				mes "E o resto do pessoal.";
+				next;
+				mes "[Marsha]";
+				mes "Nós crescemos bem.";
+				mes "São todos gente boa.";
+				mes "Aí crescemos felizes.";
+				mes "O Boneco de Neve também não tem pais.";
+				mes "Dizem...";
+				mes "que Boneco de Neve e nós...";
+				next;
+				mes "[Marsha]";
+				mes "Não somos de Lutie...";
+				mes "Mas da mesma...";
+				mes "Cidade natal.";
+				mes "Não sei se é verdade ou não.";
+				mes "Mas Charlie e eu temos...";
+				mes "Uma cicatriz de queimadura nas costas. Parece com a na barriga do Boneco de Neve...";
+				next;
+				mes "[Marsha]";
+				mes "Uma cicatriz preta.";
+				mes "Idêntica...";
+				mes "Talvez o Boneco de Neve seja realmente...";
+				mes "Nossa única família no mundo.";
+				mes "Não sei.";
+				next;
+				mes "[Marsha]";
+				mes "Parece que...";
+				mes "Você é quem... da nossa vila...";
+				mes "Conhece melhor o Boneco de Neve...";
+				mes "Melhor!";
+				mes "Vá ao Boneco de Neve...";
+				mes "E conte-o o que você sabe.";
+				next;
+				mes "[Marsha]";
+				mes "Se ele souber que alguém se importa com ele...";
+				mes "Ele ficará muito feliz.";
+				mes "Quem sabe ele não te dá um presente!";
+				mes "Boa sorte!";
+				set xmas_npc,10;
+				close;
+				break;
+			case 10:
+				mes "[Marsha]";
+				mes "Parece que...";
+				mes "Você é quem... da nossa vila...";
+				mes "Conhece melhor o Boneco de Neve";
+				mes "Vá ao Boneco de Neve...";
+				mes "E fale para ele o que você sabe.";
+				next;
+				mes "[Marsha]";
+				mes "Se ele souber que alguém se importa com ele...";
+				mes "Ele ficará muito feliz.";
+				mes "Quem sabe ele não te dá um presente!";
+				mes "Boa sorte!";
+				mes "Feliz Natal!!";
+				close;
+				break;
+		}
+	}
+	else
+	{
+		mes "[Marsha]";
+		mes "Feliz Natal pra você!!";
+		mes "Brrr! Que frio!";
+		mes "Vento gelado e...";
+		mes "E aquelas piadas do palhaço de Natal...";
+		mes "Que fazem Charlie sorrir forçado.";
+		mes "Me faz ter ainda mais frio...";
+		mes "Brrrrrr......";
+		next;
+		mes "[Marsha]";
+		mes "Não sei se é verdade...";
+		mes "Algo que eu não te disse...";
+		mes "Eu ouvi que Boneco de Neve...";
+		mes "Tem algo que ninguém imagina...";
+		mes "Um poder especial...";
+		mes "Conhece o Papai Noel?";
+		next;
+		mes "[Marsha]";
+		mes "Na sacola que ele carrega...";
+		mes "Existem presentes sem fim.";
+		mes "Ouvi que o Boneco de Neve e o Papai Noel...";
+		mes "Tem poderes parecidos...";
+		mes "WuWaWaWa! Não é legal?";
+		mes "É emocionante......";
+		next;
+		mes "[Marsha]";
+		mes "Ah! Olha você!";
+		mes "Mm! Não entendeu o que eu disse.";
+		mes "Mm! Não entendeu o que eu disse.";
+		mes "Não é?";
+		mes "Quero dizer que o Boneco de Neve...";
+		mes "Tem uma sacola gigante...";
+		mes "Cheia de...";
+		next;
+		mes "[Marsha]";
+		mes "Milhões de presentes...";
+		mes "Aqueles que são íntimos do Boneco de Neve...";
+		mes "Todos...";
+		mes "receberam presentes do Boneco de Neve pelo menos uma vez!";
+		mes "Foi o que disseram.";
+		mes "Não é legal?";
+		close;
+	}
+	end;
+}

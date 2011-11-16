@@ -1,0 +1,308 @@
+//===== Cronus Script ======================================== 
+//= Quests de Payon
+//===== Por: =================================================
+//= DoJo
+//===== Versão Atual: ======================================== 
+//= 1.0
+//===== Compativel Com: ====================================== 
+//= Emulador [3010]; Cliente [EP 12.1]
+//===== Descrição: =========================================== 
+//= [Conversão do Aegis]
+//= Quests da cidade de Payon
+//===== Changelog: =========================================== 
+//= 1.0 Conversão do Aegis [DoJo]
+//============================================================
+
+//============================================================
+// Quest da Faca Falsa
+//============================================================
+payon_in01,99,72,4	script	Vovó 	103,{
+	if (checkweight(1201,1) == 0 ) {
+		mes "- Ei, espere aí !! -";
+		mes "- Você não pode receber mais itens -";
+		mes "Porque está carregando muitos itens. -";
+		mes "- Por favor, alivie um pouco a sua carga e tente de novo - ";
+		close;
+	}
+	if (countitem(1049) > 3) {
+		mes "[Vovó de Payon]";
+		mes "Ei... Este é o item Saia Virginal que minhas crianças vão usar no festival?";
+		mes "Poderia me dar algumas ^3355FF'Saias Virginal'^000000... Eu preciso de quatro... por favor?";
+		mes "Eu te imploro, por favor!";
+		next;
+		if(select("Dê-lhe.:Sem essa!") == 2) {
+			mes "[Vovó de Payon]";
+			mes "O-ow... Como conseguirei  ^3355FF'Saia Virginal '^000000 sozinha... Estou tão fraca e cansada.";
+			mes "Mas que mundo cruel...";
+			close;
+		}
+		delitem 1049,4; //Skirt_of_Virgin
+		mes "[Vovó de Payon]";
+		mes "Ah... Muito obrigada! Agora posso fazer saias para minhas crianças.";
+		mes "Ei... Ah! Claro! Sabe, eu já fui uma atriz muito famosa...";
+		mes "No palco, eu sempre acabava sendo morta por algum amante ciumento...";
+		next;
+		mes "[Vovó de Payon]";
+		mes "Então guardei essa coisa aqui... fique com ela!";
+		next;
+		getitem 2293,1; //Pretend_Murdered
+		mes "Até logo! Bom te conhecer...";
+		close;
+	}
+	else {
+		mes "[Vovó de Payon]";
+		mes "Eu colho Cogumelos nas Montanhas de Payon todos os dias para sobreviver. Não sei como sobreviverei este mês.";
+		mes "... Mas o festival é mês que vêm!";
+		mes "Minhas crianças pediram saias para usar no festival.";
+		mes "Para isso, preciso de 4 ^3355FF'Saias Virginal'^000000 ...";
+		next;
+		mes "[Vovó de Payon]";
+		mes "Meu jovem, tenho um favor a lhe pedir... Caso encontre alguma^3355FF'Saia Virginal'^000000...";
+		mes "Traga-a para mim, jamais esquecerei sua bondade...";
+		close;
+	}
+}
+
+//============================================================
+// Quest do Aquecedor de Orelha
+//============================================================
+payon_in01,18,10,4	script	Senhora Mística	76,{
+	if (checkweight(1201,1) == 0 ) {
+		mes "- Ei, espere aí !! -";
+		mes "- Você não pode receber mais itens -";
+		mes "Porque está carregando muitos itens. -";
+		mes "- Por favor, alivie um pouco a sua carga e tente de novo - ";
+		close;
+	}
+	mes "[Senhora Mística]";
+	mes ". . . . . .";
+	mes "Minha família faz o ^3355FF'Aquecedor de Orelha'^000000 especial para o inverno há muitas gerações...";
+	mes "Infelizmente o clima é muito quente aqui. São poucas as pessoas que precisam ou se dão ao trabalho de comprar nossos produtos...";
+	mes "Se for a algum lugar frio. Sugiro que compre um ^3355FF'Aquecedor de Orelha'^000000...";
+	next;
+	mes "[Senhora Mística]";
+	mes ". . . . . .";
+	mes "Minha família é famosa pelos Aquecedores de Orelha. Traga-me ^FF3355'1 Rubi Amaldiçoado'^000000 e  ^3311AA'1 Fone de Ouvido '^000000...";
+	mes "E prepare ^3355FF' 200 Plumas '^000000 e  ^DDDD00'5000 Zeny'^000000 que poderei fazer um para você.";
+	next;
+	if(select("Eu quero um!:Não! Obrigado!") == 2) {
+		mes "[Senhora Mística]";
+		mes ". . . . .";
+		mes "Tudo bem. Acredito que você voltará mais tarde...";
+		mes ". . . . .";
+		close;
+	}
+	if ((countitem(724) > 0) && (countitem(949) > 199) && (countitem(5001) > 0) && (Zeny > 4999)) {
+		mes "[Senhora Mística]";
+		mes ". . . . .";
+		next;
+		delitem 724,1; //Cursed Ruby
+		delitem 949,200; //Feather
+		delitem 5001,1; //Headset
+		set Zeny,Zeny - 5000;
+		getitem 2283,1; //Ear_Muffs
+		mes "[Senhora Mística]";
+		mes "Muito obrigada! Aqui está seu novo Aquecedor de Orelha.";
+		mes ". . . . .";
+		mes "Obrigada pela preferência. Você ficará satisfeito, prometo!";
+		close;
+	}
+	else {
+		mes "[Senhora Mística]";
+		mes ". . . . .";
+		mes ". . . . . Ei! Você não tem os itens necessários.....";
+		mes "O nosso preço já é o mais baixo possível, é difícil fazer negócios aqui...";
+		close;
+	}
+}
+
+//============================================================
+// Quest da Máscara de Oxigênio
+//============================================================
+payon_in02,25,71,4	script	Jovem#pay01	86,{
+	if (checkweight(1201,1) == 0) {
+		mes "- Ei, espere aí !! -";
+		mes "- Você não pode receber mais itens -";
+		mes "Porque está carregando muitos itens. -";
+		mes "- Por favor, alivie um pouco a sua carga e tente de novo - ";
+		close;
+	}
+	if (countitem(701) > 4) {
+		mes "[Jovem]";
+		mes "Como! Ah! Não! Não mesmo!";
+		mes "Como... Você acha que ele é bom... Não! Não mesmo!!";
+		next;
+		switch(select("Mostrar Armadilha para Insetos.:Dar-lhe Armadilha para Insetos.:Cancelar.")) {
+		case 1:
+			mes "[Jovem]";
+			mes "Uau! Uau! Uau!";
+			mes "Isto é uma Armadilha para Insetos...";
+			mes "Vou falar francamente! Se me der isto te darei meu grande tesouro!";
+			mes "Que tal? Quer trocar?";
+			close;
+		case 2:
+			if (countitem(701) > 4) {
+				delitem 701,5; //Ora_Ora
+			}
+			mes "[Jovem]";
+			mes "Ha! Ha! Ha! Finalmente consegui! Armadilha para Insetos!";
+			mes "Malditos Insetos Ladrão!! Agora posso matar a todos eles!";
+			next;
+			mes "[Jovem]";
+			mes "Ha! Ha! ... Ha! Ha!";
+			mes "Desculpe! Estou muito alegre... Mm... Vou te dar meu tesouro como prometi!";
+			next;
+			getitem 5004,1; //Oxygen_Mask
+			mes "[Jovem]";
+			mes "Ao respirar por este bocal... você terá ar fresco o tempo todo!";
+			mes "Eu costumava trabalhar perto do mar e trouxe uma comigo.";
+			mes "Como não preciso mais dela, vou te dar por sua generosidade.";
+			next;
+			mes "[Jovem]";
+			mes "Ei! Ei! Já sei! Vou experimentar o Armadilha para Insetos agora mesmo!";
+			close;
+		case 3:
+			mes "[Jovem]";
+			mes "Eh... Se não funcionar no Inseto Ladrão...";
+			mes "Não terei escolha a não ser tentar gostar do Inseto Ladrão... Né...";
+			close;
+		}
+	}
+	else {
+		mes "[Jovem]";
+		mes "Ah...Ah! Não aguento mais!";
+		mes "Droga de Inseto Ladrão!!";
+		next;
+		if(select("Continuar falando.:Cancelar.") == 2) {
+			mes "[Jovem]";
+			mes "Não consigo fazê-los sumirem de nenhum jeito... Estou tão cansado... Não aguento mais... Que seja...";
+			close;
+		}
+		mes "[Jovem]";
+		mes "Minha vida foi difícil.";
+		mes "Meus pais morreram quando eu era pequeno... Tive que trabalhar muito para poder sobreviver.";
+		next;
+		mes "[Jovem]";
+		mes "Já faz dez anos... Estou economizando... Sonho em ter minha própria casa.";
+		next;
+		mes "[Jovem]";
+		mes "Não consigo comprar uma casa nem se gastar todas minhas economias...";
+		mes "Porém... Tenho uma casa grande e barata agora... Não tive muita escolha...";
+		next;
+		mes "[Jovem]";
+		mes "E agora ela foi tomada por um bando de Insetos Ladrão como ninho.";
+		next;
+		mes "[Jovem]";
+		mes "Tentei de tudo... Para caça-los... Expulsá-los... Mas nada funciona. Eles sempre voltam";
+		mes "Eu até tentei incendiar a casa.";
+		next;
+		mes "[Jovem]";
+		mes "Ah... Como quero que eles desapareçam... Você acha que uma^3355FF Armadilha para Insetos^000000 é a solução?";
+		mes "Soube que é possível encontrá-lo em outros países...";
+		mes "Se eu tivesse cinco deles... Eu poderia me livrar deles para sempre...";
+		close;
+	}
+}
+
+//============================================================
+// Quest do Elmo Angelical e Chapéu de Deviruchi
+//============================================================
+payon_in01,56,12,7	script	Jovem#pay02	89,{
+	if (checkweight(1201,1) == 0) {
+		mes "- Ei, espere aí !! -";
+		mes "- Você não pode receber mais itens -";
+		mes "Porque está carregando muitos itens. -";
+		mes "- Por favor, alivie um pouco a sua carga e tente de novo - ";
+		close;
+	}
+	mes "[Jovem]";
+	mes "......Que é?";
+	next;
+	if(select("Você sabe fazer itens especiais?..:Nada, não.") == 2) {
+		mes "[Jovem]";
+		mes "...... Cuide-se.";
+		close;
+	}
+	mes "[Jovem]";
+	mes "....Então já sabe. hum..";
+	mes "Não precisa espalhar. Diga-me o que quer";
+	next;
+	switch(select("Elmo Angelical.:Chapéu de Deviruchi.:Voltarei depois.")) {
+	case 1:
+		mes "[Jovem]";
+		mes "Elmo (não daqueles que são vendidos por NPCs) 1";
+		mes "Asas de Anjo 1";
+		mes "Presa de Garm 5";
+		next;
+		mes "[Jovem]";
+		mes "Espere um pouco!";
+		mes "Não me importo com itens";
+		mes "especiais ou com cartas de monstros.";
+		next;
+		mes "[Jovem]";
+		mes "Eu os considero como se fossem itens normais";
+		mes "Tenha cuidado ao me entregar os itens.";
+		next;
+		mes "[Jovem]";
+		mes "Já tem os itens? Então, dê-me os.";
+		next;
+		if(select("Dar-lhe.:Não dar-lhe.") == 2) {
+			mes "[Jovem]";
+			mes "Faça como quiser...";
+			close;
+		}
+		if ((countitem(2229) > 0) && (countitem(2254) > 0) && (countitem(7036) > 4)) {
+			mes "[Jovem]";
+			mes ".....Hum. Certo, já te darei.";
+			mes "Aqui, pegue.";
+			delitem 2229,1; //Helm_
+			delitem 2254,1; //Angelic_Chain
+			delitem 7036,5; //Fang_Of_Garm
+			close;
+			getitem 5025,1; //Helm of Angel
+		}
+		else {
+			mes "[Jovem]";
+			mes ".......Não são os itens certos";
+			mes "Verifique denovo.";
+			close;
+		}
+	case 2:
+		mes "[Jovem]";
+		mes "Pequeno Chifre Maligno 600.";
+		mes "Garra de Grifo 40.";
+		next;
+		mes "[Jovem]";
+		mes "Espere um pouco!";
+		mes "Não me importo com itens";
+		mes "especiais ou com cartas de monstros.";
+		next;
+		mes "[Jovem]";
+		mes "Eu os considero como se fossem itens normais";
+		mes "Tenha cuidado ao me entregar os itens.";
+		next;
+		mes "[Jovem]";
+		mes "Já tem os itens? Então, dê-me os.";
+		next;
+		if(select("Dar-lhe.:Não dar-lhe.") == 2) {
+			mes "[Jovem]";
+			mes "Faça como quiser...";
+			close;
+		}
+		if ((countitem(1038) > 599) && (countitem(7048) > 39)) {
+			mes "[Jovem]";
+			mes ".....Hum. Certo, agora te darei.";
+			mes "Aqui, pegue.";
+			delitem 1038,600; //Petite_DiablOfs_Horn
+			delitem 7048,40; //Talon_Of_Griffin
+			close;
+			getitem 5038,1; //Deviruchi_Hat
+		}
+		else {
+			mes "[Jovem]";
+			mes ".......Não são os itens certos";
+			mes "Verifique denovo.";
+			close;
+		}
+	}
+}

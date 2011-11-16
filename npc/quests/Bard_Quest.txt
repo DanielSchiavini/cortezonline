@@ -1,0 +1,4701 @@
+//===== Cronus Script ======================================== 
+//= Quests do Bardo
+//===== Por: ================================================= 
+//= DoJo
+//===== Versão: ============================================== 
+//= 1.1
+//===== Compatível com: ====================================== 
+//= Emulador [3010]; Cliente [EP 12.1]
+//===== Descrição: =========================================== 
+//= [Conversão do Aegis]
+//= Quest para ajudar um Bardo a lembrar o Som que ele fazia.
+//===== Comentários adicionais: ============================== 
+//= 1.0 Conversão do Aegis [DoJo]
+//= 1.1 - Corrigos milhares de erros [DoJo]
+//============================================================ 
+
+geffen,138,38,3	script	Bardo#2	51,{
+	set @name$,strcharinfo(0);
+	if (bard_q > 29) {
+		mes "[Errende]";
+		mes "Olá. Que dia lindo, não?";
+		mes "Estou aproveitando esse tempo maravilhoso.";
+		mes "Bem, o que vai ser para ficar ainda melhor?";
+		mes "Cantar ou Contar história?";
+		next;
+			switch(select("Me conte uma história:Quero uma canção.:Ah, talvez mais tarde.")) {
+				case 1:
+					mes "[Errende]";
+					mes "Hmm, você gosta de histórias, hein?";
+					mes "Que tipo de história você gosta?";
+					mes "Posso contar qualquer coisa, desde que eu conheça.";
+					mes "Só para você. *Risos*";
+					next;
+						switch(select("Notícias ou Boato:Cancelar.")) {
+							case 1:
+								set @talk,rand(1,3);
+								if (@talk == 1) {
+									mes "[Errende]";
+									mes "Umm...então vamos falar sobre esta cidade,";
+									mes "Geffen? Você já esteve no bar ou na estalagem?";
+									mes "Preciso dizer que as atendentes são demais.";
+									mes "A mais velha é bonita e graciosa,";
+									mes "e a menor é divertida e elétrica...";
+									next;
+									mes "[Errende]";
+									mes "Ah, certo! Algumas vezes elas ficam possuídas pelo ";
+									mes "pai delas, que morreu. Eu fiquei tão surpreso da última vez que vi isso...";
+									mes "Mesmo agora, quando penso nisso, fico apavorado.";
+									mes "Parece que o pai delas é obsessivo pelas filhas mesmo tendo";
+									mes "partido para o além.";
+									next;
+									mes "[Errende]";
+									mes "Especialmente quando alguém tenta conversar com uma das garotas,";
+									mes "o espírito dele reage de forma exagerada...";
+									mes "Eu não sei bem por que, mas";
+									mes "talvez ele pense que suas filhas são muito novas";
+									mes "para casar... hein?";
+									mes "Hahahahaha.....";
+									next;
+									mes "[Errende]";
+									mes "E.. ah, sim. Tem um mercador atrás do bar.";
+									mes "Você já o conhece?";
+									mes "Esta área é mais fria do que Morroc,";
+									mes "então eu comprei uma manta dele.";
+									mes "Mas, olhe, não tem nem mesmo um fio direito. E também foi bem cara...";
+									mes "Por alguma razão, ele não parece ser confiável.";
+									next;
+									mes "[Errende]";
+									mes "É melhor ser cuidadoso com ele.";
+									mes "Hum...tem uma cidade oculta chamada Geffenia";
+									mes "debaixo da Torre de Geffen.";
+									mes "Já esteve lá?";
+									mes "Eu ouvi que é preciso fazer algo para entrar...";
+									mes "Talvez eu devesse tentar alguma hora.";
+									next;
+									mes "[Errende]";
+									mes "Eu ouvi que Willian, o pai daquelas duas garotas que falei,";
+									mes "foi para a Torre de Geffen com outras pessoas para subjugar";
+									mes "os monstros que invadiram a torre. Mas ele nunca voltou.";
+									mes "Ah, bem, eu imagino que seja uma boa história para aventureiros, mas";
+									mes "quando me lembro que ele deixou uma família......";
+									next;
+									mes "[Errende]";
+									mes "Eu fico triste por elas.";
+									mes "Eu sonho com um mundo onde";
+									mes "todo mundo seja feliz.";
+									close;
+								}
+								else if (@talk == 2) {
+									mes "[Errende]";
+									mes "Certo, deixe-me contar uma história sobre Morroc.";
+									mes "Morroc, a cidade do deserto.";
+									mes "Espera-se que todo aventureiro experiente,";
+									mes "explore Morroc e o deserto ao redor da cidade.";
+									next;
+									mes "[Errende]";
+									mes "Particularmente, as Pirâmides e a Esfinge são ";
+									mes "os locais mais famosos de Morroc.";
+									mes "E eu ouvi que tem um mercador vendendo";
+									mes "Maças-Espadas para Sacerdotes e Sacerdotisas.";
+									mes "Alias, os Sacerdotes não podem ter nenhuma arma com lâmina.";
+									next;
+									mes "[Errende]";
+									mes "Tem um oásis no meio de Morroc.";
+									mes "Lá você verá uma senhora ou um velho simpático";
+									mes "que lhe dará boas dicas de como descansar no deserto.";
+									next;
+									mes "[Errende]";
+									mes "Eu conheço uma menininha que pediu para o pai amansar";
+									mes "um Munak para ela. Ela era tão teimosa...";
+									mes "Conforme ouvia a conversa, me pareceu";
+									mes "que o pai dela tinha alguma coisa a ver com o cara que se perdeu";
+									mes "em Alberta...";
+									next;
+									mes "[Errende]";
+									mes "De qualquer forma, eu acabei ajudando o pai dela em uma missão.";
+									mes "E ele me deu uma misteriosa caixa pelo favor.";
+									mes "Quando eu a abri, havia dentro uma pena...";
+									mes "Eu não descobri como ela funcionava, então";
+									mes "eu a mantenho como um souvenir.";
+									next;
+									mes "[Errende]";
+									mes "Hum... eu fico pensando se o Sr. Pandger Mayer encontrou";
+									mes "o caminho de volta para a sua cidade...";
+									close;
+								}
+								else if (@talk == 3) {
+									mes "[Errende]";
+									mes "Por acaso você já ouviu falar de Alberta?";
+									mes "Tem um navio afundado perto de Alberta.";
+									mes "Uma agência de eventos transformou o navio em";
+									mes "uma rota de expedição e estão faturando muito";
+									mes "dinheiro com aquele navio. Você sabe disso, não é?";
+									mes "De qualquer forma,";
+									next;
+									mes "[Errende]";
+									mes "quando o navio afundou perto de Alberta,";
+									mes "foi encontrado por um dos Guardiões de Alberta.";
+									mes "Ele também encontrou um bebê dentro de uma cabine.";
+									mes "E ao lado do bebê que chorava havia um órgão.";
+									next;
+									mes "[Errende]";
+									mes "As pessoas dizem que o bebê,";
+									mes "o único que sobreviveu ao naufrágio,";
+									mes "foi criado em Alberta.";
+									mes "Há boatos de que ele foi tratado com desprezo";
+									mes "quando era jovem. Mas hoje ele parece bem.";
+									mes "Ah... nós estávamos falando do navio afundado.";
+									next;
+									mes "[Errende]";
+									mes "Eu não tenho certeza se ele era ou não um navio pirata,";
+									mes "dizem que monstros esqueletos com roupa de pirata";
+									mes "aparecem dentro do navio.";
+									mes "Além do navio, as pessoas de Alberta estão bastante empolgadas";
+									mes "com uma rota no oceano para a Ilha da Tartaruga, que um aventureiro descobriu.";
+									next;
+									mes "[Errende]";
+									mes "Mas, ao mesmo tempo, há muitos boatos por trás disso.";
+									mes "O segundo esquadrão da guarda de Alberta que foi explorar a Ilha da Tartaruga";
+									mes "ainda não voltou e o outro esquadrão de cavaleiros ";
+									mes "foi atrás deles para tentar encontrá-los...";
+									mes "Está uma confusão...";
+									next;
+									mes "[Errende]";
+									mes "Seja como for, agora tem uma rota pelo oceano até a Ilha da Tartaruga!";
+									mes "Então, eu fui para a ilha dar uma olhada.";
+									mes "E acontece que encontrei o diário do aventureiro que descobriu a ilha.";
+									mes "E havia uma pequena chave no diário.";
+									mes "Então... Eu estava curioso e segui o que estava escrito no diário.";
+									next;
+									mes "[Errende]";
+									mes "Basicamente, eu sentia como se estivesse procurando um tesouro perdido...";
+									mes "E eu precisava conhecer um espadachim que desejasse";
+									mes "encontrar a espada suprema.";
+									mes "Também descobri uma coisa que pertencia ao espadachim.";
+									mes "Foi a aventura mais fantástica e excitante que eu já tive.";
+									close;
+								}
+							break;
+							case 2:
+								mes "[Errende]";
+								mes "Ah, que pena.";
+								mes "Mas, prometa que vai passar por aqui de novo.";
+								mes "Eu lhe contarei as minhas aventuras.";
+								close;
+							break;
+						}
+				break;
+				case 2:
+					mes "[Errende]";
+					mes "Oh, finalmente eu encontrei alguém que reconhece o meu talento!";
+					mes "Você merece ouvir uma canção minha!";
+					mes "Me diga, o que quer ouvir?";
+					mes "Eu posso cantar o que quiser.";
+					next;
+						switch(select("Cante qualquer coisa que quiser.:Eu quero uma canção divertida.:Deixe para lá.")) {
+							case 1:
+								if (Zeny > 499) {
+									set @song_random,rand(1,3);
+									if (@song_random == 1) {
+										mes "[Errende]";
+										mes "Tudo bem.";
+										mes "Então, vamos lá!!!";
+										soundeffect "ring_of_nibelungen.wav",1;
+										set Zeny,Zeny-500;
+										close;
+									}
+									else if (@song_random == 2) {
+										mes "[Errende]";
+										mes "Tudo bem.";
+										mes "Vamos lá!!!";
+										soundeffect "dont_forget_me_not.wav",1;
+										set Zeny,Zeny-500;
+										close;
+									} else {
+										mes "[Errende]";
+										mes "Tudo bem.";
+										mes "Lá vamos nós!!!";
+										soundeffect "in_to_the_abyss.wav",1;
+										set Zeny,Zeny-500;
+										close;
+									}
+								} else {
+									mes "[Errende]";
+									mes "Ah hahaha, me desculpe, mas";
+									mes "isso não é de graça.";
+									mes "De algum jeito eu preciso ganhar dinheiro para viver, não é?";
+									close;
+								}
+							break;
+							case 2:
+								mes "[Errende]";
+								mes "Uma canção divertida... uma canção divertida...";
+								mes "Certo, ouça essa.";
+								next;
+								set @song_random2,rand(1,3);
+								if (@song_random2 == 1) {
+									mes "Valhala, onde o dourado brilha,";
+									mes "que é chamada de quinto";
+									mes "Glast Heim!";
+									mes "Lá os guerreiros gloriosos";
+									mes "são evocados por Odin.";
+									next;
+									mes "Palácio da morte";
+									mes "com teto de prata!!!";
+									mes "que é chamado de terceiro";
+									mes "Valaskjalf!";
+									mes "Lá os guerreiros gloriosos";
+									mes "são evocados por Odin.";
+									next;
+									mes "Há quinhentas portas em Valhala.";
+									mes "e há quarenta portas mais.";
+									mes "E todas abrem para o Lobo.";
+									mes "Oitocentos guerreiros, reunidos por vontade do deus,";
+									mes "passam pelas portas.";
+									next;
+									mes "Guerreiros devotos que passaram por Yggdrasil,";
+									mes "levados pelo destino,";
+									mes "com honra, deram as mãos às valquírias.";
+									next;
+									mes "Guerreiros mortos pelas armas,";
+									mes "Guerreiros mortos pelas armas,";
+									mes "A fama de seus nomes ecoará após a morte,";
+									mes "e os levará ao Valhala.";
+									mes "e os levará ao Valhala.";
+									close;
+									mes "[Errende]";
+									mes ".....";
+									mes "...você sabe que isso é sobre uma lenda, não sabe?";
+									mes "Só os deuses sabem se é verdade";
+									mes "que o castelo chamado Glast Heim foi";
+									mes "o quinto Valhala ou não.";
+									mes "Só os deuses sabem.";
+									close;
+								}
+								else if (@song_random2 == 2) {
+									mes "Os bardos cantam para diversão da platéia.";
+									mes "Portanto, não espere que eu cante";
+									mes "uma canção triste que aprofunde a sua angústia.";
+									next;
+									mes "As dançarinas dançam para a diversão da platéia.";
+									mes "Vamos dançar juntos? Então, pegue a minha mão.";
+									mes "La la la la la la.";
+									next;
+									mes "[" + @name$ + "]";
+									mes "A propósito, por que vocês";
+									mes "às vezes desafinam? Odeio quando acontece isso.";
+									next;
+									mes "[Errende]";
+									mes "Como... como pode dizer uma coisa dessas?";
+									mes "" + @name$ +"...";
+									mes "Você...? Você já quis ser um bardo antes?";
+									mes "É por isso que está caçoando de mim?";
+									close;
+								} else {
+									mes "Galopes soam a distância.";
+									mes "Uma nuvem de poeira encobre o pôr-do-sol.";
+									mes "Centenas de olhos espreitam a noite.";
+									mes "Tochas no castelo reluzem como centenas de Ifrits.";
+									next;
+									mes "Ouça o palpitante som do meu coração,";
+									mes "Sinta o sangue nas veias.";
+									mes "Sinta o peso da minha armadura.";
+									mes "Veja os inimigos se mostrando à frente.";
+									next;
+									mes "Que toque alto, mais alto, o tambor!";
+									mes "Alegrem-se soldados, o primeiro passo será nosso!";
+									mes "Gritem alto, mais alto!";
+									mes "Nunca mais será como hoje!";
+									next;
+									mes "Abale o céu e chacoalhe a terra,";
+									mes "para o meu coração bater de novo!";
+									mes "Toque a corneta para oscilar a fortaleza.";
+									mes "Nunca mais será como hoje!";
+									next;
+									mes "[Errende]";
+									mes "Ah, essa se chama 'Tambor no campo de batalha'.";
+									mes "Foi escrita pelo Sr. Iolo.";
+									mes "É, eu gosto dessa canção.";
+									close;
+								}
+							break;
+							case 3:
+								mes "[Errende]";
+								mes "Claro, sem problema.";
+								mes "Volte sempre.";
+								close;
+							break;
+						}
+				break;
+				case 3:
+					mes "[Errende]";
+					mes "Eh...";
+					mes "Não faz mal ouvir uma canção de vez em quando...";
+					mes "Mas, está bem, te vejo outra hora!";
+					close;
+				break;
+			}
+	}
+	else if (bard_q == 15) {
+		mes "[Errende]";
+		mes "Ah, como vai? Você encontrou?";
+		mes "Sim, é isso aí!";
+		mes "Fantástico!! Você sabe o que faz!!!";
+		mes "Ah, isso é tão incrível!!";
+		mes "Ah, sim, certo... certo.";
+		next;
+		mes "[Errende]";
+		mes "Eu queria expressar a minha gratidão...";
+		mes "Hmmm... deixe-me pensar no que seria apropriado...";
+		mes "Sim! Acho que posso fazer isso por você.";
+		mes "Certo, fique à vontade.";
+		mes "E preste atenção nesta canção.";
+		next;
+		mes "^4d4dffNenhum deus jamais fica velho.";
+		mes "É por causa da deusa da beleza Idun,";
+		mes "Idun, a deusa da saúde,";
+		mes "É por causa das maçãs que ela possui.^000000";
+		specialeffect2 EF_STEAL;
+		next;
+		mes "^4d4dffNenhum deus jamais fica velho.";
+		mes "É por causa da nora de Odin, a esposa de Bragi.";
+		mes "É por causa das maçãs da cesta dela,";
+		mes "as maçãs da cesta dela^000000";
+		next;
+		mes "^4d4dffSem Idun, todo deus ficaria velho.";
+		mes "Até Thor, o mais forte dos deuses, ficaria velho.";
+		mes "O Martelo de Mjornil nunca mais voaria,";
+		mes "Megingjard iria escorregar de suas mãos.^000000";
+		next;
+		mes "^4d4dffSem Idun, todo deus ficaria velho.";
+		mes "Incauto Loki, o dia em que Idun foi raptada,";
+		mes "a voz de Odin ecoou no Valhala.";
+		mes "E as maçãs da juventude reapareceram.^000000";
+		specialeffect2 EF_STEAL;
+		next;
+		mes "^4d4dffMinha deusa mora nos campos de Asgard.";
+		mes "Ela me passa uma fruta do paraíso.";
+		mes "Você será adorado por todos os deuses,";
+		mes "você será abençoado por todos os deuses.^000000";
+		next;
+		specialeffect2 EF_BEGINSPELL6;
+		mes "^4d4dffSe você compartilhar a maçã comigo, ";
+		mes "mesmo uma mordida dela com esse pobre poeta,";
+		mes "você será adorado por todos os deuses,";
+		mes "você será abençoado por todos os deuses.^000000";
+		next;
+		specialeffect2 EF_RESURRECTION;
+		mes "- Enquanto ouve essa canção -";
+		mes "- você se sente muito bem e -";
+		mes "- seus pensamentos ficam claros. - ";
+		mes "- Você ganha alguns pontos de experiência. -";
+		mes "- Parece que você viu um anjo. -";
+		set bard_q,31;
+		if (BaseLevel < 56) getexp 4500,1;
+		else if ((BaseLevel > 55) && (BaseLevel < 61)) getexp 5500,1;
+		else if ((BaseLevel > 60) && (BaseLevel < 66)) getexp 9684,1;
+		else if ((BaseLevel > 65) && (BaseLevel < 71)) getexp 13411,1;
+		else if ((BaseLevel > 70) && (BaseLevel < 76)) getexp 35757,1;
+		else if ((BaseLevel > 75) && (BaseLevel < 81)) getexp 60246,1;
+		else if ((BaseLevel > 80) && (BaseLevel < 86)) getexp 70340,1;
+		else if ((BaseLevel > 85) && (BaseLevel < 91)) getexp 92052,1;
+		else if (BaseLevel > 90) getexp 156786,1;
+		next;
+		mes "[Errende]";
+		mes "Então, como se sente agora?";
+		mes "Espero que esteja renovado pela minha canção.";
+		mes "Temo que isso não seja o suficiente para pagar o seu favor...";
+		mes "Mas, por favor, entenda que fiz o melhor que pude";
+		mes "para mostrar a minha gratidão.";
+		next;
+		mes "[Errende]";
+		mes "Além disso, eu sinto que você ";
+		mes "é um amigo com quem posso conversar honestamente";
+		mes "sem me preocupar.";
+		mes "E sei que tem um sorriso cativante.";
+		mes "Estou errado? Haha.";
+		next;
+		mes "[Errende]";
+		mes "Espero que continue do jeito que você é hoje,";
+		mes "sem ser ganancioso por fortuna ou poder, mas";
+		mes "honesto e respeitoso com as outras pessoas...";
+		close;
+	}
+	else if (bard_q == 14) {
+		mes "[Errende]";
+		mes "....Errr.......hmmm?";
+		mes "Esse é o selo do...? Sr. Gato?";
+		mes "Ah... deve estar brincando comigo.";
+		mes "Ele removeu o meu sem deixar marca.";
+		mes "Humm... ele deve gostar muito de você...";
+		mes "ou não teria feito isso.";
+		next;
+		mes "^4d4dff - Você dá a ele uma carta  -";
+		mes " - que recebeu do Kino Gato. -^000000";
+		next;
+		mes "[Errende]";
+		mes "Bah... ele já sabe de tudo.";
+		mes "....essa mancha de sangue... eu imagino que";
+		mes "ele ainda tem um problema de saúde...";
+		mes "Espero que ele pare de se torturar...";
+		mes "Ah, aliás, muito obrigado.";
+		mes "Eu realmente agradeço.";
+		next;
+		mes "[Errende]";
+		mes "Eu queria expressar a minha gratidão...";
+		mes "Hmmm... deixe me pensar no que seria apropriado...";
+		mes "Sim! Acho que posso fazer isso por você.";
+		mes "Certo, fique à vontade.";
+		mes "E preste atenção nesta canção.";
+		next;
+		mes "^4d4dffNenhum deus jamais fica velho.";
+		mes "É por causa da deusa da beleza Idun,";
+		mes "Idun, a deusa da saúde,";
+		mes "É por causa das maçãs que ela possui.^000000";
+		specialeffect2 EF_STEAL;
+		next;
+		mes "^4d4dffNenhum deus jamais fica velho.";
+		mes "É por causa da nora de Odin, a esposa de Bragi.";
+		mes "É por causa das maçãs da cesta dela,";
+		mes "as maçãs da cesta dela^000000";
+		next;
+		mes "^4d4dffSem Idun, todo deus ficaria velho.";
+		mes "Até Thor, o mais forte dos deuses, ficaria velho.";
+		mes "O Martelo de Mjornil nunca mais voaria,";
+		mes "Megingjard iria escorregar de suas mãos.^000000";
+		next;
+		mes "^4d4dffSem Idun, todo deus ficaria velho.";
+		mes "Incauto Loki, o dia em que Idun foi raptada,";
+		mes "a voz de Odin ecoou no Valhala.";
+		mes "E as maçãs da juventude reapareceram.^000000";
+		specialeffect2 EF_STEAL;
+		next;
+		mes "^4d4dffMinha deusa mora nos campos de Asgard.";
+		mes "Ela me passa uma fruta do paraíso.";
+		mes "Você será adorado por todos os deuses,";
+		mes "você será abençoado por todos os deuses^000000";
+		next;
+		specialeffect2 EF_BEGINSPELL6;
+		mes "^4d4dffSe você compartilhar a maçã comigo,";
+		mes "mesmo uma mordida dela com esse pobre poeta,";
+		mes "você será adorado por todos os deuses,";
+		mes "você será abençoado por todos os deuses.^000000";
+		next;
+		specialeffect2 EF_RESURRECTION;
+		mes "- Enquanto ouve essa canção -";
+		mes "- você se sente muito bem e -";
+		mes "- seus pensamentos ficam claros. -";
+		mes "- Você ganha alguns pontos de experiência. -";
+		mes "- Parece que você viu um anjo. -";
+		set bard_q,30;
+		if (BaseLevel < 56) getexp 4500,1;
+		else if ((BaseLevel > 55) && (BaseLevel < 61)) getexp 5500,1;
+		else if ((BaseLevel > 60) && (BaseLevel < 66)) getexp 9684,1;
+		else if ((BaseLevel > 65) && (BaseLevel < 71)) getexp 13411,1;
+		else if ((BaseLevel > 70) && (BaseLevel < 76)) getexp 35757,1;
+		else if ((BaseLevel > 75) && (BaseLevel < 81)) getexp 60246,1;
+		else if ((BaseLevel > 80) && (BaseLevel < 86)) getexp 70340,1;
+		else if ((BaseLevel > 85) && (BaseLevel < 91)) getexp 92052,1;
+		else if (BaseLevel > 90) getexp 156786,1;
+		next;
+		mes "[Errende]";
+		mes "Então, como se sente agora?";
+		mes "Espero que esteja renovado pela minha canção.";
+		mes "Temo que isso não seja o suficiente para pagar o seu favor...";
+		mes "Mas, por favor, entenda que eu fiz o melhor que pude";
+		mes "para mostrar a minha gratidão.";
+		next;
+		mes "[Errende]";
+		mes "Além disso, eu sinto que você ";
+		mes "é um amigo com quem eu posso conversar honestamente";
+		mes "sem me preocupar.";
+		mes "E sei que tem um sorriso cativante.";
+		mes "Estou errado? Haha.";
+		next;
+		mes "[Errende]";
+		mes "Espero que continue do jeito que você é hoje,";
+		mes "sem ser ganancioso por fortuna ou poder, mas";
+		mes "honesto e respeitoso com as outras pessoas...";
+		close;
+	}
+	else if ((bard_q > 11) && (bard_q < 14)) {
+		mes "[Errende]";
+		mes "Parece que você ainda não encontrou.";
+		mes "Vá com calma.";
+		mes "Posso esperar o quanto for preciso...";
+		mes "Não tenho nenhuma pressa.";
+		mes "Para mim, está tudo bem. Ainda nem fiquei entediado.";
+		mes "De qualquer modo, não é uma coisa tão difícil de  acontecer.";
+		close;
+	}
+	else if (bard_q == 11) {
+		mes "[Errende]";
+		mes "O Sr. Skezti tem uma pequena livraria";
+		mes "na rua do livro, à direita da Mineta, em Juno.";
+		mes "Se o selo estiver com você, ele lhe dará ";
+		mes "alguma ajuda.";
+		close;
+	}
+	else if (bard_q == 10) {
+		mes "[Errende]";
+		mes "Então, já se encontrou com o Sr. Gato?";
+		mes "Ah... quer dizer em Morroc?";
+		mes "Ele tem uma doença crônica...";
+		mes "Mas, obviamente, não liga para isso.";
+		mes "O que foi que ele disse?";
+		next;
+		mes "[Errende]";
+		mes "Ah... em Juno...";
+		mes "Então, deve ser isso...";
+		mes "Se quiser visitar a livraria do Sr. Sketzi...";
+		mes "não deve ser tão fácil.";
+		mes "Deixe eu fazer um selo de amizade em você.";
+		next;
+		mes "[Errende]";
+		mes "Dê-me a sua mão.";
+		mes "Agora, o encantamento...";
+		mes "*murmúrio murmúrio*...";
+		next;
+		specialeffect2 EF_CONE;
+		mes "^4d4dff No seu pulso esquerdo";
+		mes "uma marca crescente brilhando prateada";
+		mes "apareceu.";
+		mes "Só se percebe ela quando se concentra na marca,";
+		mes "mas ela pode brilhar claramente ao luar...^000000";
+		next;
+		mes "[Errende]";
+		mes "Pronto.";
+		mes "Então, agora você pode visitar o Sr. Sketzi.";
+		mes "Lembre-se, você terá o selo de amizade.";
+		mes "Boa sorte.";
+		set bard_q,11;
+		close;
+	}
+	else if (bard_q == 20) {
+		mes "[Bardo]";
+		mes "^4d4dffQual é o melhor dia para cantar? La la la...";
+		mes "é o dia da terra, do sol e da lua, La la la...";
+		mes "Eu perguntei, qual é o melhor dia para cantar? La la la...";
+		mes "Por quê? La la é porque eu posso cantar só um diaaaaaa la la la...";
+		mes "Se me disser quando você vai cantar,";
+		mes "eu lhe digo se eu posso cantar com você^000000";
+		next;
+		mes "[Bardo]";
+		mes "^4d4dffUm dia vamos fazer um dueto! La la la...";
+		mes "Bravo!!! Bra...^000000";
+		mes "Eh? Você é...?";
+		mes "Ah, você veio aqui porque quer ";
+		mes "esquecer do mundo rindo desse palhaço!";
+		if (Sex) 
+			mes "Não é mesmo, meu jovem?";
+		else
+			mes "Não é mesmo, minha adorada jovem?";
+		next;
+			switch(select("Errado, quem é você?:Ignore-o.")) {
+				case 1:
+					mes "[" + @name$ + "]";
+					mes "Parece que você é novo por aqui...";
+					mes "Quem é você...?";
+					if (Sex)
+						mes "Além disso, quem é você para me chamar de meu jovem!";
+					else
+						mes "Além disso, quem é você para me chamar de minha adorada jovem?!";
+					next;
+					mes "[Errende]";
+					mes "Errr...uau, dá um tempo. Eu não queria deixar ninguém chateado.";
+					mes "Sou apenas mais um poeta andarilho.";
+					mes "Eu sigo o caminho do vento por todo o mundo.";
+					mes "Pode me chamar de ^4d4dffErrende^000000,";
+					mes "o poeta que quer alegrar a todos.";
+					next;
+					mes "[Errende]";
+					mes "Se me deixar, vou contar tudo";
+					mes "que ouvi e vivi.";
+					mes "Se me deixar, vou cantar uma canção";
+					mes "para silenciar a sua dor.";
+					set bard_q,21;
+					next;
+						switch(select("Então, conte uma história:Então, cante:Talvez uma outra hora")) {
+							case 1:
+								mes "[Errende]";
+								mes "Hmm, você gosta de histórias, hein?";
+								mes "Que tipo de história você gosta?";
+								mes "Posso contar qualquer coisa, desde que eu conheça.";
+								mes "Só para você. *Risos*";
+								next;
+									switch(select("Notícias ou um Boato:Cancelar.")) {
+										case 1:
+											set @talk,rand(1,3);
+											if (@talk == 1) {
+												mes "[Errende]";
+												mes "Umm... então vamos falar sobre esta cidade,";
+												mes "Geffen? Você já esteve no bar ou na estalagem?";
+												mes "Preciso dizer que as atendentes são demais.";
+												mes "A mais velha é bonita e graciosa,";
+												mes "e a menor é divertida e elétrica...";
+												next;
+												mes "[Errende]";
+												mes "Ah, certo! Algumas vezes elas ficam possuídas pelo";
+												mes "pai delas, que morreu. Eu fiquei tão surpreso da última vez que vi isso...";
+												mes "Mesmo agora, quando penso nisso, fico apavorado.";
+												mes "Parece que o pai delas é obsessivo pelas filhas mesmo tendo";
+												mes "partido para o além.";
+												next;
+												mes "[Errende]";
+												mes "Especialmente quando alguém tenta conversar com uma das garotas,";
+												mes "o espírito dele reage de forma exagerada...";
+												mes "Eu não sei bem por que, mas";
+												mes "talvez ele pense que suas filhas são muito novas";
+												mes "para casar... hein?";
+												mes "Hahahahaha.....";
+												next;
+												mes "[Errende]";
+												mes "E.. ah, sim. Tem um mercador atrás do bar.";
+												mes "Você já o conhece ?";
+												mes "Esta área é mais fria do que Morroc,";
+												mes "então eu comprei uma manta dele.";
+												mes "Mas, olhe, não tem nem mesmo um fio direito. E também foi bastante cara...";
+												mes "Por alguma razão, ele não parece ser confiável.";
+												next;
+												mes "[Errende]";
+												mes "É melhor ser cuidadoso com ele.";
+												mes "Hum... tem uma cidade oculta chamada Geffenia";
+												mes "debaixo da Torre de Geffen.";
+												mes "Já esteve lá?";
+												mes "Eu ouvi que é preciso fazer algo para entrar...";
+												mes "Talvez eu devesse tentar alguma hora.";
+												next;
+												mes "[Errende]";
+												mes "Eu ouvi que Willian, o pai daquelas duas garotas que eu falei,";
+												mes "foi para a Torre de Geffen com outras pessoas para subjugar";
+												mes "os monstros que invadiram a torre. Mas ele nunca voltou.";
+												mes "Ah, bem, eu imagino que seja uma boa história para aventureiros, mas,";
+												mes "quando me lembro que ele deixou uma família......";
+												next;
+												mes "[Errende]";
+												mes "Eu fico triste por elas.";
+												mes "Eu sonho com um mundo onde";
+												mes "todo mundo é feliz.";
+												close;
+											}
+											else if (@talk == 2) {
+												mes "[Errende]";
+												mes "Certo, deixe eu contar uma história sobre Morroc.";
+												mes "Morroc, a cidade do deserto.";
+												mes "Espera-se que todo aventureiro experiente";
+												mes "explore Morroc e o deserto ao redor da cidade.";
+												next;
+												mes "[Errende]";
+												mes "Particularmente, as Pirâmides e a Esfinge são";
+												mes "os locais mais famosos de Morroc.";
+												mes "E eu ouvi que tem um mercador vendendo";
+												mes "Maçãs-Espadas para Sacerdotes e Sacerdotisas.";
+												mes "Alias, os Sacerdotes não podem ter nenhuma arma com lâmina.";
+												next;
+												mes "[Errende]";
+												mes "Tem um oásis no meio de Morroc.";
+												mes "Lá você verá uma senhora ou um velho simpático";
+												mes "que lhe dará boas dicas de como descansar no deserto.";
+												next;
+												mes "[Errende]";
+												mes "Eu conheço uma menininha que pediu para o pai amansar";
+												mes "um Munak para ela. Ela era tão teimosa...";
+												mes "Conforme ouvia a conversa, me pareceu";
+												mes "que o pai dela tinha alguma coisa a ver com o cara que se perdeu";
+												mes "em Alberta...";
+												next;
+												mes "[Errende]";
+												mes "De qualquer forma, eu acabei ajudando o pai dela em uma missão.";
+												mes "E ele me deu uma misteriosa caixa pelo favor.";
+												mes "Quando eu a abri, havia dentro uma pena...";
+												mes "Eu não descobri como ela funcionava, então";
+												mes "eu a mantenho como um souvenir.";
+												next;
+												mes "[Errende]";
+												mes "Hum... eu fico pensando se o Sr. Pandger Mayer encontrou";
+												mes "o caminho de volta para a sua cidade...";
+												close;
+											}
+											else if (@talk == 3) {
+												mes "[Errende]";
+												mes "Por acaso você já ouviu falar de Alberta?";
+												mes "Tem um navio afundado perto de Alberta.";
+												mes "Uma agência de eventos transformou o navio em";
+												mes "uma rota de expedição e estão faturando muito";
+												mes "dinheiro com aquele navio. Você sabe disso, não é?";
+												mes "De qualquer forma,";
+												next;
+												mes "[Errende]";
+												mes "Quando o navio afundou perto de Alberta,";
+												mes "foi encontrado por um dos Guardiões de Alberta.";
+												mes "Ele também encontrou um bebê dentro de uma cabine.";
+												mes "E ao lado do bebê que chorava havia um órgão.";
+												next;
+												mes "[Errende]";
+												mes "As pessoas dizem que o bebê,";
+												mes "o único que sobreviveu ao naufrágio,";
+												mes "foi criado em Alberta.";
+												mes "Há boatos de que ele foi tratado com desprezo";
+												mes "quando era jovem. Mas hoje ele parece bem.";
+												mes "Ah... nós estávamos falando do navio afundado.";
+												next;
+												mes "[Errende]";
+												mes "Eu não tenho certeza se ele era ou não um navio pirata,";
+												mes "dizem que monstros esqueletos com roupa de pirata";
+												mes "aparecem dentro do navio.";
+												mes "Além do navio, as pessoas de Alberta estão bastante empolgadas";
+												mes "com uma rota no oceano para a Ilha da Tartaruga, que um aventureiro descobriu.";
+												next;
+												mes "[Errende]";
+												mes "Mas, ao mesmo tempo, há muitos boatos por trás disso.";
+												mes "O segundo esquadrão da guarda de Alberta que foi explorar a Ilha da Tartaruga";
+												mes "ainda não voltou e outro esquadrão de cavaleiros";
+												mes "foi atrás deles para tentar encontrá-los...";
+												mes "Está uma confusão...";
+												next;
+												mes "[Errende]";
+												mes "Seja como for, agora tem uma rota pelo oceano até a Ilha da Tartaruga!";
+												mes "Então, eu fui para a ilha dar uma olhada.";
+												mes "E acontece que encontrei o diário do aventureiro que descobriu a ilha.";
+												mes "E havia uma pequena chave no diário.";
+												mes "Então... Eu estava curioso e segui o que estava escrito no diário.";
+												next;
+												mes "[Errende]";
+												mes "Basicamente, eu sentia como se estivesse procurando um tesouro perdido...";
+												mes "e eu precisava conhecer um espadachim que deseja";
+												mes "encontrar a espada suprema.";
+												mes "Também descobri uma coisa que pertencia ao espadachim.";
+												mes "Foi a aventura mais fantástica e excitante que eu já tive.";
+												close;
+											}
+										break;
+										case 2:
+											mes "[Errende]";
+											mes "Ah!!! que pena.";
+											mes "Mas, prometa que vai passar por aqui de novo.";
+											mes "Eu lhe contarei as minhas aventuras.";
+											close;
+										break;
+									}
+							break;
+							case 2:
+								 mes "[Errende]";
+									mes "Oh, finalmente eu encontrei alguém que reconhece o meu talento!";
+									mes "Você merece ouvir uma canção minha!";
+									mes "Me diga, o que quer ouvir?";
+									mes "Eu posso cantar o que quiser.";
+									next;
+									switch(select("Cante qualquer coisa que quiser.:Eu quero uma canção divertida.:Deixe para lá.")) {
+										case 1:
+											if (Zeny > 499) {
+												set @song_random,rand(1,3);
+												if (@song_random == 1) {
+													mes "[Errende]";
+													mes "Tudo bem.";
+													mes "Então, vamos lá!!!";
+													soundeffect "ring_of_nibelungen.wav",1;
+													set Zeny,Zeny-500;
+													close;
+												}
+												else if (@song_random == 2) {
+													mes "[Errende]";
+													mes "Tudo bem.";
+													mes "Vamos lá!!!";
+													soundeffect "dont_forget_me_not.wav",1;
+													set Zeny,Zeny-500;
+													close;
+												} else {
+													mes "[Errende]";
+													mes "Tudo bem.";
+													mes "Lá vamos nós!!!";
+													soundeffect "in_to_the_abyss.wav",1;
+													set Zeny,Zeny-500;
+													close;
+												}
+											} else {
+												mes "[Errende]";
+												mes "Ah hahaha, me desculpe, mas";
+												mes "isso não é de graça.";
+												mes "De algum jeito eu preciso ganhar dinheiro para viver, não é?";
+												close;
+											}
+										break;
+										case 2:
+											mes "[Errende]";
+											mes "Uma canção divertida... uma canção divertida...";
+											mes "Certo, escute essa.";
+											next;
+											set @song_random2,rand(1,3);
+											if (@song_random2 == 1) {
+												mes "Valhala, onde o dourado brilha,";
+												mes "que é chamado de quinto.";
+												mes "Glast Heim!";
+												mes "Lá os guerreiros gloriosos";
+												mes "são evocados por Odin.";
+												next;
+												mes "Palácio da morte";
+												mes "com teto de prata";
+												mes "que é chamado de terceiro";
+												mes "Valaskjalf!";
+												mes "Lá os guerreiros gloriosos";
+												mes "são evocados por Odin.";
+												next;
+												mes "Há quinhentas portas no Valhala.";
+												mes "e há quarenta portas mais.";
+												mes "E todas abrem para o Lobo.";
+												mes "Oitocentos guerreiros reunidos por vontade do deus";
+												mes "passam pelas portas.";
+												next;
+												mes "Guerreiros devotos que passaram por Yggdrasil,";
+												mes "levados pelo destino";
+												mes "com honra, deram as mãos às valquírias.";
+												next;
+												mes "Guerreiros mortos pelas armas,";
+												mes "Guerreiros mortos pelas armas,";
+												mes "A fama de seus nomes ecoará após a morte,";
+												mes "e os levará ao Valhala.";
+												mes "e os levará ao Valhala.";
+												close;
+												mes "[Errende]";
+												mes ".....";
+												mes "...você sabe que isso é sobre uma lenda, não sabe?";
+												mes "Só os deuses sabem se é verdade";
+												mes "que o castelo chamado Glast Heim foi o";
+												mes "o quinto Valhala ou não.";
+												mes "Só os deuses sabem.";
+												close;
+											}
+											else if (@song_random2 == 2) {
+												mes "Os bardos cantam para diversão da platéia.";
+												mes "Portanto, não espere de mim que cante";
+												mes "uma canção triste que aprofunde a sua angústia.";
+												next;
+												mes "As dançarinas dançam para diversão da platéia.";
+												mes "Vamos dançar juntos? Então, pegue a minha mão.";
+												mes "La la la la la la...";
+												next;
+												mes "[" + @name$ + "]";
+												mes "A propósito, por que vocês";
+												mes "às vezes desafinam? Odeio quando acontece isso.";
+												next;
+												mes "[Errende]";
+												mes "Como... como pode dizer uma coisa dessas?";
+												mes "" + @name$ +"...";
+												mes "Você...? Você já quis ser um bardo antes?";
+												mes "É por isso que está caçoando de mim?";
+												close;
+											} else { 
+												mes "Galopes soam a distância.";
+												mes "Uma nuvem de poeira encobre o pôr-do-sol.";
+												mes "Centenas de olhos espreitam a noite.";
+												mes "Tochas no castelo reluzem como centenas de Ifrits.";
+												next;
+												mes "Ouça o palpitante som do meu coração,";
+												mes "Sinta o sangue nas veias.";
+												mes "Sinta o peso da minha armadura.";
+												mes "Veja os inimigos se mostrando à frente.";
+												next;
+												mes "Que toque alto, mais alto, o tambor!";
+												mes "Alegrem-se soldados, o primeiro passo será nosso!";
+												mes "Gritem alto, mais alto!";
+												mes "Nunca mais será como hoje!";
+												next;
+												mes "Abale o céu e chacoalhe a terra,";
+												mes "para o meu coração bater de novo!";
+												mes "Toque a corneta para oscilar a fortaleza.";
+												mes "Nunca mais será como hoje!";
+												next;
+												mes "[Errende]";
+												mes "Ah, essa se chama 'Tambor no campo de batalha'.";
+												mes "Foi escrita pelo Sr. Iolo.";
+												mes "É, eu gosto dessa canção.";
+												close;
+											}
+										break;
+										case 3:
+											mes "[Errende]";
+											mes "Claro, sem problema.";
+											mes "Volte sempre.";
+											close;
+										break;
+									}
+							break;
+							case 3:
+								mes "[Errende]";
+								mes "Ehhhh";
+								mes "Não faz mal ouvir uma canção de vez em quando...";
+								mes "Mas está bem, te vejo outra hora!";
+								close;
+							break;
+						}
+				break;
+				case 2:
+					mes "[Errende]";
+					mes "Ah, não!";
+					mes "Você não pode me ignorar assim!";
+					mes "Se assim fizer, precisa saber";
+					mes "que nada sabe sobre romance!";
+					close;
+				break;
+			}
+	}
+	else if (bard_q == 27) {
+		mes "[Errende]";
+		mes "Como pude esquecer a canção...";
+		mes "Não estou de bom humor...";
+		mes "Eu não quero conversar.";
+		mes "Me deixe sozinho.";
+		next;
+		switch(select("Sem problema.:Tem algo que eu possa fazer para ajudar?")) {
+		case 1:
+			mes "[Errende]";
+			mes "Ah, como você é insensível!";
+			mes "Como pode nem mesmo tentar";
+			mes "entender o meu problema?";
+			mes "Eu achava que a gente se conhecia melhor!";
+			mes "Acho que eu estava errado!";
+			next;
+			mes "[Errende]";;
+			mes "...*choradeira*..........";
+			mes "Quem foi que fez esse pobre bardo chorar?";
+			mes "Você respondeu.";
+			mes "Fui eu, quando deixei ele por aí.";
+			mes "... ";
+			close;
+		break;
+		case 2:
+			mes "[Errende]";
+			mes "Umm umm... tá bom, então... deixe me pensar...";
+			mes "É isso! Gunther!";
+			mes "Pode me fazer um favor?";
+			mes "Por acaso, se encontrar ^4d4dffGunther HarmoniaDubla^000000";
+			mes "conte para ele a minha situação.";
+			next;
+			mes "[Errende]";
+			mes "O ^4d4dffErrende Menta^000000";
+			mes "esqueceu uma linha da canção ^4d4dffEm um, eu fico apaixonado^000000.";
+			mes "A linha é chamada de ^4d4dffOitavo amor^000000.";
+			mes "É o oitavo amor de Em um, eu fico apaixonado.";
+			next;
+			mes "[Errende]";
+			mes "Por favor, eu suplico.";
+			mes "Quando encontrá-lo, pergunte para mim";
+			mes "qual é o oitavo amor.";
+			mes "E me conte imediatamente.";
+			set bard_q,22;
+			close;
+		break;
+		}
+	}
+	else if (bard_q == 26) {
+		mes "[Errende]";
+		mes "Argh... quem foi que trocou as palavras dessa canção?";
+		mes "É muito difícil de entender...";
+		mes "Eu queria poder perguntar a quem mudou as palavras...";
+		next;
+		mes "[Errende]";
+		mes "Ah... Isso é tão frustrante...";
+		mes "Nunca mais vou querer cantar ou tocar...";
+		next;
+		mes "[" + @name$ + "]";
+		mes "Não acha que... que essa pessoa é...";
+		input @inputstr$;
+		mes ""+@inputstr$+"?";
+		next;
+		if (@inputstr$ == "Kino Gato") {
+			mes "[Errende]";
+			mes "Ah! Eu acho que você tem razão!";
+			mes "Como não pensei nisso antes?!";
+			mes "Ah... sou tão estúpido...";
+			mes "Sim, sim, eu acho que é bem possível que tenha sido alterada pelo Sr. Gato.";
+			mes "Ele costumava ser o único membro de um exército de um só...";
+			next;
+			mes "[Errende]";
+			mes "Mas, isso é tão mesquinho...";
+			mes "Porque essa canção falava";
+			mes "sobre um casal feliz." ;
+			mes "..........";
+			mes "Ummm... me desculpe por pedir mais um favor...";
+			next;
+			mes "[Errende]";
+			mes "Por acaso, se estiver planejando viajar...";
+			mes "pode encontrar a versão original dessa canção?";
+			mes "Poderia...?";
+			mes "Eu posso esperar...";
+			next;
+			switch(select("Não, sem chance.:Claro que posso, pare de chorar.")) {
+				case 1:
+					mes "[Errende]";
+					mes "Ah, eu sabia que era pedir muito a você...";
+					mes "...mil desculpas.";
+					mes "Eu acabo esperando demais de você.";
+					mes "Certo, eu vou encontrar outro jeito.";
+					set bard_q,25;
+					close;
+				break;
+				case 2:
+					mes "[Errende]";
+					mes "......! Sério?";
+					mes "Oh, eu agradeço muito mesmo. Você parece";
+					mes "um anjo com duas asas de penas brancas";
+					mes "descendo para a terra!";
+					mes "Você é o único que";
+					mes "entende a mente de um poeta.";
+					next;
+					mes "[Errende]";
+					mes "Eu vou compensar você!";
+					mes "E, antes de tudo, muito obrigado por toda a sua ajuda.";
+					set bard_q,24;
+					close;
+				break;
+			}
+		}
+		else if (@inputstr$ == "Gunther") {
+			mes "[Errende]";
+			mes "Gunther? Eu não acho que ele faria uma coisa dessas.";
+			mes "Ele sempre coloca as linhas nas suas canções";
+			mes "como se tivessem 'duas harmonias'.";
+			close;
+		}
+		else if (@inputstr$ == "Gunther Doubleharmony") {
+			mes "[Errende]";
+			mes "Gunther? Eu não acho que ele faria uma coisa dessas.";
+			mes "Ele sempre coloca as linhas nas suas canções";
+			mes "como se tivessem 'duas harmonias'.";
+			close;
+		}
+		else if (@inputstr$ =="Errende") {
+			mes "[Errende]";
+			mes "Você está me gozando?";
+			mes "Se fui eu, como é que não sei ";
+			mes "do que trata essa canção!";
+			close;
+		} else {
+			mes "[Errende]";
+			mes ""+ inputstr +"?";
+			mes "Eu acho que não conheço essa pessoa.";
+			mes "Você deve não ter entendido algo...";
+			mes "*suspiro*...";
+			next;
+			mes "[Errende]";
+			mes "Qual era a linha... como foi que";
+			mes "eu esqueci o oitavo amor...";
+			set bard_q,26;
+			close;
+		}
+	}
+	else if (bard_q == 25) {
+		mes "[Errende]";
+		mes "Quem foi que fez esse pobre bardo chorar?";
+		mes "Você respondeu.";
+		mes "Fui eu, quando deixei ele por aí.";
+		next;
+		mes "[Errende]";
+		mes "Quem disse isso?";
+		mes "Você respondeu.";
+		mes "'Eu o vi chorando'";
+		next;
+		mes "[Errende]";
+		mes "Por que o pobre bardo está chorando?";
+		mes "Você respondeu.";
+		mes "'Porque eu o deixei por aí'.";
+		next;
+		mes "[Errende]";
+		mes "Quem foi que fez esse pobre bardo chorar?";
+		mes "Você respondeu.";
+		mes "Fui eu, quando deixei ele por aí.";
+		mes "....";
+		mes "..*chora*.";
+		next;
+		set @song_random3,rand(1,50);
+		if ((@song_random3 > 27 ) && (@song_random3 < 37 )) {
+			mes "- Ele parece estar desapontado -";
+			mes "- com você por ter se recusado a ajudá-lo - ";
+			mes "- novamente. Ele continua a cantar - ";
+			mes "- sobre o seu choro. -";
+			mes "- Você sente pena dele. - ";
+			next;
+			switch(select("Bem... então, eu devo ajudá-lo...:Ignore-o assim mesmo.")) {
+			case 1:
+				mes "[" + @name$ + "]";
+				mes "Ora, ora, Errende.";
+				mes "Pare de cantar essa canção.";
+				mes "É tão embaraçosa.";
+				mes "Está certo, eu vou encontrar a canção original para você.";
+				next;
+				mes "[Errende]";
+				mes "...! Tem certeza?";
+				mes "Obrigado! Muito obrigado pelo favor!";
+				mes "Só você entende";
+				mes "a tristeza de ser um bardo!";
+				next;
+				mes "[Errende]";
+				mes "Eu prometo que vou compensar você!";
+				mes "Muito obrigado.";
+				mes "Eu espero aqui até você voltar.";
+				set bard_q,24;
+				close;
+			break;
+			case 2:
+				mes "- Você ignora essa canção embaraçosa - ";
+				mes "- e se apressa a sair dali. -";
+				close;
+			break;
+			}
+		} else {
+			mes "[Errende]";
+			mes "Tem mais alguma coisa que queira de mim?";
+			mes "Se não tiver, gostaria de ouvir uma canção minha?";
+			mes "Quem foi que fez esse pobre bardo chorar?";
+			mes "Você respondeu.";
+			mes "Fui eu, quando deixei ele por aí.";
+			close;
+		}
+	}
+	else if (bard_q == 24) {
+		mes "[Errende]";
+		mes "Umm... eu não sei exatamente onde o Sr. Gato vive...";
+		mes "Ummm...talvez...";
+		mes "Você possa encontrá-lo";
+		mes "no Museu dos Monstros em Juno...";
+		mes "Não sei como, mas ele é um membro da Associação de Pesquisa de Monstros.";
+		next;
+		mes "[Errende]";
+		mes "Se for um explorador bem experiente,";
+		mes "já deve ter ouvido falar da Organização de Pesquisa de Monstros.";
+		mes "Recentemente, muitos sábios ficaram feridos enquanto pesquisavam monstros,";
+		mes "hoje, eles não pesquisam mais eles mesmos.";
+		mes "Em vez disso, coletam informações com aventureiros.";
+		next;
+		mes "[Errende]";
+		mes "Para pessoas como eu, que vagam pelo mundo todo,";
+		mes "essa é a melhor maneira de ganhar dinheiro.";
+		mes "Eles nos dão apoio financeiro e nós";
+		mes "coletamos informações sobre o que eles querem.";
+		mes "De qualquer forma, eu acho melhor você ";
+		mes "visitar o museu dos monstros.";
+		next;
+		mes "[Errende]";
+		mes "Para encontrar o Sr. Gato";
+		mes "Vá até Juno, onde fica o quartel-general dele.";
+		mes "É meio longe daqui.";
+		mes "O local do edifício?";
+		mes "Deve ser... a oeste da praça central...";
+		mes "Antes de mais nada, muito obrigado.";
+		close;
+	}
+	else if (bard_q == 22) {
+		mes "[Errende]";
+		mes "*suspiro*...onde posso encontrar o oitavo amor...?";
+		mes "Você encontrou Gunther?";
+		mes "Ah....";
+		mes "Parece que ainda não.";
+		mes "Quer ouvir uma canção minha...?";
+		next;
+		mes "[Errende]";
+		mes "....Desculpe, não posso cantar...";
+		mes "desde que esqueci a linha da canção.. eu não posso mais.";
+		mes "Não consigo ter humor para cantar...  ";
+		mes "Por favor, pergunte ao ^4d4dffGunther^000000 sobre o ^4d4dffoitavo amor^000000";
+		mes "do ^4d4dffEm um, eu fico apaixonado^000000.";
+		mes "Antes de tudo, muito obrigado.";
+		close;
+	}
+	else if (bard_q == 23) {
+		mes "[Errende]";
+		mes "Então, você viu o Gunther?";
+		next;
+		mes "- Você não respondeu a ele, mas - ";
+		mes "- se virou para mostrar a ele - ";
+		mes "- suas costas. -";
+		next;
+		mes "[Errende]";
+		mes "Hã! ...não é ela?!";
+		mes "Não é a linha da canção escrita nas suas costas?!";
+		mes "Espere, não se mova!";
+		mes "O oitavo amor é...!";
+		mes "Ah! Agora eu entendo!";
+		next;
+		mes "[Errende]";
+		mes "Em um, eu fico apaixonado.";
+		mes "Em dois, eu estou amando.";
+		mes "Em três, eu ainda amo.";
+		mes "Em quatro, eu realmente estou amando.";
+		next;
+		mes "[Errende]";
+		mes "Em cinco?";
+		mes "É isso, minha mente está mudando.";
+		mes " ";
+		mes "Iuu Ruu!!!!";
+		mes "Uma pétala é soprada para longe!!";
+		next;
+		mes "[Errende]";
+		mes "Em seis, ele está apaixonado.";
+		mes "Em sete, ela está apaixonada.";
+		mes "Em oito?";
+		mes "Ele e ela fogem";
+		mes "Em nove, eu me apaixono novamente.";
+		next;
+		mes "[Errende]";
+		mes "A décima pétala canta uma canção.";
+		mes "Eu volto, mas meu amor não mais está aqui.";
+		mes "A décima primeira pétala canta uma canção.";
+		mes "Ele está apaixonado e ela está apaixonada";
+		mes "ambos deixaram você para trás.";
+		next;
+		mes "[Errende]";
+		mes "a décima segunda pétala sussurra para mim,";
+		mes "'Ei, você foi abandonado!'";
+		mes " ";
+		mes "Iuu Ruu!!!!";
+		mes "Meu amor é soprado para longe!!";
+		next;
+		mes "[Errende]";
+		mes " .... ..... ...";
+		mes "....... não pode ser isso.";
+		mes "Essa não é a 'Em um, eu fico apaixonado' de verdade!";
+		mes "A canção original não é sobre tristeza!";
+		mes "Eu acho que você pegou algo errado.";
+		next;
+		 mes "[Errende]";
+		mes "Quanto mais eu olho para ela, mais acho que está errada.";
+		mes "O Gunther não disse nada sobre isso?";
+		mes "As palavras dessa canção devem ter sido trocas por";
+		next;
+		input @inputstr$;
+		if (@inputstr$ == "Kino Gato") {
+			mes "[Errende]";
+			mes "Ah! Eu acho que você tem razão!";
+			mes "Como não pensei nisso antes?!";
+			mes "Ah... sou tão estúpido...";
+			mes "Sim, sim, eu acho que é bem possível que tenha sido alterada pelo Sr. Gato.";
+			mes "Ele costumava ser o único membro de um exército de um só...";
+			next;
+			mes "[Errende]";
+			mes "Mas, isso é tão mesquinho...";
+			mes "Porque essa canção falava";
+			mes "sobre um casal feliz." ;
+			mes "..........";
+			mes "Ummm... me desculpe por pedir mais um favor...";
+			next;
+			mes "[Errende]";
+			mes "Por acaso, se estiver planejando viajar...";
+			mes "podem encontrar a versão original dessa canção?";
+			mes "Poderia...?";
+			mes "Eu posso esperar...";
+			next;
+			switch(select("Não, sem chance.:Claro que posso, pare de chorar.")) {
+			case 1:
+				mes "[Errende]";
+				mes "Ah, eu sabia que era pedir muito a você...";
+				mes "...mil desculpas.";
+				mes "Eu acabo esperando demais de você.";
+				mes "Certo, eu vou encontrar outro jeito.";
+				set bard_q,25;
+				close;
+			break;
+			case 2:
+				mes "[Errende]";
+				mes "......! Sério?";
+				mes "Oh! eu agradeço muito mesmo. Você parece";
+				mes "um anjo com duas asas de penas brancas";
+				mes "descendo para a terra!";
+				mes "Você é o único que";
+				mes "entende a mente de um poeta.";
+				next;
+				mes "[Errende]";
+				mes "Eu vou compensar você!";
+				mes "E, antes de tudo, muito obrigado por toda a sua ajuda.";
+				set bard_q,24;
+				close;
+			break;
+			}
+		}
+	   else if (@inputstr$ == "Gunther") {
+			mes "[Errende]";
+			mes "Gunther? Eu não acho que ele faria uma coisa dessas.";
+			mes "Ele sempre coloca as linhas nas suas canções";
+			mes "como se tivessem 'duas harmonias'.";
+			set bard_q,26;
+			close;
+		}
+		else if (@inputstr$ == "Gunther Doubleharmony") {
+			mes "[Errende]";
+			mes "Gunther? Eu não acho que ele faria uma coisa dessas.";
+			mes "Ele sempre coloca as linhas nas suas canções";
+			mes "como se tivessem 'duas harmonias'.";
+			set bard_q,26;
+			close;
+		}
+		else if (@inputstr$ == "Errende") {
+			mes "[Errende]";
+			mes "Você está me gozando?";
+			mes "Se fui eu, como é que não sei";
+			mes "do que trata essa canção!";
+			set bard_q,26;
+			close;
+		} else {
+			mes "[Errende]";
+			mes ""+ inputstr +"?";
+			mes "Eu acho que eu não conheço essa pessoa.";
+			mes "Você deve não ter entendido algo...";
+			mes "*suspiro*...";
+			next;
+			mes "[Errende]";
+			mes "Qual era a linha... como foi que";
+			mes "eu esqueci o oitavo amor...";
+			set bard_q,26;
+			close;
+		}
+	}
+	else if (bard_q == 21) {
+		mes "[Errende]";
+		mes "Bem-vindo de volta,";
+		mes "" + @name$ +".";
+		mes "O que posso fazer por você? Cantar e tocar?";
+		mes "Ou contar uma história?";
+		next;
+			switch(select("Uma história:Uma canção:Talvez uma outra hora")) {
+				case 1:
+					mes "[Errende]";
+					mes "Hmm, você gosta de histórias, hein?";
+					mes "Que tipo de história você gosta?";
+					mes "Posso contar qualquer coisa, desde que eu conheça.";
+					mes "Só para você. *Risos*";
+					next;
+						switch(select("Notícias ou um boato:Cancelar.")) {
+							case 1:
+								set @talk,rand(1,3);
+								if (@talk == 1 ) {
+									mes "[Errende]";
+									mes "Umm...então vamos falar sobre esta cidade,";
+									mes "Geffen? Você já esteve no bar ou na estalagem?";
+									mes "Preciso dizer que as atendentes são demais.";
+									mes "A mais velha é bonita e graciosa,";
+									mes "e a menor é divertida e elétrica...";
+									next;
+									mes "[Errende]";
+									mes "Ah, certo! Algumas vezes elas ficam possuídas pelo";
+									mes "pai delas, que morreu. Eu fiquei tão surpreso da última vez que vi isso...";
+									mes "Mesmo agora, quando penso nisso, fico apavorado.";
+									mes "Parece que o pai delas é obsessivo pelas filhas mesmo tendo";
+									mes "partido para o além.";
+									next;
+									mes "[Errende]";
+									mes "Especialmente quando alguém tenta conversar com uma das garotas,";
+									mes "o espírito dele reage de forma exagerada...";
+									mes "Eu não sei bem por que, mas";
+									mes "talvez ele pense que suas filhas são muito novas";
+									mes "para casar... hein?";
+									mes "Hahahahaha.....";
+									next;
+									mes "[Errende]";
+									mes "E.. ah, sim. Tem um mercador atrás do bar.";
+									mes "Você já o conhece?";
+									mes "Esta área é mais fria do que Morroc,";
+									mes "então eu comprei uma manta dele.";
+									mes "Mas, olhe, não tem nem mesmo um fio direito. E também foi bastante cara...";
+									mes "Por alguma razão, ele não parece ser confiável.";
+									next;
+									mes "[Errende]";
+									mes "É melhor ser cuidadoso com ele.";
+									mes "Hum...tem uma cidade oculta chamada Geffenia";
+									mes "debaixo da Torre de Geffen.";
+									mes "Já esteve lá?";
+									mes "Eu ouvi que é preciso fazer algo para entrar...";
+									mes "Talvez eu devesse tentar alguma hora.";
+									next;
+									mes "[Errende]";
+									mes "Eu ouvi que Willian, o pai daquelas duas garotas que eu falei,";
+									mes "foi para a Torre de Geffen com outras pessoas para subjugar";
+									mes "os monstros que invadiram a torre. Mas ele nunca voltou.";
+									mes "Ah bem, eu imagino que seja uma boa história para aventureiros, mas,";
+									mes "quando me lembro que ele deixou uma família......";
+									next;
+									mes "[Errende]";
+									mes "Eu fico triste por elas.";
+									mes "Eu sonho com um mundo onde";
+									mes "todo mundo é feliz.";
+									close;
+								}
+								else if (@talk == 2) {
+								   mes "[Errende]";
+									mes "Certo, deixe eu contar uma história sobre Morroc.";
+									mes "Morroc, a cidade do deserto.";
+									mes "Espera-se que todo aventureiro experiente";
+									mes "explore Morroc e o deserto ao redor da cidade.";
+									next;
+									mes "[Errende]";
+									mes "Particularmente, as Pirâmides e a Esfinge são";
+									mes "os locais mais famosos de Morroc.";
+									mes "E eu ouvi que tem um mercador vendendo";
+									mes "Maças-Espadas para Sacerdotes e Sacerdotisas.";
+									mes "Aliás, os Sacerdotes não podem ter nenhuma arma com lâmina.";
+									next;
+									mes "[Errende]";
+									mes "Tem um oásis no meio de Morroc.";
+									mes "Lá você verá uma senhora ou um velho simpático,";
+									mes "que lhe dará boas dicas de como descansar no deserto.";
+									next;
+									mes "[Errende]";
+									mes "Eu conheço uma menininha que pediu para o pai amansar";
+									mes "um Munak para ela. Ela era tão teimosa...";
+									mes "Conforme ouvia a conversa, me pareceu";
+									mes "que o pai dela tinha alguma coisa a ver com o cara que se perdeu";
+									mes "em Alberta...";
+									next;
+									mes "[Errende]";
+									mes "De qualquer forma, eu acabei ajudando o pai dela em uma missão.";
+									mes "E ele me deu uma misteriosa caixa pelo favor.";
+									mes "Quando eu a abri, havia dentro uma pena...";
+									mes "Eu não descobri como ela funcionava, então";
+									mes "eu a mantenho como um souvenir.";
+									next;
+									mes "[Errende]";
+									mes "Hum... eu fico pensando se o Sr. Pandger Mayer encontrou";
+									mes "o caminho de volta para a sua cidade...";
+									close;
+								}   
+								else if (@talk == 3) {
+									mes "[Errende]";
+									mes "Por acaso você já ouviu falar de Alberta?";
+									mes "Tem um navio afundado perto de Alberta.";
+									mes "Uma agência de eventos transformou o navio em";
+									mes "uma rota de expedição e estão faturando muito";
+									mes "dinheiro com aquele navio. Você sabe disso, não é?";
+									mes "De qualquer forma,";
+									next;
+									mes "[Errende]";
+									mes "quando o navio afundou perto de Alberta,";
+									mes "foi encontrado por um dos Guardiões de Alberta.";
+									mes "Ele também encontrou um bebê dentro de uma cabine.";
+									mes "E ao lado do bebê que chorava havia um órgão.";
+									next;
+									mes "[Errende]";
+									mes "As pessoas dizem que o bebê,";
+									mes "o único que sobreviveu ao naufrágio,";
+									mes "foi criado em Alberta.";
+									mes "Há boatos de que ele foi tratado com desprezo";
+									mes "quando era jovem. Mas hoje ele parece bem.";
+									mes "Ah... nós estávamos falando do navio afundado.";
+									next;
+									mes "[Errende]";
+									mes "Eu não tenho certeza se ele era ou não um navio pirata,";
+									mes "dizem que monstros esqueletos com roupa de pirata";
+									mes "aparecem dentro do navio.";
+									mes "Além do navio, as pessoas de Alberta estão bastante empolgadas";
+									mes "com uma rota no oceano para a Ilha da Tartaruga que um aventureiro descobriu.";
+									next;
+									mes "[Errende]";
+									mes "Mas, ao mesmo tempo, há muitos boatos por trás disso.";
+									mes "O segundo esquadrão da guarda de Alberta que foi explorar a Ilha da Tartaruga";
+									mes "ainda não voltou e outro esquadrão de cavaleiros";
+									mes "foi atrás deles para tentar encontrá-los...";
+									mes "Está uma confusão...";
+									next;
+									mes "[Errende]";
+									mes "Seja como for, agora tem uma rota pelo oceano até a Ilha da Tartaruga!";
+									mes "Então, eu fui para a ilha dar uma olhada.";
+									mes "E acontece que encontrei o diário do aventureiro que descobriu a ilha.";
+									mes "E havia uma pequena chave no diário.";
+									mes "Então... Eu estava curioso e segui o que estava escrito no diário.";
+									next;
+									mes "[Errende]";
+									mes "Basicamente, eu sentia como se estivesse procurando um tesouro perdido...";
+									mes "e eu precisava conhecer um espadachim que deseja";
+									mes "encontrar a espada suprema.";
+									mes "Também descobri uma coisa que pertencia ao espadachim.";
+									mes "Foi a aventura mais fantástica e excitante que já tive.";
+									close;
+								}
+							break;
+							case 2:
+								mes "[Errende]";
+								mes "Ah!!! que pena.";
+								mes "Mas prometa que vai passar por aqui de novo.";
+								mes "Eu lhe contarei as minhas aventuras.";
+								close;
+							break;
+						}
+				break;
+				case 2:
+					mes "[Errende]";
+					mes "Oh, finalmente eu encontrei alguém que reconhece o meu talento!";
+					mes "você merece ouvir uma canção minha!";
+					mes "Me diga, o que quer ouvir?";
+					mes "Eu posso cantar o que quiser.";
+					next;
+						switch(select("Cante qualquer coisa que quiser.:Eu quero uma canção divertida.:Deixe para lá.")) {
+							case 1:
+								if (Zeny > 499) {
+									set @song_random,rand(1,3);
+									if (@song_random == 1) {
+									   mes "[Errende]";
+										mes "Tudo bem.";
+										mes "Então, vamos lá!!!";
+										soundeffect "ring_of_nibelungen.wav",1;
+										set Zeny,Zeny-500;
+										close;
+									}
+									else if (@song_random == 2) {
+									   mes "[Errende]";
+										mes "Tudo bem.";
+										mes "Vamos lá!!!";
+										soundeffect "dont_forget_me_not.wav",1;
+										set Zeny,Zeny-500;
+										close;
+								   } else {
+									   mes "[Errende]";
+										mes "Tudo bem.";
+										mes "Vamos lá!!!";
+										soundeffect "in_to_the_abyss.wav",1;
+										set Zeny,Zeny-500;
+										close;
+									}
+								} else {
+									mes "[Errende]";
+									mes "Ah hahaha, me desculpe, mas";
+									mes "isso não é de graça.";
+									mes "De algum jeito eu preciso ganhar dinheiro para viver, não é?";
+									close;
+								}
+							break;
+							case 2:
+								mes "[Errende]";
+								mes "Uma canção divertida... uma canção divertida...";
+								mes "Certo, escute essa.";
+								next;
+								set @song_random2,rand(1,3);
+								if (@song_random2 == 1) {
+									mes "Valhala, onde o dourado brilha,";
+									mes "que é chamado de quinto";
+									mes "Glast Heim!";
+									mes "Lá os guerreiros gloriosos";
+									mes "são evocados por Odin.";
+									next;
+									mes "Palácio da morte";
+									mes "com teto de prata!!!";
+									mes "que é chamado de terceiro";
+									mes "Valaskjalf!";
+									mes "Lá os guerreiros gloriosos";
+									mes "são evocados por Odin.";
+									next;
+									mes "Há quinhentas portas em Valhala.";
+									mes "e há quarenta portas mais.";
+									mes "E todas abrem para o Lobo.";
+									mes "Oitocentos guerreiros reunidos por vontade do deus";
+									mes "passam pelas portas.";
+									next;
+									mes "Guerreiros devotos que passaram por Yggdrasil,";
+									mes "levados pelo destino";
+									mes "com honra, deram as mãos às valquírias.";
+									next;
+									mes "Guerreiros mortos pelas armas,";
+									mes "Guerreiros mortos pelas armas,";
+									mes "A fama de seus nomes ecoará após a morte,";
+									mes "e os levará ao Valhala.";
+									mes "e os levará ao Valhala.";
+									close;
+									mes "[Errende]";
+									mes ".....";
+									mes "...você sabe que isso é sobre uma lenda, não sabe?";
+									mes "Só os deuses sabem se é verdade";
+									mes "que o castelo chamado Glast Heim foi o";
+									mes "o quinto Valhala ou não.";
+									mes "Só os deuses sabem.";
+									close;
+								}
+								else if ((@song_random2 > 1) && (@song_random2 < 5)) {
+									mes "[Errende]";
+									if (Sex)
+										mes "Bravo guerreiro,";
+									else
+										mes "Minha senhora,";
+									mes "se tem uma flor em suas mãos,";
+									mes "preste atenção na minha canção.";
+									mes "Se estiver sentindo a paixão,";
+									mes "vamos contar as pétalas da flor seguindo a canção.";
+									mes "Deixe-me cantar o refrão.";
+									next;
+									mes "[Errende]";
+									mes "Em um, eu fico apaixonado.";
+									mes "Em dois, eu estou amando.";
+									mes "Em três, eu ainda amo.";
+									mes "Em quatro, eu realmente estou amando.";
+									next;
+									mes "[Errende]";
+									mes "Em cinco?";
+									mes "É isso, minha mente está mudando.";
+									mes " ";
+									mes "Iuu Ruu!!!";
+									mes "Uma pétala é soprada para longe!";
+									next;
+									mes "[Errende]";
+									mes "Em seis, ele está apaixonado";
+									mes "Em sete, ela está apaixonada";
+									mes "Em oito...";
+									mes "Em... oito...";
+									mes " ... ... ..... ...o que vinha a seguir....?";
+									next;
+									mes "[Errende]";
+									mes ".......Oh puxa...";
+									mes "Qual era a parte  que vinha a seguir?!";
+									mes "Ah, que vergonha! Como pode um bardo esquecer as palavras de uma canção!";
+									mes "....qual era a parte oito... eles se apaixonam?";
+									mes "Ou eu me apaixonei por ele?";
+									mes "Ou eu me apaixonei por ela?!";
+									next;
+									mes "[Errende]";
+									mes "........Se você é um aventureiro, não é?";
+									mes "...então, você deve viajar bastante, não é?";
+									mes ".... . .. ....";
+									mes "Eu sei que é meio embaraçoso, mas...";
+									mes "posso pedir um favor?";
+									next;
+									switch(select("Claro, sem problema.:Não, não pode.")) {
+										case 1:
+											mes "[Errende]";
+											mes "Obrigado, muito obrigado. Umm...deixe-me pensar.";
+											mes "É isso! Gunther!";
+											mes "Pode me fazer um favor?";
+											mes "Por acaso, se encontrar ^4d4dffGunther HarmoniaDubla^000000";
+											mes "conte para ele a minha situação.";
+											next;
+											mes "[Errende]";
+											mes "O ^4d4dffErrende Menta^000000";
+											mes "esqueceu uma linha da canção ^4d4dffEm um, eu fico apaixonado^000000.";
+											mes "A linha é chamada de ^4d4dffOitavo amor^000000.";
+											mes "É o oitavo amor de Em um, eu fico apaixonado.";
+											next;
+											mes "[Errende]";
+											mes "Por favor, eu suplico.";
+											mes "Quando encontrá-lo, pergunte para mim";
+											mes "qual é o oitavo amor.";
+											mes "E me conte imediatamente.";
+											set bard_q,22;
+											close;
+										break;
+										case 2:
+											mes "[Errende]";
+											mes "*suspiro*...........";
+											mes "Essa canção está incompleta.";
+											mes "Eu não consigo lembrar qual era a oitava parte.";
+											mes "*suspiro*...";
+											set bard_q,27;
+											close;
+										break;
+									}
+								} else {
+									mes "Galopes soam a distância.";
+									mes "Uma nuvem de poeira encobre o pôr-do-sol.";
+									mes "Centenas de olhos espreitam a noite.";
+									mes "Tochas no castelo reluzem como centenas de Ifrits.";
+									next;
+									mes "Ouça o palpitante som do meu coração,";
+									mes "Sinta o sangue nas veias.";
+									mes "Sinta o peso da minha armadura.";
+									mes "Veja os inimigos se mostrando à frente.";
+									next;
+									mes "Que toque alto, mais alto, o tambor!";
+									mes "Alegrem-se soldados, o primeiro passo será nosso!";
+									mes "Gritem alto, mais alto!";
+									mes "Nunca mais será como hoje!";
+									next;
+									mes "Abale o céu e chacoalhe a terra,";
+									mes "para o meu coração bater de novo!";
+									mes "Toque a corneta para oscilar a fortaleza.";
+									mes "Nunca mais será como hoje!";
+									next;
+									mes "[Errende]";
+									mes "Ah, essa se chama 'Tambor no campo de batalha'.";
+									mes "Foi escrita pelo Sr. Iolo.";
+									mes "É, eu gosto dessa canção.";
+									close;
+								}
+							break;
+							case 3:
+								mes "[Errende]";
+								mes "Claro, sem problema.";
+								mes "Volte sempre.";
+								close;
+							break;
+					}
+				break;
+				case 3:
+					mes "[Errende]";
+					mes "Eh!";
+					mes "Não faz mal ouvir uma canção de vez em quando...";
+					mes "Mas, está bem, te vejo outra hora!";
+					close;
+				break;
+			}
+	}
+	else if (bard_q == 7) {
+		mes "[Errende]";
+		mes "Como pude esquecer a canção...";
+		mes "Não estou de bom humor...";
+		mes "Eu não quero conversar.";
+		mes "Me deixe sozinho.";
+		next;
+		switch(select("Sem problema.:Tem alguma coisa que eu possa fazer para ajudar?")) {
+		case 1:
+			mes "[Errende]";
+			mes "Ah, como você é insensível!";
+			mes "Como pode nem mesmo tentar";
+			mes "entender o meu problema?";
+			mes "Eu achava que a gente se conhecia melhor!";
+			mes "Acho que eu estava errado!";
+			next;
+			mes "[Errende]";
+			mes "...*choradeira*..........";
+			mes "Quem foi que fez esse pobre bardo chorar?";
+			mes "Você respondeu.";
+			mes "Fui eu, quando deixei ele por aí.";
+			mes "... ";
+			close;
+		break;
+		case 2:
+			mes "[Errende]";
+			mes "Umm umm...tá bom, então...deixe me pensar...";
+			mes "É isso! Gunther!";
+			mes "Pode me fazer um favor?";
+			mes "Por acaso, se encontrar ^4d4dffGunther HarmoniaDubla^000000";
+			mes "conte para ele a minha situação.";
+			next;
+			mes "[Errende]";
+			mes "O ^4d4dffErrende Menta^000000";
+			mes "esqueceu uma linha da canção ^4d4dffEm um, eu fico apaixonado^000000.";
+			mes "A linha é chamada de ^4d4dffOitavo amor^000000.";
+			mes "É o oitavo amor de Em um, eu fico apaixonado.";
+			next;
+			mes "[Errende]";
+			mes "Por favor, eu suplico.";
+			mes "Quando encontrá-lo, pergunte para mim";
+			mes "qual é o oitavo amor.";
+			mes "E me conte imediatamente.";
+			set bard_q,2;
+			close;
+		break;
+		}
+	}
+	else if (bard_q == 6) {
+		mes "[Errende]";
+		mes "Argh... quem foi que trocou as palavras dessa canção?";
+		mes "É muito difícil de entender...";
+		mes "Eu queria poder perguntar a quem mudou as palavras...";
+		next;
+		mes "[Errende]";
+		mes "Ah... Isso é tão frustrante...";
+		mes "Nunca mais vou querer cantar ou tocar...";
+		next;
+		mes "[" + @name$ + "]";
+		mes "Não acha que... que essa pessoa é...";
+		input @inputstr$;
+		mes "" + @inputstr$ + "?";
+		next;
+		if (@inputstr$ == "Kino Gato") {
+			mes "[Errende]";
+			mes "Ah! Eu acho que você tem razão!";
+			mes "Como não pensei nisso antes?!";
+			mes "Ah... sou tão estúpido...";
+			mes "Sim, sim, eu acho que é bem possível que tenha sido alterada pelo Sr. Gato.";
+			mes "Ele costumava ser o único membro de um exército de um só...";
+			next;
+			mes "[Errende]";
+			mes "Mas, isso é tão mesquinho...";
+			mes "Porque essa canção falava";
+			mes "sobre um casal feliz." ;
+			mes "..........";
+			mes "Ummm... me desculpe por pedir mais um favor...";
+			next;
+			mes "[Errende]";
+			mes "Por acaso, se estiver planejando viajar...";
+			mes "pode encontrar a versão original dessa canção?";
+			mes "Poderia...?";
+			mes "Eu posso esperar...";
+			next;
+			switch(select("Não, sem chance.:Claro que posso, pare de chorar.")) {
+				case 1:
+					mes "[Errende]";
+					mes "Ah, eu sabia que era pedir muito a você...";
+					mes "...mil desculpas.";
+					mes "Eu acabo esperando demais de você.";
+					mes "Certo, eu vou encontrar outro jeito.";
+					set bard_q,5;
+					close;
+				break;
+				case 2:
+					mes "[Errende]";
+					mes "......! Sério?";
+					mes "Oh. eu agradeço muito mesmo. Você parece";
+					mes "um anjo com duas asas de penas brancas";
+					mes "descendo para a terra!";
+					mes "Você é o único que";
+					mes "entende a mente de um poeta.";
+					next;
+					mes "[Errende]";
+					mes "Eu vou compensar você!";
+					mes "E, antes de tudo, muito obrigado por toda sua ajuda.";
+					set bard_q,4;
+					close;
+				break;
+			}
+		}
+		else if (@inputstr$ == "Gunther") {
+			mes "[Errende]";
+			mes "Gunther? Eu não acho que ele faria uma coisa dessas.";
+			mes "Ele sempre coloca as linhas nas suas canções";
+			mes "como se tivessem 'duas harmonias'.";
+			close;
+		}
+		else if (@inputstr$ == "Gunther Doubleharmony") {
+			mes "[Errende]";
+			mes "Gunther? Eu não acho que ele faria uma coisa dessas.";
+			mes "Ele sempre coloca as linhas nas suas canções";
+			mes "como se tivessem 'duas harmonias'.";
+			close;
+		}
+		else if (@inputstr$ == "Errende") {
+			mes "[Errende]";
+			mes "Você está me gozando?";
+			mes "Se fui eu, como é que não sei";
+			mes "do que trata essa canção!";
+			close;
+		} else {
+			mes "[Errende]";
+			mes ""+ inputstr +"?";
+			mes "Eu acho que não conheço essa pessoa.";
+			mes "Você deve não ter entendido algo...";
+			mes "*suspiro*...";
+			next;
+			mes "[Errende]";
+			mes "Qual era a linha... como foi que";
+			mes "esqueci o oitavo amor...";
+			set bard_q,6;
+			close;
+		}
+	}
+	else if (bard_q == 5) {
+		mes "[Errende]";
+		mes "Quem foi que fez esse pobre bardo chorar?";
+		mes "Você respondeu.";
+		mes "Fui eu, quando deixei ele por aí.";
+		next;
+		mes "[Errende]";
+		mes "Quem disse isso?";
+		mes "Você respondeu.";
+		mes "'Eu o vi chorando'";
+		next;
+		mes "[Errende]";
+		mes "Por que o pobre bardo está chorando?";
+		mes "Você respondeu.";
+		mes "'Porque eu o larguei por aí'.";
+		next;
+		mes "[Errende]";
+		mes "Quem foi que fez esse pobre bardo chorar?";
+		mes "Você respondeu.";
+		mes "Fui eu, quando deixei ele por aí.";
+		mes "....";
+		mes "..*choro*.";
+		next;
+		set @song_random3,rand(1,50);
+		if ((@song_random3 > 27 ) && (@song_random3 < 37 )) {
+			mes "- Ele parece estar desapontado -";
+			mes "- com você por ter se recusado a ajudá-lo -";
+			mes "- novamente. Ele continua a cantar - ";
+			mes "- sobre o seu choro. -";
+			mes "- Você sente pena dele. - ";
+			next;
+			switch(select("Bem... então, eu devo ajudá-lo...:Ignore-o assim mesmo.")) {
+				case 1:
+					mes "[" + @name$ + "]";
+					mes "Oras, oras, Errende.";
+					mes "Pare de cantar essa canção.";
+					mes "É tão embaraçosa.";
+					mes "Está certo, eu vou encontrar a canção original para você.";
+					next;
+					mes "[Errende]";
+					mes "...! Tem certeza?";
+					mes "Obrigado! Muito obrigado pelo favor!";
+					mes "Você é o único que entende";
+					mes "a tristeza de ser um bardo!";
+					next;
+					mes "[Errende]";
+					mes "Eu prometo que vou compensar você!";
+					mes "Antes de tudo, muito obrigado.";
+					mes "Eu espero aqui até você voltar.";
+					set bard_q,4;
+					close;
+				break;
+				case 2:
+					mes "- Você ignora essa canção embaraçosa -";
+					mes "- e se apressa a sair dali. -";
+					close;
+				break;
+			}
+		}
+	} else {
+		mes "[Errende]";
+		mes "Tem mais alguma coisa que queira de mim?";
+		mes "Se não tiver, gostaria de ouvir uma canção minha?";
+		mes "Quem foi que fez esse pobre bardo chorar?";
+		mes "Você respondeu.";
+		mes "Fui eu, quando deixei ele por aí.";
+		close;
+	}
+	if (bard_q == 4) {
+		mes "[Errende]";
+		mes "Umm... eu não sei exatamente onde o Sr. Gato vive...";
+		mes "Ummm....talvez...";
+		mes "Você possa encontrá-lo";
+		mes "no Museu dos Monstros em Juno...";
+		mes "Não sei como, mas ele é um membro da Organização de Pesquisa de Monstros.";
+		next;
+		mes "[Errende]";
+		mes "Se for um explorador bem experiente,";
+		mes "já deve ter ouvido falar da Organização de Pesquisa de Monstros.";
+		mes "Recentemente, muitos sábios ficaram feridos enquanto pesquisavam monstros,";
+		mes "hoje não pesquisam mais eles mesmos.";
+		mes "Em vez disso, coletam informações com aventureiros.";
+		next;
+		mes "[Errende]";
+		mes "Para pessoas como eu que vagam pelo mundo todo,";
+		mes "essa é a melhor maneira de ganhar dinheiro.";
+		mes "Eles nos dão apoio financeiro e nós";
+		mes "coletamos informações sobre o que eles querem.";
+		mes "De qualquer forma, acho melhor você ";
+		mes "visitar o museu dos monstros.";
+		next;
+		mes "[Errende]";
+		mes "Para encontrar o Sr. Gato";
+		mes "Vá até Juno, onde fica o quartel-general dele.";
+		mes "É meio longe daqui.";
+		mes "O local do edifício?";
+		mes "Deve ser... a oeste da praça central...";
+		mes "Antes de tudo, muito obrigado.";
+		close;
+	}
+	else if (bard_q == 2) {
+		mes "[Errende]";
+		mes "*suspiro*...onde posso encontrar o oitavo amor...?";
+		mes "Você encontrou Gunther?";
+		mes "Ah....";
+		mes "Parece que ainda não.";
+		mes "Quer escutar uma canção minha...?";
+		next;
+		mes "[Errende]";
+		mes "....Desculpe, não posso cantar...";
+		mes "desde que esqueci a linha da canção.. eu não posso mais.";
+		mes "Não consigo ter humor para cantar... ";
+		mes "Por favor, pergunte ao ^4d4dffGunther^000000 sobre o ^4d4dffoitavo amor^000000";
+		mes "do ^4d4dffEm um, eu fico apaixonado^000000.";
+		mes "Antes de tudo, muito obrigado.";
+		close;
+	}
+	else if (bard_q == 3) {
+		mes "[Errende]";
+		mes "Então, você viu o Gunther?";
+		mes "Ah, espere...";
+		mes "- Você não respondeu a ele, mas -";
+		mes "- se virou para mostrar a ele -";
+		mes "- suas costas. -";
+		next;
+		mes "[Errende]";
+		mes "Hã! ...não é ela?!";
+		mes "Não é a linha da canção escrita nas suas costas?!";
+		mes "Espere, não se mova!";
+		mes "O oitavo amor é...!";
+		mes "Ah! Agora eu entendo!";
+		next;
+		mes "[Errende]";
+		mes "Em cinco?";
+		mes "É isso, minha mente está mudando.";
+		mes " ";
+		mes "Iuu Ruu!!!!";
+		mes "Uma pétala é soprada para longe!";
+		next;
+		mes "[Errende]";
+		mes "Em seis, ele está apaixonado.";
+		mes "Em sete, ela está apaixonada.";
+		mes "Em oito?";
+		mes "Ele e ela fogem";
+		mes "Em novo, eu me apaixono novamente.";
+		next;
+		mes "[Errende]";
+		mes "A décima primeira pétala canta uma canção.";
+		mes "Eu volto, mas meu amor não está mais aqui.";
+		mes "A décima primeira pétala canta uma canção.";
+		mes "Ele está apaixonado e ela está apaixonada";
+		mes "ambos deixaram você para trás.";
+		next;
+		mes "[Errende]";
+		mes "a décima segunda pétala sussurra para mim,";
+		mes "'Ei, você foi abandonado!'";
+		mes " ";
+		mes "Iuu Ruu!!!!";
+		mes "Meu amor é soprado para longe!";
+		next;
+		mes "[Errende]";
+		mes " .... ..... ...";
+		mes "....... não pode ser isso.";
+		mes "Essa não é a 'Em um, eu fico apaixonado' de verdade!";
+		mes "A canção original não é sobre tristeza!";
+		mes "Eu acho que você pegou algo errado.";
+		next;
+		mes "[Errende]";
+		mes "Quanto mais eu olho para ela, mais acho que está errada.";
+		mes "O Gunther não disse nada sobre isso?";
+		mes "As palavras dessa canção devem ter sido trocas por";
+		next;
+		input @inputstr$;
+		if (@inputstr$ == "Kino Gato") {
+			mes "[Errende]";
+			mes "Ah! Eu acho que você tem razão!";
+			mes "Como não pensei nisso antes?!";
+			mes "Ah... sou tão estúpido...";
+			mes "Sim, sim, eu acho que é bem possível que tenha sido alterada pelo Sr. Gato.";
+			mes "Ele costumava ser o único membro de um exército de um só...";
+			next;
+			mes "[Errende]";
+			mes "Mas, isso é tão mesquinho...";
+			mes "Porque essa canção falava";
+			mes "sobre um casal feliz." ;
+			mes "..........";
+			mes "Ummm... me desculpe por pedir mais um favor...";
+			next;
+			mes "[Errende]";
+			mes "Por acaso, se estiver planejando viajar...";
+			mes "pode encontrar a versão original dessa canção?";
+			mes "Poderia...?";
+			mes "Eu posso esperar...";
+			next;
+			switch(select("Não, sem chance.:Claro que posso, pare de chorar.")) {
+				case 1:
+					mes "[Errende]";
+					mes "Ah, eu sabia que era pedir muito a você...";
+					mes "...mil desculpas.";
+					mes "Eu acabo esperando demais de você.";
+					mes "Certo, eu vou encontrar outro jeito.";
+					set bard_q,5;
+					close;
+				break;
+				case 2:
+					mes "[Errende]";
+					mes "......! Sério?";
+					mes "Oh, eu agradeço muito mesmo. Você parece";
+					mes "um anjo com duas asas de penas brancas";
+					mes "descendo para a terra!";
+					mes "Você é o único que";
+					mes "entende a mente de um poeta.";
+					next;
+					mes "[Errende]";
+					mes "Eu vou compensar você!";
+					mes "E, antes de tudo, muito obrigado por toda a sua ajuda.";
+					set bard_q,4;
+					close;
+				break;
+			}
+		}
+		else if (@inputstr$ == "Gunther") {
+			mes "[Errende]";
+			mes "Gunther? Eu não acho que ele faria uma coisa dessas.";
+			mes "Ele sempre coloca as linhas nas suas canções";
+			mes "como se tivessem 'duas harmonias'.";
+			set bard_q,6;
+			close;
+		}
+		else if (@inputstr$ == "Gunther Doubleharmony") {
+			mes "[Errende]";
+			mes "Gunther? Eu não acho que ele faria uma coisa dessas.";
+			mes "Ele sempre coloca as linhas nas suas canções";
+			mes "como se tivessem 'duas harmonias'.";
+			set bard_q,6;
+			close;
+		}
+		else if (@inputstr$ == "Errende") {
+			mes "[Errende]";
+			mes "Você está me gozando?";
+			mes "Se fui eu, como é que não sei";
+			mes "do que trata essa canção!";
+			set bard_q,6;
+			close;
+		} else {
+			mes "[Errende]";
+			mes ""+ @inputstr$ +"?";
+			mes "Eu acho que não conheço essa pessoa.";
+			mes "Você deve não ter entendido algo...";
+			mes "*suspiro*...";
+			next;
+			mes "[Errende]";
+			mes "Qual era a linha... como foi que";
+			mes "esqueci o oitavo amor...";
+			set bard_q,6;
+			close;
+		}
+	}
+	else if (bard_q == 1) {
+		mes "[Errende]";
+		mes "Bem-vindo de volta,";
+		mes ""+ @name$ +".";
+		mes "O que posso fazer por você? Cantar e tocar?";
+		mes "Ou contar uma história?";
+		next;
+			switch(select("Uma história:Uma canção:Talvez uma outra hora")) {
+				case 1:
+					mes "[Errende]";
+					mes "Hmm, você gosta de histórias, hein?";
+					mes "Que tipo de história você gosta?";
+					mes "Posso contar qualquer coisa, desde que eu conheça.";
+					mes "Só para você. *Risos*";
+					next;
+						switch(select("Notícias ou um Boato:Cancelar.")) {
+							case 1:
+								set @talk,rand(1,3);
+								if (@talk == 1) {
+									mes "[Errende]";
+									mes "Umm...então vamos falar sobre esta cidade,";
+									mes "Geffen? Você já esteve no bar ou na estalagem?";
+									mes "Preciso dizer que as atendentes são demais.";
+									mes "A mais velha é bonita e graciosa,";
+									mes "e a menor é divertida e elétrica...";
+									next;
+									mes "[Errende]";
+									mes "Ah, certo! Algumas vezes elas ficam possuídas pelo";
+									mes "pai delas, que morreu. Eu fiquei tão surpreso da última vez que vi isso...";
+									mes "Mesmo agora, quando penso nisso, fico apavorado.";
+									mes "Parece que o pai delas é obsessivo pelas filhas mesmo tendo";
+									mes "partido para o além.";
+									next;
+									mes "[Errende]";
+									mes "Especialmente quando alguém tenta conversar com uma das garotas,";
+									mes "o espírito dele reage de forma exagerada...";
+									mes "Eu não sei bem por que, mas";
+									mes "talvez ele pense que suas filhas são muito novas";
+									mes "para casar... hein?";
+									mes "Hahahahaha.....";
+									next;
+									mes "[Errende]";
+									mes "E.. ah, sim. Tem um mercador atrás do bar.";
+									mes "Você já o conhece?";
+									mes "Esta área é mais fria do que Morroc,";
+									mes "então eu comprei uma manta dele.";
+									mes "Mas, olhe, não tem nem mesmo um fio direito. E também foi bastante cara...";
+									mes "Por alguma razão, ele não parece ser confiável.";
+									next;
+									mes "[Errende]";
+									mes "É melhor ser cuidadoso com ele.";
+									mes "Hum... tem uma cidade oculta chamada Geffenia";
+									mes "debaixo da Torre de Geffen.";
+									mes "Já esteve lá?";
+									mes "Eu ouvi que é preciso fazer algo para entrar...";
+									mes "Talvez eu devesse tentar alguma hora.";
+									next;
+									mes "[Errende]";
+									mes "Eu ouvi que Willian, o pai daquelas duas garotas que falei,";
+									mes "foi para a Torre de Geffen com outras pessoas para subjugar";
+									mes "os monstros que invadiram a torre. Mas ele nunca voltou.";
+									mes "Ah bem, eu imagino que seja uma boa história para aventureiros, mas";
+									mes "quando lembro que ele deixou uma família......";
+									next;
+									mes "[Errende]";
+									mes "Eu fico triste por elas.";
+									mes "Eu sonho com um mundo onde";
+									mes "todo mundo é feliz.";
+									close;
+								}
+								else if (@talk == 2) {
+									mes "[Errende]";
+									mes "Certo, deixe-me  contar uma história sobre Morroc.";
+									mes "Morroc, a cidade do deserto.";
+									mes "Espera-se que todo aventureiro experiente";
+									mes "explore Morroc e o deserto ao redor da cidade.";
+									next;
+									mes "[Errende]";
+									mes "Particularmente, as Pirâmides e a Esfinge são";
+									mes "os locais mais famosos de Morroc.";
+									mes "E eu ouvi que tem um mercador vendendo";
+									mes "Maças-Espadas para Sacerdotes e Sacerdotisas.";
+									mes "Aliás, os Sacerdotes não podem ter nenhuma arma com lâmina.";
+									next;
+									mes "[Errende]";
+									mes "Tem um oásis no meio de Morroc.";
+									mes "Lá você verá uma senhora ou um velho simpático";
+									mes "que lhe dará boas dicas de como descansar no deserto.";
+									next;
+									mes "[Errende]";
+									mes "Eu conheço uma menininha que pediu para o pai amansar";
+									mes "um Munak para ela. Ela era tão teimosa...";
+									mes "Conforme ouvia a conversa, me pareceu";
+									mes "que o pai dela tinha alguma coisa a ver com o cara que se perdeu";
+									mes "em Alberta...";
+									next;
+									mes "[Errende]";
+									mes "De qualquer forma, eu acabei ajudando o pai dela em uma missão.";
+									mes "E ele me deu uma misteriosa caixa pelo favor.";
+									mes "Quando eu a abri, havia dentro uma pena...";
+									mes "Eu não descobri como ela funcionava, então";
+									mes "eu a mantenho como um souvenir.";
+									next;
+									mes "[Errende]";
+									mes "Hum... eu fico pensando se o Sr. Pandger Mayer encontrou";
+									mes "o caminho de volta para a sua cidade...";
+									close;
+								}
+								else if (@talk == 3) {
+									mes "[Errende]";
+									mes "Por acaso você já ouviu falar de Alberta?";
+									mes "Tem um navio afundado perto de Alberta.";
+									mes "Uma agência de eventos transformou o navio em";
+									mes "uma rota de expedição e estão faturando muito";
+									mes "dinheiro com aquele navio. Você sabe disso, não é?";
+									mes "De qualquer forma,";
+									next;
+									mes "[Errende]";
+									mes "Quando o navio afundou perto de Alberta,";
+									mes "foi encontrado por um dos Guardiões de Alberta.";
+									mes "Ele também encontrou um bebê dentro de uma cabine.";
+									mes "E ao lado do bebê que chorava havia um órgão.";
+									next;
+									mes "[Errende]";
+									mes "As pessoas dizem que o bebê,";
+									mes "o único que sobreviveu ao naufrágio,";
+									mes "foi criado em Alberta.";
+									mes "Há boatos de que ele foi tratado com desprezo";
+									mes "quando era jovem. Mas hoje ele parece bem.";
+									mes "Ah... nós estávamos falando do navio afundado.";
+									next;
+									mes "[Errende]";
+									mes "Eu não tenho certeza se ele era ou não um navio pirata,";
+									mes "dizem que monstros esqueletos com roupa de pirata";
+									mes "aparecem dentro do navio.";
+									mes "Além do navio, as pessoas de Alberta estão bastante empolgadas";
+									mes "com uma rota no oceano para a Ilha da Tartaruga que um aventureiro descobriu.";
+									next;
+									mes "[Errende]";
+									mes "Mas, ao mesmo tempo, há muitos boatos por trás disso.";
+									mes "O segundo esquadrão da guarda de Alberta que foi explorar a Ilha da Tartaruga";
+									mes "ainda não voltou e outro esquadrão de cavaleiros";
+									mes "foi atrás deles para tentar encontrá-los...";
+									mes "Está uma confusão...";
+									next;
+									mes "[Errende]";
+									mes "Seja como for, agora tem uma rota pelo oceano até a Ilha da Tartaruga!";
+									mes "Então, eu fui para a ilha dar uma olhada.";
+									mes "E acontece que encontrei o diário do aventureiro que descobriu a ilha.";
+									mes "E havia uma pequena chave no diário.";
+									mes "Então... Eu estava curioso e segui o que estava escrito no diário.";
+									next;
+									mes "[Errende]";
+									mes "Basicamente, eu sentia como se estivesse procurando um tesouro perdido...";
+									mes "e precisava conhecer um espadachim que deseja";
+									mes "encontrar a espada suprema.";
+									mes "Também descobri uma coisa que pertencia ao espadachim.";
+									mes "Foi a aventura mais fantástica e excitante que já tive.";
+									close;
+								}
+							break;
+							case 2:
+								mes "[Errende]";
+								mes "Ah!!! que pena.";
+								mes "Mas prometa que vai passar por aqui de novo.";
+								mes "Eu lhe contarei minhas aventuras.";
+								close;
+							break;
+						}
+				break;
+				case 2:
+				mes "[Errende]";
+					mes "Oh, finalmente encontrei alguém que reconhece o meu talento!";
+					mes "Você merece ouvir uma canção minha!";
+					mes "Me diga, o que quer ouvir?";
+					mes "Eu posso cantar o que quiser.";
+					next;
+					switch(select("Cante qualquer coisa que quiser.:Eu quero uma canção divertida.:Deixe para lá.")) {
+						case 1:
+								if (Zeny > 499) {
+									set @song_random,rand(1,3);
+									if (@song_random == 1) {
+										mes "[Errende]";
+										mes "Certo.";
+										mes "Vamos lá!!!";
+										soundeffect "ring_of_nibelungen.wav",1;
+										set Zeny,Zeny-500;
+										close;
+									}
+									else if (@song_random == 2) {
+										mes "[Errende]";
+										mes "Certo.";
+										mes "Vamos lá...";
+										soundeffect "dont_forget_me_not.wav",1;
+										set Zeny,Zeny-500;
+										close;
+									} else {
+										mes "[Errende]";
+										mes "Certo.";
+										mes "Vamos lá!!!!";
+										soundeffect "in_to_the_abyss.wav",1;
+										set Zeny,Zeny-500;
+										close;
+									}
+								} else {
+									mes "[Errende]";
+									mes "Ah hahaha, me desculpe, mas";
+									mes "isso não é de graça.";
+									mes "De algum jeito eu preciso ganhar dinheiro para viver, não é?";
+									close;
+								}
+							break;
+							case 2:
+								mes "[Errende]";
+								mes "Uma canção divertida... uma canção divertida...";
+								mes "Certo, ouça essa.";
+								next;
+								set @song_random2,rand(1,3);
+								if (@song_random2 == 1) {
+									mes "Valhala, onde o dourado brilha,";
+									mes "que é chamado de quinto";
+									mes "Glast Heim!";
+									mes "Lá os guerreiros gloriosos";
+									mes "são evocados por Odin.";
+									next;
+									mes "Palácio da morte";
+									mes "com teto de prata.";
+									mes "que é chamado de terceiro";
+									mes "Valaskjalf!";
+									mes "Lá os guerreiros gloriosos";
+									mes "são evocados por Odin.";
+									next;
+									mes "Há quinhentas portas em Valhala.";
+									mes "e há quarenta portas mais.";
+									mes "E todas abrem para o Lobo.";
+									mes "Oitocentos guerreiros reunidos por vontade do deus";
+									mes "passam pelas portas.";
+									next;
+									mes "Guerreiros devotos que passaram por Yggdrasil,";
+									mes "levados pelo destino";
+									mes "com honra, deram as mãos às valquírias.";
+									next;
+									mes "Guerreiros mortos pelas armas,";
+									mes "Guerreiros mortos pelas armas.";
+									mes "A fama de seus nomes ecoará após a morte,";
+									mes "e os levará ao Valhala.";
+									mes "e os levará ao Valhala.";
+									close;
+									mes "[Errende]";
+									mes ".....";
+									mes "...você sabe que isso é sobre uma lenda, não sabe?";
+									mes "Só os deuses sabem se é verdade";
+									mes "que o castelo chamado Glast Heim foi o";
+									mes "o quinto Valhala ou não.";
+									mes "Só os deuses sabem.";
+									close;
+								}
+								else if ((@song_random2 > 2) && (@song_random2 < 5)) {
+									mes "[Errende]";
+									if (Sex)
+										mes "Bravo guerreiro,";
+									else
+										mes "Minha senhora,";
+									mes "se tem uma flor em suas mãos,";
+									mes "preste atenção na minha canção.";
+									mes "Se estiver sentindo a paixão,";
+									mes "vamos contar as pétalas da flor seguindo a canção.";
+									mes "Deixe-me cantar o refrão.";
+									next;
+									mes "[Errende]";
+									mes "Em um, eu fico apaixonado.";
+									mes "Em dois, eu estou amando.";
+									mes "Em três, eu ainda amo.";
+									mes "Em quatro, eu realmente estou amando.";
+									next;
+									mes "[Errende]";
+									mes "Em cinco?";
+									mes "É isso, minha mente está mudando.";
+									mes " ";
+									mes "Iuu Ruu!!!!";
+									mes "Uma pétala é soprada para longe!";
+									next;
+									mes "[Errende]";
+									mes "Em seis, ele está apaixonado.";
+									mes "Em sete, ela está apaixonada.";
+									mes "Em oito...";
+									mes "Em... oito...";
+									mes " ... ... ..... ...o que vinha a seguir....?";
+									next;
+									mes "[Errende]";
+									mes ".......Oh puxa...";
+									mes "Qual era a parte que  vinha a seguir?!";
+									mes "Ah, que vergonha! Como pode um bardo esquecer as palavras de uma canção!";
+									mes "....qual era a parte oito... eles se apaixonam?";
+									mes "Ou eu me apaixonei por ele?";
+									mes "Ou eu me apaixonei por ela?!";
+									next;
+									mes "[Errende]";
+									mes "........Você é um aventureiro, não é?";
+									mes "...então, deve viajar bastante, não?";
+									mes ".... . .. ....";
+									mes "Eu sei que é meio embaraçoso, mas...";
+									mes "posso pedir um favor?";
+									next;
+									switch(select("Claro, sem problema.:Não, não pode.")) {
+										case 1:
+											mes "[Errende]";
+											mes "Obrigado, muito obrigado. Umm... deixe-me pensar.";
+											mes "É isso! Gunther!";
+											mes "Pode me fazer um favor?";
+											mes "Por acaso, se encontrar ^4d4dffGunther HarmoniaDubla^000000";
+											mes "conte para ele a minha situação.";
+											next;
+											mes "[Errende]";
+											mes "O ^4d4dffErrende Menta^000000";
+											mes "esqueceu uma linha da canção ^4d4dffEm um, eu fico apaixonado^000000.";
+											mes "A linha é chamada de ^4d4dffOitavo amor^000000.";
+											mes "É o oitavo amor de 'Em um, eu fico apaixonado'.";
+											next;
+											mes "[Errende]";
+											mes "Por favor, eu suplico.";
+											mes "Quando encontrá-lo, pergunte para mim";
+											mes "qual é o oitavo amor.";
+											mes "E me conte imediatamente.";
+											set bard_q,2;
+											close;
+										break;
+										case 2:
+											mes "[Errende]";
+											mes "*suspiro*...........";
+											mes "Essa canção está incompleta.";
+											mes "Eu não consigo lembrar qual era a oitava parte.";
+											mes "*suspiro*...";
+											set bard_q,7;
+											close;
+										break;
+									}
+								} else {
+									mes "Galopes soam a distância.";
+									mes "Uma nuvem de poeira encobre o pôr-do-sol.";
+									mes "Centenas de olhos espreitam a noite.";
+									mes "Tochas no castelo reluzem como centenas de Ifrits.";
+									next;
+									mes "Ouça o palpitante som do meu coração,";
+									mes "Sinta o sangue nas veias.";
+									mes "Sinta o peso da minha armadura.";
+									mes "Veja os inimigos se mostrando à frente.";
+									next;
+									mes "Que toque alto, mais alto, o tambor!";
+									mes "Alegrem-se soldados, o primeiro passo será nosso!";
+									mes "Gritem alto, mais alto!";
+									mes "Nunca mais será como hoje!";
+									next;
+									mes "Abale o céu e chacoalhe a terra,";
+									mes "para o meu coração bater de novo!";
+									mes "Toque a corneta para oscilar a fortaleza.";
+									mes "Nunca mais será como hoje!";
+									next;
+									mes "[Errende]";
+									mes "Ah, essa se chama 'Tambor no campo de batalha'.";
+									mes "Foi escrita pelo Sr. Iolo.";
+									mes "É, eu gosto dessa canção.";
+									close;
+								}
+							break;
+							case 3:
+								mes "[Errende]";
+								mes "Claro, sem problema.";
+								mes "Volte sempre.";
+								close;
+							break;
+					}
+				break;
+				case 3:
+					mes "[Errende]";
+					mes "Eh!!!";
+					mes "Não faz mal ouvir uma canção de vez em quando...";
+					mes "Mas, está bem, te vejo outra hora!";
+					close;
+				break;
+			}
+	} else {
+		mes "[Bardo]";
+		mes "^4d4dffQual é o melhor dia para cantar? La la la...";
+		mes "é o dia da terra, do sol e da lua La la la...";
+		mes "Eu perguntei, qual é o melhor dia para cantar? La la la...";
+		mes "Por quê? La la é porque eu posso cantar só um dia...";
+		mes "Se me disser quando você vai cantar.";
+		mes "Eu lhe digo se posso cantar com você.^000000";
+		next;
+		mes "[Bardo]";
+		mes "^4d4dffUm dia vamos fazer um dueto! La la la...";
+		mes "Bravo!!! Bra...^000000";
+		mes "Eh? Você é...?";
+		mes "Ah, você veio aqui porque quer";
+		mes "esquecer do mundo rindo desse palhaço!";
+		if (Sex)
+			mes "Não é mesmo, meu jovem?";
+		else
+			mes "Não é mesmo, minha adorada jovem?";
+		next;
+			switch(select("Errado, quem é você?:Ignoro-o.")) {
+				case 1:
+					mes "[" + @name$ + "]";
+					mes "Parece que você é novo por aqui...";
+					mes "Quem é você...?";
+					if (Sex)
+						mes "Além disso, quem é você para me chamar de meu jovem!";
+					else
+						mes "Além disso, quem é você para me chamar de minha adorada jovem?!";
+					next;
+					mes "[Errende]";
+					mes "Errr... uau, dá um tempo. Eu não queria deixar ninguém chateado.";
+					mes "Sou apenas mais um poeta andarilho.";
+					mes "Eu sigo o caminho do vento por todo o mundo.";
+					mes "Pode me chamar de ^4d4dffErrende^000000,";
+					mes "o poeta que quer alegrar a todos.";
+					next;
+					mes "[Errende]";
+					mes "Se me deixar, vou contar tudo";
+					mes "que ouvi e vivi.";
+					mes "Se me deixar, vou cantar uma canção";
+					mes "para silenciar a sua dor.";
+					set bard_q,1;
+					next;
+					switch(select("Então, conte um história:Então, cante:Talvez uma outra hora")) {
+						case 1:
+							mes "[Errende]";
+							mes "Hmm, você gosta de histórias, hein?";
+							mes "Que tipo de história você gosta?";
+							mes "Posso contar qualquer coisa, desde que eu conheça.";
+							mes "Só para você. *Risos*";
+							next;
+							switch(select("Notícias ou um Boato:Cancelar.")) {
+								case 1:
+										set @talk,rand(1,3);
+										if (@talk == 1) {
+											mes "[Errende]";
+											mes "Umm...então vamos falar sobre esta cidade,";
+											mes "Geffen? Você já esteve no bar ou na estalagem?";
+											mes "Preciso dizer que as atendentes são demais.";
+											mes "A mais velha é bonita e graciosa,";
+											mes "e a menor é divertida e elétrica...";
+											next;
+											mes "[Errende]";
+											mes "Ah, certo! Algumas vezes elas ficam possuídas pelo";
+											mes "pai delas, que morreu. Eu fiquei tão surpreso da última vez que vi isso...";
+											mes "Mesmo agora, quando penso nisso, fico apavorado.";
+											mes "Parece que o pai delas é obsessivo pelas filhas mesmo tendo";
+											mes "partido para o além.";
+											next;
+											mes "[Errende]";
+											mes "Especialmente quando alguém tenta conversar com uma das garotas,";
+											mes "o espírito dele reage de forma exagerada...";
+											mes "Eu não sei bem por que, mas";
+											mes "talvez ele pense que suas filhas são muito novas";
+											mes "para casar... hein?";
+											mes "Hahahahaha.....";
+											next;
+											mes "[Errende]";
+											mes "E.. ah, sim. Tem um mercador atrás do bar.";
+											mes "Você já o conhece ?";
+											mes "Esta área é mais fria do que Morroc,";
+											mes "então eu comprei uma manta dele.";
+											mes "Mas, olhe, não tem nem mesmo um fio direito. E também foi bastante cara...";
+											mes "Por alguma razão, ele não parece ser confiável.";
+											next;
+											mes "[Errende]";
+											mes "É melhor ser cuidadoso com ele.";
+											mes "Hum... tem uma cidade oculta chamada Geffenia";
+											mes "debaixo da Torre de Geffen.";
+											mes "Já esteve lá?";
+											mes "Eu ouvi que é preciso fazer algo para entrar...";
+											mes "Talvez eu devesse tentar alguma hora.";
+											next;
+											mes "[Errende]";
+											mes "Eu ouvi que Willian, o pai daquelas duas garotas que falei,";
+											mes "foi para a Torre de Geffen com outras pessoas para subjugar";
+											mes "os monstros que invadiram a torre. Mas ele nunca voltou.";
+											mes "Ah bem, eu imagino que seja uma boa história para aventureiros, mas";
+											mes "quando lembro que ele deixou uma família......";
+											next;
+											mes "[Errende]";
+											mes "Eu fico triste por elas.";
+											mes "Eu sonho com um mundo onde";
+											mes "todo mundo é feliz.";
+											close;
+										}
+										else if (@talk == 2) {
+											mes "[Errende]";
+											mes "Certo, deixe-me contar uma história sobre Morroc.";
+											mes "Morroc, a cidade do deserto.";
+											mes "Espera-se que todo aventureiro experiente";
+											mes "explore Morroc e o deserto ao redor da cidade.";
+											next;
+											mes "[Errende]";
+											mes "Particularmente, as Pirâmides e a Esfinge são";
+											mes "os locais mais famosos de Morroc.";
+											mes "E eu ouvi que tem um mercador vendendo";
+											mes "Maças-Espadas para Sacerdotes e Sacerdotisas.";
+											mes "Aliás, os Sacerdotes não podem ter nenhuma arma com lâmina.";
+											next;
+											mes "[Errende]";
+											mes "Tem um oásis no meio de Morroc.";
+											mes "Lá você verá uma senhora ou um velho simpático";
+											mes "que lhe dará boas dicas de como descansar no deserto.";
+											next;
+											mes "[Errende]";
+											mes "Eu conheço uma menininha que pediu para o pai amansar";
+											mes "um Munak para ela. Ela era tão teimosa...";
+											mes "Conforme ouvia a conversa, me pareceu";
+											mes "que o pai dela tinha alguma coisa a ver com o cara que se perdeu";
+											mes "em Alberta...";
+											next;
+											mes "[Errende]";
+											mes "De qualquer forma, eu acabei ajudando o pai dela em uma missão.";
+											mes "E ele me deu uma misteriosa caixa pelo favor.";
+											mes "Quando eu a abri, havia dentro uma pena...";
+											mes "Eu não descobri como ela funcionava, então";
+											mes "eu a mantenho como um souvenir.";
+											next;
+											mes "[Errende]";
+											mes "Hum... eu fico pensando se o Sr. Pandger Mayer encontrou";
+											mes "o caminho de volta para a sua cidade...";
+											close;
+										}
+										else if (@talk == 3) {
+											mes "[Errende]";
+											mes "Por acaso você já ouviu falar de Alberta?";
+											mes "Tem um navio afundado perto de Alberta.";
+											mes "Uma agência de eventos transformou o navio em";
+											mes "uma rota de expedição e estão faturando muito";
+											mes "dinheiro com aquele navio. Você sabe disso, não é?";
+											mes "De qualquer forma,";
+											next;
+											mes "[Errende]";
+											mes "quando o navio afundou perto de Alberta,";
+											mes "foi encontrado por um dos Guardiões de Alberta.";
+											mes "Ele também encontrou um bebê dentro de uma cabine.";
+											mes "E ao lado do bebê que chorava havia um órgão.";
+											next;
+											mes "[Errende]";
+											mes "As pessoas dizem que o bebê,";
+											mes "o único que sobreviveu ao naufrágio,";
+											mes "foi criado em Alberta.";
+											mes "Há boatos de que ele foi tratado com desprezo";
+											mes "quando era jovem. Mas, hoje ele parece bem.";
+											mes "Ah... nós estávamos falando do navio afundado.";
+											next;
+											mes "[Errende]";
+											mes "Eu não tenho certeza se ele era ou não um navio pirata,";
+											mes "dizem que monstros esqueletos com roupa de pirata";
+											mes "aparecem dentro do navio.";
+											mes "Além do navio, as pessoas de Alberta estão bastante empolgadas";
+											mes "com uma rota no oceano para a Ilha da Tartaruga, que um aventureiro descobriu.";
+											next;
+											mes "[Errende]";
+											mes "Mas, ao mesmo tempo, há muitos boatos por trás disso.";
+											mes "O segundo esquadrão da guarda de Alberta que foi explorar a Ilha da Tartaruga";
+											mes "ainda não voltou e o outro esquadrão de cavaleiros";
+											mes "foi atrás deles tentar encontrá-los...";
+											mes "Está uma confusão...";
+											next;
+											mes "[Errende]";
+											mes "Seja como for, agora tem uma rota pelo oceano até a Ilha da Tartaruga!";
+											mes "Então, eu fui para a ilha dar uma olhada.";
+											mes "E acontece que encontrei o diário do aventureiro que descobriu a ilha.";
+											mes "E havia uma pequena chave no diário.";
+											mes "Então... Eu estava curioso e segui o que estava escrito no diário.";
+											next;
+											mes "[Errende]";
+											mes "Basicamente, eu sentia como se estivesse procurando um tesouro perdido...";
+											mes "e precisava conhecer um espadachim que deseja";
+											mes "encontrar a espada suprema.";
+											mes "Também descobri uma coisa que pertencia ao espadachim.";
+											mes "Foi a aventura mais fantástica e excitante que já tive.";
+											close;
+										}
+									break;
+									case 2:
+										mes "[Errende]";
+										mes "Ahhh! que pena.";
+										mes "Mas prometa que vai passar por aqui de novo.";
+										mes "Eu lhe contarei as minhas aventuras.";
+										close;
+									break;
+							}
+						break;
+						case 2:
+							mes "[Errende]";
+							mes "Oh, finalmente encontrei alguém que reconhece o meu talento!";
+							mes "Você merece ouvir uma canção minha!";
+							mes "Me diga, o que quer ouvir?";
+							mes "Eu posso cantar o que quiser.";
+								next;
+									switch(select("Cante qualquer coisa que quiser.:Eu quero uma canção divertida.:Deixe para lá.")) {
+										case 1:
+											if (Zeny > 499) {	
+												set @song_random,rand(1,3);
+												if (@song_random == 1) {
+													mes "[Errende]";
+													mes "Certo.";
+													mes "Vamos lá!!!";
+													soundeffect "ring_of_nibelungen.wav",1;
+													set Zeny,Zeny-500;
+													close;
+												}
+												else if (@song_random == 2) {
+													mes "[Errende]";
+													mes "Certo.";
+													mes "Vamos lá!!!";
+													soundeffect "dont_forget_me_not.wav",1;
+													set Zeny,Zeny-500;
+													close;
+												} else {
+													mes "[Errende]";
+													mes "Certo.";
+													mes "Vamos lá!!!";
+													soundeffect "in_to_the_abyss.wav",1;
+													set Zeny,Zeny-500;
+													close;
+												}
+											} else {
+												mes "[Errende]";
+												mes "Ah hahaha, me desculpe, mas";
+												mes "isso não é de graça.";
+												mes "De algum jeito eu preciso ganhar dinheiro para viver, não é?";
+												close;
+											}
+										break;
+										case 2:
+											mes "[Errende]";
+											mes "Uma canção divertida... uma canção divertida...";
+											mes "Certo, ouça essa.";
+											next;
+											set @song_random2,rand(1,5);
+											if (@song_random2 == 1) {
+												mes "Valhala, onde o dourado brilha,";
+												mes "que é chamado de quinto";
+												mes "Glast Heim!";
+												mes "Lá os guerreiros gloriosos";
+												mes "são evocados por Odin.";
+												next;
+												mes "Palácio da morte";
+												mes "com teto de prata!";
+												mes "que é chamado de terceiro";
+												mes "Valaskjalf!";
+												mes "Lá os guerreiros gloriosos";
+												mes "são evocados por Odin.";
+												next;
+												mes "Há quinhentas portas em Valhala.";
+												mes "e há quarenta portas mais.";
+												mes "E todas abrem para o Lobo.";
+												mes "Oitocentos guerreiros reunidos por vontade do deus";
+												mes "passam pelas portas.";
+												next;
+												mes "Guerreiros devotos que passaram por Yggdrasil,";
+												mes "levados pelo destino";
+												mes "com honra, deram as mãos às valquírias.";
+												next;
+												mes "Guerreiros mortos pelas armas,";
+												mes "Guerreiros mortos pelas armas,";
+												mes "A fama de seus nomes ecoará após a morte,";
+												mes "e os levará ao Valhala.";
+												mes "e os levará ao Valhala.";
+												close;
+												mes "[Errende]";
+												mes ".....";
+												mes "...você sabe que isso é sobre uma lenda, não sabe?";
+												mes "Só os deuses sabem se é verdade";
+												mes "que o castelo chamado Glast Heim foi o";
+												mes "o quinto Valhala ou não.";
+												mes "Só os deuses sabem.";
+												close;
+											}
+											else if ((@song_random2 > 1) && (@song_random2 < 5)) {
+												mes "Os bardos cantam para diversão da platéia.";
+												mes "Portanto, não espere que eu cante";
+												mes "uma canção triste que aprofunde a sua angústia.";
+												next;
+												mes "As dançarinas dançam para diversão da platéia.";
+												mes "Vamos dançar juntos? Então, pegue a minha mão.";
+												mes "La la la, la la la...";
+												next;
+												mes "[" + @name$ + "]";
+												mes "A propósito, por que vocês";
+												mes "às vezes, desafinam? Odeio quando acontece isso.";
+												next;
+												mes "[Errende]";
+												mes "Como... como pode dizer uma coisa dessas?";
+												mes ""+ @name$ +"...";
+												mes "Você...? Você já quis ser um bardo antes?";
+												mes "É por isso que está caçoando de mim?";
+												close;
+											} else {
+												mes "Galopes soam a distância.";
+												mes "Uma nuvem de poeira encobre o pôr-do-sol.";
+												mes "Centenas de olhos espreitam a noite.";
+												mes "Tochas no castelo reluzem como centenas de Ifrits.";
+												next;
+												mes "Ouça o palpitante som do meu coração,";
+												mes "Sinta o sangue nas veias.";
+												mes "Sinta o peso da minha armadura.";
+												mes "Veja os inimigos se mostrando à frente.";
+												next;
+												mes "Que toque alto, mais alto, o tambor!";
+												mes "Alegrem-se soldados, o primeiro passo será nosso!";
+												mes "Gritem alto, mais alto!";
+												mes "Nunca mais será como hoje!";
+												next;
+												mes "Abale o céu e chacoalhe a terra,";
+												mes "para o meu coração bater de novo!";
+												mes "Toque a corneta para oscilar a fortaleza.";
+												mes "Nunca mais será como hoje!";
+												next;
+												mes "[Errende]";
+												mes "Ah, essa se chama 'Tambor no campo de batalha'.";
+												mes "Foi escrita pelo Sr. Iolo. ";
+												mes "É, eu gosto dessa canção.";
+												close;
+											}
+										break;
+										case 3:
+											mes "[Errende]";
+											mes "Claro, sem problema.";
+											mes "Volte sempre.";
+											close;
+										break;
+									}
+						break;
+						case 3:
+							mes "[Errende]";
+							mes "Eh!!!";
+							mes "Não faz mal ouvir uma canção de vez em quando...";
+							mes "Mas, está bem, te vejo outra hora!";
+							close;
+						break;
+					}
+			break;
+			case 2:
+				mes "[Errende]";
+				mes "Ah, não!!!";
+				mes "Você não pode me ignorar assim!";
+				mes "Se assim fizer, precisa saber";
+				mes "que nada sabe sobre romance!";
+				close;
+			break;
+			}
+	}
+}
+
+morocc,134,111,3	script	Bardo#3	741,{
+	set @name$,strcharinfo(0);
+	if (bard_q == 31) {
+		mes "[Kino Gato]";
+		mes "No final, tudo vai dar certo. Não acha?";
+		mes "Eu vou ficar bem, você vai ficar bem, Jorti ficará bem...";
+		mes "e ela ficará...";
+		mes "Você quer alguma coisa de mim";
+		next;
+			switch(select("Conte-me uma história...:Sua voz é...:Nada.")) {
+				case 1:
+					set story_random,rand(1,3);
+					if (story_random == 1) {
+						mes "[Kino Gato]";
+						mes "Muitas lendas se transformaram";
+						mes "em canções.";
+						mes "Histórias de Deuses e";
+						mes "histórias de bravos guerreiros";
+						mes "todas foram escritas como canções.";
+						next;
+						mes "[Kino Gato]";
+						mes "Muitas pessoas adoram ouvir essas canções";
+						mes "porque elas sonham com o passado...";
+						mes "Talvez seja por isso que eu existo.";
+						next;
+						mes "- Kino Gato verifica as cordas de seu violão -";
+						mes "- e começa a cantar com a voz baixa. -";
+						next;
+						mes "^4d4dffHavia uma pepita dourada gigante no leito do rio Reno.";
+						mes "Que era proibida às pessoas que negam o amor.";
+						mes "Ela foi usada para fazer um anel de ouro com misteriosos poderes.";
+						mes "Ele era o anel dos senhores e até mesmo os deuses o queriam.^000000";
+						next;
+						mes "^4d4dffOs gigantes que construíram o Valhala queriam Freya.";
+						mes "O perverso Loki trocou a deusa da beleza pelo Valhala.";
+						mes "A única coisa que podia ornar Freya era o tesouro de Alberich.";
+						mes "Era o anel dos senhores.";
+						next;
+						mes "^4d4dffAlberich com um capacete mágico podia se transformar em qualquer coisa.";
+						mes "Ele ansiava conquistar todos os mundos com o seu ouro.";
+						mes "Novamente procurou o perverso Loki. Ah, pobre Alberich.";
+						mes "Loki o pegou quando ele era um sapo.^000000";
+						next;
+						mes "^4d4dffAlberich amaldiçoou qualquer um que possuir o seu anel de ouro";
+						mes "com a inveja de todo o mundo.";
+						mes "Gigantes que tomaram o anel, por ele tiveram de brigar.";
+						mes "Um dono amaldiçoado levando seu irmão à morte.^000000";
+						next;
+						mes "[Kino Gato]";
+						mes "Hum...*tosse tosse*";
+						mes "Essa é sobre o anel dos Nibelungs.";
+						mes "Uma velha canção...";
+						mes "*tosse tosse* Hah...";
+						mes "Eu não posso cantar mais hoje em dia...";
+						mes "Você gostou... *tosse tosse*?";
+						close;
+					}
+					else if (story_random == 2) {
+						mes "[Kino Gato]";
+						mes ".... Ah... eu acho que  ";
+						mes "em vez de cantar uma canção.";
+						mes "Sabe que toda canção tem sua própria história.";
+						mes "...*tosse*";
+						next;
+						mes "- Kino Gato tossiu algumas vezes -";
+						mes "- e enxugou a boca em sua manga. -";
+						mes "- E verificou as cordas do seu violão. - ";
+						mes "- Percebe-se uma mancha de sangue na sua manga. - ";
+						mes "- Ele começa a cantar. -";
+						next;
+						mes "^4d4dffEra uma vez um rapaz invulnerável.";
+						mes "Que se chamava Sigfrides,";
+						mes "filho do herói Siegmund.";
+						mes "Fafnir, um gigante perverso, se transformou em dragão";
+						mes "para enfrentar Sigfrides.^000000";
+						next;
+						mes "^4d4dffSigfrides derrotou Fafnir após uma longa batalha.";
+						mes "Ele bebeu o sangue do dragão e ganhou sabedoria.";
+						mes "Nadou no sangue do dragão e se tornou invulnerável.^000000";
+						next;
+						mes "^4d4dffNada mais podia ferir Sigfrides.";
+						mes "Nem a mais fria lança atravessava a sua armadura,";
+						mes "Nem a mais quente lava queimava a sua pele.^000000";
+						next;
+						mes "^4d4dffBrunhilde, a valquíria, se apaixonou por um humano.";
+						mes "Grimhilde era a filha de Gunter, rei dos Brugund.";
+						mes "O ciúme é sempre perigoso.^000000";
+						next;
+						mes "^4d4dffQuando estava tomando água em um poço numa floresta,";
+						mes "Sigfrides caiu morto por uma lança presa à roda.";
+						mes "Ela não devia ter contado a ele.^000000";
+						next;
+						mes "^4d4dffFlores se foram,";
+						mes "Ninguém mais se lembra dele.";
+						mes "Só resta uma rosa seca sobre o seu túmulo...^000000";
+						next;
+						mes "[Jorti]";
+						mes "Bravo!!! Bravo! ";
+						mes "Tio Kino é o melhor bardo do mundo!!";
+						mes "Eu adoro quando o tio Kino canta!";
+						next;
+						mes "[Kino Gato]";
+						mes "Essa canção é sobre Sigfrides, o invulnerável.";
+						mes "Obrigado, Jorti.";
+						mes "Quando quiser minha princesinha.";
+						close;
+					} else {
+						mes "[Kino Gato]";
+						mes "Você quer ouvir uma história... hmmm... deixe-me ver.";
+						mes "Certo, quando você se aventurar para o sudoeste";
+						mes "de Morroc, achará a fortaleza Sandarman.";
+						mes "Acho que isso você já sabe. Não sabe?";
+						mes "A fortaleza natural construída sobre a duna.";
+						next;
+						mes "[Kino Gato]";
+						mes "Ah, sim... afinal, isso é uma história sobre eras passadas...";
+						mes "Quando for ao sul de Sandarman,";
+						mes "verá o Farol de Paros.";
+						mes "E quando for a leste do farol,";
+						mes "chegará à praia Kokomo, e tem uma Floresta Papuchicha ao norte da praia.";
+						mes "...";
+						next;
+						mes "[Kino Gato]";
+						mes "...Por quê? Está entediante?";
+						mes "Eu só queria dizer que lá tem uma cidade chamada Umbala";
+						mes "ao norte dos lugares que eu falei.";
+						mes "Você já esteve lá...?";
+						next;
+						mes "[Kino Gato]";
+						mes "Umbala em si é um lugar bem interessante.";
+						mes "Mas o que realmente achei interessante foi a árvore gigante";
+						mes "que suporta Umbala...";
+						mes "......Há boatos que dizem levar a Nifflheim...";
+						mes "Talvez a árvore seja a Yggdrasil...";
+						mes "...Eu fico imaginando se não a encontraria em Nifflheim...";
+						close;
+					}
+				break;
+				case 2:
+					mes "[Kino Gato]";
+					mes "Umm? Ah, eu tenho uma doença crônica.";
+					mes "Eu não posso falar alto.";
+					mes "Eu tusso sangue algumas vezes.";
+					mes "Ah, fora isso sou bem saudável.";
+					next;
+					mes "- Kino Gato pareceu um tanto amargurado -";
+					mes "- e verificou as cordas do seu violão. -";
+					mes "- Então ele começa a cantar uma canção. - ";
+					mes "- Você está gostando do tom baixo da voz dele. -";
+					soundeffect "humming.wav",1;
+					close;
+				break;
+				case 3:
+				   mes "[Kino Gato]";
+					mes ".......Hmm....";
+					mes "Eu gostaria que todos no mundo fossem tão gentis";
+					mes "quanto você.";
+					mes "Então não mais haveria tantas lutas mesquinhas.";
+					mes "...Hahahahaha... ";
+					close;
+				break;
+			}
+	}
+	else if (bard_q == 30) {
+		mes "[Kino Gato]";
+		mes "Afinal tudo ficará bem. Não acha?";
+		mes "Eu vou ficar bem, você vai ficar bem, Jorti ficará bem...";
+		mes "e ele ficará...";
+		mes "Você quer alguma coisa de mim?";
+		next;
+			switch(select("Conte-me uma história...:Sua voz é...:Nada.")) {
+				case 1:
+					set story_random,rand(1,3);
+					if (story_random == 1) {
+						mes "[Kino Gato]";
+						mes ".... Ah... eu acho que";
+						mes "em vez de cantar uma canção.";
+						mes "Sabe que toda canção tem sua própria história.";
+						mes "...*tosse*";
+						next;
+						mes "- Kino Gato tossiu algumas vezes -";
+						mes "- e enxugou a boca em sua manga. -";
+						mes "- E verificou as cordas do seu violão. -";
+						mes "- Percebe-se uma mancha de sangue na sua manga. -";
+						mes "- Ele começa a cantar. -";
+						next;
+						mes "^4d4dffEra uma vez um rapaz invulnerável.";
+						mes "Que se chamava Sigfrides,";
+						mes "filho do herói Siegmund.";
+						mes "Fafnir, um gigante perverso, se transformou em dragão";
+						mes "para enfrentar Sigfrides.^000000";
+						next;
+						mes "^4d4dffSigfrides derrotou Fafnir após uma longa batalha.";
+						mes "Ele bebeu o sangue do dragão e ganhou sabedoria.";
+						mes "Nadou no sangue do dragão e se tornou invulnerável.^000000";
+						next;
+						mes "^4d4dffNada mais podia ferir Sigfrides.";
+						mes "Nem a mais fria lança atravessava a sua armadura,";
+						mes "Nem a mais quente lava queimava a sua pele.^000000";
+						next;
+						mes "^4d4dffBrunhilde, a valquíria, se apaixonou por um humano.";
+						mes "Grimhilde era a filha de Gunter, rei dos Brugund.";
+						mes "O ciúme é sempre perigoso.^000000";
+						next;
+						mes "^4d4dffQuando estava tomando água em um poço numa floresta,";
+						mes "Sigfrides caiu morto por uma lança presa à roda.";
+						mes "Ela não devia ter contado a ele.^000000";
+						next;
+						mes "^4d4dffFlores se foram,";
+						mes "Ninguém mais se lembra dele.";
+						mes "Só resta uma rosa seca sobre o seu túmulo...^000000";
+						next;
+						mes "[Jorti]";
+						mes "Bravo! Bravo! ";
+						mes "Tio Kino é o melhor bardo do mundo!!";
+						mes "Eu adoro quando o tio Kino canta!";
+						next;
+						mes "[Kino Gato]";
+						mes "Essa canção é sobre Sigfrides, o invulnerável.";
+						mes "Obrigado, Jorti.";
+						mes "Quando quiser, minha princesinha.";
+						close;
+					}
+					else if (story_random == 2) {
+						mes "[Kino Gato]";
+						mes ".... Ah... eu acho que";
+						mes "em vez de cantar uma canção.";
+						mes "Sabe que toda canção tem sua própria história.";
+						mes "...*tosse*";
+						next;
+						mes "- Kino Gato tossiu algumas vezes -";
+						mes "- e enxugou a boca em sua manga. -";
+						mes "- E verificou as cordas do seu violão. -";
+						mes "- Percebe-se uma mancha de sangue na sua manga. -";
+						mes "- Ele começa a cantar. -";
+						next;
+						mes "^4d4dffEu ainda me lembro";
+						mes "do calor do seu ombro quando lá eu me aninhava";
+						mes "Você segurava as minhas mãos até o último momento.";
+						mes "Eu vi você partir com um sorriso, mas eu estava gritando por dentro.";
+						mes "No fundo eu sabia que não haveria volta.";
+						mes "Eu me lembro de cada momento único que passamos.^000000";
+						next;
+						mes "^4d4dffEu ainda me lembro";
+						mes "a nota clara do sino da Igreja de Prontera,";
+						mes "do sorvete que tomamos em Morroc,";
+						mes "do calabouço de Payon, que é onde fomos perseguidos por morcegos,";
+						mes "dos fogos de artifício de Comodo ";
+						mes "e dos grandes flocos de neve de Lutie.^000000";
+						next;
+						mes "^4d4dffSua linda alma estará com Odin.";
+						mes "Quando chegar o dia do anoitecer,";
+						mes "seus olhos verão um lugar diferente.^000000";
+						next;
+						mes "^4d4dffEu me lembrarei de você para sempre.";
+						mes "Nunca me esqueça, me chame.";
+						mes "Quando eu a escutar, olharei para o céu.^000000";
+						next;
+						mes "[Jorti]";
+						mes "Ah, tio Kino,";
+						mes "não é essa a canção que minha mãe sempre cantava?";
+						mes "Cante mais, por favor! Por favor!";
+						next;
+						 mes "[Kino Gato]";
+						mes "É essa...";
+						mes "Ela costumava cantar essa canção...*tosse*";
+						mes "Sempre haverá alguém ";
+						mes "que espera que seus amados...";
+						mes "...retornem.";
+						next;
+						mes "[Kino Gato]";
+						mes ".. .. Se você tem alguém que deixou para trás,";
+						mes "se conhece alguém que está esperando por você,";
+						mes "não deixe de voltar para essa pessoa...";
+						mes "Eu juro que se arrependerá se não voltar.";
+						close;
+					} else {
+						mes "[Kino Gato]";
+						mes "Você quer ouvir uma história...Hmmm...deixe-me ver.";
+						mes "Certo, quando você se aventurar para o sudoeste";
+						mes "de Morroc, achará a fortaleza Sandarman.";
+						mes "Acho que isso você já sabe. Não sabe?";
+						mes "A fortaleza natural construída sobre a duna.";
+						next;
+						mes "[Kino Gato]";
+						mes "Ah, sim... afinal, esta é uma história sobre eras passadas,";
+						mes "Quando for ao sul de Sandarman,";
+						mes "verá o Farol de Paros.";
+						mes "E quando for a leste do farol,";
+						mes "chegará à praia Kokomo, e tem uma Floresta Papuchicha ao norte da praia.";
+						mes "...";
+						next;
+						mes "[Kino Gato]";
+						mes "...Por quê? Está entediante?";
+						mes "Eu só queria dizer que lá tem uma vila chamada Umbala";
+						mes "ao norte dos lugares que falei.";
+						mes "Você já esteve lá...?";
+						next;
+						mes "[Kino Gato]";
+						mes "Umbala em si é um lugar bem interessante.";
+						mes "Mas o que realmente achei interessante é a árvore gigante";
+						mes "que suporta Umbala...";
+						mes "......Há boatos que dizem levar a Nifflheim...";
+						mes "Talvez a árvore seja a Yggdrasil...";
+						mes "...Eu fico imaginando se não a encontraria em Nifflheim...";
+						close;
+					}
+				break;
+				case 2:
+				   mes "[Kino Gato]";
+					mes "Hmm? Ah, eu tenho uma doença crônica.";
+					mes "Eu não posso falar alto.";
+					mes "Eu tusso sangue algumas vezes.";
+					mes "Ah, fora isso sou bem saudável.";
+					next;
+					mes "- Kino Gato pareceu um tanto amargurado -";
+					mes "- E verificou as cordas do seu violão. -";
+					mes "- Então ele começa a cantar uma canção. -";
+					mes "- Você está gostando do tom baixo da voz dele. -";
+					soundeffect "humming.wav",1;
+					close;
+				break;
+				case 3:
+					mes "[Kino Gato]";
+					mes ".......Hmm....";
+					mes "Eu gostaria que todos no mundo fossem tão gentis";
+					mes "quanto você.";
+					mes "Então não mais haveria tantas lutas mesquinhas.";
+					mes "...Hahahahaha... ";
+					close;
+				break;
+			}
+	}
+	else if ((bard_q > 12) && (bard_q < 16)) {
+		mes "[Kino Gato]";
+		mes "Errende deve estar aflito esperando você.";
+		mes "Para gente como Errende e eu,";
+		mes "esperar não é um grande problema.";
+		mes "Mas é maldade fazer alguém esperar";
+		mes "por muito tempo.";
+		close;
+	}
+	else if (bard_q == 12) {
+		mes "[Kino Gato]";
+		mes "Eu imagino que você já conheceu o Sr. Sketzi.";
+		mes "A propósito, por que você não pára de olhar a gente?";
+		mes "Ainda não encontrou o que está procurando?";
+		mes "Hahah...";
+		mes "Posso olhar a sua mão esquerda?";
+		next;
+			switch(select("Tá aqui.:Não, sem chance.")) {
+				case 1:
+					mes "[Kino Gato]";
+					mes "Você gosta da cor preta?";
+					mes ".........De repente, as palavras esquecidas";
+					mes "da canção surgem em minha mente.";
+					mes "Então, eu gostaria de gravar as palavras";
+					mes "como um novo selo na sua mão.";
+					mes "Você se importa?";
+					next;
+						switch(select("Sim, eu me importo. Eu já tenho um.:Não, não me importo.")) {
+							case 1:
+								mes "[Kino Gato]";
+								mes "Ah, certo. Você tem o selo marcado por";
+								mes "Errende.";
+								mes "Está bem, eu estava brincando com você.";
+								set bard_q,13;
+								close;
+							break;
+							case 2:
+								mes "[Kino Gato]";
+								mes "Quer ouvir uma canção?";
+								mes "...é uma velha canção.";
+								mes "...Lu lu lu... La la la...";
+								mes "Em oito, eles se amam.";
+								mes "Em nove, ela sabia";
+								mes "que ele se apaixonou por ela";
+								next;
+								mes "[Kino Gato]";
+								mes "A décima pétala diz a ela.";
+								mes "Ele está esperando por você ";
+								mes "a décima primeira pétala sussurra para ela.";
+								mes "Ele irá pedi-la em casamento.";
+								next;
+								mes "[Kino Gato]";
+								mes "A décima segunda pétala celebra.";
+								mes "a união deles.";
+								mes " ";
+								mes "Iuu Ruu!!!";
+								mes "Doze pétalas";
+								mes "envolvem o meu amor.";
+								next;
+								specialeffect EF_POISONREACT2;
+								mes "^4d4dff - Após a canção, ele sorri para mim. - ";
+								mes "- E eu sinto uma dor no meu pulso. -";
+								mes "- No lugar onde estava marcado o selo crescente prateado, -";
+								mes "- há um novo selo na forma de uma pequena cruz - ";
+								mes "- de cor negra. -^000000";
+								next;
+								mes "[Kino Gato]";
+								mes "Então, você gostou?";
+								mes "Bem, tenho certeza que Errende vai gostar.";
+								mes "Hahahahahaha!!!!*tosse*";
+								mes "*tosse**tosse**tosse**tosse*";
+								next;
+								mes "[Kino Gato]";
+								mes "*tosse**tosse**tosse**tosse*";
+								mes "Mais uma vez, preciso lhe dizer,";
+								mes "Eu não queria deixar você esperando.";
+								mes "A canção só surgiu em minha mente agora há pouco.";
+								mes "Vamos, corra e conte a Errende.";
+								next;
+								mes "^4d4dff - Você recebe uma carta de Kino Gato. -";
+								mes "- Na frente dela está escrito 'Caro Errende'. ^000000-";
+								set bard_q,14;
+								close;
+							break;
+						}
+				break;
+				case 2:
+					mes "[Kino Gato]";
+					mes "Ninguém vai atacar você.";
+					mes "Você é ";
+					if (Sex)
+						mes "um rapazinho assustado.";
+					else
+						mes "uma menininha assustada.";
+					close;
+				break;
+			}
+	}  
+	else if (bard_q == 10) {
+		mes "[Kino Gato]";
+		mes "Ainda não foi embora?";
+		mes "Ele está na rua do livro, em Juno.";
+		mes "Ah, bem, Errende lhe contará melhor,";
+		mes "eu acho.";
+		mes "Se você não consegue se lembrar, por que não vai perguntar a ele?";
+		next;
+		mes "[Kino Gato]";
+		mes "Vá em frente.";
+		mes "Deixe-me sozinho com a minha pequena Jorti.";
+		mes "... ... ... *tosse**tosse*.";
+		mes "E..";
+		next;
+		mes "[Kino Gato]";
+		mes "Se não se importa de ouvir as canções deste pobre homem,";
+		mes "volte novamente.";
+		mes "Vou preparar uma canção para você.";
+		mes "Mesmo se isso me fizer tossir sangue...";
+		mes "Eu não posso parar de cantar para a minha platéia.";
+		next;
+		mes "[Kino Gato]";
+		mes "Sabe como são os bardos.";
+		mes "...........";
+		mes "Ao menos,";
+		mes "Obrigado por ajudar Errende!";
+		close;
+	}
+	else if (bard_q == 11) {
+	   mes "[Kino Gato]";
+		mes ".....um selo prateado.";
+		mes "...o clube dos andarilhos lhe dá as boas-vindas.";
+		mes "...ficou bem em você.";
+		next;
+		mes "[Kino Gato]";
+		mes "Já que você tem o selo,";
+		mes "Sr. Sketzi não vai pôr você pra correr.";
+		mes "Eu sei que você tem suas obrigações...";
+		mes "então, por que você não termina essa busca sua";
+		mes "o mais rápido possível?";
+		close;
+	}
+	else if ((bard_q > 19) && (bard_q < 28)) {
+		mes "[Kino Gato]";
+		mes "O que você quer de mim, viajante?";
+		next;
+			if (bard_q == 24) {
+				mes "- Você dá um doce para a garotinha que chora - ";
+				mes "- e conta a Kino Gato o que aconteceu. -";
+				next;
+				mes "[Kino Gato]";
+				mes "Hmm... eu não sabia disso.";
+				mes "A propósito, eu não posso";
+				mes "perdoar Errende por dizer que";
+				mes "ele não gostou das palavras que eu escrevi para a canção!";
+				mes "Vou matá-lo da próxima vez que o vir!";
+				next;
+				mes "[" + @name$ + "]";
+				mes "Sr. Gato.";
+				mes "então, você sabe as palavras originais da canção?";
+				next;
+				mes "[Kino Gato]";;
+				mes "Quer dizer, como era antes?";
+				mes "Nah, eu não me lembro daquelas palavras horríveis";
+				mes "de 'Em um, eu fico apaixonado'. Nem morto!";
+				mes "Não tem espaço no meu cérebro";
+				mes "para aquelas palavras tão meladas!";
+				mes "*funga*...";
+				next;
+				mes "[Kino Gato]";
+				mes "Sabe?";
+				mes "Minha mente é como um deserto, onde todos os seres vivos";
+				mes "não conseguem sobreviver.";
+				mes "Eu não posso cantar uma canção romântica";
+				mes "que fala do amor!";
+				next;
+				mes "[Jorti]";
+				mes "...tio... Kino, assim você me assusta...";
+				mes "Por favor, não grite com a gente, tá? ";
+				mes "Eu vou me assustar e não consigo parar de chorar...";
+				next;
+				mes "[Kino Gato]";
+				mes "Oh, calma, calma. Eu assustei a minha pequenina.";
+				mes "Me desculpe, minha princesa. Está tudo bem.";
+				mes "Hmm hmm.";
+				mes "Seja como for, se quiser descobrir quais eram as palavras originais da canção,";
+				mes "é melhor esmiuçar os livros antigos.";
+				next;
+				mes "[Kino Gato]";
+				mes "Eu me pergunto como o Errende conhece as palavras originais...";
+				mes "Todos os novos compêndios publicados hoje em dia apresentam";
+				mes "a minha versão da canção...";
+				mes "Hahahaha... uma canção de amor não serve para nada..";
+				mes "*tosse**tosse*.";
+				next;
+				mes "[Kino Gato]";
+				mes "....Me desculpe por isso.";
+				mes "*tosse**tosse*.";
+				mes " - *ptu* - ";
+				mes "Ah... que desgraça... por que eu tenho de sofrer...";
+				mes "Ah... que patético.";
+				next;
+				mes "[Kino Gato]";
+				mes "*tose*... se quiser achar as palavras originais,";
+				mes "vá até Juno.";
+				mes "Lá tem uma pequena livraria na rua do livro.";
+				mes "Você encontrará a canção na livraria.";
+				mes "Eu sinto que se aproxima o último dia da minha vida de bardo...";
+				set bard_q,10;
+				close;
+			} else {
+				switch(select("Conte uma história.:Cante uma canção.:Não quero nada.")) {
+					case 1:
+						mes "[Kino Gato]";
+						mes "Uma história? Hmmm...";
+						mes "Minha garganta está doendo, mas posso fazer isso por você.";
+						mes "Você sabe como Baldur, o filho de Odin, morreu?";
+						mes "Existe uma história entre a sua obsessiva mãe";
+						mes "e Loki, o deus perverso.";
+						next;
+						mes "[Kino Gato]";
+						mes "Uma noite, Baldur teve um pesadelo.";
+						mes "No sonho, ele foi jogado em um poço do inferno.";
+						mes "Então, Odin, pai de Baldur e o mago mais velho entre os deuses,";
+						mes "foi para o outro mundo perguntar a uma vidente sobre o pesadelo.";
+						next;
+						mes "[Kino Gato]";
+						mes "A previsão dela foi sinistra.";
+						mes "Frigga, mãe de Baldur, temia que alguma coisa acontecesse ao seu filho.";
+						mes "Então, ela fez com que cada objeto do mundo jurasse";
+						mes "que não faria mal a Baldur.";
+						mes "O fogo fez o juramento e a água também.";
+						next;
+						mes "[Kino Gato]";
+						mes "*tosse**tosse*... *tosse**tosse*...";
+						mes ".....e todos foram celebrar juntos...*tosse*tosse*.......";
+						mes "Eu sinto muito.....";
+						mes "*tosse**tosse*... *tosse**tosse*...";
+						mes "- *ptu* - ";
+						mes "Ah...bem...*tosse* *tosse* me desculpe por isso.";
+						next;
+						mes "[Jorti]";
+						mes "tio Kino...?";
+						mes "Você está bem?....?";
+						next;
+						mes "[Kino Gato]";
+						mes ".......Hah...hah... me desculpe..., mas";
+						mes "acho que não posso continuar falando.";
+						close;
+					break;
+					case 2:
+						mes "[Kino Gato]";
+						mes ".........me desculpe, mas";
+						mes "eu não me sinto bem para cantar.";
+						mes "Espero que você entenda.";
+						mes "*suspiro*....";
+						mes "Eu quero cantar a última canção da minha vida";
+						mes "para Jorti...";
+						close;
+					break;
+					case 3:
+						mes "[Kino Gato]";
+						mes "Que molecagem.";
+						mes "Se não quer nada comigo, então me deixe em paz.";
+						mes "Quero ficar sozinho com Jorti.";
+						close;
+					break;
+				}
+			}
+	} else {
+		mes "[Bardo]";
+		mes "Mesmo sob o vento do deserto, eu posso reconhecê-la.";
+		mes "Você brilha como uma estrela no céu.";
+		mes "Portanto, não se preocupe.";
+		mes "Mesmo sob o sol abrasador ou";
+		mes "numa tempestade de areia.";
+		next;
+		mes "[Bardo]";
+		mes "Eu posso reconhecê-la...";
+		mes ".....?! ...Vá embora!";
+		mes "....Eu disse, vá embora!";
+		mes "Não vê que estou ocupado?";
+		next;
+			switch(select("Você está enrolando essa criança, não está?!:Me desculpe por interrompê-lo.")) {
+				case 1:
+					if (Sex) {
+						mes "[Bardo]";
+						mes "Quem você pensa que é para falar assim comigo,";
+						mes "idiota!";
+						mes "Não sabe reconhecer um amor verdadeiro?";
+						mes "Alguma vez já amou de verdade?";
+						mes "Hã? Responde!";
+						next;
+						mes "[Jorti]";
+						mes "Uuuu...aah!!!!*choro*";
+						mes "Uah!";
+						mes "Está me assustando!";
+						mes "Quero minha mãe! Mamãe!";
+						mes "*choro*";
+						next;
+						mes "[Bardo]";
+						mes "Oh, pare de chorar, minha menina.";
+						mes "Está tudo bem.";
+						if (BaseClass == Job_Swordman) {
+							mes "Você não deve se assustar com essas pessoas estúpidas";
+							mes "que só sabem bradar com suas espadas.";
+						} else if (BaseClass == Job_Acolyte) {
+							mes "Você não deve se assustar com esses traidores de Deus";
+							mes "que ainda pretendem ser os mensageiros dele.";
+						} else if (Class == Job_Thief || Class == Job_Rogue) {
+							mes "Você não deve se assustar com esses ratos de rua.";
+						} else if (BaseClass == Job_Assassin) {
+							mes "Você não deve se assustar com essas pessoas";
+							mes "que ganham a vida tirando a vida de inocentes.";
+						} else if (BaeClass == Job_Blacksmith) {
+							mes "Você não deve se assustar com esses gananciosos";
+							mes "que só sabem contar moedas.";
+						} else {
+							mes "Você não deve se assustar com alguém tão mirrado.";
+						}
+						close;
+					} else {
+						mes "[Bardo]";
+						mes ".....Eu não me importaria de brincar com você ";
+						mes "ou pouquinho, mas, infelizmente,";
+						mes "estou preocupado com...";
+						next;
+						mes "[Jorti]";
+						mes "Uuuu...aah!!!*choro*";
+						mes "Uah!!";
+						mes "Ela está me assustando!";
+						mes "Quero a minha mãe! Mãe!";
+						mes "*choro*";
+						next;
+						mes "[Bardo]";
+						mes "Ah, desculpe esse pecador.";
+						mes "Jorti, minha menina.";
+						mes "Você prendeu o meu olhar";
+						mes "com seu belo cabelo esmeralda.";
+						mes "Prometo que não olharei mais para nenhuma menina,";
+						mes "de agora em diante.";
+						next;
+						mes "[Bardo]";
+						mes "Por favor, pare de chorar.";
+						mes "Você está partindo o meu coração, doçura.";
+						mes "Ver suas lágrimas,";
+						mes "parte meu coração em centenas de pedaços";
+						mes "de cristais de gelo.";
+						next;
+						mes "[" + @name$ + "]";
+						mes "Me desculpe.";
+						next;
+						mes "[Bardo]";
+						mes "Ah, desculpe-me por isso.";
+						mes "Provavelmente, os Deuses estão com ciúmes da minha beleza.";
+						mes "*suspiro* Se eu tivesse conhecido você antes";
+						mes "teria ficado apaixonado...";
+						next;
+						mes "[Jorti]";
+						mes "Uuuu...aah!!!*choro*";
+						mes "Uah!!";
+						mes "Ela está me assustando!";
+						mes "Quero a minha mãe! Mãe!";
+						mes "*choro*";
+						next;
+						mes "[" + @name$ + "]";
+						mes "- Acho que ele está ficando zureta. -";
+						close;
+					}
+				break;
+				case 2:
+					if (bard_q == 2) {
+					  mes "[Bardo]";
+						mes "Você é a educação em pessoa.";
+						mes "Eu não me esquecerei do seu nome.";
+						mes "E seria de muito bom tom se você não se esquecesse do meu.";
+						mes "Eu me chamo Kino Gato.";
+						mes "Sou um poeta andarilho que ";
+						mes "quer encontrar o sonho de uma vida.";
+						next;
+						mes "[Kino Gato]";
+						mes "Quando nos encontrarmos novamente";
+						mes "eu contarei o que ouvi e vivi.";
+						mes "Ou seja, estou disposto a gastar o meu tempo com você.";
+						set bard_q,22;
+						close;
+					}
+					else if (bard_q == 3) {
+						mes "[Bardo]";
+						mes "Você é a educação em pessoa.";
+						mes "Eu não me esquecerei do seu nome.";
+						mes "E seria de muito bom tom se você não se esquecesse do meu.";
+						mes "Eu me chamo Kino Gato.";
+						mes "Sou um poeta andarilho que";
+						mes "quer encontrar o sonho de uma vida.";
+						next;
+						mes "[Kino Gato]";
+						mes "Quando nos encontrarmos novamente,";
+						mes "contarei o que ouvi e vivi.";
+						mes "Ou seja, estou disposto a gastar o meu tempo com você.";
+						set bard_q,23;
+						close;
+					}
+					else if (bard_q == 4) {
+						mes "[Bardo]";
+						mes "Ah, você é demais.";
+						mes "Sabe o que esse bardo quer, não sabe?";
+						mes "Aliás, o que você está procurando?";
+						mes "Tem algo que queira conversar comigo?";
+						next;
+						mes "[Jorti]";
+						mes "Uuuu...aah!!!*choro*";
+						mes "Uah!!";
+						mes "Ela está me assustando!";
+						mes "Quero a minha mãe! Mãe!";
+						mes "*choro*";
+						next;
+						mes "[Bardo]";
+						mes "Oh... bem... pare de chorar, minha menininha.";
+						mes "Tome, uma bala para você.";
+						mes "Não é doce... hein?";
+						mes "Hahahaha... isso, você é um anjo.";
+						next;
+							switch(select("Eu estou procurando por Kino Gato...:Seu enrolador de crianças!")) {
+								case 1:
+									mes "[Kino Gato]";
+									mes "!! Como sabe o meu nome?";
+									mes "Ah, estou lisonjeado.";
+									next;
+									mes "- Você dá um doce para a garotinha que chora -";
+									mes "- e conta a Kino Gato o que aconteceu. -";
+									next;
+									mes "[Kino Gato]";
+									mes "Hmm... eu não sabia disso.";
+									mes "A propósito, eu não posso";
+									mes "perdoar Errende por dizer que";
+									mes "ele não gostou das palavras que escrevi para a canção!";
+									mes "Vou matá-lo da próxima vez que o vir!";
+									next;
+									mes "[" + @name$ + "]";
+									mes "Sr. Gato.";
+									mes "Então, você sabe as palavras originais da canção?";
+									next;
+									mes "[Kino Gato]";
+									mes "Quer dizer, como era antes?";
+									mes "Nah, eu não me lembro daquelas palavras horríveis";
+									mes "de 'Em um, eu fico apaixonado'. Nem morto!";
+									mes "Não tem espaço no meu cérebro";
+									mes "para aquelas palavras tão meladas!";
+									mes "*choro*...";
+									next;
+									mes "[Kino Gato]";
+									mes "Sabe?";
+									mes "Minha mente é como um deserto, onde todos os seres vivos";
+									mes "não conseguem sobreviver.";
+									mes "Eu não posso cantar uma canção romântica";
+									mes "que fala do amor!";
+									next;
+									mes "[Jorti]";
+									mes "...tio... Kino, assim você me assusta...";
+									mes "Por favor, não grite com a gente, tá?";
+									mes "Eu vou me assustar e não consigo parar de chorar.";
+									next;
+									mes "[Kino Gato]";
+									mes "Oh, calma, calma. Eu assustei a minha pequenina.";
+									mes "Me desculpe, minha princesa. Está tudo bem.";
+									mes "Hmm hmm.";
+									mes "Seja como for, se quiser descobrir quais eram as palavras originais da canção,";
+									mes "é melhor esmiuçar os livros antigos.";
+									next;
+									mes "[Kino Gato]";
+									mes "Eu me pergunto como o Errende conhece as palavras originais...";
+									mes "Todos os novos compêndios publicados hoje em dia apresentam";
+									mes "a minha versão da canção...";
+									mes "Hahahaha... uma canção de amor não serve para nada..";
+									mes "*tosse**tosse*.";
+									next;
+									mes "[Kino Gato]";
+									mes "....Me desculpe por isso.";
+									mes "*tosse**tosse*.";
+									mes "- *ptu* - ";
+									mes "Ah... que desgraça... por que eu tenho de sofrer...";
+									mes "Ah... que patético.";
+									next;
+									mes "[Kino Gato]";
+									mes "*tose*...se quiser achar as palavras originais,";
+									mes "vá até Juno.";
+									mes "lá tem uma pequena livraria na rua do livro.";
+									mes "Você encontrará a canção na livraria.";
+									mes "Eu sinto que se aproxima o último dia da minha vida de bardo...";
+									set bard_q,10;
+									close;
+								break;
+								case 2:
+									mes "[Bardo]";
+									mes "....Não fale assim.";
+									mes "Você não sabe nada sobre o nosso relacio@name$nto.";
+									mes "Somente ela, e mais nada, é a redentora";
+									mes "que salvará a minha vida.";
+									mes "Ela é um broto que conseguiu firmar raízes no deserto da minha mente.";
+									next;
+									mes "[Bardo]";
+									mes "...Não machuque a mim ou a ela";
+									mes "falando bobagens absurdas.";
+									mes "Ela ainda é uma florzinha jovem, mas ";
+									mes "ela será uma senhora de beleza e graça";
+									mes "radiantes no futuro!";
+									close;
+								break;
+							}
+					} else {
+						if (Sex == 1) {
+							mes "[Kino Gato]";
+							mes "Você é um rapaz muito educado.";
+							mes "Eu não me esquecerei do seu nome.";
+							mes "E seria de muito bom tom se você não se esquecesse do meu.";
+							mes "Eu me chamo Kino Gato.";
+							mes "Sou um poeta andarilho que";
+							mes "quer encontrar o sonho de uma vida.";
+							next;
+							mes "[Kino Gato]";
+							mes "Quando nos encontrarmos novamente";
+							mes "contarei o que ouvi e vivi.";
+							mes "Ou seja, estou disposto a gastar o meu tempo com você.";
+							set bard_q,20;
+							close;
+						} else {
+							mes "[Bardo]";
+							mes "Ah, é uma honra conhecer uma senhora tão nobre.";
+							mes "Se me permite, direi o meu nome na sua frente.";
+							mes "Ah bem, não acho que preciso da sua aprovação para isso.";
+							next;
+							mes "[Bardo]";
+							mes "Minha senhora que reluz em uma espessa bruma púrpura,";
+							mes "senhora de beleza que rivaliza com a deusa Freya. ";
+							mes "Deixe-me apresentá-la a este pobre poeta que vaga pelo mundo.";
+							mes "Meu nome é Kino Gato.";
+							mes "Espero que você não me esqueça.";
+							set bard_q,20;
+							close; 
+						}
+					}
+				break;
+			}
+	}
+}
+
+morocc,132,111,5	script	Garotinha#Jorti	703,{
+	if ((bard_q > 9) && (bard_q < 30)) {
+		mes "[Jorti]";
+		mes "Eu decidi não chorar mais.";
+		mes "...... quando eu choro, o tio Kino fica preocupado.";
+		mes "E... e ele tosse sangue.";
+		next;
+		mes "[Jorti]";
+		mes "Hã? Papai? Ummm....";
+		mes "Não me lembro do papai...";
+		mes "eu vivia com a mamãe,";
+		mes "mas ela saiu não sei pra onde. É bem, bem longe.";
+		mes "Foi isso que o tio Kino me disse.";
+		next;
+		mes "[Jorti]";
+		mes "Mamãe está lá perto do céu...";
+		mes "Ele pode me levar para a mamãe...";
+		mes "E, e ele disse uma coisa";
+		mes "voador.... voador.. ......que era..";
+		mes "navio voador? Hmm....";
+		next;
+		mes "[Jorti]";
+		mes "Uh... ele disse...";
+		mes "ele não pode me levar até a mamãe porque";
+		mes "não tem um navio voador ainda... então..";
+		mes "*funga* não vou chorar mais.";
+		mes "Eu sinto falta da mamãe, mas não vou chorar.";
+		mes "Eu não quero machucar o tio Kino...";
+		close;
+	}
+	else if (bard_q == 30) {
+		mes "[Jorti]";
+		mes "La la la...La la la..";
+		mes "Eu não choro mais.";
+		mes "Eu adoro quando o tio Kino canta.";
+		mes "Ele conta muitas histórias e canta muitas canções para mim!";
+		next;
+		mes "[Jorti]";
+		mes "As canções que o tio Kino canta";
+		mes "minha mãe também cantava.";
+		mes "Ela não está aqui, mas";
+		mes "acho que o tio Kino vai me levar até ela um dia!";
+		next;
+		mes "[Jorti]";
+		mes "? O que é isso que está brilhando na sua mão?";
+		mes "Essa cruz preta é dos amigos do tio Kino, né?";
+		mes "Então.";
+		if (Sex == 1) {
+			mes "Você é meu amigo também!!";
+		} else {
+			mes "Você é minha amiga também!";
+		}
+		close;
+	}
+	else if (bard_q > 30) {
+		mes "[Jorti]";
+		mes "Eu decidi não chorar mais.";
+		mes "...... quando eu choro, o tio Kino fica preocupado.";
+		mes "E... e ele tosse sangue.";
+		next;
+		mes "[Jorti]";
+		mes "Hã? Papai? Ummm....";
+		mes "Não me lembro do papai...";
+		mes "eu vivia com a mamãe";
+		mes "mas ela saiu não sei pra onde. É bem, bem longe.";
+		mes "Foi isso que o tio Kino me disse.";
+		next;
+		mes "[Jorti]";
+		mes "Mamãe está lá perto do céu...";
+		mes "Ele pode me levar para a mamãe...";
+		mes "E, e ele disse uma coisa";
+		mes "voador.... voador.. ......que era..";
+		mes "navio voador? Hmm....";
+		next;
+		mes "[Jorti]";
+		mes "Uh... ele disse...";
+		mes "ele não pode me levar até a mamãe porque";
+		mes "não tem um navio voador ainda... então..";
+		mes "*funga* não vou chorar mais.";
+		mes "Eu sinto falta da mamãe, mas não vou chorar.";
+		mes "Eu não quero machucar o tio Kino...";
+		close;
+	} else {   
+		mes "[Bardo]";
+			mes "Mesmo sob o vento do deserto, eu posso reconhecê-la.";
+			mes "Você brilha como uma estrela no céu.";
+			mes "Portanto, não se preocupe.";
+			mes "Mesmo sob o sol abrasador ou";
+			mes "numa tempestade de areia.";
+			next;
+			mes "[Bardo]";
+			mes "Eu posso reconhecê-la...";
+			mes ".....?! ...Vá embora!";
+			mes "....Eu disse, vá embora!";
+			mes "Não vê que estou ocupado?";
+			next;
+			mes "[Jorti]";
+			mes "Uuuu...aah!!!*choro*";
+			mes "Uah!!";
+			mes "Está me assustando!";
+			mes "Quero a minha mãe! Mãe!";
+			mes "*choro*";
+			next;
+			mes "[Bardo]";
+			mes "Mas veja... você fez minha princesa chorar!";
+			mes "é tudo culpa sua!";
+			mes "Caia fora daqui!";
+			next;
+			mes "[Bardo]";
+			mes "Por favor, pare de chorar.";
+			mes "Você está partindo o meu coração, doçura.";
+			mes "Ver suas lágrimas,";
+			mes "parte o meu coração em centenas de pedaços";
+			mes "de cristais de gelo.";
+			next;
+			mes "[Jorti]";
+			mes "Uuuu...aah!!!*choro*";
+			mes "Uah!!";
+			mes "Está me assustando!";
+			mes "Quero a minha mãe! Mãe!";
+			mes "*choro*";
+			next;
+			mes "- Acho que ele está ficando zureta. -";
+			close;
+	}
+}
+
+yuno_in01,172,100,3	script	Velho#1	712,{
+	if ((bard_q > 11) && (bard_q < 20)) {
+		mes "[Sketzi Bundin]";
+		mes "Bem, você encontrou o que estava procurando?";
+		mes "Embora tudo o que eu tenho sejam velharias";
+		mes "espero que você venha me ver algumas vezes.";
+		mes "E, por favor, dê minhas lembranças aos seus amigos bardos por mim.";
+		close;
+	}
+	else if (bard_q == 30) {
+		mes "[Sketzi Bundin]";
+		mes "Interessante... você tem uma cruz reta na sua mão...";
+		mes "O Sr. Gato ainda está por aí...?";
+		mes "Fico contente em saber que ele ainda vive.";
+		mes "Você é de casa. Pegue o que precisar.";
+		close;
+	}
+	else if (bard_q == 31) {
+		mes "[Sketzi Bundin]";
+		mes "Bem, bem, bem. Você aqui de novo...";
+		mes "Então, que tipo de livros estão procurando hoje?";
+		mes "Tudo o que tenho são velhos compêndios.";
+		mes "Hahahaha....";
+		close;
+	}
+	else if (bard_q == 11) {
+		mes "[Sketzi Bundin]";
+		mes "Olá.";
+		mes "Você deve estar procurando algo especial.";
+		mes "Eu tenho quase todos os livros velhos.";
+		mes "Aqui é o único lugar onde se podem encontrar as velhas canções.";
+		next;
+		mes "[Sketzi Bundin]";
+		mes "... entretanto... ";
+		mes "Eu não posso lhe mostrar o meu mais precioso compêndio";
+		mes "sem conhecer melhor você.";
+		next;
+			switch(select("Mostre a ele a sua mão esquerda.:Mostre a ele a sua mão direita.")) {
+				case 1:
+					mes "[Sketzi Bundin]";
+					mes "!!!";
+					mes "Ah, você é amigo de bardos!";
+					mes "Entendo, entendo. Você deve ser um amigo de Errende Menta.";
+					next;
+					mes "[Sketzi Bundin]";
+					mes "Bem, o que você está procurando?";
+					mes "Acho que é melhor eu não saber... hahaha.";
+					mes "Fique à vontade e espero que encontre o que está procurando.";
+					set bard_q,12;
+					close;
+				break;
+				case 2:
+				  mes "[Sketzi Bundin]";
+					mes "???";
+					mes "Vamos ver....certo.";
+					mes ".. .. .. Bem,";
+					mes "seu coração bate mais rápido do que as pessoas normais.";
+					mes "É melhor tomar cuidado com a sua saúde.";
+					next;
+					mes "[Sketzi Bundin]";
+					mes "A propósito, você está procurando livros médicos?";
+					mes "Me desculpe, mas não tenho nenhum aqui.";
+				   close;
+				break;
+			}
+	} else {
+		mes "[Sketzi Bundin]";
+		mes "Olá.";
+		mes "Você deve estar procurando algo raro e especial.";
+		mes "Eu só tenho um tipo de livro...";
+		mes "Se quiser procurar vários tipos de livros,";
+		mes "por que não vai até a biblioteca de Prontera?";
+		close;
+	}
+}
+
+yuno_in01,163,101,0	script	Livro Velho#1	-1,{
+	set @name$,strcharinfo(0);
+	if ((bard_q > 11) && (bard_q < 14)) {
+		set read_random,rand(1,5);
+		if (read_random == 5) {
+			mes "- Você abre o livro. -";
+			mes "- Ele parece ser realmente velho -";
+			mes "- e a letras estão quase ilegíveis. -";
+			next;
+			mes "Este é uma canção de amor.";
+			mes "Todo mundo, uma vez na vida, tem";
+			mes "um amor não correspondido...";
+			mes "- Você não consegue identificar o nome do autor. -";
+			next;
+			mes "Em um, eu fico apaixonado.";
+			mes "Em dois, eu estou amando.";
+			mes "Em três, eu ainda amo.";
+			mes "Em quatro, eu realmente estou amando.";
+			next;
+			mes "Em cinco?";
+			mes "Iuu Ruu!!!!!";
+			mes " - As letras estão apagadas e você não consegue ler a próxima parte. -";
+			mes " .. ... étala..ada..   ...longe...";
+			mes ".. ele está apaixonado.";
+			mes "Em sete, ela está apaixonada.";
+			next;
+			mes "[" + @name$ + "]";
+			mes "Acho que é isso...";
+			mes "É melhor eu escrever.";
+			mes " ";
+			mes "- Você começa a escrever a próxima linha -";
+			mes "- da canção. -";
+			next;
+			mes "Em oito, eles se amam.";
+			mes "Em nove, ela sabia";
+			mes "que ele se apaixonou por ela";
+			next;
+			mes "A décima pétala diz a ela.";
+			mes "Ele está esperando por você ";
+			mes "a décima primeira pétala sussurra para ela.";
+			mes "Ele irá pedi-la em casamento.";
+			next;
+			mes "A décima segunda pétala celebra.";
+			mes "a união deles.";
+			mes " ";
+			mes "Iuu Ruu!!!!";
+			mes "Doze pétalas";
+			mes "envolvem o meu amor.";
+			next;
+			mes "- Você guarda a nota no bolso. -";
+			set bard_q,15;
+			close;
+		} else {
+			mes "[" + @name$ + "]";
+			mes "*suspiro* Esse livro está muito gasto para ";
+			mes "ler....";
+			mes "Vamos tentar outro.";
+			close;
+		}
+	} else {
+		mes "[Sketzi Bundin]";
+		mes "Me desculpe, mas esse livro é muito velho para ser manuseado.";
+		mes "Por favor, não toque no livro.";
+		close;
+	}
+}
+
+yuno_in01,173,96,0	script	Canções de Luke - 1	-1,{
+	if (bard_q > 11) {
+		mes "[Prefácio]";
+		mes "Eu, Luke de Izlude, o maior de todos os bardos";
+		mes "deixo essas canções essenciais aos meus descendentes.";
+		mes " ";
+		mes "Índice";
+		next;
+			switch(select("Canção de Casamento:A vida é um moinho:Nós")) {
+				case 1:
+					mes "Canção de Casamento";
+					mes " - Luke de Izlude - ";
+					mes "Toque a flauta da alegria!";
+					mes "Hoje, celebraremos a união de duas";
+					mes "almas no santuário de Prontera.";
+					next;
+					mes "Meus serviços não dou nem por";
+					mes "zeny nem por ouro, mas pelo belo sorriso";
+					mes "da noiva.";
+					mes "É tudo o que quero por essa canção.";
+					next;
+					mes "Largue dele, minha querida.";
+					mes "Só você pode me fazer feliz...";
+					mes "... ...";
+					mes " ....Err? Ops, desculpa.";
+					mes "Mas ela é tão linda!!";
+					next;
+					mes "[Observação de Luke]";
+					mes "Essa é uma canção sobre um bardo que foi convidado a";
+					mes "um casamento e não";
+					mes "resistiu à beleza da noiva e acabou cantando";
+					mes "uma canção de sedução.";
+					close;
+				break;
+				case 2:
+					mes "A vida é um moinho - Luke de Izlude -";
+					mes " ";
+					mes "Fui atrás da fama,";
+					mes "mas não a tive.";
+					mes "Fui atrás da felicidade,";
+					mes "mas não a tive.";
+					next;
+					mes "A vida é um moinho";
+					mes "onde ventos medonhos";
+					mes "trituram sonhos";
+					mes "tão mesquinhos.";
+					next;
+					mes "Uma senhora chora";
+					mes "e um jovem desespera...";
+					mes "Ele entoou loas";
+					mes "mas ela não achou boas.";
+					mes "..Como pode ela fazer tal querela?";
+					mes "La la la la...";
+					next;
+					mes "[Observação de Luke]";
+					mes "Essa canção foi feita para";
+					mes "confortar aqueles em desespero.";
+					mes "A pantomima do final";
+					mes "enfatiza essa intenção.";
+					close;
+				break;
+				case 3:
+					mes "Nós - Luke de Izlude -";
+					mes " ";
+					mes "Os bardos cantam para diversão ";
+					mes "da platéia.";
+					mes "Portanto, não espere";
+					mes "tristezas nas minhas canções.";
+					next;
+					mes "As dançarinas dançam";
+					mes "para a diversão da platéia.";
+					mes "Pegue a minha mão";
+					mes "e vamos dançar.";
+					next;
+					mes "Um cidadão: ";
+					mes "		  Então por que raios";
+					mes "		  algumas vezes vocês";
+					mes "		  brigam?";
+					mes "Uahahahaha!!! porque ninguém é perfeito!";
+					next;
+				   mes "[Observação de Luke]";
+					mes "Essa canção é boa";
+					mes "em festivais.";
+					mes "Ela também encoraja";
+					mes "a participação da audiência.";
+					mes "Embora a letra não tenha nenhum sentido oculto.";
+					close;
+				break;
+			}
+	} else {
+		mes "[Sketzi Bundin]";
+		mes "Sinto muito, mas";
+		mes "esse livro não está disponível!";
+		close;
+	}
+}
+
+yuno_in01,173,94,0	script	Tambores na Batalha	-1,{
+	if (bard_q > 11) {
+		mes "[Tambores na Batalha]";
+		mes "Autor desconhecido.";
+		mes "Essa canção era entoada no campo de batalha";
+		mes "para encorajar os soldados.";
+		next;
+		mes "Galopes soam a distância.";
+		mes "Uma nuvem de poeira encobre o pôr-do-sol.";
+		mes "Centenas de olhos espreitam a noite";
+		mes "Tochas no castelo reluzem como centenas de Ifrits.";
+		next;
+		mes "Ouça o palpitante som do meu coração,";
+		mes "Sinta o sangue nas veias.";
+		mes "Sinta o peso da minha armadura.";
+		mes "Veja os inimigos se mostrando à frente.";
+		next;
+		mes "Que toque alto, mais alto, o tambor!";
+		mes "Alegrem-se soldados, o primeiro passo será nosso!";
+		mes "Gritem alto, mais alto!";
+		mes "Nunca mais será como hoje!";
+		next;
+		mes "Abale o céu e chacoalhe a terra,";
+		mes "para o meu coração bater de novo!";
+		mes "Toque a corneta para oscilar a fortaleza.";
+		mes "Nunca mais será como hoje!";
+		close;
+	} else {
+		mes "[Sketzi Bundin]";
+		mes "Sinto muito, mas";
+		mes "esse livro não está disponível!";
+		close;
+	}
+}
+
+yuno_in01,173,92,0	script	Maçã de Idun	-1,{
+	if (bard_q > 11) {
+		mes "[Maçã de Idun]";
+		mes "Essa canção glorifica";
+		mes "a maçã dourada da deusa Idun";
+		mes "que impede que os deuses envelheçam.";
+		next;
+		mes "Nenhum deus jamais fica velho.";
+		mes "É por causa da deusa da beleza Idun,";
+		mes "Idun, a deusa da saúde,";
+		mes "É por causa das maçãs que ela possui.";
+		next;
+		mes "Nenhum deus jamais fica velho.";
+		mes "É por causa da nora de Odin, a esposa de Bragi.";
+		mes "É por causa das maçãs da cesta dela,";
+		mes "as maçãs da cesta dela.";
+		next;
+		mes "Sem Idun, todo deus ficaria velho.";
+		mes "Até Thor, o mais forte dos deuses, ficaria velho.";
+		mes "O Martelo Mjolnir nunca mais voaria,";
+		mes "Megingjard escorregaria de suas mãos...";
+		next;
+		mes "Sem Idun, todo deus ficaria velho.";
+		mes "Incauto Loki, o dia que Idun foi raptada";
+		mes "A voz de Odin ecoou no Valhala.";
+		mes "E as maçãs da juventude reapareceram.";
+		next;
+		mes "Minha deusa mora nos campos de Asgard";
+		mes "Ela me passa uma fruta do paraíso.";
+		mes "Você será adorado por todos os deuses";
+		mes "Você será abençoado por todos os deuses";
+		next;
+		mes "Se você compartilhar a maçã comigo";
+		mes "mesmo uma mordida dela com esse pobre poeta,";
+		mes "Você será adorado por todos os deuses";
+		mes "Você será abençoado por todos os deuses.";
+		close;
+	} else {
+		mes "[Sketzi Bundin]";
+		mes "Sinto muito, mas";
+		mes "esse livro não está disponível!";
+		close;
+	}
+}
+
+payon,181,172,3	script	Bardo#4	51,{
+	set @name$,strcharinfo(0);
+	if ((bard_q == 2) || (bard_q == 22)) {
+		mes "[Gunther HarmoniaDubla]";
+		mes "Hahaha, escutem, escutem meus amigos!";
+		mes "Eu conheci essa canção de um amigo meu.";
+		mes "É sobre um mercador que vivia em Payon.";
+		mes "Todo mundo ama essa canção.";
+		mes "Sabem por quê? Porque eu canto a canção?";
+		next;
+		mes "[" + @name$ + "]";
+		mes "Me desculpe.";
+		mes "Você é Gunther HarmoniaDubla?";
+		next;
+		mes "[Gunther HarmoniaDubla]";
+		mes "O mercador era tão pobre... ele não tinha nem mesmo...";
+		mes "...hein? ";
+		mes "Sim, certo, sou eu mesmo.";
+		mes "O que quer?";
+		next;
+		mes "- Você explica tudo - ";
+		mes "- o que aconteceu com você. -";
+		next;
+		mes "[Gunther HarmoniaDubla]";
+		mes "Umm...umm... Entendi.";
+		mes "A propósito, qual era mesmo o nome da canção?";
+		next;
+		input @gun_inp$;
+			if (@gun_inp$ == "Em um, eu fico apaixonado") {
+				mes "[Gunther HarmoniaDubla]";
+				mes "Ah!!! essa canção...?";
+				mes "Aliás, quem foi mesmo que perguntou sobre essa canção?";
+				next;
+				input @eren_inp$;
+					if ( @eren_inp$ == "Errende Menta") {
+						mes "[Gunther HarmoniaDubla]";
+						mes "Sim, ele é meu amigo. Errende Menta.";
+						mes "Nós éramos muito chegados.";
+						mes "Eu vou escrever cada palavra da canção";
+						mes "para o meu amigo, Errende Menta.";
+						mes "Vamos, vire de costas!";
+						next;
+						mes "- Ele começa a escrever alguma coisa -";
+						mes "- nas suas costas. - ";
+						mes " ";
+						mes "- *escreve* *escreve* - ";
+						next;
+						mes "[Gunther HarmoniaDubla]";
+						mes "Pronto!";
+						mes "Pode voltar agora para Errende Menta";
+						mes "e mostre as suas costas.";
+						mes "Ele lerá o que escrevi nas suas costas.";
+						if (bard_q == 2) {
+							set bard_q,3;
+						}
+						else if (bard_q == 22) {
+							set bard_q,23;
+						}
+						close;
+					} else {
+						mes "[Gunther HarmoniaDubla]";
+						mes "Não, eu não conheço ninguém com esse nome.";
+						mes "é melhor você perguntar o nome dele de novo!";
+						close;
+					}
+			} else {
+				mes "[Gunther HarmoniaDubla]";
+				mes "Não, eu não conheço uma canção com esse título.";
+				mes "É melhor você verificar o nome dela de novo!";
+				close;
+			}
+	}
+	else if ((bard_q == 6) || (bard_q == 26)) {
+		mes "[Gunther HarmoniaDubla]";
+		mes "Você voltou de novo.";
+		mes "Hã? Que canção escrevi nas suas costas?";
+		mes "Espero um momento... deixe-me pensar.......";
+		mes "Ah! Sim, certo!";
+		next;
+		mes "[Gunther HarmoniaDubla]";
+		mes "As palavras que escrevi nas suas costas";
+		mes "foram escritas pelo Sr. Kino Gato.";
+		mes "Ele é meu ídolo.";
+		mes "Essa canção é criação do Sr. ^4d4dffKino Gato^000000!";
+		next;
+		mes "[Gunther HarmoniaDubla]";
+		mes "Bem que eu queria ser um bardo tão bom quanto ele...";
+		close;
+	} else {
+		mes "[Gunther HarmoniaDubla]";
+		mes "Hahaha, escutem, escutem meus amigos!";
+		mes "Eu conheci essa canção de um amigo meu.";
+		mes "É sobre um mercador que vivia em Payon.";
+		mes "Todo mundo ama essa canção.";
+		mes "Sabem por quê? Porque eu canto a canção?";
+		next;
+		mes "[Gunther HarmoniaDubla]";
+		mes "Querem ouvir uma canção ou uma história? Hã?";
+		mes "Eu sei que querem algo! Querem?";
+		mes "Não querem?";
+		next;
+			switch(select("Mostre algum interesse.:Ignoro-o.")) {
+				case 1:
+					mes "[Gunther HarmoniaDubla]";
+					mes "Viram? Eu disse que queriam!";
+					mes "Certo, o que você quer?";
+					mes "Uma canção ou uma história?";
+					next;
+						switch(select("Uma canção:Uma história:Talvez uma outra hora")) {
+							case 1:
+								set @song_random,rand(1,3);
+								if (@song_random == 1) {
+									mes "[Gunther HarmoniaDubla]";
+									mes "Gunther canta";
+									mes "Gunther dança!";
+									mes "O título da canção é.";
+									mes "'O rico Sr. Kim'!";
+									next;
+									mes "Hahaha, escutem, escutem meus amigos.";
+									mes "Eu conheci essa canção de um amigo meu.";
+									mes "É sobre um mercador que vivia em Payon.";
+									mes "Todo mundo ama essa canção.";
+									next;
+									mes "O mercador era tão pobre que ele não tinha nem mesmo uma armadura.";
+									mes "Ele era um mercador, mas não tinha nenhum dinheiro para começar o negócio.";
+									mes "Mas ele era muito orgulhoso para pedir ajuda.";
+									mes "Então ele vendeu sua jaqueta e uma faca para fazer algum dinheiro.";
+									next;
+									mes "Primeiro, ele só vendeu panelas vermelhas.";
+									mes "Ele ganhou fama de vender cenouras em Prontera.";
+									mes "As pessoas adoravam seus produtos e o negócio foi um sucesso.";
+									mes "Com o dinheiro que fez, ele pode comprar uma armadura para si.";
+									next;
+									mes "Um dia, ele foi enganado.";
+									mes "Foi enganado por uma guilda perversa.";
+									mes "E, novamente, ele estava pobre.";
+									mes "Ele decidiu entrar no inferno das Formigas.";
+									next;
+									mes "Ele lutou com morcegos e formigas.";
+									mes "Quebrou centenas de ovos de formigas e lutou com anões.";
+									mes "Algumas vezes ele foi perseguido por Maya, mas seu carrinho foi se enchendo de ";
+									mes "peles de vermes que ele juntou com tanta dificuldade.";
+									next;
+									mes "Ao mesmo tempo, quando as peles de vermes valiam 10.000,";
+									mes "O Sr. Kim estava feliz em pegar uma carta.";
+									mes "Uma carta que valia mais do que ouro ou diamante.";
+									mes "Uma carta que era desejada por todos na terra.";
+									next;
+									mes "Mas ele não vendeu a carta a ninguém.";
+									mes "Porque queria se lembrar";
+									mes "de como conseguiu a carta.";
+									next;
+									mes "[Gunther HarmoniaDubla]";
+									mes "É sobre o rico Sr. Kim.";
+									mes "É uma história antiga.";
+									mes "Pode ser verdadeira ou fictícia^";
+									mes "Não me pergunte. Não faço idéia!";
+									close;
+								}
+								else if (@song_random == 2) {
+									mes "[Gunther HarmoniaDubla]";
+									mes "Gunther canta ";
+									mes "sobre a Yggdrasil.";
+									next;
+									mes "A sempre verde Yggdrasil";
+									mes "é uma árvore gigante que encobre o céu.";
+									mes "Cristais de orvalho encharcam a grande árvore de manhã,";
+									mes "cristais de orvalho que caem da árvore e viram um lago.";
+									mes "É o Lago de Urd.";
+									next;
+									mes "Lá vivem três garotas sábias.";
+									mes "Elas estão sob a grande árvore.";
+									mes "Urd, rege o destino,";
+									mes "Belldandy, rege o presente";
+									mes "e Skuld, rege o futuro.";
+									next;
+									mes "E juntas regem a sorte das pessoas.";
+									mes "A sempre verde Yggdrasil.";
+									mes "É uma árvore gigante que encobre o céu.";
+									mes "A raiz da árvore está encharcada de lágrimas";
+									mes "E desce até a morte, ";
+									mes "a morte que se chama Hvergelmir.";
+									next;
+									mes "Lá tem um dragão perverso";
+									mes "que queima a raiz de Yggdrasil com chamas eternas.";
+									mes "O perverso dragão Nidhogg";
+									mes "vive entre Yggdrasil e Nifflheim.";
+									next;
+									mes "A sempre verde Yggdrasil.";
+									mes "É uma árvore gigante que encobre o céu.";
+									mes "A raiz de Yggdrasil ficou sábia.";
+									mes "A raiz da sabedoria encontrou um sábio.";
+									mes "A raiz da sabedoria atingiu o Lago de Mimir.";
+									next;
+									mes "Ele era guardado por um gigante sábio";
+									mes "que Odin tinha sacrificado um dos olhos.";
+									mes "Heimdall tocou sua corneta sob o lago.";
+									mes "Tocou a corneta para o dia do anoitecer.";
+									mes "O sábio Mimir estava guardando o lago.";
+									next;
+									mes "A sempre verde Yggdrasil.";
+									mes "é uma árvore gigante que encobre o céu.";
+									mes "Cristais de orvalho encharcam a grande árvore de manhã,";
+									mes "três deusas do destino guardam a árvore.";
+									mes "A árvore suporta esse mundo.";
+									next;
+									mes "[Gunther HarmoniaDubla]";
+									mes "É uma história antiga.";
+									mes "Pode ser verdadeira ou fictícia.";
+									mes "Não me pergunte. Não faço idéia.";
+									close;
+								} else {
+									mes "[Gunther HarmoniaDubla]";
+									mes "Gunther canta ";
+									mes "Uma das canções de Luke.";
+									mes "que foi revisada um pouquinho.";
+									next;
+									mes "Eu achei em uma gaveta";
+									mes "cartas gastas e elaboradas.";
+									mes "Cartas que refletem uma mente sincera.";
+									next;
+									mes "Eu achei em uma gaveta";
+									mes "cartas gastas e um tanto infantis.";
+									mes "Cartas que refletem uma velha lembrança.";
+									next;
+									mes "Eu achei em uma gaveta";
+									mes "o amor esquecido.";
+									mes "Ela não me deu as cartas,";
+									mes "talvez fosse muito tímida para confessar o seu amor.";
+									next;
+									mes "Eu achei em uma gaveta";
+									mes "o amor esquecido.";
+									mes "Eu não pude dar essa carta a ela,";
+									mes "porque era muito orgulhoso";
+									mes "ou muito medroso para fazer isso.";
+									mes "Dubla harmonia para você.";
+									next;
+									mes "[Gunther HarmoniaDubla]";
+									mes "Você tem alguém na sua mente? Tem?";
+									mes "Tem alguma carta de amor que escreveu, mas ainda não mandou?";
+									mes "Se tem, jogue fora,";
+									mes "jogue bem longe, o seu orgulho.";
+									close;
+								}
+							break;
+							case 2:
+								set story,rand(1,3);
+								if (story == 1) {
+									mes "[Gunther HarmoniaDubla]";
+									mes "Um, você já provou o queijo de Comodo?";
+									mes "Você só pode experimentá-lo em Comodo.";
+									mes "Claro, tem de ter um estômago de ferro";
+									mes "para digerir o queijo.";
+									mes "Ah, o queijo tem um segredo!";
+									next;
+									mes "[Gunther HarmoniaDubla]";
+									mes "Você fica invulnerável a espadas amaldiçoadas";
+									mes "que vieram de outro mundo";
+									mes "quando come o queijo!";
+									mes "Por que não o prova, se ainda não provou?";
+									mes "Ah bem, eu tentei prová-lo, mas desmaiei.";
+									close;
+								}
+								else if (story == 2) {
+									mes "[Gunther HarmoniaDubla]";
+									mes "Eu estava passando por Prontera um dia desses,";
+									mes "me lembro que era no campo de treino de espadachim.";
+									mes "Eu vi um jovem que estava treinando bem forte.";
+									mes "Ele não percebeu que eu o estava observando.";
+									next;
+									mes "[Gunther HarmoniaDubla]";
+									mes "Ele parecia que queria ser um espadachim profissional.";
+									mes "Mas, ao mesmo tempo, ele estava";
+									mes "dando suas coisas para os novatos sem nem mesmo hesitar.";
+									mes "Talvez ele quisesse ser um filantropo...";
+									next;
+									mes "[Gunther HarmoniaDubla]";
+									mes "Eu fiquei entediado de tanto ver ele fazer";
+									mes "a mesma coisa vezes sem fim, então voltei para casa.";
+									mes "Mas não deixo de imaginar que a Organização de Pesquisa de Monstros";
+									mes "iria gostar muito dele se eu o apresentasse a eles.";
+									close;
+								} else {
+									mes "[Gunther HarmoniaDubla]";
+									mes "Você já esteve em Lutie quando ela está coberta pela neve?";
+									mes "Já?";
+									mes "Lá tem um boneco de neve chamado Neve Nevada.";
+									mes "Você conhece o Neve Nevada?";
+									next;
+									mes "[Gunther HarmoniaDubla]";
+									mes "....Ainda não?";
+									mes "Ele era um saco misterioso de onde não pára de sair presentes.";
+									mes "Ele costumava viver em uma cidade mais fria que Lutie, mas";
+									mes "parece que a sua cidade natal foi destruída por uma bruxa.";
+									next;
+									mes "[Gunther HarmoniaDubla]";
+									mes "E ele foi resgatado por um alquimista e veio parar em Lutie.";
+									mes "Quer saber mais sobre ele?";
+									mes "Por que não vai visitar Lutie? Hã?";
+									close;
+								}
+							break;
+							case 3:
+								mes "[Gunther HarmoniaDubla]";
+								mes "Ah, vai sair agora? Sem me ouvir?";
+								mes "Certo, por mim tudo bem.";
+								mes "Mas me prometa que da próxima vez";
+								mes "me pedirá ao menos uma canção.";
+								close;
+							break;
+						}
+				break;
+				case 2:
+					mes "[Gunther HarmoniaDubla]";
+					mes "Uau, está me ignorando, né?";
+					mes "Tá bem, por mim tudo bem!";
+					close;
+				break;
+			}
+	}
+}
+
+yuno_in04,20,123,7	script	Representante	95,{
+//set @check,$God2;
+//if (@check < 101)
+	if (god_brising == 3) {
+		mes "[Marlene Putiur]";
+		mes "Olá! Que bom que você veio na Organização de Pesquisa de Monstros.";
+		mes "Nós fazemos pesquisas sobre monstros com as informações";
+		mes "que os aventureiros nos dão para podermos lidar melhor com os monstros.";
+		next;
+		mes "[Marlene Putiur]";
+		mes "Nós aceitamos todos os tipos de informações relacionadas aos monstros.";
+		mes "Por isso, se tiver qualquer dado ou informação,";
+		mes "não hesite em nos contatar.";
+		mes "Você pode usar um formulário nessa sala";
+		mes "para a sua conveniência.";
+		next;
+		mes "[Marlene Putiur]";
+		mes "Eh? Você está procurando uma pessoa?";
+		mes "Deixe-me ver... ele é um membro registrado desta organização..?";
+		mes "Seu nome é Emet Sharlotte?";
+		mes "Hmm...hmm...";
+		next;
+		mes "[Marlene Putiur]";
+		mes "Ah, achei-o.";
+		mes "Errr...mas ele não deu todas as informações necessárias";
+		mes "quando pediu a filiação... Isso é compreensível...";
+		mes ".....considerando que ele é um gatuno....";
+		mes "Isso é tudo que tenho sobre ele. Que dar uma olhada?";
+		next;
+		mes "[Marlene Putiur]";
+		mes "O endereço dele é... puf!";
+		mes "Quer olhar isso?";
+		next;
+		mes "- Marlene mostra a você um cartão de filiação. -";
+		mes " ";
+		mes "Aqui diz, ^4d4dff Vivo com minha irmã em Prontera. ^000000";
+		mes " ";
+		next;
+		mes "[Marlene Putiur]";
+		mes "Não posso dar mais informações do que isso.";
+		mes "De qualquer forma, espero que tenha sido útil.";
+		mes "Ou talvez seja melhor visitar a guilda dos gatunos.";
+		close;
+	}
+	mes "[Marlene Putiur]";
+	mes "Olá! Que bom que você veio na Organização de Pesquisa de Monstros.";
+	mes "Nós fazemos pesquisas sobre monstros com as informações";
+	mes "que os aventureiros nos dão para podermos lidar melhor com os monstros.";
+	next;
+	mes "[Marlene Putiur]";
+	mes "Nós aceitamos todos os tipos de informações relacionadas aos monstros.";
+	mes "Por isso, se tiver qualquer dado ou informação,";
+	mes "não hesite em nos contatar.";
+	mes "Você pode usar um formulário nessa sala";
+	mes "para a sua conveniência.";
+	next;
+	if ((bard_q == 4) || (bard_q == 24)) {
+		mes "[Marlene Putiur]";
+		mes "Hã? ...aventureiros desta organização?";
+		mes "Ah, você está procurando um bardo, é isso?";
+		mes "Sim, nós temos alguns membros que são bardos";
+		mes "e que nos enviam regularmente algumas informações sobre monstros.";
+		next;
+		mes "[Marlene Putiur]";
+		mes "Eu ouvi que os bardos também estão ajudando os sábios a instalar";
+		mes "placas nos campos, para ajudar os novos aventureiros a se localizarem.";
+		mes "Qual é o nome completo da pessoa que você está procurando?";
+		next;
+		input @str_in$;
+		if (@str_in$ == "Errende Menta") {
+			mes "[Marlene Putiur]";
+			mes "Errende Menta... Errende Menta...";
+			mes "Ah sim, eu me lembro dele.";
+			mes "Ele me disse há algum tempo que estava indo para o sul...";
+			mes "A essa hora, eu imagino que ele já esteja em Geffen.";
+			next;
+			mes "[Marlene Putiur]";
+			mes "Ele é um cara legal.";
+			mes "Sempre fazendo o melhor que pode para nos dar ";
+			mes "a informação de que precisamos.";
+			mes "Me faça um favor, dê minhas lembranças quando encontrá-lo.";
+			close;
+		}
+		else if (@str_in$ == "Kino Gato") {
+			mes "[Marlene Putiur]";
+			mes "Kino Gato... Kino Gato";
+			mes "Ah, aqui está.";
+			mes "Ele nos enviou uma carta que diz:";
+			mes "'Estarei no deserto até encontrar o meu eu verdadeiro'.";
+			next;
+			mes "[Marlene Putiur]";
+			mes "Ele não parecia estar bem de saúde... mas eu acho";
+			mes "que ele ainda está viajando.";
+			mes "Umm... talvez ele esteja em Morroc...";
+			mes "Por favor, dê minhas lembranças quando encontrá-lo.";
+			close;
+		}
+		else if (@str_in$ == "Gunther HarmoniaDubla") {
+			mes "[Marlene Putiur]";
+			mes "Ah... você conhece o Gunther?";
+			mes "Haha, ele é muito divertido...";
+			mes "... Certo... Gunther... Gunther...";
+			mes "Achei.";
+			mes "Ele foi para o sudeste.";
+			next;
+			mes "[Marlene Putiur]";
+			mes "Ele disse que queria passear por Payon e Alberta.";
+			mes "Então ele deve estar em algum desses lugares.";
+			mes "Desculpe, não posso ser mais precisa que isso.";
+			close;
+		} else {
+			mes "[Marlene Putiur]";
+			mes " "+@str_in$+"...";
+			mes "....Hmmm... Hmm...";
+			mes "Desculpe-me, mas não há nenhum registro";
+			mes "dessa pessoa aqui.";
+			close;
+		}
+	} else {
+	   mes "[Marlene Putiur]";
+		mes "Vamos empenhar nossas pesquisas";
+		mes "para o benefício de todos os aventureiros deste continente.";
+		close;
+	}
+}
+
+yuno_in04,33,119,3	script	Aventureiro#1	828,{
+	mes "..... ... . .";
+	mes ".. . .. .   .. .*Escreve Escreve*";
+	next;
+	mes "[Jovem Enérgico]";
+	mes "Err...e...?! O que foi....?";
+	mes "Hã? O que você está olhando?";
+	next;
+	if (!Sex) {
+		emotion e_heh;
+		mes "[Jovem Enérgico]";
+		mes "Ah, minha linda senhora! Bom dia..";
+		mes "Meu nome é Pane.";
+		mes "Posso perguntar qual é o seu?";
+		set @name$,strcharinfo(0);
+		input @nome$;
+		next;
+		mes "[Jovem Enérgico]";
+		mes "Oh.." + @nome$ + ".....";
+		if (@name$ == @nome$) {
+			mes "Que nome lindo!";
+			mes "Eu não me esquecerei do seu nome, minha senhora.";
+			mes "Oh, mas sinto muito. Agora estou um pouco ocupado.";
+			mes "Poderia voltar um pouco mais tarde? Da próxima vez, farei o que for possível por você.";
+			emotion e_kis;
+			close;
+		} else if (@name$ != @name$) {
+			mes "Hmm... Eu não acho que esse seja o seu nome...";
+			mes "Ah, seja como for.";
+			mes "Oh, mas sinto muito. Agora estou um pouco ocupado.";
+			mes "Poderia voltar um pouco mais tarde? Da próxima vez, farei o que for possível por você.";
+			emotion e_heh;
+			close;
+		}
+	} else {
+		mes "[Jovem Enérgico]";
+		mes "O quê, um homem!";
+		mes "Me deixe em paz, eu estou ocupado.";
+		close;
+	}
+}

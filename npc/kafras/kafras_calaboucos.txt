@@ -1,0 +1,97 @@
+//===== Cronus Script ========================================
+//= Kafra das cavernas e campos
+//===== Por: =================================================
+//= Dojo
+//===== Versão Atual: ========================================
+//= [Conversão Aegis]
+//= 1.0
+//===== Compatibilidade: =====================================
+//= Cronus / eAthena
+//===== Comentários Adicionais: ==============================
+//= 1.0 Primeira Versão [Dojo]
+//============================================================
+
+//<============================= Byalan Island ============================>\\
+izlu2dun,106,58,8	script	Funcionária Kafra::kaf_izlu2dun	115,{
+
+	cutin "kafra_03",2;
+	if(BaseJob==Job_Novice && job_merchant_q2>0) callfunc "F_MercKafra";  //F_MercKafra found in merchant.txt
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,2,1,120,1200;
+
+	M_Save:
+		savepoint "izlu2dun",87,170;
+		callfunc "F_KafEnd",0,1,"na Ilha Byalan";
+}
+
+
+//<============================ Culvert Sewers ============================>\\
+prt_fild05,290,224,3	script	Funcionária Kafra::prt_fild05	114,{
+	cutin "kafra_04",2;
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,1,1,40,0;
+
+	M_Save:
+		savepoint "prt_fild05",274,243;
+		callfunc "F_KafEnd",0,1, "no Esgoto de Prontera";
+}
+
+
+//<=========================== Coal Mine (Dead Pitt) =======================>\\
+mjolnir_02,83,362,4	script	Funcionária Kafra::kaf_mjolnir_02	116,{
+	cutin "kafra_02",2;
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,6,1,100,0;
+
+	M_Save:
+		savepoint "mjolnir_02",98,352;
+		callfunc "F_KafEnd",0,1,"na Mina de Carvão";
+}
+
+
+//<=============================== Morroc Ruins ============================>\\
+moc_ruins,59,157,5	script	Funcionária Kafra::moc_ruins	114,{
+	cutin "kafra_04",2;
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,2,1,90,1200;
+
+	M_Save:
+		savepoint "moc_ruins",41,141;
+		callfunc "F_KafEnd",0,1,"nas Pirâmides";
+}
+
+
+//<================================ Orc Dungeon ============================>\\
+gef_fild10,73,340,5	script	Funcionária Kafra::kaf_gef_fild10	116,{
+	cutin "kafra_02",2;
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,6,1,130,0;
+
+	M_Save:
+		savepoint "gef_fild10",54,326;
+		callfunc "F_KafEnd",0,1,"na Caverna dos Orcs";
+}
+
+//<============================== Treasure Island ==========================>\\
+alb2trea,59,69,5	script	Funcionária Kafra::kaf_alb2trea	117,{
+	cutin "kafra_01",2;
+	mes "[Funcionária Kafra]";
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,2,1,50,0;
+
+	M_Save:
+		savepoint "alb2trea",92,64;
+		callfunc "F_KafEnd",0,1,0,"no Návio Fantasma";
+}

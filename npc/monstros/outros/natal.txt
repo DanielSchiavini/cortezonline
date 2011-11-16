@@ -1,0 +1,265 @@
+//===== Cronus Script ========================================
+//= Spawns de Monstros de Natal
+//===== Por: =================================================
+//= Mara
+//===== Versão Atual: ========================================
+//= 1.0
+//===== Compatível Com: ======================================
+//= Emulador [3010+]; Cliente [EP 13.3]
+//===== Comentários Adicionais: ==============================
+//= 1.0 Conversão do Aegis [Mara]
+//============================================================
+
+bra_fild02,0,0,0,0	monster	Antonio	1247,1,0,0,0
+bra_fild02,0,0,0,0	monster	Antonio	1247,1,0,0,0
+mosk_fild02,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ayo_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ayo_fild02,0,0,0,0	monster	Antonio	1247,1,0,0,0
+lou_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+gon_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ama_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ve_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ve_fild02,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ve_fild03,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ve_fild04,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ve_fild07,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ra_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ra_fild03,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ra_fild04,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ra_fild05,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ra_fild06,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ra_fild08,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ra_fild12,0,0,0,0	monster	Antonio	1247,1,0,0,0
+hu_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+hu_fild02,0,0,0,0	monster	Antonio	1247,1,0,0,0
+hu_fild04,0,0,0,0	monster	Antonio	1247,1,0,0,0
+hu_fild05,0,0,0,0	monster	Antonio	1247,1,0,0,0
+hu_fild06,0,0,0,0	monster	Antonio	1247,1,0,0,0
+lhz_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+lhz_fild02,0,0,0,0	monster	Antonio	1247,1,0,0,0
+lhz_fild03,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ein_fild03,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ein_fild04,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ein_fild05,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ein_fild06,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ein_fild07,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ein_fild08,0,0,0,0	monster	Antonio	1247,1,0,0,0
+ein_fild09,0,0,0,0	monster	Antonio	1247,1,0,0,0
+yuno_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+yuno_fild02,0,0,0,0	monster	Antonio	1247,1,0,0,0
+yuno_fild03,0,0,0,0	monster	Antonio	1247,1,0,0,0
+yuno_fild04,0,0,0,0	monster	Antonio	1247,1,0,0,0
+yuno_fild06,0,0,0,0	monster	Antonio	1247,1,0,0,0
+yuno_fild07,0,0,0,0	monster	Antonio	1247,1,0,0,0
+yuno_fild08,0,0,0,0	monster	Antonio	1247,1,0,0,0
+yuno_fild09,0,0,0,0	monster	Antonio	1247,1,0,0,0
+yuno_fild11,0,0,0,0	monster	Antonio	1247,1,0,0,0
+yuno_fild12,0,0,0,0	monster	Antonio	1247,1,0,0,0
+nif_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+nif_fild02,0,0,0,0	monster	Antonio	1247,1,0,0,0
+um_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+um_fild02,0,0,0,0	monster	Antonio	1247,1,0,0,0
+um_fild03,0,0,0,0	monster	Antonio	1247,1,0,0,0
+um_fild04,0,0,0,0	monster	Antonio	1247,1,0,0,0
+prt_fild00,0,0,0,0	monster	Antonio	1247,1,0,0,0
+prt_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+prt_fild02,0,0,0,0	monster	Antonio	1247,1,0,0,0
+prt_fild03,0,0,0,0	monster	Antonio	1247,1,0,0,0
+prt_fild04,0,0,0,0	monster	Antonio	1247,1,0,0,0
+prt_fild05,0,0,0,0	monster	Antonio	1247,1,0,0,0
+prt_fild06,0,0,0,0	monster	Antonio	1247,1,0,0,0
+prt_fild07,0,0,0,0	monster	Antonio	1247,1,0,0,0
+prt_fild08,0,0,0,0	monster	Antonio	1247,1,0,0,0
+prt_fild09,0,0,0,0	monster	Antonio	1247,1,0,0,0
+prt_fild10,0,0,0,0	monster	Antonio	1247,1,0,0,0
+prt_fild11,0,0,0,0	monster	Antonio	1247,1,0,0,0
+moc_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+moc_fild02,0,0,0,0	monster	Antonio	1247,1,0,0,0
+moc_fild03,0,0,0,0	monster	Antonio	1247,1,0,0,0
+moc_fild07,0,0,0,0	monster	Antonio	1247,1,0,0,0
+moc_fild11,0,0,0,0	monster	Antonio	1247,1,0,0,0
+moc_fild12,0,0,0,0	monster	Antonio	1247,1,0,0,0
+moc_fild13,0,0,0,0	monster	Antonio	1247,1,0,0,0
+moc_fild16,0,0,0,0	monster	Antonio	1247,1,0,0,0
+moc_fild17,0,0,0,0	monster	Antonio	1247,1,0,0,0
+moc_fild18,0,0,0,0	monster	Antonio	1247,1,0,0,0
+moc_fild20,0,0,0,0	monster	Antonio	1247,1,0,0,0
+moc_fild21,0,0,0,0	monster	Antonio	1247,1,0,0,0
+moc_fild22,0,0,0,0	monster	Antonio	1247,1,0,0,0
+pay_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+pay_fild02,0,0,0,0	monster	Antonio	1247,1,0,0,0
+pay_fild03,0,0,0,0	monster	Antonio	1247,1,0,0,0
+pay_fild04,0,0,0,0	monster	Antonio	1247,1,0,0,0
+pay_fild06,0,0,0,0	monster	Antonio	1247,1,0,0,0
+pay_fild07,0,0,0,0	monster	Antonio	1247,1,0,0,0
+pay_fild08,0,0,0,0	monster	Antonio	1247,1,0,0,0
+pay_fild09,0,0,0,0	monster	Antonio	1247,1,0,0,0
+pay_fild10,0,0,0,0	monster	Antonio	1247,1,0,0,0
+gef_fild00,0,0,0,0	monster	Antonio	1247,1,0,0,0
+gef_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+gef_fild02,0,0,0,0	monster	Antonio	1247,1,0,0,0
+gef_fild03,0,0,0,0	monster	Antonio	1247,1,0,0,0
+gef_fild04,0,0,0,0	monster	Antonio	1247,1,0,0,0
+gef_fild05,0,0,0,0	monster	Antonio	1247,1,0,0,0
+gef_fild06,0,0,0,0	monster	Antonio	1247,1,0,0,0
+gef_fild07,0,0,0,0	monster	Antonio	1247,1,0,0,0
+gef_fild08,0,0,0,0	monster	Antonio	1247,1,0,0,0
+gef_fild09,0,0,0,0	monster	Antonio	1247,1,0,0,0
+gef_fild10,0,0,0,0	monster	Antonio	1247,1,0,0,0
+gef_fild11,0,0,0,0	monster	Antonio	1247,1,0,0,0
+cmd_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+cmd_fild02,0,0,0,0	monster	Antonio	1247,1,0,0,0
+cmd_fild03,0,0,0,0	monster	Antonio	1247,1,0,0,0
+cmd_fild04,0,0,0,0	monster	Antonio	1247,1,0,0,0
+cmd_fild06,0,0,0,0	monster	Antonio	1247,1,0,0,0
+cmd_fild07,0,0,0,0	monster	Antonio	1247,1,0,0,0
+cmd_fild08,0,0,0,0	monster	Antonio	1247,1,0,0,0
+cmd_fild09,0,0,0,0	monster	Antonio	1247,1,0,0,0
+mjolnir_01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+mjolnir_02,0,0,0,0	monster	Antonio	1247,1,0,0,0
+mjolnir_03,0,0,0,0	monster	Antonio	1247,1,0,0,0
+mjolnir_04,0,0,0,0	monster	Antonio	1247,1,0,0,0
+mjolnir_05,0,0,0,0	monster	Antonio	1247,1,0,0,0
+mjolnir_06,0,0,0,0	monster	Antonio	1247,1,0,0,0
+mjolnir_07,0,0,0,0	monster	Antonio	1247,1,0,0,0
+mjolnir_08,0,0,0,0	monster	Antonio	1247,1,0,0,0
+mjolnir_09,0,0,0,0	monster	Antonio	1247,1,0,0,0
+mjolnir_10,0,0,0,0	monster	Antonio	1247,1,0,0,0
+mjolnir_11,0,0,0,0	monster	Antonio	1247,1,0,0,0
+mjolnir_12,0,0,0,0	monster	Antonio	1247,1,0,0,0
+
+// Spawns de Poring Noel
+bra_fild02,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+bra_fild02,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+mosk_fild02,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ayo_fild01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ayo_fild02,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+lou_fild01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+gon_fild01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ama_fild01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ve_fild01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ve_fild02,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ve_fild03,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ve_fild04,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ve_fild07,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ra_fild01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ra_fild03,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ra_fild04,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ra_fild05,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ra_fild06,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ra_fild08,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ra_fild12,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+hu_fild01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+hu_fild02,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+hu_fild04,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+hu_fild05,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+hu_fild06,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+lhz_fild01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+lhz_fild02,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+lhz_fild03,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ein_fild03,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ein_fild04,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ein_fild05,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ein_fild06,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ein_fild07,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ein_fild08,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+ein_fild09,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+yuno_fild01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+yuno_fild02,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+yuno_fild03,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+yuno_fild04,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+yuno_fild06,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+yuno_fild07,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+yuno_fild08,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+yuno_fild09,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+yuno_fild11,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+yuno_fild12,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+nif_fild01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+nif_fild02,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+um_fild01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+um_fild02,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+um_fild03,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+um_fild04,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+prt_fild00,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+prt_fild01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+prt_fild02,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+prt_fild03,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+prt_fild04,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+prt_fild05,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+prt_fild06,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+prt_fild07,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+prt_fild08,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+prt_fild09,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+prt_fild10,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+prt_fild11,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+moc_fild01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+moc_fild02,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+moc_fild03,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+moc_fild07,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+moc_fild11,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+moc_fild12,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+moc_fild13,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+moc_fild16,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+moc_fild17,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+moc_fild18,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+moc_fild20,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+moc_fild21,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+moc_fild22,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+pay_fild01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+pay_fild02,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+pay_fild03,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+pay_fild04,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+pay_fild06,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+pay_fild07,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+pay_fild08,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+pay_fild09,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+pay_fild10,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+gef_fild00,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+gef_fild01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+gef_fild02,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+gef_fild03,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+gef_fild04,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+gef_fild05,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+gef_fild06,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+gef_fild07,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+gef_fild08,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+gef_fild09,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+gef_fild10,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+gef_fild11,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+cmd_fild01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+cmd_fild02,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+cmd_fild03,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+cmd_fild04,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+cmd_fild06,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+cmd_fild07,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+cmd_fild08,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+cmd_fild09,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+mjolnir_01,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+mjolnir_02,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+mjolnir_03,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+mjolnir_04,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+mjolnir_05,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+mjolnir_06,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+mjolnir_07,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+mjolnir_08,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+mjolnir_09,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+mjolnir_10,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+mjolnir_11,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+mjolnir_12,0,0,0,0	monster	Poring Noel	1062,8,0,0,0
+
+// Locais de Spawn de Natal
+xmas,0,0,0,0	monster	Poring Noel	1062,10,60000,30000,0
+xmas_fild01,0,0,0,0	monster	Poring Noel	1062,10,0,0,0
+xmas_fild01,0,0,0,0	monster	Antonio	1247,1,0,0,0
+xmas_fild01,0,0,0,0	monster	Jakk	1244,1,0,0,0
+xmas_dun01,0,0,0,0	monster	Poring Noel	1062,15,0,0,0
+xmas_dun01,0,0,0,0	monster	Goblin Natalino	1245,20,0,0,0
+xmas_dun02,0,0,0,0	monster	Goblin Natalino	1245,10,0,0,0
+xmas_dun02,0,0,0,0	monster	Jakk	1244,2,0,0,0
+
+// Outros Locais de Spawn de Natal
+gef_fild03,0,0,0,0	monster	Orc Natalino	1588,10,0,0,0
+gef_fild10,0,0,0,0	monster	Orc Natalino	1588,10,0,0,0
+gef_fild11,0,0,0,0	monster	Goblin Natalino	1245,10,0,0,0
+prt_fild11,0,0,0,0	monster	Goblin Natalino	1245,10,0,0,0
+gef_dun01,0,0,0,0	monster	Jakk	1244,10,0,0,0

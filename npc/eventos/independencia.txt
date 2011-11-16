@@ -1,0 +1,766 @@
+//===== Cronus Script ======================================== 
+//= Evento do Dia da Independência
+//===== Por: ================================================= 
+//= DoJo
+//===== Versão: ============================================== 
+//= 1.0
+//===== Compatível com: ====================================== 
+//= Emulador [3010]; Cliente [EP 12.1]
+//===== Descrição: =========================================== 
+//= [Conversão do Aegis]
+//===== Comentários adicionais: ============================== 
+//= 1.0 Conversão do Aegis [DoJo]                               
+//============================================================ 
+
+izlude,55,66,5	script	Flinnt#nk	712,{
+	set @now_weight, MaxWeight - Weight;
+	if (checkweight(1201,1) == 0) {
+		mes "[Flinnt]";
+		mes "Você carrega muitos itens.";
+		mes "Reduza seu peso e volte a falar comigo.";
+		close;
+	}
+	if (@now_weight < 2000) {
+		mes "[Flinnt]";
+		mes "Os objetos que você carrega são muito pesados.";
+		mes "Perca um pouco de peso e volte novamente.";
+		close;
+	}
+	set @name$,strcharinfo(0);
+	if (@oversea_event9 < 112) {
+		if (BaseLevel < 50) {
+			mes "[Flinnt]";
+			mes "Tenho algumas coisas para fazer aqui,";
+			mes "eu preciso levar algumas caixas para lá e para cá!";
+			mes "Isso não vai ser fácil...";
+			close;
+		} else {
+			mes "[Flinnt]";
+			mes "Cá está você!";
+			mes "Aventureiro,";
+			mes "Você não faz idéia de como eu sinto falta de";
+			mes "Rune-Midgard.";
+			next;
+			mes "[Flinnt]";
+			mes "Eu realmente queria voltar para aquele lugar.";
+			mes "Qual seu nome?";
+			next;
+			switch(select("Eu não o conheço.:Meu nome é...")) {
+				case 1:
+					mes "[" + @name$ + "]";
+					mes "Eu não quero falar com";
+					mes "um estranho.";
+					next;
+					mes "[Flinnt]";
+					mes "Hmm.. tudo bem.";
+					mes "Então siga seu caminho!";
+					close;
+				break;
+				case 2:
+					mes "[" + @name$ + "]";
+					mes "Meu nome é " + @name$ + ".";
+					mes "O que o trás aqui?";
+					next;
+				break;
+			}
+			mes "[Flinnt]";
+			mes "Ah! Este é um bom nome.";
+			mes "Eu não devo esquece-lo.";
+			mes "Vou me apresentar.";
+			mes "Me chame de Flinnt.";
+			next;
+			mes "[Flinnt]";
+			mes "Sou um historiador, colecionador,";
+			mes "e também um aventureiro que viaja em busca";
+			mes "de coisas que possam ser somadas à minha";
+			mes "coleção.";
+			next;
+			mes "[Flinnt]";
+			mes "Você tem um tempinho?";
+			mes "Vou explicar melhor porque estou aqui.";
+			next;
+			switch(select("Não estou interessado...:Sim, eu desejo saber.")) {
+				case 1:
+					mes "[Flinnt]";
+					mes "-Hunf!-";
+					mes "Terei de procurar por outra pessoa então...";
+					close;
+				break;
+				case 2:
+					mes "[Flinnt]";
+					mes "Ótimo. Eu adoro conversar!";
+					mes "Eu gosto de alguém que deseja";
+					mes "ouvir minha história.";
+					mes "Você parece ser uma pessoa realmente boa..";
+					mes "Assim como eu.";
+					next;
+					mes "[Flinnt]";
+					mes "Como lhe disse, eu viajo pelo mundo";
+					mes "por aventuras inusitadas e objetos";
+					mes "novos para minhas coleções...";
+					next;
+					mes "[Flinnt]";
+					mes "Eu encontrei algo nessa viagem,";
+					mes "chamado ''bandeira brasileira'', que trata de um país longe daqui.";
+					mes "Fiquei muito curioso sobre esse país.";
+					next;
+					mes "[Flinnt]";
+					mes "Uma das histórias que mais gosto";
+					mes "sobre o tal Brasil é a da Independência!";
+					mes "E também ouví ";
+					mes "que nós também podemos encontrar coisas relacionadas à este país";
+					mes "aqui em Rune-Midgard.";
+					next;
+					mes "[" + @name$ + "]";
+					mes "Nossa! Que interessante.";
+					mes "Por favor, me conte mais um sobre isso.";
+					next;
+					mes "[Flinnt]";
+					mes "Nós temos muitas coisas em comum.";
+					mes "Tenho de encontrar um amigo que";
+					mes "possa me ajudar nesta missão.";
+					mes "Mas eu não tenho tempo para isso";
+					mes "porque eu tenho de zelar pela embarcação e pela tripulação.";
+					mes "Você pode me ajudar nesta missão histórica?";
+					next;
+				break;
+			}
+			switch(select("Me desculpe, mas estou muito ocupado...:Como posso ajudá-lo?")) {
+				case 1:
+					mes "[" + @name$ + "]";
+					mes "Eu também amo histórias.";
+					mes "Mas não em dias como hoje, estou muito ocupado.";
+					next;
+					mes "[Flinnt]";
+					mes "É uma pena.";
+					mes "Conversaremos novamente quando você tiver um tempo lívre.";
+					close;
+				break;
+				case 2:
+					mes "[" + @name$ + "]";
+					mes "Acredite em mim. Aventura é minha vida.";
+					mes "Como eu posso ajudar você?";
+					next;
+					mes "[Flinnt]";
+					mes "Primeiramente, preciso verificar se as histórias que ouví são verdadeiras.";
+					mes "Como você deve saber, tais histórias podem ser alteradas com o passar do tempo";
+					mes "assim como distorcidas.";
+					next;
+					mes "[Flinnt]";
+					mes "Tenho um amigo que trabalha como";
+					mes "bibliotecário em Juno.";
+					mes "Por favor, vá encontrar Melbin, verifique se";
+					mes "a história que contam é verdadeira.";
+					next;
+					mes "[Flinnt]";
+					mes "Agora pegue esta bandeira e vá!";
+					mes "Descubra mais sobre a Independência do Brasil!";
+					mes "Apenas mencione meu nome e";
+					mes "ele não hesitará em";
+					mes "cooperar.";
+					next;
+					mes "[Flinnt]";
+					mes "Volte quando você encontrar informações importantes.";
+					mes "Conto com você.";
+					close;
+					set @oversea_event9,112;
+					getitem 7928,1; //Brazilian_Flag_
+				break;
+			}
+		}
+	}
+	else if ((@oversea_event9 > 111) && (@oversea_event9 < 115)) {
+		mes "[Flinnt]";
+		mes "Este trabalho é interminável!";
+		mes "Supervisionar a embarcação e a tripulação";
+		mes "é mais difícil do que remar.";
+		next;
+		mes "[Flinnt]";
+		mes "Ah, você não foi ainda?";
+		mes "Vá e encontre meu amigo Melbin que trabalha na biblioteca de Juno.";
+		mes "Ele irá ajudar ao saber que eu pedi a você que fosse falar com ele.";
+		close;
+	}
+	else if (@oversea_event9 == 115) {
+		mes "[Flinnt]";
+		mes "Você voltou!";
+		mes "Você conheceu Melbin, ele lhe deu alguma informação útil?";
+		next;
+		mes "-Mostra a mensagem que Melbin escreveu no livro.-";
+		next;
+		mes "[Flinnt]";
+		mes "Esplendido! Uma bela história.";
+		mes "Ler-la-ei em breve.";
+		mes "Há algo mais?";
+		next;
+		switch(select("Sobre a espada de Dom Pedro...")) {
+		case 1:
+			break;
+		}
+		mes "[" + @name$ + "]";
+		mes "Melbin falou sobre uma pessoa que tem algo precioso.";
+		next;
+		mes "[" + @name$ + "]";
+		mes "De acordo com Melbin, aquela é a espada de Dom Pedro,";
+		mes "um herói nacional Brasileiro!";
+		next;
+		mes "[Flinnt]";
+		mes "A espada de Dom Pedro? Incrível!";
+		mes "Quero tê-la de qualquer jeito...";
+		mes "Talvez eu conheça alguém que possa me ajudar nisso.";
+		next;
+		mes "[Flinnt]";
+		mes "Ele é um mercenário que vive em Morocc.";
+		mes "Seu nome é Daeri e ele sabe sobre todas transações de";
+		mes "bens feitas em Rune-Midgard.";
+		next;
+		mes "[Flinnt]";
+		mes "Ele não é amigável e falar com ele pode ser uma tarefa árdua.";
+		mes "Você poderia... ir fazer isso por mim?";
+		next;
+		switch(select("Eu não posso.:Irei ajudá-lo.")) {
+			case 1:
+				mes "[Flinnt]";
+				mes "Lamentável.";
+				mes "Se você quer algo bem feito, faça você mesmo.";
+				mes "Boa sorte e obrigado.";
+				close;
+			break;
+			case 2:
+				mes "[Flinnt]";
+				mes "Você é o único em que eu posso confiar.";
+				mes "Mas eu sei que Daeri é alguém difícil de";
+				mes "lidar.";
+				next;
+				mes "[Flinnt]";
+				mes "Ele é bem ganâncioso e nunca se sabe o que";
+				mes "ele irá pedir em retorno.";
+				mes "Mas é verdade também que a informação dele é valiosa.";
+				next;
+				mes "[Flinnt]";
+				mes "Ei, pegue isso!";
+				mes "Ouro é muito valioso e com ele";
+				mes "talvez você consiga saciar a ganância dele.";
+				close;
+				set @oversea_event9,116;
+				getitem 7929,1; //Golden_Coin_
+			break;
+		}
+	}
+	else if (@oversea_event9 == 116) {
+		mes "[Flinnt]";
+		mes "Por favor, encontre Daeri,";
+		mes "um mercenário que vive em Morroc.";
+		mes "Mas tenha cuidado.";
+		mes "Ele é um homem astuto.";
+		next;
+		mes "[Flinnt]";
+		mes "Que os Deuses estejam com você!";
+		close;
+	}
+	else if (@oversea_event9 == 119) {
+		mes "[Flinnt]";
+		mes "Bom vê-lo novamente!";
+		mes "Eu aguardei por sua chegada a muito tempo.";
+		mes "Por favor, sente-se";
+		mes "e vamos discutir algumas coisas.";
+		next;
+		mes "-Você entregou a espada de Dom Pedro";
+		mes "e explicou como foi sua jornada.-";
+		next;
+		mes "[Flinnt]";
+		mes "Incrível! Você realmente trouxe a espada?";
+		mes "Estou pasmo.";
+		mes "Este será o item mais precioso que tenho";
+		mes "em minha coleção.";
+		next;
+		mes "[Flinnt]";
+		mes "Eu não sei como agradecer.";
+		mes "Você ter aprendido muito durante";
+		mes "esta jornada,";
+		mes "e eu também ganhei muito!";
+		next;
+		mes "[Flinnt]";
+		mes "Este é um pequeno prêmio que eu dou a você.";
+		mes "Agradeço a você novamente.";
+		mes "Que Odin abençoe sua jornada!";
+		delitem 7928,1; //Brazilian_Flag_
+		delitem 7929,1; //Golden_Coin_
+		set @oversea_event9,120;
+		//if (v[job_karma] != 0)
+		if (Karma != 0) {
+			getexp 1,600000;
+			getitem 610,10; //Leaf_Of_Yggdrasil
+		} else {
+			if ((BaseLevel > 49) && (BaseLevel < 70)) {
+				getexp 600000,1;
+				getitem 610,5; //Leaf_Of_Yggdrasil
+			}
+			else if ((BaseLevel > 69) && (BaseLevel < 90)) {
+				getexp 800000,1;
+				getitem 610,7; //Leaf_Of_Yggdrasil
+			} else {
+				getexp 1200000,1;
+				getitem 610,9; //Leaf_Of_Yggdrasil
+			}
+		}
+		close;
+	} else if (@oversea_event9 == 120) {
+		mes "[Flinnt]";
+		mes "A coragem habita sua existência.";
+		mes "Eu agradeço muito sua ajuda.";
+		mes "Que Odin esteja com você...";
+		close;
+	} else {
+		mes "[Flinnt]";
+		mes "Estou tão ocupado.";
+		mes "Este trabalho é interminável!.";
+		mes "Supervisionar a embarcação e a tripulação";
+		mes "é mais difícil do que remar.";
+		close;
+	}
+}
+
+/////////////////////// Melbin ///////////////////////
+yuno_in04,49,65,5	script	Melbin#nk	57,{
+	set @name$,strcharinfo(0);
+	if (@oversea_event9 == 112) {
+		mes "[Melbin]";
+		mes "Existem tantos livros espalhados por aqui.";
+		mes "Colocá-los em seus lugares vai demorar um pouco.";
+		next;
+		//Emotion "Melbin#nk" ET_HUK
+		mes "[Melbin]";
+		mes "Hoa! Você me assustou.";
+		mes "Você me parece cansado, por onde andou?";
+		mes "Quem é você?";
+		next;
+		switch(select("Estou apenas de passagem.:Flinnt me pediu para vir.")) {
+			case 1:
+				mes "[Melbin]";
+				mes "Entendo.";
+				mes "Terei de organizar os livros novamente.";
+				mes "Deixe-me ver, o alfabeto começa com a letra A...";
+				close;
+			break;
+			case 2:
+			break;
+		}
+		mes "[Melbin]";
+		mes "Você conhece Flinnt?";
+		mes "Uau, ele deve estar planejando algo incrível!";
+		mes "Flinnt e eu somos grandes amigos desde a infância.";
+		mes "Mas agora nós difícilmente nos vemos por estarmos tão atarefados.";
+		next;
+		mes "[" + @name$ + "]";
+		mes "Flinnt me contou sobre uma interessante";
+		mes "história e eu desejo ajudar.";
+		mes "Ele encontrou a bandeira Brasileira e ouviu histórias sobre";
+		mes "como o Brasil conquistou sua independência.";
+		mes "Eu vim em busca de maiores informações.";
+		next;
+		mes "[Melbin]";
+		mes "A Independência do Brasil...";
+		mes "Se não me engano, ela foi declarada no dia 7 de setembro.";
+		mes "Temos um livro aqui sobre isso.";
+		mes "Me dê um minuto.. Hmm...";
+		next;
+		mes "[Melbin]";
+		mes "AH! Siga pelo salão e vire a direita na segunda sala.";
+		mes "Ele deve estar na prateleira mais distante.";
+		next;
+		mes "[Melbin]";
+		mes "Vou esperar você aqui.";
+		mes "Siga por este salão e víre à direita no segundo quarto.";
+		close;
+		set @oversea_event9,113;
+	}
+	else if (@oversea_event9 == 113) {
+		mes "[Melbin]";
+		mes "Você trouxe o livro?";
+		mes "Siga por este salão e víre à direita no segundo quarto.";
+		mes "Lá deve ter algum livro sobre a Independência do Brasil.";
+		close;
+	}
+	else if (@oversea_event9 == 114) {
+		mes "[Melbin]";
+		mes "Você voltou.";
+		mes "Encontrou o livro?";
+		next;
+		mes "[Melbin]";
+		mes "Ah, exato. É este livro.";
+		mes "Deixe-me vê-lo... Hmmm..";
+		next;
+		mes "[Melbin]";
+		mes "Aqui está! A Independência do Brasil!";
+		mes "Um dos mais importantes dias daquele país.";
+		mes "É o dia em que eles celebram por se tornarem um país independente de Portugal.";
+		next;
+		mes "[Melbin]";
+		mes "Em solo Paulista, no dia 7 de Setembro de 1822, Dom Pedro";
+		mes "ergueu sua espada e gritou";
+		mes "'Independência ou morte!'";
+		mes "Alguns meses depois, ele se tornou o Imperador do Brasil.";
+		next;
+		mes "[Melbin]";
+		mes "Deixe-me ver a bandeira.";
+		mes "OH...";
+		mes "Fabuloso! É de fato uma bandeira Brasileira.";
+		mes "Como alguém neste mundo conseguiu encontrar isso...";
+		next;
+		mes "[Melbin]";
+		mes "Ah sim...";
+		mes "Sei de uma pessoa que também tem um artefato";
+		mes "Brasileiro.";
+		mes "Deve ser provavelmente a Espada de Dom Pedro.";
+		next;
+		mes "[Melbin]";
+		mes "Agora irei copiar a parte deste livro.";
+		mes "Vá e monstre ela a Flinnt.";
+		mes "Diga também que eu mandei um Olá.";
+		mes "Agora vá! Adeus.";
+		close;
+		set @oversea_event9,115;
+	}
+	else if (@oversea_event9 == 115) {
+		mes "[Melbin]";
+		mes "Agora vá e mostre o livro";
+		mes "com minhas anotações ao Flinnt.";
+		mes "Diga também que eu disse Olá.";
+		mes "Agora vá! Adeus.";
+		close;
+	} else {
+	}
+}
+
+////////////////////////// Livro //////////////////////////////////
+yuno_in04,118,5,0	script	Livro#indi	-1,{
+	if (@oversea_event9 == 113) {
+		mes "[" + strcharinfo(0) + "]";
+		mes "...História do Brasil...Mmm...";
+		mes "Este me parece ser o livro certo.";
+		mes "Ótimo, eu levarei o livro para Melbin.";
+		next;
+		mes "-Você apanhou o livro.-";
+		close;
+		set @oversea_event9,114;
+	} else {
+		mes "[" + strcharinfo(0) + "]";
+		mes "Existem tantos livros aqui... voltarei um dia para ler-los.";
+		close;
+	}
+}
+
+///////////////////////// Daeri ///////////////////////////////////
+morocc,278,113,5	script	Daeri#nk	779,{
+	set @name$,strcharinfo(0);
+	if (@oversea_event9 == 116) {
+		mes "[" + @name$ + "]";
+		mes "Você é o mercenário chamado Daeri, certo?";
+		next;
+		mes "[Daeri]";
+		mes "O que? Quem diabos é você?";
+		mes "Como você sabe meu nome?";
+		next;
+		switch(select("Eu apenas sei.:Flinnt me enviou aqui.")) {
+			case 1:
+				mes "[Daeri]";
+				mes "Que arrogante.";
+				mes "Como você ousa me questionar desta forma em miha área?";
+				mes "Não estou com vontade de falar com alguém como você, desapareça!";
+				next;
+				mes "[Daeri]";
+				mes "Saia de minha frente ou..";
+				mes "eu vou bater na sua cara.";
+				close;
+			break;
+			case 2:
+				mes "[" + @name$ + "]";
+				mes "Calma, eu sou " + @name$ + ".";
+				mes "Amigo de Flinnt.";
+				mes "Ele me pediu para encontrar você!";
+				next;
+			break;
+		}
+		mes "[Daeri]";
+		mes "Hmm.. e como sei que devo confiar em você?";
+		mes "Você não é o primeiro a tentar me enganar sabia?";
+		next;
+		mes "[" + @name$ + "]";
+		mes "Flinnt me contou que você não";
+		mes "acredita em ninguém.";
+		mes "Então ele me deu essa moeda de ouro";
+		mes "e ele disse que";
+		mes "você reconheceria o valor disso.";
+		next;
+		mes "[Daeri]";
+		mes "Oh! Por que você não me falou isso antes?";
+		next;
+		mes "[Daeri]";
+		mes "Então me diga..";
+		mes "Por que Flinnt o enviou aqui?";
+		next;
+		switch(select("A Espada de Dom Pedro...")) {
+			case 1:
+			break;
+		}
+		mes "[Daeri]";
+		mes "A Espada de Dom Pedro...";
+		mes "Eu achei que ela fosse uma espada comum a primeira vista.";
+		mes "Mas eu senti que a espada esta me dando força de alguma forma e";
+		mes "eu mudei minha forma de pensar para protege-la.";
+		next;
+		mes "[Daeri]";
+		mes "Eu não dou minhas coisas para um estranho.";
+		mes "Eu sei que est é uma espada,";
+		mes "que tem um enorme valor para um colecionador como o";
+		mes "Flinnt.";
+		next;
+		mes "[Daeri]";
+		mes "Hah! Mas ainda tem uma chance de você ganhar isso de mim.";
+		mes "O que você me diz?";
+		next;
+		switch(select("Eu não negocio com um mercenário.:O que você quer?")) {
+			case 1:
+				mes "[Daeri]";
+				mes "Muhahahahaha!";
+				next;
+				mes "[Daeri]";
+				mes "Não seja tolo.";
+				mes "Não importa como..";
+				mes "Eu nunca daria esta espada por nada.";
+				next;
+				mes "[Daeri]";
+				mes "Agora saia daqui.";
+				mes "Você já desperdiçou muito de meu tempo!";
+				close;
+			break;
+			case 2:
+				mes "[Daeri]";
+				mes "Ótimo! Eu gosto de sua atitude.";
+				mes "Existem algumas coisas difíceis de se conseguir.";
+				next;
+				mes "[Daeri]";
+				mes "Eu mesmo posso consegui-las,";
+				mes "mas eu darei a você esta chance";
+				mes "então seja grato.";
+				mes "Agora vou dizer a lista do que quero.";
+				mes "Anote.";
+				next;
+				mes "[Daeri]";
+				mes "^ff00002 Karvodailnirol,";
+				mes "30 Garrafas Vazias,";
+				mes "30 Ferrões de Abelha,";
+				mes "30 Espinhos de Cacto,";
+				mes "e 2 Poções da Fúria Selvagem.";
+				next;
+				mes "[Daeri]";
+				mes "Me traga isso";
+				mes "e eu irei cumprir a promessa de lhe dar a espada.";
+				mes "Estarei esperando aqui. Agora vá.";
+				close; 
+				set @oversea_event9,117;
+			break;
+		}
+	}
+	else if (@oversea_event9 == 117) {
+		mes "[Daeri]";
+		mes "Bem vindo.";
+		mes "Você demorou muito" ;
+		mes "para trazer os itens..";
+		mes "Eu seria bem mais rápido...";
+		next;
+		mes "[Daeri]";
+		mes "Você conseguiu todos eles?";
+		mes "Se você se esqueceu de algum deles eu não darei nada a você.";
+		mes "Vamos verificar o que temos...";
+		next;
+		if ((countitem(972) > 1) && (countitem(713) > 29) && (countitem(939) > 29) && (countitem(952) > 29) && (countitem(657) > 1)) {
+			mes "[Daeri]";
+			mes "Hm.. você trouxe todos.";
+			mes "Você me parece um pouco estúpido mas você conseguiu.";
+			mes "Bom trabalho.";
+			mes "Então deixe-me pegar isso.";
+			delitem 972,2; //Karvodailnirol
+			delitem 713,30; //Empty_Bottle
+			delitem 939,30; //Bee_Sting
+			delitem 952,30; //Cactus_Needle
+			delitem 657,2; //Berserk_Potion
+			set @oversea_event9,118;
+			next;
+			mes "[Daeri]";
+			mes "Você sabe que isso não acabou.";
+			mes "Eu coleciono itens mas também";
+			mes "coleciono informações.";
+			mes "Enquanto você estava fora, eu fiz algumas pesquisas";
+			mes "sobre coisas que podem interessar o Flinnt.";
+			next;
+			mes "[Daeri]";
+			mes "Desta vez eu não vou pedir a você que me traga coisas.";
+			mes "Mas vou pedir a você que responda minhas perguntas.";
+			mes "Apenas preciso ter certeza de que você está qualificado para";
+			mes "levar a espada.";
+			mes "Se você não passar no teste, diga adeus a espada.";
+			next;
+			mes "[Daeri]";
+			mes "Espere.. Estou com sede,";
+			mes "Deixe-me beber algo.";
+			mes "Volte daqui a pouco.";
+			close;
+		} else {
+			mes "[Daeri]";
+			mes "Eu sabia!";
+			mes "Você nem se quer sabe quais itens deveriam ser trazidos.";
+			mes "Vou dizer a lista.";
+			mes "Desta vez anote tudo.";
+			mes "Depende de sua dedicação para que você esteja apto para levar a espada.";
+			next;
+			mes "[Daeri]";
+			mes "^ff00002 Karvodailnirol,";
+			mes "30 Garrafas Vazias,";
+			mes "30 Ferrões de Abelha,";
+			mes "30 Espinhos de Cacto,";
+			mes "e 2 Poções da Fúria Selvagem.";
+			next;
+			mes "[Daeri]";
+			mes "Agora, não se esqueça e";
+			mes "não me faça repetir isso de novo.";
+			mes "Vá logo!";
+			close;
+		}
+	}
+	else if (@oversea_event9 == 118) {
+		mes "[Daeri]";
+		mes "Você está pronto?";
+		mes "As questões que farei";
+		mes "são simples e diretas.";
+		mes "Não será tão difícil para você.";
+		next;
+		mes "[Daeri]";
+		mes "Se você não acertar";
+		mes "TODAS as perguntas, você já sabe o que vai acontecer, huh?";
+		mes "Essas são as perguntas.";
+		next;
+		set indi_a,0;
+		mes "[Daeri]";
+		mes "Quando é o dia da Independência do Brasil?";
+		next;
+		switch(select("24/12:07/09:04/01:12/06")) {
+			case 1:
+			break;
+			case 2:
+				set indi_a,indi_a + 1;
+			break;
+			case 3:
+			break;
+			case 4:
+			break;
+		}
+		mes "[Daeri]";
+		mes "Qual o lema usado para a Independência do Brasil?";
+		next;
+		switch(select("Ame ou odeie:Capitalismo e socialismo:Independência ou morte!:Nossos somos os melhores.")) {
+			case 1:
+			break;
+			case 2:
+			break;
+			case 3:
+				set indi_a,indi_a + 1;
+			break;
+			case 4:
+			break;
+		}
+		mes "[Daeri]";
+		mes "Em que ano o Brasil foi declarado Independente?";
+		next;
+		switch(select("1775:1922:1875:1822")) {
+			case 1:
+			break;
+			case 2:
+			break;
+			case 3:
+			break;
+			case 4:
+				set indi_a,indi_a + 1;
+			break;
+		}
+		mes "[Daeri]";
+		mes "Onde a Independência foi declarada?";
+		next;
+		switch(select("São Paulo:El Dorado:Rio de Janeiro:Salvador")) {
+			case 1:
+				set indi_a,indi_a + 1;
+			break;
+			case 2:
+			break;
+			case 3:
+			break;
+			case 4:
+			break;
+		}
+		mes "[Daeri]";
+		mes "O que aconteceu com Dom Pedro depois desse dia?";
+		next;
+		switch(select("Rei do Brasil:Presidente do Brasil:Imperador do Brasil:Capitão do Brasil")) {
+			case 1:
+			break;
+			case 2:
+			break;
+			case 3:
+				set indi_a,indi_a + 1;
+			break;
+			case 4:
+			break;
+		}
+		mes "[Daeri]";
+		mes "É isso.";
+		mes "FÁCIL?";
+		next;
+		if (indi_a == 5) {
+			mes "[Daeri]";
+			mes "Ha... você acertou todas elas.";
+			mes "Acho que você sabe a história.";
+			mes "Não tenho mais o que perguntar.";
+			mes "Parabéns!";
+			next;
+			mes "[Daeri]";
+			mes "Aqui está a espada.";
+			mes "Vá e diga a Flinnt que eu disse ''Olá''.";
+			mes "Peça a ele me visite algum dia.";
+			next;
+			mes "[Daeri]";
+			mes "Você fez seu trabalho.";
+			mes "Eu creio que é hora de dizer adeus.";
+			mes "Se cuide.";
+			next;
+			mes "-Você recebeu de Daeri a espada de Dom Pedro.";
+			mes "agora conte a Flinnt o que você descobriu.-";
+			close;
+			set @oversea_event9,119;
+		} else {
+			mes "[Daeri]";
+			mes "HAHA! Você não é qualificado para receber a espada";
+			mes "de mim.";
+			mes "Você nem se quer sabe o básico da";
+			mes "história do Brasil.";
+			next;
+			mes "[Daeri]";
+			mes "Você precisa estudar mais e então volte.";
+			close;
+		}
+	}
+	else if (@oversea_event9 == 119) {
+		mes "[Daeri]";
+		mes "Vá até Flinnt.";
+		mes "Mostre a ele a espada de Dom Pedro e";
+		mes "diga que estou bem.";
+		next;
+		mes "[Daeri]";
+		mes "Ele deve estar esperando por você,";
+		mes "vá depressa.";
+		mes "Adeus.";
+		mes "Se cuide.";
+		close;
+	} else {
+	}
+}

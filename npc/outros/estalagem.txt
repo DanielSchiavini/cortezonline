@@ -1,0 +1,243 @@
+//===== Cronus Script ======================================== 
+//= Estalagem
+//===== Por: ================================================= 
+//= DoJo
+//===== Versão: ============================================== 
+//= 1.0
+//===== Compatível com: ====================================== 
+//= Emulador [3010]; Cliente [EP 12.1]
+//===== Descrição: =========================================== 
+//= [Conversão do Aegis]
+//===== Comentários adicionais: ============================== 
+//= 1.0 Conversão do Aegis [DoJo]
+//============================================================ 
+
+//======================== Prontera ===================================
+// Estalagem Oeste -------------------
+prt_in,244,135,2	script	Estalajadeira#Sammy	53,{
+
+	callfunc "F_InnMaid","[Estalajadeira Sammy]","Hotel Naklas","prt_in",238,130;
+	warp "prt_in",247,104; end;
+}
+//  Estalagem Leste ------------------
+prt_in,61,141,2	script	Estalajadeira#Ahlma	53,{
+
+	callfunc "F_InnMaid","[Estalajadeira Arma]","Hotel Naklas","prt_in",64,136;
+	warp "prt_in",60,166; end;
+}
+
+//======================== Alberta ====================================
+alberta_in,32,142,3	script	Empregada da Estalagem#J	53,{
+
+	callfunc "F_InnMaid","[Funcionária Jennie]","'Estalagem do Pescador'!","alberta_in",26,142;
+	warp "alberta_in",18,188; end;
+}
+
+//====================== Geffen ======================================
+geffen_in,70,64,5	script	Empregada da Estalagem	53,{
+
+	callfunc "F_InnMaid","[Funcionária Cena]","'Ifrit', a única estalagem na cidade de Geffen.","geffen_in",70,59;
+	warp "geffen_in",31,31; end;
+}
+
+//======================= Payon ======================================
+payon_in01,132,62,5	script	Estalajadeira#Ahee	53,{
+
+	callfunc "F_InnMaid","[Funcionária Ahee]","Estalagem da cidade de Payon","payon_in01",136,61;
+	warp "payon_in01",132,11; end;
+}
+
+//======================== Morocc ====================================
+// Nordeste --------------------------
+//morocc_in,147,141,3	script	Empregada da Estalagem#Hasna	53,{
+//
+//	callfunc "F_InnMaid","[Funcionária Hasna]","Estalagem de Morroc","morocc_in",142,140;
+//	warp "morocc_in",173,135; end;
+//}
+// Sul --------------------------------
+//morocc_in,80,100,5	script	Empregada da Estalagem#Manar	53,{
+//
+//	callfunc "F_InnMaid","[Funcionária Manar]","Estalagem de Morroc","morocc_in",78,95;
+//	warp "morocc_in",79,123; end;
+//}
+
+//====================== Aldebaran ===================================
+aldeba_in,92,58,5	script	Empregada da Estalagem#R	53,{
+
+	callfunc "F_InnMaid","[Rilim]","Estalagem de Al De Baran","aldeba_in",92,50;
+	warp "aldeba_in",92,112; end;
+}
+
+//======================== Rachel ====================================
+ra_in01,376,69,4	script	Estalajadeira#Annie	931,{
+
+	callfunc "F_InnMaid","[Annie]","Estalagem de Rachel","ra_in01",375,58;
+	warp "ra_in01",384,128; end;
+}
+
+//====================== Lighthalzen =================================
+lhz_in02,230,284,4	script	Funcionário do Hotel#01	86,{
+	mes "[Funcionário do Hotel]";
+	mes "Dragão Real,";
+	mes "onde você encontra as";
+	mes "melhores acomodações";
+	mes "e o melhor serviço.";
+	next;
+	switch(select("Salvar:Descansar - 5.000 zenys:Cancelar")) {
+	case 1:
+		savepoint "lhz_in02",209,275;
+		mes "[Funcionário do Hotel]";
+		mes "Obrigado, seu";
+		mes "Ponto de Retorno foi";
+		mes "salvo aqui no";
+		mes "Dragão Real.";
+		close;
+	case 2:
+		if(Zeny < 5000) {
+			mes "[Funcionário do Hotel]";
+			mes "Desculpe, mas";
+			mes "você precisa de 5.000 zenys";
+			mes "para se hospedar aqui.";
+			close;
+		}
+		set Zeny,Zeny - 5000;
+		mes "[Funcionário do Hotel]";
+		mes "Obrigado!";
+		mes "Espero que goste";
+		mes "de sua estadia no";
+		mes "Dragão Real.";
+		close2;
+		warp "lhz_in02",219,150;
+		percentheal 100,100;
+		sc_start SC_BLESSING,240000,10;
+		skilleffect AL_BLESSING,0;
+		end;
+	case 3:
+		mes "[Funcionário do Hotel]";
+		mes "Obrigado e";
+		mes "tenha um bom dia.";
+		close;
+	}
+}
+
+//======================== Hugel ====================================
+hu_in01,246,107,3	script	Estalagem#Receptionist	53,{
+
+	callfunc "F_InnMaid","[Estalagem]","Estalagem de Hugel","hu_in01",263,95;
+	warp "hu_in01",267,5; end;
+}
+
+//======================== Veins ====================================
+ve_in,157,219,5	script	Estalajadeiro#Veins	709,{
+	mes "[Estalajadeiro]";
+	mes "Bom dia!";
+	mes "Bem-vindo à";
+	mes "mais confortável";
+	mes "estalagem de Veins!";
+	next;
+	switch(select("Ponto de Retorno:Descansar – 5.000z:Sair")) {
+	case 1:
+		mes "[Estalajadeiro]";
+		mes "Seu Ponto de Retorno";
+		mes "foi salvo em Veins.";
+		mes "Aproveite sua estada na cidade.";
+		savepoint "ve_in",157,209;
+		close;
+	case 2:
+		mes "[Estalajadeiro]";
+		if(Zeny < 5000){
+			mes "Desculpe, mas não acho";
+			mes "que você tem dinheiro";
+			mes "suficiente para se hospedar. A";
+			mes "taxa de serviço é de 5.000 zenys.";
+			close;
+		}
+		mes "Aproveite a sua estada!";
+		close2;
+		set Zeny,Zeny - 5000;
+		percentheal 100,100;
+		warp "ve_in",184,228;
+		end;
+	case 3:
+		mes "[Estalajadeiro]";
+		mes "Volte sempre.";
+		close;
+	}
+}
+
+//======================== Brasilis =================================
+bra_in01,27,24,3	script	Recepcionista#bra	478,{
+	mes "[Recepcionista]";
+	mes "Bem-vindo à pousada Tucano Feliz,";
+	mes "temos tudo para fazer você se";
+	mes "sentir em casa.";
+	next;
+	switch(select("Salvar:Dormir -> 5000 zeny:Cancelar")) {
+		case 1:
+			mes "[Recepcionista]";
+			mes "Quer salvar seu ponto de retorno";
+			mes "aqui na pousada?";
+			next;
+			if(select("Agora não.:Com certeza!")== 1) {
+				mes "[Recepcionista]";
+				mes "Então, tudo bem. Volte se mudar de";
+				mes "idéia.";
+				close;
+			}
+			mes "[Recepcionista]";
+			savepoint "bra_in01",143,68;
+			mes "Está salvo. Aproveite bem sua";
+			mes "estadia em Brasilis e não deixe de";
+			mes "conferir nossas belezas naturais.";
+			close;
+		case 2:
+			mes "[Recepcionista]";
+			if (Zeny < 5000) {
+				mes "Me desculpe mas";
+				mes "voê não possui zeny suficiente.";
+				mes "Por favor retorne quando tiver.";
+				mes "O serviço custa 5.000 zeny.";
+				close;
+				}
+			mes "Vou levar você ao seu quarto.";
+			close2;
+			set Zeny,Zeny-5000;
+			percentheal 100,100;
+			warp "bra_in01",144,69;
+			end;
+		case 3:
+			close;
+	}
+}
+
+//======================= Função da Estalagem ==============================
+function	script	F_InnMaid	{
+	mes getarg(0);
+	mes "Olá, você chegou à";
+	mes getarg(1) + ".";
+	mes "Em que posso ajudar?";
+	next;
+	switch(select("Salvar:Descansar - 5.000 zenys:Cancelar")) {
+	case 1:
+		mes getarg(0);
+		mes "O seu Ponto de Retorno foi salvo.";
+		mes "Obrigada, volte sempre.";
+		savepoint getarg(2),getarg(3),getarg(4);
+		close;
+	case 2:
+		mes getarg(0);
+		if(Zeny < 5000){
+			mes "Desculpe, a taxa de serviço é de 5.000 zenys.";
+			mes "Por favor, tenha certeza de que tem dinheiro suficiente para esse serviço.";
+			close;
+		}
+		mes "Obrigada.";
+		mes "Espero que você tenha um bom descanso.";
+		close2;
+		set Zeny,Zeny - 5000;
+		percentheal 100,100;
+		return;
+	case 3:
+		close;
+	}
+}

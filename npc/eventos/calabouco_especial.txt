@@ -1,0 +1,283 @@
+//===== Cronus Script ========================================
+//= Evento dos Mapas Especiais - 6ª Edição 
+//===== Por: =================================================
+//= DoJo
+//===== Versão Atual: ========================================
+//= 1.0
+//===== Compatibilidade: =====================================
+//= Emulador [3042]; Cliente [EP 12.1]
+//===== Descrição: ===========================================
+//= [Conversão do Aegis]
+//= Notas: Para esse NPC rodar direito, nescessita-se      
+//= a ativação dos antigos mapas de morroc, no maps_conf   
+//= na pasta battle. No final do evento os mapas serão     
+//= desativados novamente.  
+//===== Comentários Adicionais: ==============================
+//= 1.0 Convertido do Aegis [DoJo]
+//============================================================
+
+prontera,162,326,3	script	Kolthar::K_Evt	749,{
+	if (oversea_event < 1) {
+		mes "[Kolthar]";
+		mes "Ei, você aí... Pode vir aqui um pouquinho?";
+		next;
+		if(select("Eu não:Sim, posso ajudá-lo?") == 1) {
+			mes "[Kolthar]";
+			mes "Uh, você não pode... É inevitável...";
+			next;
+			mes "[Kolthar]";
+			mes "Siga o seu caminho.";
+			close;
+		}
+		mes "[Kolthar]";
+		mes "Como você deve saber, após a libertação do Imperador Morroc, nosso mundo corre um perigo constante.";
+		next;
+		mes "[Kolthar]";
+		mes "Precisamos nos unir para lutar contra esta ameaça, formando um novo exército de libertação de Morroc.";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "O que posso fazer para ajudar?";
+		next;
+		if (BaseLevel < 70) {
+			mes "[Kolthar]";
+			mes "Humm, você não possui muita experiência de vida. Vá se exercitar um pouco e depois me procure.";
+			close;
+		}
+		mes "[Kolthar]";
+		mes "Você parece experiente o suficiente. Por que não se junta a nós no nosso treinamento especial nos mapas de simulação?";
+		next;
+		mes "[Kolthar]";
+		mes "Estes mapas possuem como função preparar nosso exército para a luta que ocorrerá em Morroc. Eles foram criados com base no visual dos antigos mapas da região, que foram dizimados quando o Demônio Morroc se libertou.";
+		next;
+		mes "[Kolthar]";
+		mes "Você gostaria de se juntar a nós neste treinamento? Nestes mapas diversos monstros estarão a sua disposição, e não existem penalidades na experiência ao ser derrotado.";
+		next;
+		mes "[Kolthar]";
+		mes "Só pedimos uma pequena contribuição que será convertida em ajuda para as vítimas da destruição de Morroc. Você pode adquirir o Ticket de Doação";
+		mes "vendido no mercador de Itens Especiais, ou contribuir com 40 Escamas de Gelo, 80 Galhos Secos, 80 Folhas de Aloe, 1 Chifre de Unicórnio.";
+		mes "As crianças ficarão muito satisfeitas com sua ajuda. Como prefere contribuir?";
+		next;
+		if(select("Ticket de Doação:Lista de Itens") == 1) {
+			if (countitem(7711) > 0) {
+				mes "[Kolthar]";
+				mes "Oh, você fez uma generosa doação para as vítimas do desastre! Com este Ticket você terá acesso permanente aos mapas de treinamento até o fim do evento e poderá entrar quantas vezes quiser.";
+				mes "Basta falar comigo sempre que quiser entrar nos mapas especiais.";
+				set oversea_event,1;
+				close;
+			}
+			mes "[Kolthar]";
+			mes "Você pode fazer a doação no mercador de Itens Especiais. Comprando o Ticket de Doação você terá acesso livre aos mapas.";
+			close;
+		}
+		if ((countitem(7562) > 39) && (countitem(604) > 79) && (countitem(521) > 79) && (countitem(2257) > 0)) {
+			mes "[Kolthar]";
+			mes "Ah, você trouxe tudo. As crianças agradecerão. Você poderá acessar os mapas livremente agora.";
+			delitem 7562,40; //Ice_Scale
+			delitem 604,80; //Branch_Of_Dead_Tree
+			delitem 521,80; //Leaflet_Of_Aloe
+			delitem 2257,1; //Snowy_Horn
+			set oversea_event,1;
+			close;
+		}
+		mes "[Kolthar]";
+		mes "Sem a doação você não poderá entrar. Se os itens forem difíceis demais para você, você pode comprar um Ticket de Doação por ROPs no mercador de itens especiais.";
+		close;
+	}
+	else if (oversea_event == 1) {
+		mes "[Kolthar]";
+		mes "Ah, você voltou! Em qual mapa você quer treinar?";
+		next;
+		switch(select("Mapa do Morto-Vivo:Mapa Mineral:Mapa Glacial:Mapa do Humanóide:Mapa Sombrio:Mapa do Laboratório:Mapa Draconiano:Não quero treinar agora")) {
+		case 1:
+			mes "[Kolthar]";
+			mes "Você quer ir para o mapa que contém Esqueleto General, Zumbi Dilacerado e Massacre?";
+			if(select("Sim:Não") == 1){
+				mes "[Kolthar]";
+				mes "Ok, boa sorte!";
+				close2;
+				warp "moc_fild15",178,344;
+				end;
+			}
+			mes "[Kolthar]";
+			mes "Ok, volte quando quiser treinar.";
+			close;
+		case 2:
+			mes "[Kolthar]";
+			mes "Você quer ir para o mapa que contém Mavka, Coelho, Sting e Leshij?";
+			if(select("Sim:Não") == 1){
+				mes "[Kolthar]";
+				mes "Ok, boa sorte!";
+				close2;
+				warp "moc_fild08",189,193;
+				end;
+			}
+			mes "[Kolthar]";
+			mes "Ok, volte quando quiser treinar.";
+			close;
+		case 3:
+			mes "[Kolthar]";
+			mes "Você quer ir para o mapa que contém Titã de Gelo e Congelador?";
+			if(select("Sim:Não") == 1){
+				mes "[Kolthar]";
+				mes "Ok, boa sorte!";
+				close2;
+				warp "moc_fild04",104,363;
+				end;
+			}
+			mes "[Kolthar]";
+			mes "Ok, volte quando quiser treinar.";
+			close;
+		case 4:
+			mes "[Kolthar]";
+			mes "Você quer ir para o mapa que contém Pasana, Isilla e Vanberk?";
+			if(select("Sim:Não") == 1){
+				mes "[Kolthar]";
+				mes "Ok, boa sorte!";
+				close2;
+				warp "moc_fild05",209,349;
+				end;
+			}
+			mes "[Kolthar]";
+			mes "Ok, volte quando quiser treinar.";
+			close;
+		case 5:
+			mes "[Kolthar]";
+			mes "Você quer ir para o mapa que contém Anubis, Dullahan, e Banshee?";
+			if(select("Sim:Não") == 1){
+				mes "[Kolthar]";
+				mes "Ok, boa sorte!";
+				close2;
+				warp "moc_fild14",196,349;
+				end;
+			}
+			mes "[Kolthar]";
+			mes "Ok, volte quando quiser treinar.";
+			close;
+		case 6:
+			mes "[Kolthar]";
+			mes "Você quer ir para o mapa que contém Wickebine Tres, Margaretha Sorin e Kathryne Keyron?";
+			if(select("Sim:Não") == 1){
+				mes "[Kolthar]";
+				mes "Ok, boa sorte!";
+				close2;
+				warp "moc_fild10",209,285;
+				end;
+			}
+			mes "[Kolthar]";
+			mes "Ok, volte quando quiser treinar.";
+			close;
+		case 7:
+			mes "[Kolthar]";
+			mes "Você quer ir para o mapa que contém Acidus Dourado e Ferus Verde?";
+			if(select("Sim:Não") == 1){
+				mes "[Kolthar]";
+				mes "Ok, boa sorte!";
+				close2;
+				warp "moc_fild06",209,285;
+				end;
+			}
+			mes "[Kolthar]";
+			mes "Ok, volte quando quiser treinar.";
+			close;
+		case 8:
+			mes "[Kolthar]";
+			mes "Ok, volte quando quiser treinar.";
+			close;
+		}
+		mes "[Kolthar]";
+		mes "Precisamos nos mobilizar para combater o Imperador Morroc...";
+		close;
+	}
+}
+
+yuno_in04,176,12,3	duplicate(K_Evt)	Kolthar#2	749
+
+// ----- MapFlags ------------------------------------------
+moc_fild15	mapflag	noteleport
+moc_fild15	mapflag	nowarp
+moc_fild15	mapflag	nowarpto
+moc_fild15	mapflag	nopenalty
+
+moc_fild08	mapflag	noteleport
+moc_fild08	mapflag	nowarp
+moc_fild08	mapflag	nowarpto
+moc_fild08	mapflag	nopenalty
+
+moc_fild04	mapflag	noteleport
+moc_fild04	mapflag	nowarp
+moc_fild04	mapflag	nowarpto
+moc_fild04	mapflag	nopenalty
+
+moc_fild14	mapflag	noteleport
+moc_fild14	mapflag	nowarp
+moc_fild14	mapflag	nowarpto
+moc_fild14	mapflag	nopenalty
+
+moc_fild10	mapflag	noteleport
+moc_fild10	mapflag	nowarp
+moc_fild10	mapflag	nowarpto
+moc_fild10	mapflag	nopenalty
+
+moc_fild05	mapflag	noteleport
+moc_fild05	mapflag	nowarp
+moc_fild05	mapflag	nowarpto
+moc_fild05	mapflag	nopenalty
+
+moc_fild06	mapflag	noteleport
+moc_fild06	mapflag	nowarp
+moc_fild06	mapflag	nowarpto
+moc_fild06	mapflag	nopenalty
+
+// ----- Portais -------------------------------------------
+moc_fild15,158,363,0	warp	#1North	2,2,prontera,100,100
+moc_fild15,347,18,0	warp	#1South	2,2,prontera,100,100
+
+moc_fild08,170,382,0	warp	#2North	2,2,prontera,100,100
+moc_fild08,204,16,0	warp	#2South	2,2,prontera,100,100
+
+moc_fild04,313,381,0	warp	#3North	2,2,prontera,100,100
+moc_fild04,174,18,0	warp	#3South	2,2,prontera,100,100
+
+moc_fild14,195,382,0	warp	#4North	2,2,prontera,100,100
+moc_fild14,75,24,0	warp	#4South	2,2,prontera,100,100
+
+moc_fild10,189,23,0	warp	#5North	2,2,prontera,100,100
+moc_fild10,100,65,0	warp	#5South	2,2,prontera,100,100
+
+moc_fild05,326,382,0	warp	#6North	2,2,prontera,100,100
+moc_fild05,82,16,0	warp	#6South	2,2,prontera,100,100
+
+// ----- Mobs ----------------------------------------------
+// Sala 1: moc_fild15
+moc_fild15,0,0,0,0	monster	Esqueleto General	1290,300,0,0,0
+moc_fild15,0,0,0,0	monster	Zumbi Dilacerado	1865,150,0,0,0
+moc_fild15,0,0,0,0	monster	Massacre	1864,300,0,0,0
+
+// Sala 2: moc_fild08
+moc_fild08,0,0,0,0	monster	Mavka	1884,150,0,0,0
+moc_fild08,0,0,0,0	monster	Coelho	1322,300,0,0,0
+moc_fild08,0,0,0,0	monster	Sting	1207,150,0,0,0
+moc_fild08,0,0,0,0	monster	Leshij	1880,150,0,0,0
+
+// Sala 3: moc_fild04
+moc_fild04,0,0,0,0	monster	Titã de Gelo	1777,300,0,0,0
+moc_fild04,0,0,0,0	monster	Congelador	1319,300,0,0,0
+
+// Sala 4: moc_fild05
+moc_fild05,0,0,0,0	monster	Pasana	1154,150,0,0,0
+moc_fild05,0,0,0,0	monster	Isilla	1772,300,0,0,0
+moc_fild05,0,0,0,0	monster	Vanberk	1771,300,0,0,0
+
+// Sala 5: moc_fild14
+moc_fild14,0,0,0,0	monster	Anubis	1098,150,0,0,0
+moc_fild14,0,0,0,0	monster	Dullahan	1504,300,0,0,0
+moc_fild14,0,0,0,0	monster	Banshee	1867,300,0,0,0
+
+// Sala 6: moc_fild10
+moc_fild10,0,0,0,0	monster	Wickebine Tres	1653,300,0,0,0
+moc_fild10,0,0,0,0	monster	Margaretha Sorin	1637,250,0,0,0
+moc_fild10,0,0,0,0	monster	Kathryne Keyron	1639,150,0,0,0
+
+// Sala 7: moc_fild06
+moc_fild06,0,0,0,0	monster	Acidus Dourado	1757,300,0,0,0
+moc_fild06,0,0,0,0	monster	Ferus Verde	1758,300,0,0,0

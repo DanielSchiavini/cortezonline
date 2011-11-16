@@ -1,0 +1,70 @@
+//===== Cronus Script ======================================== 
+//= Aluguel de PecoPeco e Falcão
+//===== Por: ================================================= 
+//= Mara
+//===== Versão: ============================================== 
+//= 1.0
+//===== Compatível com: ====================================== 
+//= Emulador [3010]; Cliente [EP 12.1]
+//===== Descrição: =========================================== 
+//= [Conversão do Aegis]
+//===== Comentários adicionais: ============================== 
+//= 1.0 Conversão do Aegis [Mara]
+//============================================================ 
+
+prontera,55,350,0	script	Criador de Pecopecos	105,{
+
+	mes "[Criador de Pecopecos]";
+	if (Class == Job_Knight || Class == Job_Knight_H)
+	{
+		mes "Bom dia honorável cavaleir"+(Sex?"o":"a")+", gostaria de comprar um Pecopeco?";
+		mes "Você precisa ter a Habilidade Montaria e apenas 2500 zeny sobrando.";
+		next;
+		if (select ("Sim, por favor.:Não obrigad"+(Sex?"o":"a")+".") == 1)
+		{
+			if (Zeny < 2500)
+			{
+				mes "[Criador de Pecopecos]";
+				mes "Honorável cavaleir"+(Sex?"o":"a")+", você não possui dinheiro o bastante.";
+				mes "Eu te emprestaria um pouco se pudesse....";
+				close;
+			}
+			set Zeny,Zeny - 2500;
+			setriding;
+			close;	
+		}
+		mes "[Criador de Pecopecos]";
+		mes "É mesmo? Então tenha um bom dia.";
+		close;
+	}
+	mes "Eu sinto muito.";
+	mes "Estes Pecopecos são exclusivos para os cavaleiros.";
+	close;
+}
+
+in_hunter,146,99,3	script	Falcoeiro	105,{
+
+	mes "[Falcoeiro]";
+	if ((Class == Job_Hunter) || (Class == Job_Hunter_H))
+	{
+		mes "Você precisa de um Falcão? Eles custam apenas 2500 zenys!";
+		next;
+		if (select ("Sim!:Esse preço é um assalto!") == 1)
+		{
+			if (Zeny < 2500)
+			{
+				mes "[Falcoeiro]";
+				mes "Opa, você está quebrad"+(Sex?"o":"a")+"!";
+				close;
+			}
+			set Zeny,Zeny-2500;
+			setfalcon;
+			close;
+		}
+		mes "[Falcoeiro]";
+		mes "Ei! Aonde você está indo? Volta aqui! Quem você está chamando de ladrão? Volte aqui e me encare!";
+		close;
+	}
+	mes "Falcões não são pra qualquer um, eles são exclusividade dos Caçador"+(Sex?"es":"as")+".";
+	close;
+}

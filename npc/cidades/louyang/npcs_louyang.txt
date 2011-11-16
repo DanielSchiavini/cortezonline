@@ -1,0 +1,286 @@
+//===== Cronus Script ========================================
+//= NPCs da Cidade de Louyang
+//===== Por: =================================================
+//= Minos
+//===== Versão Atual: ========================================
+//= 1.1
+//===== Compatível Com: ======================================
+//= Emulador [3010+]; Cliente [EP 12.1]
+//===== Descrição: ===========================================
+//= [Conversão do Aegis]
+//===== Comentários Adicionais: ==============================
+//= 1.0 Conversão do Aegis [Minos]
+//= 1.1 Revisado e otimizado [Mara]
+//============================================================
+
+louyang,297,167,2	script	Mulher de Personalidade	815,{
+	
+	if (!Sex)
+	{
+		mes "[Jichungre]";
+		mes "O nosso 'Palácio das Senhoras' é composto por todas as nossas senhoras,";
+		mes "incluindo a dona do nosso palácio.";
+		mes "Mas, hoje em dia nem todas as pessoas";
+		mes "têm participado destes encontros.";
+		mes "Estamos em declínio.";
+		emotion 16;
+		next;
+		mes "[Jichungre]";
+		mes "Então eu vim";
+		mes "tomar conta daquelas ";
+		mes "que querem fazer parte do palácio.";
+		close;
+	}
+	mes "[Jichungre]";
+	mes "..........";
+	mes "Eu estou muito ocupada agora. Por favor, não me perturbe!";
+	mes "..........";
+	close;
+}
+
+louyang,274,136,4	script	Homem de Personalidade 	819,{
+	
+	mes "[Akira]";
+	mes "'Palgukyongkun' ";
+	mes "tem três sentidos.";
+	mes "Primeiro, o 'Kan', que significa 'simples'.";
+	mes "Segundo, o 'Byen', que significa 'flexível'.";
+	mes "E, terceiro, o 'Bulbyen', que significa 'nunca muda'.";
+	next;
+	mes "[Akira]";
+	mes "'Yek' diz que tudo muda e transforma alguma coisa em correta.";
+	mes "'YekKan' é o mesmo que 'Yek'.";
+	mes "'ByenYek' significa o princípio do correto.";
+	mes "Ele é flexível";
+	mes "e se vincula a cada um dos outros.";
+	mes "'SangSok'(pertence a cada),";
+	next;
+	mes "[Akira]";
+	mes "'Bulek' significa a lei correta do Céu e da Terra.";
+	mes "Isso significa que";
+	mes "não pode mudar.";
+	mes "'Yek' é a lei da mudança.";
+	mes "Tudo na terra continua a mudar";
+	mes "e nunca pára de mudar.";
+	mes "'SangSangBulSik' significa ";
+	mes "que estamos no meio da mudança.";
+	close;
+}
+
+louyang,276,136,4	script	Pessoa Realizada	819,{
+	
+	mes "[JungKukJi]";
+	mes "Embora estejamos no meio da mudança,";
+	mes "há uma lei que diz:";
+	mes "Nunca Mudar";
+	mes "'ByenYek' apóia a mudança ";
+	mes "Entretanto, devíamos saber que há uma lei que apóia";
+	mes "a Nunca Mudar.";
+	next;
+	mes "[JungKukJi]";
+	mes "'ByenYek' é 'Negociação'";
+	mes "'BulYek' é 'Lei'";
+	mes "'GanYek' é 'Método'";
+	mes "'BokHee' abre o Céu e a Terra,";
+	mes "por isso deve ser complexo.";
+	next;
+	mes "[JungKukJi]";
+	mes "'TaeKuk' é o primeiro , 'YingYang' é o segundo.";
+	mes "Nada pode estar fora de 'YingYang'.";
+	mes "Ele transforma 'Kan' em 'Bun'.";
+	mes "Continuamente,";
+	mes "há o 'Echi', que significa a coisa correta.";
+	next;
+	mes "[JungKukJi]";
+	mes "'Bun' se torna 'Hwa' através de 'Kan'.";
+	mes "Há um caminho e uma raiz.";
+	mes "'PalKukYongKwon' está seguindo";
+	mes "seus princípios básicos.";
+	close;
+}
+
+lou_in01,25,23,5	script	Moça Gentil	817,{
+	
+	mes "[Hong-Myo]";
+	mes "Olá!!";
+	mes "Este é o elevador que te levará ao topo da torre panorâmica.";
+	mes "Se você pagar a taxa,";
+	mes "nós o levaremos para o último andar de forma segura.";
+	mes "Esperamos que você use o elevador sempre.";
+	mes "Você gostaria de utilizá-lo agora?";
+	next;
+	switch (select ("Ouvir mais sobre a torre panorâmica.:Sim.:Cancelar."))
+	{
+		case 1:
+			mes "[Hong-Myo]";
+			mes "A torre panorâmica é uma de";
+			mes "nossas atrações turísticas. Ouvimos falar de muitos turistas";
+			mes "que não conseguiam aproveitar a visão panorâmica do Castelo do Dragão,";
+			mes "por isso tivemos a idéia de contruir";
+			mes "a torre panorâmica.";
+			next;
+			mes "[Hong-Myo]";
+			mes "O elevador já está pronto";
+			mes "para te levar em segurança.";
+			mes "A taxa de embarque é de 500 zenys.";
+			mes "Queremos garantir a sua segurança. Obrigada.";
+			close;
+
+		case 2:
+			if (Zeny < 500)
+			{
+				mes "[Hong-Myo]";
+				mes "Desculpe,";
+				mes "mas você não tem dinheiro suficiente.";
+				mes "Por favor, volte assim que for possível.";
+				mes "Obrigada.";
+				close;
+			}
+			mes "[Hong-Myo]";
+			mes "Obrigada por usar o nosso elevador.";
+			mes "Nós queremos o melhor";
+			mes "para a sua segurança.";
+			mes "Obrigada.";
+			mes "Espero ver você de novo.";
+			next;
+			set Zeny,Zeny-500;
+			warp "lou_in01",17,19;
+			end;
+
+		case 3:
+			mes "[Hong-Myo]";
+			mes "Por favor, volte assim que for possível";
+			mes "Tchau! Tenha um bom dia.";
+			close;
+	}
+	mes "primeiro, segundo, terceiro, quarto, quinto, sexto, etc.";
+	close;
+}
+
+louyang,84,254,0	script	Saída#lou	111,{
+	
+	mes "Existe um meio de descer.";
+	mes "Você quer descer?";
+	next;
+	if (select ("Sim, vamos lá.:Não, por enquanto.") == 2) close;
+	if (rand(1,100) == 34)
+	{
+		percentheal -99,0;
+		warp "louyang",86,269;
+		mapannounce "louyang",strcharinfo(0) + " : Ahhhhhhhhhhhhhh!!!!",bc_yellow;
+		end;
+	}
+	warp "lou_in01",10,18;
+	end;
+}
+
+//lou_in01,14,18,0	warp	Torre Panorâmica 1	0,0,louyang,90,254
+
+louyang,276,133,0	script	Discípulo#1	819,{
+	
+	mes "[Discípulo]";
+	mes "HAaaa!";
+	mes "Taaah!!";
+	mes "Hup.";
+	close;
+}
+
+louyang,276,131,0	script	Discípulo#2	819,{
+	
+	mes "[Discípulo]";
+	mes "Hup!";
+	mes "Taah!!";
+	mes "Heihei...";
+	close;
+}
+
+louyang,276,129,0	script	Discípulo#3	819,{
+	
+	mes "[Discípulo]";
+	mes "CHAaa";
+	mes "Iapp!!";
+	mes ".......";
+	close;
+	
+}
+
+louyang,274,133,0	script	Discípulo#4	819,{
+	
+	mes "[Discípulo]";
+	mes "Hup!";
+	mes "HupHup!!";
+	mes "Hup...";
+	close;
+}
+
+louyang,274,131,0	script	Discípulo#5	819,{
+	
+	mes "[Discípulo]";
+	mes "Uaa Cha";
+	mes "Ahh Cho!!";
+	mes "Uadaaa....";
+	close;
+}
+
+louyang,274,129,0	script	Discípulo#6	819,{
+	
+	mes "[Discípulo]";
+	mes "de Yang";
+	mes "...!";
+	mes "........!!";
+	close;
+}
+
+louyang,278,133,0	script	Discípulo#7	819,{
+	
+	mes "[Discípulo]";
+	mes "ChungChu!!";
+	mes "Hup!!";
+	mes "Hhhhup";
+	close;
+}
+
+louyang,278,131,0	script	Discípulo#8	819,{
+	
+	mes "[Discípulo]";
+	mes "GuaKua!";
+	mes ".....";
+	mes "Hup.";
+	close;
+}
+
+louyang,278,129,0	script	Discípulo#9	819,{
+	
+	mes "[Discípulo]";
+	mes "HuakTa JungJu!";
+	mes "Taas!!";
+	mes "Iap!!";
+	close;
+}
+
+louyang,272,133,0	script	Discípulo#10	819,{
+	
+	mes "[Discípulo]";
+	mes "Ai..";
+	mes "Ia";
+	mes "Ai meu Deus......";
+	close;
+}
+
+louyang,272,131,0	script	Discípulo#11	819,{
+	
+	mes "[Discípulo]";
+	mes "Soga...";
+	mes "Ummm!!";
+	mes "Doois!!";
+	close;
+}
+
+louyang,272,129,0	script	Discípulo#12	819,{
+	
+	mes "[Discípulo]";
+	mes "Sim!";
+	mes "Tão cansado!!";
+	mes "Ô Deus....";
+	close;
+}

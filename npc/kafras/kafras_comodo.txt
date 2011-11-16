@@ -1,0 +1,58 @@
+//===== Cronus Script ========================================
+//= Kafra de Comodo
+//===== Por: =================================================
+//= Dojo
+//===== Versão Atual: ========================================
+//= [Conversão Aegis]
+//= 1.0
+//===== Compatibilidade: =====================================
+//= Cronus / eAthena
+//===== Comentários Adicionais: ==============================
+//= 1.0 Primeira Versão [Dojo]
+//============================================================
+
+
+// In Town ==============================================>\\
+comodo,195,150,4	script	Funcionária Kafra::kaf_comodo	721,{
+	cutin "kafra_07",2;
+	cleararray @wrpC$[0],"",getarraysize(@wrpC$);
+	setarray @wrpD$[0], "Morroc", "Farol de Comodo", "Umbala";
+	setarray @wrpP[0], 1800, 1200, 1800;
+	set @wrpC$[0], @wrpD$[0]+" -> "+@wrpP[0];
+	set @wrpC$[1], @wrpD$[1]+" -> "+@wrpP[1];
+	set @wrpC$[2], @wrpD$[2]+" -> "+@wrpP[2];
+	set @wrpC$[3], "Cancel";
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Nós somos a divisão Oeste da Corporação Kafra.";
+	mes "Nos comprometemos a servi-lo com o mesmo entusiasmo que você já conhece.";
+	mes "Nós oferecemos todos os serviços normalmente.";
+	mes "Mais uma vez, seja bem-vindo!";
+	callfunc "F_Kafra",5,0,1,80,1000;
+
+	M_Save:
+		savepoint "comodo",204,143;
+		callfunc "F_KafEnd",0,1,"no Farol de Comodo";
+}
+
+// Comodo Pharos Lighthouse (Beacon Island) ===================>\\
+cmd_fild07,136,134,4	script	Funcionária Kafra::kaf_cmd_fild07	721,{
+	cutin "kafra_07",2;
+	cleararray @wrpC$[0],"",getarraysize(@wrpC$);
+	setarray @wrpD$[0], "Comodo", "Morroc";
+	setarray @wrpP[0], 1200, 1200;
+	set @wrpC$[0], @wrpD$[0]+" -> "+@wrpP[0];
+	set @wrpC$[1], @wrpD$[1]+" -> "+@wrpP[1];
+	set @wrpC$[2], "Cancel";
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Nós somos a divisão Oeste da Corporação Kafra.";
+	mes "Nos comprometemos a servi-lo com o mesmo entusiasmo que você já conhece.";
+	mes "Nós oferecemos todos os serviços normalmente.";
+	mes "Mais uma vez, seja bem-vindo!";
+	callfunc "F_Kafra",5,0,1,80,1000;
+
+	M_Save:
+		savepoint "cmd_fild07",127,134;
+		callfunc "F_KafEnd",0,1,"na cidade de Comodo";
+}

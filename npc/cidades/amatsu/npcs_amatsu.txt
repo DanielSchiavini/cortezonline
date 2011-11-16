@@ -1,0 +1,189 @@
+//===== Cronus Script ========================================
+//= Cidade de Amatsu
+//===== Por: =================================================
+//= Minos
+//===== Versão Atual: ========================================
+//= 1.1
+//===== Compatível Com: ======================================
+//= Emulador [3010+]; Cliente [EP 12.1]
+//===== Descrição: ===========================================
+//= [Conversão do Aegis]
+//= NPCs gerais da Cidade de Amatsu
+//===== Comentários Adicionais: ==============================
+//= 1.0 Conversão do Aegis [Minos]
+//= 1.1 Revisado e otimizado [Mara]
+//============================================================
+
+amatsu,230,160,3	script	Sadako	757,{
+	
+	mes "[Sadako]";
+	mes "Eu sempre venho aqui buscar água ";
+	mes "neste poço, mas nunca faço isso";
+	mes "quando o clima está chuvoso.";
+	next;
+	mes "[Sadako]";
+	mes "É que... Nesses dias";
+	mes "é possível escutar alguém ";
+	mes "escalando as paredes do poço.";
+	mes "Melhor nem lembrar...";
+	close;
+}
+
+amatsu,179,107,4	script	Lucas Noglie	86,{
+	
+	mes "[Lucas]";
+	mes "Vo...";
+	mes "Você não é daqui, certo?";
+	mes "Percebi. Você é como eu.";
+	next;
+	mes "[Lucas]";
+	mes "Já faz uns cinco anos";
+	mes "desde que eu vim para cá ";
+	mes "arriscar a sorte nos negócios. ";
+	next;
+	mes "[Lucas]";
+	mes "Eu pensei, 'Grande Oportunidade!'";
+	mes "quando se iniciou o comércio ";
+	mes "entre o Reino de Rune-Midgard";
+	mes "e o Império de Amatsu.";
+	next;
+	mes "[Lucas]";
+	mes "Eu queria fazer algo diferente";
+	mes "do que os outros faziam.";
+	next;
+	mes "[Lucas]";
+	mes "Então decidi vir para Amatsu";
+	mes "para aprender os segredos da";
+	mes "culinária local, voltar para";
+	mes "minha cidade e ficar rico";
+	mes "preparando pratos exóticos. ";
+	next;
+	mes "[Lucas]";
+	mes "Mas quem disse que eu consegui?!";
+	mes "Eu me apaixonei tanto pelo";
+	mes "lugar que já estou aqui";
+	mes "há bons cinco anos.";
+	next;
+	mes "[Lucas]";
+	mes "Eu gosto de conversar com os";
+	mes "habitantes sempre neste local.";
+	mes "Mas aí ele apareceu... ";
+	next;
+	mes "[Lucas]";
+	mes "Sabe ali? Do outro lado da rua?";
+	mes "Desde que o Mestre do Sushi";
+	mes "abriu sua loja, estou arruinado!";
+	next;
+	mes "[Lucas]";
+	mes "Eu vim em busca de um sonho";
+	mes "em Amatsu, mas parece ";
+	mes "que agora ele acabou.";
+	close;
+}
+
+amatsu,205,163,3	script	Mimi	758,{
+	
+	mes "[Mimi]";
+	mes "Mimimi~";
+	mes "Você viu a Miss Amatsu no porto?";
+	mes "Ela não é liiiiinda?";
+	next;
+	mes "[Mimi]";
+	mes "Eu quero participar do Concurso Miss Amatsu quando crescer!";
+	next;
+	mes "[Mimi]";
+	mes "Eu sei que sou a mais mais mais bonita da cidade,";
+	mes "só que as outras sempre se maquiam! Nhaa!";
+	close;
+}
+
+amatsu,185,115,3	script	Bêbado	763,{
+	
+	mes "[Sokana]";
+	mes "*hic*...Minha mulher";
+	mes "é uma fera...*hic*...";
+	mes "Eu não quero...*hic*... Voltar pra casa...*hic*";
+	next;
+	if (select ("Pára de encher a cara e vai logo!:Opa! Pede um copo pra mim!") == 1)
+	{
+		mes "[Sokana]";
+		mes "Quê?! Você já viu o tamanho da mão";
+		mes "da minha esposa?*hic*... Você não tem";
+		mes "noção do perigo! Quando ela era mais,";
+		mes "nova, matou um tigre com as mãos!!";
+		next;
+		mes "[Sokana]";
+		mes "Co...Co... Só lembro que o nome da cidade";
+		mes "começa assim! Ela me deu uma surra porque";
+		mes "eu perdi uns trocados jogando lá... *hic*";
+		next;
+		mes "[Sokana]";
+		mes "A vida... É uma... Droga...";
+		mes "Eu deveria... Ter apostado";
+		mes "No ... *hic*.... Nove...";
+		mes "....z......Z.....z.....";
+		mes "...zZz....ZzZ....RONC..";
+		close;
+		
+	}
+	mes "[Sokana]";
+	mes "Mwahaha... Muito bom...";
+	mes "*hic*... Mas, escuta...*hic*";
+	mes "Esse copo é só meu... Mwhahaha...";
+	next;
+	mes "[Sokana]";
+	mes "Mas se você pagar a próxima garrafa...*hic* Podemos negociar..hehehe.";
+	close;
+}
+
+amatsu,217,179,1	script	Vovó Hatsue	758,{
+	
+	mes "[Hatsue]";
+	mes "Eu estou preocupada com meu marido.";
+	mes "Ele perdeu nossas economias numa cidade hoje.";
+	next;
+	mes "[Hatsue]";
+	mes "Eu fiquei furiosa e... Bati nele!";
+	mes "Se eu o conheço bem, deve ter ido encher a cara.";
+	close;
+}
+
+amatsu,287,266,3	script	Jyaburo	763,{
+	
+	mes "[Jyaburo]";
+	mes "Este lugar me lembra";
+	mes "a minha amada esposa.";
+	next;
+	mes "[Jyaburo]";
+	mes "Foi ali, embaixo daquela grande árvore,";
+	mes "que eu confessei o meu amor.";
+	mes "Eu realmente não fazia idéia ";
+	mes "que ela sentia o mesmo por mim.";
+	next;
+	mes "[Jyaburo]";
+	mes "Depois daquele dia, tivemos muitas conversas";
+	mes "aqui. O melhor lugar para nós dois.";
+	mes "Sereno e tranqüilo.";
+	mes "Bons tempos aqueles.";
+	next;
+	mes "[Jyaburo]";
+	mes "Quando fecho meus olhos, consigo visualizar";
+	mes "alguns momentos como se fossem ontem...Huhu..";
+	next;
+	mes "[Jyaburo]";
+	mes "Minha amada esposa se foi. Desde então";
+	mes "faço minha jornada solitário até aqui.";
+	mes "Sinto como se ela estivesse aqui, me esperando.";
+	next;
+	mes "[Jyaburo]";
+	mes "Enquanto você escutava a minha história, ";
+	mes "você tinha alguém em mente? Se tinha, não";
+	mes "se contenha para mostrar o que sente.";
+	next;
+	mes "[Jyaburo]";
+	mes "A vida deveria ter um fundo musical";
+	mes "para dançarmos para sempre ao lado da";
+	mes "pessoa amada. Deixe o sofrimento de lado";
+	mes "e busque a felicidade todos os dias.";
+	close;
+}

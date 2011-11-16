@@ -1,0 +1,91 @@
+//===== Cronus Script ========================================
+//= Quest do Envelope Vermelho - (Ano Novo Lunar)
+//===== Por: =================================================
+//= DoJo
+//===== Versão Atual: ========================================
+//= 1.0
+//===== Compatível Com: ======================================
+//= Emulador [3010+]; Cliente [EP 12.1]
+//===== Descrição: ===========================================
+//= [Conversão do Aegis]
+//===== Comentários Adicionais: ==============================
+//= 1.0 Conversão do Aegis [DoJo]
+//============================================================
+
+gonryun,160,133,0	script	Lai-See#red	817,{
+	if ((countitem(7111) > 9) && (countitem(7216) > 2) && (countitem(1024) > 9) && (countitem(7101) > 4) && (countitem(525) > 1) && (Zeny > 9999)) {
+		mes "[Lai-See]";
+		mes "Ah, você trouxe todos os itens para fazer o Envelope Vermelho.";
+		mes "Gostaria de fazer um agora?";
+		next;
+		if(select("Sim, com certeza.:Acho melhor não.") == 2) {
+			mes "[Lai-See]";
+			mes "Por favor, sinta-se a vontade de me procurar novamente";
+			mes "quando quiser fazer um Envelope Vermelho.";
+			close;
+		}
+		mes "[Lai-See]";
+		mes "Ótimo.";
+		mes "Por favor, me dê alguns segundos.";
+		next;
+		mes "[Lai-See]";
+		mes ". . . . . . . . . . .";
+		next;
+		mes "[Lai-See]";
+		mes ". . . . . . . . .";
+		next;
+		mes "[Lai-See]";
+		mes ". . . . . . .";
+		next;
+		mes "[Lai-See]";
+		mes ". . . .";
+		next;
+		mes "[Lai-See]";
+		mes ". . ";
+		next;
+		mes "[Lai-See]";
+		mes "Pronto!";
+		mes "Espero que ele lhe traga felicidade e muito amor";
+		mes "no ano lunar que se inicia.";
+		delitem 7111,10; //Smooth_Paper
+		delitem 7216,3; //Red_Scarf
+		delitem 1024,10; //Chinese_Ink
+		delitem 7101,5; //Peco_Wing_Feather
+		delitem 525,2; //Panacea
+		set Zeny,Zeny - 10000;
+		getitem 12134,1; //Red_Envelope
+		close;
+	}
+	else {
+		mes "[Lai-See]";
+		mes "Bem-vindo a Kunlun. Esta é uma época do ano muito importante para nós,";
+		mes "pois estamos celebrando o Ano Novo Lunar.";
+		mes "Uma de nossas tradições é entregar Envelopes Vermelhos";
+		mes "para pessoas queridas, como forma de lhes desejar um feliz ano novo.";
+		next;
+		mes "[Lai-See]";
+		mes "Estes Envelopes levam em seu interior os mais sinceros votos de felicidade.";
+		mes "Trata-se de um presente maravilhoso tanto para quem oferta como para quem recebe.";
+		mes "Os Envelopes Vermelhos podem ser entregues para qualquer pessoa";
+		mes "desde que ela seja especial para quem está oferecendo.";
+		mes "Siga esta recomendação e você estará ajudando a manter a chama desta nossa tradição acesa.";
+		next;
+		mes "[Lai-See]";
+		mes "Se você conhece alguém especial e que gostaria de presentear com um Envelope Vermelho,";
+		mes "é só você me trazer alguns itens que eu faço um para você. São eles.";
+		next;
+		mes "10 Pedaços de Papel,";
+		mes "3 Panos Vermelhos,";
+		mes "10 Tintas de Polvo,";
+		mes "5 Penas de Grand Peco,";
+		mes "2 Panacéias e";
+		mes "10,000 Zeny";
+		next;
+		mes "[Lai-See]";
+		mes "Só preciso disso para fazer um Envelope Vermelho.";
+		mes "Acho que você se sentirá tão bem";
+		mes "ao expressar seus sentimentos por alguém especial através deste envelope,";
+		mes "que vai querer fazer isso outras vezes.";
+		close;
+	}
+}

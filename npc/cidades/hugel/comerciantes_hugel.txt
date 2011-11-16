@@ -1,0 +1,74 @@
+//===== Cronus Script ========================================
+//= Comerciantes de Hugel
+//===== Por: =================================================
+//= Mara
+//===== Versão Atual: ========================================
+//= 1.0
+//===== Compatível Com: ======================================
+//= Emulador [3010+]; Cliente [EP 13.3]
+//===== Comentários Adicionais: ==============================
+//= 1.0 Conversão do Aegis [Mara]
+//============================================================
+
+hu_in01,241,368,2	shop	Loja de Utilidades#hug1	53,1750:-1,611:-1,501:-1,502:-1,503:-1,504:-1,506:-1,645:-1,656:-1,601:-1,602:-1,1065:-1
+
+hu_in01,94,390,3	shop	Vendedor de Armas#hug1	898,1116:-1,1154:-1,1354:-1,1201:-1
+
+hu_in01,94,313,3	shop	Loja de Armaduras#hug	86,2224:-1,2232:-1,2226:-1,2101:-1,2103:-1,2401:-1,2501:-1,2307:-1,2105:-1
+
+hu_in01,100,390,3	shop	Vendedor de Armas#hug2	86,1701:-1,1707:-1,1718:-1,1714:-1
+
+hu_in01,252,368,3	shop	Loja de Utilidades#hug2	90,717:-1,2201:-1,910:-1,528:-1
+
+hugel,105,169,5	shop	Leiteira#hug	90,519:-1
+
+hugel,77,167,3	shop	Feirante#hug	892,522:-1,512:-1,513:-1,515:-1,516:-1,535:-1
+
+hu_in01,23,311,5	script	Artigos de Festa#hg	898,{
+
+	if (checkweight (1201,1) == 1)
+	{
+		mes "^3355FFEspere um pouco!";
+		mes "No momento, você está carregando";
+		mes "muitas coisas com você.";
+		mes "Volte depois de";
+		mes "usar os Serviços Kafra";
+		mes "para armazenar alguns dos seus itens.^000000";
+		close;
+	}
+	if ((MaxWeight - Weight) < 2000)
+	{
+		mes "^3355FFEspere um pouco!";
+		mes "No momento, você está carregando";
+		mes "muitas coisas com você.";
+		mes "Volte depois de";
+		mes "usar os Serviços Kafra";
+		mes "para armazenar alguns dos seus itens.^000000";
+		close;
+	}
+	mes "[Vendedor]";
+	mes "Bem-vindo à loja de artigos para festas!";
+	mes "Que tal divertir-se com os amigos assistindo a uma espetacular queima de fogos?";
+	mes "Vendemos 5 unidades por 500 zenys.";
+	next;
+	if (select ("Comprar:Cancelar") == 1)
+	{
+		if (Zeny < 500)
+		{
+			mes "[Vendedor]";
+			mes "Desculpe, mas você não tem dinheiro suficiente.";
+			close;
+		}
+		else
+		{
+			mes "[Vendedor]";
+			mes "Muito obrigado, divirta-se com seus fogos de artifício!";
+			set Zeny, Zeny - 500;
+			getitem 12018, 5;
+			close;
+		}
+	}
+	mes "[Vendedor]";
+	mes "Obrigado, volte sempre.";
+	close;
+}

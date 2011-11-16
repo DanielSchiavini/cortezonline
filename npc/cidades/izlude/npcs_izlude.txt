@@ -1,0 +1,287 @@
+//===== Cronus Script ========================================
+//= Npcs de Izlude
+//===== Por: =================================================
+//= Cainho
+//===== Versão Atual: ========================================
+//= 1.1
+//===== Compatível Com: ======================================
+//= Emulador [3010+]; Cliente [EP 12.1]
+//===== Descrição: ===========================================
+//= [Conversão do Aegis]
+//= 
+//===== Comentários Adicionais: ==============================
+//= 1.0 Conversão do Aegis [Cainho]
+//= 1.1 Revisado e otimizado [Mara]
+//============================================================
+
+izlude,201,181,2	script	Marinheiro#1	100,{
+
+	mes "[Marinheiro]";
+	mes "Ei galera! Atenção! O navio super rápido e sem seguro está pronto para zarpar!! Vamos! Apressem-se!";
+	next;
+	switch (select ("Ilha Byalan -> 150 Zeny.:Marina de Alberta -> 500 Zeny.:Cancelar."))
+	{
+		case 1:
+			if (Zeny < 150)
+			{
+				mes "[Marinheiro]";
+				mes "150 Zeny! Apenas 150 Zeny pelo passeio!";
+				close;
+			}
+			set Zeny,Zeny-150;
+			warp "izlu2dun",107,50;
+			end;
+
+		case 2:
+			if (Zeny < 500)
+			{
+				mes "[Marinheiro]";
+				mes "500 Zeny! Apenas 500 Zeny pelo passeio!";
+				close;
+			}
+			set Zeny,Zeny-500;
+			warp "alberta",188,169;
+			end;
+
+		case 3:
+			close;
+	}
+}
+
+izlu2dun,108,27,0	script	Marinheiro#2	100,{
+
+	mes "[Marinheiro]";
+	mes "Quer voltar?";
+	next;
+	switch (select("Sim, estou muito cansado.:Não, eu adoro esse lugar."))
+	{
+		case 1:
+			warp "izlude",176,182;
+			end;
+		case 2:
+			close;
+	}
+	end;
+}
+
+izlude,55,74,2	script	Paula	90,{
+
+	mes "[Paula]";
+	mes "Bem-vindo. Izlude lhes dá as boas-vindas.";
+	mes "Izlude é uma cidade satélite de Prontera, capital do Reino de Rune-Midgard, muito importante não somente porque a Associação dos Espadachins fica aqui em Izlude";
+	mes "Nós também guardamos e monitoramos nosso litoral.";
+	next;
+	mes "[Paula]";
+	mes "Esta ponte pode paracer fraca, mas na verdade é uma obra-prima, ela foi construida com o material mais sofisticado e com a melhor tecnologia do planeta";
+	mes "Não importa a força das tempestades, ou quantas pessoas ficarem em cima dela, esta ponte NUUUNCA irá cair. Se quiser, pode testá-la.";
+	mes "Fiquem a vontade e apreciem sua visita a Izlude.";
+	close;
+}
+
+izlude,135,78,2	script	Charfri	91,{
+	
+	if (rand(1,2) == 1)
+	{
+		mes "[Charfri]";
+		mes "Algumas pessoas tiram sarro de nossa cidade por ser apenas uma cidade satélite de Prontera, mas Izlude é uma excelente cidade, perto do mar com lindas ilhas como a Ilha Byalan.";
+		next;
+		mes "[Charfri]";
+		mes "Você terá de pegar um barco no porto para ir a Ilha Byalan, existem perigosas cavernas na ilha, portanto não se enfie em qualquer lugar.";
+		close;
+	}
+	mes "[Charfri]";
+	mes "Apesar de sua beleza, a Ilha Byalan tem uma caverna misteriosa que se extende profundamente debaixo do oceano.";
+	next;
+	mes "[Charfri]";
+	mes "Pessoas que realmente estiveram lá contam que, se você descer o suficiente, a caverna fica submersa.";
+	mes "Mas surpreendentemente as pessoas podem respirar como os peixes. Talvez alguma força sobrenatural faça esse efeito.";
+	next;
+	mes "[Charfri]";
+	mes "Ah... as pessoas que viram a paisagem debaixo d'água disseram que é simplesmente fantástica e que sonham com ela desde então.";
+	mes "mas infelizmente, os monstros são muito fortes para as pessoas comuns visitarem o lugar.";
+	mes "Eu espero poder ver a paisagem uma vez na vida, mas eu somente espero.";
+	close;
+}
+
+izlude,119,121,2	script	Cuskoal	124,{
+	
+	if (rand(1,2) == 1)
+	{
+		mes "[Cuskoal]";
+		mes "Esta Arena é o lugar perfeito para pessoas jovens de todas as partes do Reino de Rune-Midgard desafiarem e testarem suas habilidades.";
+		mes "Você pode lutar com monstros de níveis diferentes. Então, por quantos estágios você irá sobreviver, a sua força que irá dizer.";
+		next;
+		mes "[Cuskoal]";
+		mes "Então, o que me diz?";
+		close;
+	}
+	mes "[Cuskoal]";
+	mes "Os bares em Prontera estão sempre cheios de pessoas, pessoas locais e visitantes. Muito exaltadas. Há muita informação e rumores, pois muitas pessoas entram e saem.";
+	mes "Se você escutar cuidadosamente, você pode dar sorte e descobrir informações muito úteis.";
+	close;
+}
+
+izlude,150,118,2	script	Dega	84,{
+	
+	switch (rand(1,3))
+	{
+		case 1:
+			mes "[Dega]";
+			mes "Mt.Mjornir localizado ao norte de Prontera é alto e cheio de precipícios.";
+			mes "sem precisar falar dos desfios da montanha, lá vivem insetos extremamente perigosos também.";
+			next;
+			mes "[Dega]";
+			mes "Eu quero dizer, alguns deles atacam sem nem mesmo serem provocados.";
+			mes "Se algum dia quiser visitar um lugar além de Mt.Mjornir, então prepare-se para um grande desafio. Do contrário, contorne-o.";
+			close;
+			
+		case 2:
+			mes "[Dega]";
+			mes "Alguns raros monstros podem sentir a força da Magia com antecedência. ";
+			mes "O Golem do deserto é um deles. Se você o subestimar por causa de sua movimentação estranha e tentar usar magia perto dele, em uma fração de segundo ele perceberá e te atacará. Tome cuidado com o Golem.";
+			close;
+
+		case 3:
+			mes "[Dega]";
+			mes "Há um lugar encantador onde você pode encontrar todos os tipos de porings. É em algum lugar perto de ponte, aquela que liga a floresta e o deserto a caminho da cidade de Payon ao sudeste daqui.";
+			next;
+			mes "[Dega]";
+			mes "Não há apenas Porings rosa, mas também Drops amarelos que vivem no deserto e até mesmo Poporings verdes.";
+			mes "Mas tome cuidado, antes que possa perceber você pode enfrentar um Ghostring, ele flutua pelo ar como um fantasma.";
+			next;
+			mes "[Dega]";
+			mes "Bem, eles são todos uma graça, mas o Ghostring é uma EXCEÇÃO. Ele é muito muito perigoso.";
+			next;
+			while (1)
+			{
+				switch (select ("Ghostring?:Angelring?:Fim de conversa."))
+				{
+					case 1:
+						mes "[Dega]";
+						mes "Ghostring é um poring acinzentado que flutua no ar como um fantasma. Ele é como um fantasma, ataques físicos não podem danificá-lo.";
+						mes "Aqueles cujos ataques principais são físicos como Espadachins e Arqueiros terão que correr por suas vidas, ao enfrentar Ghostrings.";
+						next;
+						mes "[Dega]";
+						mes "Mas espere! Uma excelente notícia para os dessas classes: Fazer uma arma de alguma propriedade é a chave.";
+						mes "Assim, até mesmo Espadachins e Arqueiros podem ferir Ghosrings como a Magia faz.";
+						close;
+
+					case 2:
+						mes "[Dega]";
+						mes "Ao contrário dos Ghostrings, Angelrings são imunes a ataques mágicos.";
+						mes "Se alguém que só puder usar ataques mágicos encontrar um Angelring, então é a vez deles correrem.";
+						next;
+						mes "[Dega]";
+						mes "Se alguém tiver uma faca ou espada extra, ele pode tentar. Mas será muito difícil sozinho, não acha?";
+						close;
+
+					case 3:
+						mes "[Dega]";
+						mes "Boa sorte!!!";
+						close;
+				}
+			}
+	}
+}
+
+izlude,150,143,2	script	Kylick	97,{
+
+	mes "[Kylick]";
+	mes "Você não acha binóculos o maior LEGAL?! Sabe, poder ver aqui e lá...";
+	mes "...Aham! Nós de Izlude, somos responsáveis por manter a paz não somente na terra como no mar..";
+	next;
+	mes "[Kylick]";
+	mes "Para isso temos aqueles enormes binóculos para observar o mar e previnir quaisquer problemas, e além do que, estar preparado é melhor do que estar atrasado.";
+	close;
+}
+
+izlude_in,125,164,2	script	Aaron	65,{
+
+	mes "[Aaron]";
+	mes "Hum? Um espadachin? Você não acha que VIT forte e um método de respiração bem treinado que permite uma recuperação de HP rápida, são as maiores vantagens de um espadachin?";
+	next;
+	mes "[Aaron]";
+	mes "Se você treinar suas habilidades bastante, você pode até perceber seu HP se recuperar. E a quantidade depende da VIT, então se você investir mais em VIT, a quantidade recuperada aumenta de acordo.";
+	next;
+	mes "[Aaron]";
+	mes "Mas é claro que seria ótimo ter um ataque forte, não é? Você pode ou comprar uma arma boa ou aumentar sua FOR para melhorar seu ataque. Você sabe que precisará de força de qualquer maneira para poder manejar boas armas fácilmente.";
+	next;
+	mes "[Aaron]";
+	mes "Outra coisa importante é a precisão com que pode acertar seus oponentes. DES é a chave para isso. Se você treinar DEX, o intervalo entre dano mínimo e dano máximo diminuirá.";
+	next;
+	mes "[Aaron]";
+	mes "Hum... Você está entediado? Quer que eu continue?";
+	next;
+	if (select ("Diga-me mais, por favor.:Fim de conversa.") == 1)
+	{
+		mes "[Aaron]";
+		mes "Hum.. nesse caso, Te explicarei sobre outros atributos brevemente.";
+		mes "Para atacar e desviar rápidamente, você tem que prestar atenção em AGI";
+		next;
+		mes "[Aaron]";
+		mes "Caso queira fazer mais ataques certeiros, é boa idéia investir em SOR.";
+		mes "INT aumenta seu máximo de SP, necessário para usar habilidades... mas é você quem decide.";
+		close;
+	}
+	mes "[Aaron]";
+	mes "OK, continue treinando...";
+	close;
+}
+
+izlude,124,178,2	script	Soldado#iz1	105,{
+
+	mes "[Soldado]";
+	mes "HeHeHeHe.. HaHaHaHa";
+	mes "Como? Por que estou tão feliz?";
+	mes "quer saber?";
+	next;
+	if (select ("Claro, porque?:Na verdade não, não me importo.") == 1)
+	{
+		mes "[Soldado]";
+		mes "Ah... Há muito para fazermos nos dias de hoje. Mercadores compram os itens que os monstros deixam cair, você sabia disso certo?";
+		next;
+		if (select ("É claro:É mesmo?") == 1)
+		{
+			mes "[Soldado]";
+			mes "HaHa Na verdade, esta era nossa tarefa.";
+			mes "Mas há muitos caçadores que vêm para serem pagos. Então era muito para tomar conta.";
+			next;
+			mes "[Soldado]";
+			mes "Nós tinhamos que fazer hora extra todo dia. Ah... era um pesadelo...";
+			mes "Bom, o governo fez bem em inventar o sistema de registro. O Escritório de Prêmio de Compensação só paga àqueles que estão registrados.";
+			next;
+			mes "[Soldado]";
+			mes "As exigências para o registro são que o Mercador tenha fundos o suficiente e que fique em um só lugar o tempo todo. O Escritório libera o registro para qualquer Mercador que atenda a essas exigências.";
+			next;
+			mes "[Soldado]";
+			mes "Então não há muita gente que nos procura mais. Digo, ainda estamos ocupados, mas não é nada parecido como era antes...";
+			mes "Pessoas que já sofreram sabem apreciar o menor conforto.";
+			mes "HaHaHaHaHa!";
+			close;
+		}
+		mes "[Soldado]";
+		mes "O que? como assim você não sabia?!";
+		mes "Hm.. bem.. bem.. Você sabe, dá pra conseguir itens matando monstros. Você pode fazer dinheiro fazendo isso e vendendo para um Mercador.";
+		mes "De qualquer maneira!";
+		next;
+		mes "[Soldado]";
+		mes "HaHa Na verdade, esta era nossa tarefa";
+		mes "Mas há muitos caçadores que vêm para serem pagos. Então era muito para tomar conta.";
+		next;
+		mes "[Soldado]";
+		mes "Nós tinhamos que fazer hora extra todo dia. Ah... era um pesadelo...";
+		mes "Bom, o governo fez bem em inventar o sistema de registro. O Escritório de Prêmio de Compensação só paga àqueles que estão registrados.";
+		next;
+		mes "[Soldado]";
+		mes "As exigências para o registro são que o Mercador tenha fundos o suficiente e que fique em um só lugar o tempo todo. O Escritório libera o registro para qualquer Mercador que atenda a essas exigências.";
+		next;
+		mes "[Soldado]";
+		mes "Então não há muita gente que nos procura mais. Digo, ainda estamos ocupados, mas não é nada parecido como era antes...";
+		mes "Pessoas que já sofreram sabem apreciar o menor conforto";
+		mes "HaHaHaHaHa!";
+		close;
+	}
+	mes "[Soldado]";
+	mes "OK, Até Logo...";
+	close;
+}

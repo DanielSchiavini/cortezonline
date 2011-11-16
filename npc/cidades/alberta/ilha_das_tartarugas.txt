@@ -1,0 +1,2159 @@
+//===== Cronus Script ========================================
+//= NPCs da Ilha da Tartaruga
+//===== Por: =================================================
+//= Minos
+//===== Versão Atual: ========================================
+//= 1.1
+//===== Compatível Com: ======================================
+//= Emulador [3010+]; Cliente [EP 12.1]
+//===== Descrição: ===========================================
+//= [Conversão do Aegis]
+//= Todos os NPCs da Ilha das Tartarugas 
+//===== Comentários Adicionais: ==============================
+//= 1.0 Conversão do Aegis [Minos]
+//= 1.1 Revisado e otimizado [Mara]
+//============================================================
+
+alberta,91,70,4	script	Comedor de Porcarias	89,{
+	
+	mes "^3355FF- *schluuuuurp* *BURP* -^000000";
+	next;
+	mes "[Menino dos Porings]";
+	mes "Ei, não me importune!";
+	mes "Você quer saber o que eu estou comendo, é?";
+	mes "Está com inveja, é?";
+	mes "Olha só pra isso!";
+	mes "Autêntica gelatina de Porings com maçã!";
+	mes "É uma delícia!";
+	next;
+	mes "[Menino dos Porings]";
+	mes "E é natural, natural mesmo!";
+	mes "Sabe como eu faço, sabe?";
+	mes "Eu pego um Poringa bem gordinho e dou umas maças pra ele comer!";
+	mes "Daí eu venho com um cajado e BUM!";
+	mes "Esmago ele e ele vira gelatina! E sabor maçã!";
+	mes "Hmmmm! Hehehehe!";
+	next;
+	mes "[Menino dos Porings]";
+	mes "Na verdade, não é tão bom assim...";
+	mes "Minha mãe falou que vai me dar dor de barriga ficar comendo Porings...";
+	mes "E minha irmã acha maldade eu fazer isso porque ela acha eles bonitinhos!";
+	mes "Mas eu sou malvado! Ugh... Ai, meu estômago.";
+	mes "Ei, ei, quer saber uma história legal?";
+	mes "Eu te conto, pra você ver como eu sou generoso!";
+	next;
+	mes "[Menino dos Porings]";
+	mes "Sabe naquela hospedaria perto da entrada norte da cidade?";
+	mes "Bem, lá tem um velhote que está semrpe bêbado...";
+	mes "E uma vez ele me falou sobre uma ilha que existe aqui perto...";
+	mes "Uma tal de Ilha das Tartarugas...";
+	mes "Se você perguntar pra ele sobre isso, acho que ele te fala sobre ela.";
+	mes "Ele dá uma aumentada nas coisas, mas ele é legal!";
+	next;
+	mes "[Menino dos Porings]";
+	mes "E é uma história muito assustadora, é sim...";
+	mes "Ah, tem outra coisa...";
+	mes "Quando você for falar com ele...";
+	mes "Procura em cima da mesa, que lá tem uma carta escrita por um sujeito que foi pra lá.";
+	mes "Nossa, falando em coisa que dá medo, aquela carta é o máximo!";
+	mes "Vai, vai lá ver, duvido que você tenha coragem!";
+	close;
+}
+
+alberta_in,23,104,4	script	Vovô Tartaruga	120,{
+	
+	mes "[Vovô Tartaruga]";
+	mes " *BUUURP* ";
+	mes "Olha, Se você me perguntar, eu não concordo mesmo com esse povinho que anda por aí...";
+	mes "...e diz, imagina só, que Alberta é o centro de comércio de Rune Midgard!";
+	mes "Pensa bem, o centro comercial de qualquer lugar, além de ter um mercado de trocas, lojas, pessoas...";
+	mes "DEVERIA TER UM BOM BAR!";
+	mes "Mas não... Só tem essa espelunca aqui. Pôxa, a gente bem que merece coisa melhor... *BUUURP*";
+	next;
+	switch (select ("Hã... E quanto à 'Ilha das Tartarugas'?:Você sabe o caminho até a 'Ilha das Tartarugas'?:Hãã...Esquece."))
+	{
+		case 1:
+			mes "[Vovô Tartaruga]";
+			mes "Aah... Aposto que você ouviu alguma coisinha sobre lá, hein? Sobre os tesouros maravilhosos escondidos...";
+			mes "Tesouros capazes de comprar até as calças da realeza de Midgard! Tantas coisas valiosas, inestimáveis, hein?";
+			mes "E também a rara poção que pode, escuta essa:";
+			mes "Aumentar a expectativa de vida de um homem até o nível da de um elfo!";
+			mes "É, você ouviu, elfos. Orelhudos, loiros, meio chatos, coisa e tal.";
+			mes "Eles não vivem por anos, coisa fofa, eles vivem por ERAS! Hehehehe...";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "Oh, sim... Há muitos rumores e lendas sobre a Ilha das Tartarugas...Heheh... Alguns até devem ser verdadeiros.";
+			mes "Mas sabe, ninguém está muito certo sobre a localização dela...";
+			mes "...Ou mesmo se ela existe!";
+			mes "Quer dizer, quase ninguém.";
+			mes "Alguns sonharam com ela, mas nunca a encontraram... Hehehe... A Ilha das Tartarugas assombrou muita gente, alguns foram à sua procura e morreram no mar!";
+			mes "Porém, eu não sou um desses... Eu sei algo que eles não sabiam.";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "Eu sou só um velho lobo do mar, mas gosto de compartilhar o que eu sei com uma alma impetuosa.";
+			mes "Se você mostrar que tem raça e o espírito de aventura...";
+			mes "Bem, não vejo porque não te ajudar.";
+			mes "Uma coisa afinal, é achar a Ilha das Tartarugas, outra bem diferente...";
+			mes "É sobreviver a ela.";
+			mes "Heehhhhee... *BUUURP*";
+			next;
+			if (select ("+ + Piscadela + +:Oh! Oh! Oh! Informação! Por favor, por favor!") == 2)
+			{
+				mes "[Vovô Tartaruga]";
+				mes "Ah, agora que eu não falo nada mesmo!";
+				mes "Pra um mico de circo como você eu não tenho nada pra oferecer. É isso que você ouviu, mico de circo!";
+				mes "Você não tem o que é necessário, simplesmente não tem, seu espírito é fraco!";
+				mes "Saia da minha frente!";
+				mes "Saia, saia! Vá pra casa!";
+				next;
+				mes "[Vovô Tartaruga]";
+				mes "O quê?! Você ainda está aqui?";
+				mes "Vá embora, me deixe beber em paz!";
+				mes "Fora! *BUURP*";
+				close;
+			}
+			mes "[Vovô Tartaruga]";
+			mes "HeHeHe... Eu gosto desse olhar, não é como o dos idiotas que aparecem por aqui...";
+			mes "É, você parece ter alguma coisa de especial... Hehehe.";
+			mes "Eu te conto algumas coisinhas sobra a Ilha das Tartarugas... Heheh.";
+			mes "Algumas décadas atrás... um homem passou por essa cidade.";
+			mes "Ele já era conhecido como um dos mais destemidos aventureiros de todo o reino.";
+			mes "Ele era um autêntico homem do mar...";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "Seu nome era ^3355FF' Jonadan Niliria '^000000.";
+			mes "Assim que ele pisou em Alberta todos já podiam adivinhar seu próximo destino.";
+			mes "Sim, Jonadan, acompanhado de um grupo de dez valentes companheiros...";
+			mes "...Planejavam zarpar em busca da Lendária Ilha das Tartarugas!";
+			mes "Hã...Tá, eu admito que estava na cara.";
+			mes "Mas como quem está contando a história sou eu, eu conto como quiser, e você trate de ouvir!";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "Como eu ia dizendo, eles partiram em busca da Ilha das Tartarugas...";
+			mes "Porém, mesmo destemido e habilidoso como era, Jonadan não tinha muita idéia de como chegar lá...";
+			mes "Então eles sairam pelo mundo. Isso aí. Subiram no barco e partiram.";
+			mes "Procurando pistas, mapeando ilhotas e recifes... Pode parecer idiota, mas eles sabiam o que estavam fazendo...";
+			mes "Oh sim, sabiam muito bem...";
+			mes "Afinal a ilha não ia se achar sozinha, o jeito era procurar.";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "Eles não se desesperaram em momento algum, simplesmente seguiam em frente.";
+			mes "As buscas eram muitas vezes infrutíferas, mas ainda assim, havia progresso.";
+			mes "Jarros, estranhas estátuas, runas entalhadas em templos esquecidos e túneis submersos...";
+			mes "Sim, existiam indícios da existência da ilha.";
+			mes "Existia esperança, e eles eram homens determinados.";
+			mes "Não como essa molecada de hoje... Achando que algumas habilidades de segunda mão vão fazê-los invencíveis. BáH!";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "Eram todos homens fortes, praticamente invencíveis!";
+			mes "É claro que o próprio ^3355FF` Jonadan Niliria '^000000 era o mais forte de todos.";
+			mes "Nunca se viu um lutador como ele nesse reino, eu te digo!";
+			mes "Ele parecia Odin encarnado, tamanha sua força e habilidade em batalha!";
+			mes "Um chute dele era o equivalente a um Golpe Fulminante Nível 10! Isso mesmo!";
+			mes "Viu o que eu quis dizer com Habilidades de segunda mão? Hehehe... Não existe um guerreiro hoje que pudesse lutar com ele e sair vivo.";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "Ele pegava flechas em pleno ar com suas mãos!";
+			mes "E além de tudo era um grande mago e curandeiro!";
+			mes "Eu ouvi relatos de suas habilidades em batalha não conhecerem limites...";
+			mes "Ele era capaz de Curar seus companheiros com uma mão, enquanto com outra brandia sua espada!";
+			mes "Não se vê muita gente capaz disso hoje em dia... Com aptidões tanto físicas quanto místicas...";
+			mes "Se não quiser acreditar, não acredite, é assim que ele era... Quer dizer, que dizem que ele era.";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "Bom, uma coisa é certa, fosse ele como fosse...";
+			mes "Foi ele quem finalmente encontrou a ^3355FF`Ilha das Tartarugas'^000000.";
+			mes "Sim, após quase 10 anos de buscas em alto mar e na terra...";
+			mes "Enfrentando criaturas horrendas e ameaçadoras e jurando nunca desistir, ele a encontrou.";
+			mes "Verdade verdadeira. A Ilha das Tartarugas existia.";
+			mes "Eles ficaram perplexos. Sabe, mesmo procurando por tanto tempo, às cegas, alguns dos tripulantes ainda duvidavam de sua existência.";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "A verdade é que tão logo eles pisaram na ilha...";
+			mes "Bem, as coisas começaram a dar errado.";
+			mes "Eu não sei lhe dizer exatamente o que aconteceu, eu não estava lá, oras.";
+			mes "Mas alguma coisa séria ocorreu com aqueles homens.";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "E tinha que ser muito séria mesmo, afinal estamos falando de ^3355FF` Jonadan Niliria '^000000.";
+			mes "Fato é que nunca mais ouviu-se falar dele e sua tripulação.";
+			mes "Alguns dizem que eles morreram...";
+			mes "Outros que uma maldição os prendeu ali e eles lá devem continuar pra sempre.";
+			mes "Eu não estou certo do que foi...";
+			mes "Sim, eu sei o que você está pensando... Como eu posso saber de tudo isso se eles não voltaram? Eu simplesmente sei, não é da sua conta.";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "A verdade é que eu não sou o único que sabe de coisas à respeito...";
+			mes "Procure por um homem no porto daqui de Alberta... No lado leste dele.";
+			mes "Há um estudioso que está sempre ali.";
+			mes "E ele pode te ajudar em mais alguma coisa a respeito.";
+			mes "Sim, ele sabe coisas da Ilha das Tartarugas também.";
+			mes "Eu diria até que ele pode te dar algum conhecimento, como direi...";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "Mais 'específico'...";
+			mes "Sobre a Ilha das Tartarugas.";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "Ah! Mais uma coisa.";
+			mes "Dê uma olhadinha ali nas redondezas por onde ele se encontra.";
+			mes "Por ali você vai encontrar um item de interesse que também pode lhe ajudar...";
+			mes "Um ^3355FFDiário^000000.";
+			mes "Tenho certeza que vai achar interessante. Agora vá.";
+			mes "E tenha cuidado...        *BUURRP*";
+			close;
+		
+		case 2:
+			if (turtle_npc > 0)
+			{
+				mes "[Vovô Tartaruga]";
+				mes "Ilha das Tartarugas, hein?";
+				mes "Bem, se você der uma passadinha pelo lado leste do porto de Alberta...";
+				mes "Você verá um velho lobo do mar por ali... isso, um marinheiro.";
+				mes "Bem ele é um cara bem esperto, sabe muito sobre a Ilha das Tartarugas.";
+				mes "Eu diria até que é um estudioso sobre o assunto.";
+				next;
+				mes "[Vovô Tartaruga]";
+				mes "Seu nome é ^3355FF`Gotanblue'^000000.";
+				mes "Talvez ele te fale sobre a Ilha...";
+				mes "Quem sabe até te fale como chegar lá.";
+				mes "Hehehehehe. Você vai se dar mal se não prestar atenção à partir daqui...";
+				mes "A Ilha das Tartarugas não é um lugar pra crianças e tolos...";
+				mes "Espero que você não seja nenhum deles. Boa Sorte.  *BUUURP*";
+				close;
+			}
+			mes "[Vovô Tartaruga]";
+			mes "Hehehe. É muito difícil de achar...";
+			mes "De alcançar também...";
+			mes "Quase nenhuma possibilidade de retorno com vida.";
+			mes "Eu diria nenhuma até! Hehehe.";
+			mes "E mesmo assim você quer ir até lá, hein?";
+			mes "Bom, hehehe, estou impressionado. Não sei se é valentia ou burrice, mas estou impressionado sim....";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "Estou sim, te juro... Heheheh.";
+			mes "Olha, eu até te daria um sermão, explicaria tudo pra você deixar de fazer besteira...";
+			mes "Mas sabe o que é...(envesga os olhos)";
+			mes "Hehehehheheheheehehhehehehe";
+			mes "PFFFFF!";
+			mes "(sério) Bem, eu bebi um pouco demais.";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "Acontece... Eu sempre tive uma quedinha pela Vodka, sabe como é, né?";
+			mes "Bom, portanto... hã, deixa pra alguma outra hora.";
+			mes "Mas agora, se você quiser MEEESMO...";
+			mes "Tem um sujeito que pode lhe dar algumas informações... Hehe.";
+			mes "É só procurar pelo lado Oeste, quer dizer... Leste do porto de Alberta.";
+			mes "Ele está ali em algum lugar.";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "Um velho e bom lobo do mar aquele... Hehehee.";
+			mes "Meio gordo, mas gente boa, hehehe.";
+			mes "O nome dele é ^3355FFGotanblue^000000";
+			mes "Fale que você falou comigo pra ele e ele vai saber que você falou comigo...";
+			mes "Hehehe.";
+			next;
+			mes "[Vovô Tartaruga]";
+			mes "Daí ele te dá uns toques sobre a Ilha das Tartarugas...";
+			mes "Talvez até diga como chegar lá, não é mesmo?";
+			mes "Heheheheh...";
+			mes "Bem boa sorte, mande lembranças minhas pra ele.";
+			mes "E ah, boa sorte, você vai precisar.";
+			mes "Hehehehhehe.... *BUUUURP*";
+			set turtle_npc, 1;
+			close;
+			
+		case 3:
+			mes "[Vovô Tartaruga]";
+			mes "Uooops!";
+			mes "Droga, meu copo caiu...";
+			mes "Eu sou um gambá! *BUUURP*";
+			mes "Não, não! Quer dizer, estou bêbado como um gambá!";
+			mes "É, isso aí, bêbado como...um...";
+			mes "ZZZZZZZZZ... *BUUUURP* ";
+			close;
+	}
+}
+
+alberta,247,122,4	script	Barqueiro#alb1	709,{
+	
+	if (turtle_npc > 0)
+	{
+		mes "[Gotanblue]";
+		mes "Oh! Olá.";
+		mes "Esse olhar...";
+		mes "Não precisa dizer mais nada.";
+		mes "O vovô bêbado te mandou, é isso?";
+		mes "É achei que fosse isso mesmo.";
+		mes "Vamos lá, o que quer saber?";
+		next;
+		switch (select ("Sobre a Ilha das Tartarugas...:Como chego na Ilha?:Nada, estou bem, obrigado."))
+		{
+			case 1:
+				mes "[Gotanblue]";
+				mes "Ok. Ilha das Tartarugas...";
+				mes "Pode parecer um bom lugar pra se visitar, hein?!";
+				mes "Ótimo até.";
+				mes "Bem, você é apenas uma criança, por isso vou deixar passar...";
+				mes "Esse 'ótimo' lugar levou a vida dos meus amigos.";
+				mes "Foi há muito tempo atrás.";
+				next;
+				mes "[Gotanblue]";
+				mes "Se você falou com o 'vovô', provavelmente já sabe alguma coisa sobre o que aconteceu.";
+				mes "Mas não sabe de tudo.";
+				mes "A Ilha das Tartarugas... Bem, há algumas décadas atrás houve uma expedição que partiu em busca dela.";
+				mes "Você certamente já ouviu falar de ^3355FFJonadan Niliria^000000 e sua 'tripulação de dez valentes homens', certo?";
+				mes "Bem, eu era um deles.";
+				mes "Portanto escute com atenção.";
+				next;
+				mes "[Gotanblue]";
+				mes "Saímos de Alberta hámuito tempo atrás em busca dessa Ilha.";
+				mes "Nem sabíamos se ela existia ou não, essa era a verdade. Ela podia ser apenas uma lenda.";
+				mes "Mas o capitão tinha um palpite, ele tinha sonhos com ela, visões.";
+				mes "E um homem do mar confia em palpites... e nós sempre confiamos no capitão.";
+				mes "Portanto, mesmo sem perspectivas de quando, como ou onde achar a ilha...bem, quando saímos...";
+				mes "Estávamos todos cheios de esperança. Nós sabíamos que um dia a Ilha das Tartarugas estaria à nossa frente.";
+				next;
+				mes "[Gotanblue]";
+				mes "Como eu disse, Jonadan Niliria, nosso capitão, era um homem que inspirava confiança";
+				mes "Ele era um grande caçador de tesouros, além de um grande guerreiro também...";
+				mes "Nossa tripulação, portanto, não era uma qualquer. Cada um de nós era o melhor no que fazia.";
+				mes "Jonadan reuniu os melhores homens do mar de todo o reino nessa empreitada.";
+				mes "No que eu era o melhor?";
+				mes "Em velejar.";
+				next;
+				mes "[Gotanblue]";
+				mes "Era verão naquele ano e eu era apenas um garoto.";
+				mes "Vinte anos apenas nas costas, mas já tinha viajado muito pelo mundo, conhecia mapas com a palma da minha mão.";
+				mes "E Jonadan um dia apareceu no porto de Izlude onde meu barco estava ancorado...";
+				mes "E disse que precisava de mim. Hehehe... Eu tenho que admitir, ele sabia das coisas, eu era realmente um bom velejador.";
+				mes "Ele disse que se sentiria honrado de me ter na tripulação...";
+				mes "Mas é claro que a honra era toda minha... Todos já haviam ouvido falar dele. Eu aceitei a oferta e me juntei à expedição.";
+				next;
+				mes "[Gotanblue]";
+				mes "E como disse, saímos de Alberta um belo dia, após toda a equipe estar reunida, todos os preparativos feitos.";
+				mes "Por quê sair daqui?";
+				mes "Não sabíamos muito sobre a ilha, apenas uma coisa:";
+				mes "A Ilha das Tartarugas fica em algum ponto do mar de Alberta. Não que isso simplifique muito as coisas, não sabiamos aonde.";
+				mes "E mesmo para mim, uma ilha num oceano é sempre algo difícil de ser encontrado.";
+				mes "Nós navegamos durante muito tempo, anos eu arrisco dizer. Coletávamos pistas em ilhotas e antigas ruínas, galeões afundados...";
+				next;
+				mes "[Gotanblue]";
+				mes "E seguíamos. Progredíamos pouco a pouco, havia esperança...";
+				mes "Um dos mapas que achamos indicava uma grande mancha num dos pontos mais distantes da costa de Alberta.";
+				mes "Eu tive um palpite. E o capitão confiou em mim.";
+				mes "No dia seguinte rumávamos para aquele ponto no estranho mapa, para a mancha.";
+				mes "E após algumas semanas chegamos no local exato...";
+				mes "O que havia lá?";
+				next;
+				mes "[Gotanblue]";
+				mes "O mais espesso nevoeiro que eu vi em toda a minha vida.";
+				mes "Era uma névoa ruim, como se viva... Uma espécie de barreira.";
+				mes "O barco estava à deriva ali, não havia como navegar e não ousávamos levantar as velas.";
+				mes "Algum tempo passou... A tensão cresciade forma sobrenatural...";
+				mes "Até que cada um de nós sentiu um arrepio na espinha.";
+				mes "Algo ruim estava pra acontecer.";
+				next;
+				mes "[Gotanblue]";
+				mes "Um instante depois, o maior estrondo que eu já ouvi soou no meio da névoa!";
+				mes "A viga mestra do navio veio abaixo levando o primeiro imediato para o fundo do mar!";
+				mes "Um recife tinha se chocado conosco! O barco estraçalhava-se contra as pedras...";
+				mes "E estávamos exaustos pela ação daquela estranha névoa.";
+				mes "Não havia como ver o que estava acontecendo. Senti a morte beijando meu rosto.";
+				mes ".....";
+				next;
+				mes "[Gotanblue]";
+				mes "Mas ainda não era a minha hora, e nem a da maioria de nós. Mais um dos nossos companheiros tinha morrido.";
+				mes "Mas qual não foi a surpresa que tivemos ao ver o nevoeiro se dissipar...";
+				mes "E revelar que estávamos diante da Ilha das Tartarugas!";
+				mes "^3355FFA Ilha das Tartarugas^000000!";
+				mes "O sonho de cada marujo e capitão que já partiu pelos mares de Midgard.";
+				mes "E era real.";
+				next;
+				mes "[Gotanblue]";
+				mes "No meio de nossa fadiga, no entanto, ela ainda parecia mais sonho que realidade, tenho que admitir.";
+				mes "Ao cairmos na praia, estávamos exaustos demais para nos mover, e ali adormecemos.";
+				mes "E no dia seguinte, começamos a explorar.";
+				mes "Alguns ficavam na praia, recolhendo os destroços do navio, tentando achar suprimentos, mas eu ia explorar com o capitão.";
+				mes "E não demorou muito pra que descobríssemos algo espantoso!";
+				mes "*Cof* *COf* Só um segundo... Estou com um pouco de gripe.";
+				next;
+				mes "[Gotanblue]";
+				mes "Calma! Eu já conto o que era tão espantoso!";
+				mes "Fato é que... já havia alguém ali antes de nós.";
+				mes "Um homem, ele já havia conquistado a Ilha das Tartarugas.";
+				mes "Seu diário estava espalhado por alguns locais da ilha.";
+				mes "Ele havia chegado àli alguns anos antes...";
+				mes "Um viajante solitário numa pequena jangada.";
+				next;
+				mes "[Gotanblue]";
+				mes "Dá pra acreditar nisso? Ele simplesmente chegou lá sozinho.";
+				mes "E sozinho explorou a ilha e deixou aquele diário ali.";
+				mes "No entanto não haviam tantos anos desde a última nota nele...";
+				mes "Nós tentamos achá-lo, procuramos por outros sinais.";
+				mes "Mas sem sucesso.";
+				mes "Estranho não?";
+				next;
+				mes "[Gotanblue]";
+				mes "Bem, isso não mudou muito nosso jeito de pensar.";
+				mes "Podíamos não ser os primeiros, verdade.";
+				mes "Mas o simples fato de termos rompido a barreira, de termos chegado lá vivos...";
+				mes "Era uma grande vitória, certamente teríamos nossos nomes gravados na história de Rune-Midgard.";
+				mes "Pois é...";
+				mes "Deixe-me fazer uma pausa... Cansa falar tanto assim, sabia?";
+				next;
+				mes "[Gotanblue]";
+				mes "Hehheeh... Bem, a verdade é que tinhamos a Ilha das Tartarugas inteira para nós!";
+				mes "Primeiros ou não a chegar, ela era nossa então.";
+				mes "Então começamos a aproveitá-la.";
+				mes "Afinal, haviam muitos tesouros e coisas maravilhosas a serem descobertas ali...";
+				mes "E não tínhamos medo de nada, eramos homens destemidos, as criaturas de lá, que hoje metem medo nos incautos, não eram páreo pra nossa força.";
+				mes "O tempo foi passando...";
+				next;
+				mes "[Gotanblue]";
+				mes "Descobrimos pouco a pouco os segredos da ilha.";
+				mes "Havia tesouros, sim claro. Guardados por feras monolíticas, que te engoliriam numa bocada!";
+				mes "Havia maravilhas e espécies de animais e plantas desconhecidas em outras partes do mundo.";
+				mes "Mas os escritos do antigo morador indicavam mais alguma coisa.";
+				mes "Ele não era muito claro...";
+				mes "Mas havia uma menção a *cOf!* *coF!* Perdão. Heheh.";
+				next;
+				mes "[Gotanblue]";
+				mes "Uma menção a um ^3355FFcerto fragmento de jóia^000000.";
+				mes "Evidentemente havia algo de interesse nisso.";
+				mes "Logo, decidimos que esse tal fragmento merecia nossa atenção.";
+				mes "O sujeito que escreveu o diário...";
+				mes "Seu nome era ^3355FF`One'^000000, estranho não?";
+				mes "Bem, One era um grande lutador, expert em artes marciais e na espada...";
+				next;
+				mes "[Gotanblue]";
+				mes "Ele vagava pela Ilha treinando suas habilidades em combates solitários contra hordas de criaturas.";
+				mes "Ao que parece era o seu interesse ali, aprimorar-se nas artes da espada.";
+				mes "E um dia, ele encontrou esta tal jóia por acidente.";
+				mes "O manuscrito que ele escreveu e deixou na ilha dizia claramente sua impressão:";
+				mes " 'A jóia... é não só o mais valioso...'";
+				mes " 'Como o mais impressionante artefato do mundo.'";
+				next;
+				mes "[Gotanblue]";
+				mes "Impressioannte, não?";
+				mes "Nossa missão mostrou-se clara daí:";
+				mes "Encontrar aquele tesouro, que One tinha escondido eem algum lugar da ilha.";
+				mes "Era o maior de todos os tesouros afinal de contas, parecia justo que o reclamássemos, afinal, tinhamos a Ilha era 'nossa' agora.";
+				mes "Mês a mês, procuramos...";
+				mes "E vez ou outra obtivemos sucesso na busca.";
+				next;
+				mes "[Gotanblue]";
+				mes "Haviam algumas pistas, mecanismos secretos e mensagens deixadas pelo explorador desaparecido.";
+				mes "Mas nunca fomos capazes de achá-la. As pistas sumiram, um beco sem saída.";
+				mes "Uma fraqueza nos tomou, estávamos tão perto de nosso objetivo e falhamos. Hoje sinto que aquela pedra...";
+				mes "Não podia ser achada, One talvez a tivesse levado junto com ele quando partiu... Se é que partiu...";
+				mes "Enfim...";
+				mes "O que ocorreu depois foi que deixamos a ilha. Subimos no navio e partimos, parecia não haver outra coisa a fazer.";
+				next;
+				mes "[Gotanblue]";
+				mes "Como é? Sim, o navio tinha sido reconstruído, é claro. Você acha que não tínhamos pensado em como sair de lá?";
+				mes "Bem... Na saída da Ilha encontramos o mesmo nevoeiro.";
+				mes "E tenho que admitir... tivemos sorte na primeira vez em que passamos por ele.";
+				mes "Esta névoa era ainda mais espessa e pegajosa do que a outra, úmida e pesada, entrando em todos os poros do seu corpo.";
+				mes "Ficamos presos dentro do nevoeiro por mais de um mês.";
+				mes "Não, não estou mentindo. Simplesmente não havia como sair de lá, mesmo para um navegador experiente como eu.";
+				next;
+				mes "[Gotanblue]";
+				mes "Mas eventualmente, movendo-nos lentamente ao gosto do pouco vento que soprava, que num nevoeiro é praticamente uma brisa...";
+				mes "...saímos da névoa.";
+				mes "E para nossa surpresa, que esperávamos ver o alto mar à nossa frente...";
+				mes "Vimos terra firme.";
+				mes "E... nos desesperamos.";
+				mes "Era a Ilha das Tartarugas";
+				next;
+				mes "[Gotanblue]";
+				mes "Novamente.";
+				mes "'O nevoeiro é uma barreira', eu lembro de pensar. 'Nunca mais sairemos daqui'.";
+				mes "O fato é que tinhamos circundado a ilha.";
+				mes "Estávamos do lado oposto ao que pelo qual tinhamos partido.";
+				mes "Sim, era um fato inexplicável, eu tinha certeza que, mesmo no nevoeiro, mantínhamos o curso certo, pois seguia minha bússola.";
+				mes "Mas não. O nevoeiro nos trouxe de volta.";
+				next;
+				mes "[Gotanblue]";
+				mes "Um mês gasto no mar, vivendo de poucas provisões...";
+				mes "Era frustrante.";
+				mes "Mesmo assim engoli meu orgulho e admiti que o erro podia ser meu.";
+				mes "Tirei aquela superstição inútil sobre o nevoeiro da minha cabeça e segui as ordens do capitão de estabelecer um novo curso pra fora da Ilha.";
+				mes "E partimos de novo, certos de que haveria uma maneira de driblar a névoa e partir.";
+				mes "Mas não era simples superstição. Não havia como sair.";
+				next;
+				mes "[Gotanblue]";
+				mes "Mesmo homens como nós se desesperam.";
+				mes "E após diversas tentativas, rotas e maneiras...";
+				mes "E mês após mês, saída após saída, retornando ao ponto de partida...";
+				mes "Nós entramos em desespero.";
+				mes "Pensávamos estar amaldiçoados, presos para sempre por cordas que não conseguíamos ver...";
+				mes "Ou melhor, por um maldito nevoeiro!";
+				next;
+				mes "[Gotanblue]";
+				mes "O desespero deu lugar à loucura no coração de alguns.";
+				mes "Um a um nossos companheiros sucumbiram.";
+				mes "Os que não morriam no mar, de exaustão pela ação do nevoeiro...";
+				mes "Cortavam as próprias gargantas ou se atiravam do convés, roubados de toda a esperança que tinham.";
+				mes "Os mais valentes homens que conheci, destruídos pela Ilha das Tartarugas.";
+				mes "Não é nenhum conto de fadas eu sei.";
+				next;
+				mes "[Gotanblue]";
+				mes "E, no final...";
+				mes "Apenas eu e o capitão, Jonadan Niliria sobrevivemos.";
+				mes "Permanecemos na Ilha por mais um mês desde a última tentativa de fuga.";
+				mes "Uma olhada nos olhos de Jonadan e eu sabia que sairíamos dali, custasse o que custasse.";
+				mes "Subimos no navio e ele simplesmente sentou-se sobre o tombadilho.";
+				mes "Como num transe, ele entoou um canto antigo, uma fala de runas esquecidas.";
+				next;
+				mes "[Gotanblue]";
+				mes "Eu sentia cada um de meus companheiros mortos ao meu lado.";
+				mes "E começamos a nos mover, como se um grande vento carregasse o navio, mas não ventava. Não havia nada.";
+				mes "E o nevoeiro ficou pra trás. E escapamos da ilha. O capitão nunca me disse como fez aquilo.";
+				mes "Se é que fez. Penso que foram os espíritos de nossos companheiros que acordados por aquele canto nos salvaram do mesmo destino.";
+				mes "Mas é só o que eu sinto... O fato é que chegamos em Alberta após duas semanas no mar.";
+				mes "Derrotados pela Ilha das Tartarugas.";
+				next;
+				mes "[Gotanblue]";
+				mes "Existe um homem que pode lhe falar mais sobre a Ilha, se o que você escutou hoje não lhe basta pra tomar a decisão certa.";
+				mes "Um pouco mais ao sul daqui.";
+				mes "Ele estuda sobre o assunto há muito tempo.";
+				mes "Tente falar com ele.";
+				mes "Por favor, não tome por tolices tudo o que eu lhe disse. Faça a escolha certa e esqueça a Ilha das Tartarugas.";
+				mes "É a coisa mais sensata a fazer.";
+				close;
+				
+			case 2:
+				mes "[Gotanblue]";
+				mes "Após tudo o que eu lhe contei... Você ainda quer saber como chegar lá?";
+				mes "Existe um meio. Eu posso te levar, mas pelo preço certo.";
+				mes "Eu não faço isso pelo dinheiro, essa é a verdade... Eu ainda espero uma explicação para os mistérios da Ilha.";
+				mes "Estou preso a ela, mesmo não estando mais lá. Hehehe. Por isso sou compelido a voltar, e levo passageiros se estes desejarem.";
+				mes "Então, peço àqueles corajosos o bastante pra seguir viagem comigo que me ajudem nas despesas.";
+				mes "São 10000 zeny pela passagem. Sim, é caro, um preço alto por algo que você pode não querer. E então?";
+				next;
+				if (select ("Ilha das Tartarugas. Eu pago os 10000 zeny.:Pensando bem...") == 1)
+				{
+					if (Zeny > 9999)
+					{
+						mes "[Gotanblue]";
+						mes "Muito bem, admiro sua coragem...";
+						mes "Espero que seja coragem, e não ignorância.";
+						mes "Mas você escutou minha história com paciência, estou certo que prestou atenção e sabe as consequências de seus atos.";
+						mes "Ok! Não há tempo a perder então!";
+						mes "Partimos agora mesmo, suba a bordo e vamos zarpar.";
+						mes "-E que os bons deuses estejam conosco...-";
+						next;
+						mes "^3355FF- Você e Gotanblue -^000000";
+						mes "^3355FF- Sobem à bordo de seu pequeno barco à vapor -^000000";
+						mes "^3355FF- E partem rumo ao Leste, para além das fronteiras marítimas de Alberta...-^000000";
+						next;
+						mes "^3355FF- 'Rumo à Ilha das Tartarugas!' diz ele -^000000";
+						mes "^3355FF- 'Tarde demais para desistir.' -^000000";
+						mes "^3355FF- 'Vamos em frente, e sem medo!' ele completa, e sua voz parece tremer um pouco. -^000000";
+						next;
+						mes "^3355FF- Choooooooo! Choooooo! -^000000";
+						set Zeny, Zeny - 10000;
+						warp "tur_dun01", 157, 39;
+						close;
+					}
+					mes "[Gotanblue]";
+					mes "Bom, tome isso como um bom presságio:";
+					mes "Você não tem dinheiro suficiente para ir comigo até a ilha...";
+					mes "Minha sugestão é: fique aqui e tenha uma boa vida.";
+					mes "Mas...";
+					mes "Se quiser mesmo, volte com os 10000 zeny e verei o que posso fazer por você.";
+					mes "Mas nem ouse me agradecer. Não estou fazendo bem algum te ajudando a chegar lá.";
+					close;
+				}
+				mes "[Gotanblue]";
+				mes "Muito bem!";
+				mes "A Ilha das Tartarugas está melhor aonde está.";
+				mes "Lugares como aquele não precisam de mais almas pra assombrar.";
+				mes "Eu não posso evitar de fazer o que eu faço, admito que ainda me sinto atraído pela ilha...";
+				mes "Não gosto da sensação de estar levando as pessoas ao encontro da morte...";
+				mes "Mas a escolha é delas... Acredite, você fez a certa.";
+				close;
+			
+			case 3:
+				mes "[Gotanblue]";
+				mes "A Ilha das Tartarugas é um lugar misterioso.";
+				mes "Difícil de achar, e mais difícil de alcançar.";
+				mes "E tenho que dizer...";
+				mes "A possibilidade de volta é nula, já vi guerreiros mais valentes que você serem levados à morte lá.";
+				mes "Não é um bom lugar, eu garanto.";
+				mes "Por isso, estou lhe avisando...";
+				next;
+				mes "[Gotanblue]";
+				mes "Pra que mantenha-se fora de encrencas, dessa maldição.";
+				mes "Não estou brincando... Se você soubesse as coisas que eu vi...";
+				mes "É até melhor que nem queira saber.";
+				mes "Esqueça isso e vá encontrar um lugar melhor pra explorar.";
+				close;
+		}
+	}
+	mes "[Gotanblue]";
+	mes "Um bom marinheiro sabe ficar do lado de seus companheiros.";
+	mes "Não importa o que aconteça, um homem do mar sabe que eles são seus irmãos.";
+	mes "É algo que apenas quem já viveu muito tempo longe da terra firme sabe sentir...";
+	mes "É como ir para a guerra, você aprende a confiar sua vida ao seu amigo...";
+	mes "É uma outra maneira de ver o mundo, eu lhe garanto.";
+	mes "*Cof cof*";
+	next;
+	mes "[Gotanblue]";
+	mes "Esse mar sem fim...";
+	mes "Quanto tempo não gastei nele? Um berço imenso de água, de verdes e azuis...";
+	mes "Um homem do mar não tem um lugar pra chamar de lar...";
+	mes "Apenas o mar.";
+	mes "Em breve estarei em casa de novo. Hehehehe...";
+	close;
+}
+
+tur_dun01,165,29,4	script	Barqueiro#tur1	709,{
+	
+    mes "[Gotanblue]";
+	mes "Bom, quer voltar para Alberta?";
+	mes "Quer dizer, se conseguirmos...";
+	next;
+	if (select ("Vamos voltar.:Acho que vou arrriscar ficar mais um pouco.") == 1)
+	{
+		mes "^3355FF- Você e Gotanblue -^000000";
+		mes "^3355FF- Sobem à bordo de seu pequeno barco à vapor -^000000";
+		mes "^3355FF- Você pode ver o nevoeiro cobrindo a costa da Ilha-^000000";
+		next;
+		mes "^3355FF- 'Bom, lá vamos nós' diz ele -^000000";
+		mes "^3355FF- 'Próxima parada Alberta' -^000000";
+		mes "^3355FF- 'Espero que meus velhos amigos nos ajudem na viagem' ele completa num sussurro e aperta o timão com força. -^000000";
+		next;
+		mes "^3355FF- Chooooooo! Chooooooo! -^000000";
+		warp "alberta", 241, 115;
+	}
+	close;
+}
+
+alberta,248,89,4	script	Pesquisador	121,{
+	
+	mes "[Pesquisador]";
+	mes "Eu acho que as coisas não são mais as mesmas...";
+	mes "A terra parece diferente...";
+	mes "E às vezes o céu também não parece o mesmo.";
+	mes "É como se alguma coisa houvesse mudado, mas não no céu ou na terra.";
+	mes "Sim, foi em mim...";
+	mes "Olá, jovem.";
+	next;
+	switch (select ("Conte-me alguma coisa sobre a Ilha das Tartarugas.:Você parece meio confuso, vovô.:Hã... Eu volto outra hora..."))
+	{
+		case 1:
+			mes "[Pesquisador]";
+			mes "Ilha das Tartarugas.";
+			mes "Um pedaço de terra cercado de água por todos os lados.";
+			mes "Nada muito interessante. Chamam-na de Tartaruga apenas pela semelhança de forma e topografia.";
+			mes "Veja num mapa, é muito simples. Aqui está.";
+			mes "Tem a forma de uma tartaruga, inclusive nos morros que se assemelham ao casco, vê?";
+			mes "Um nome óbvio, eu sei, não estou falando nada de novo.";
+			next;
+			mes "[Pesquisador]";
+			mes "Eu posso te contar uma ou outra coisa a respeito da expedição de Jonadan Niliria à ilha.";
+			mes "A verdade é que ele, antes de morrer, narrou os acontecimentos para mim.";
+			mes "Sim, ele morreu há algum tempo... o velho Gotanblue não lhe disse isso?";
+			mes "Jonadan Niliria é só um fantasma do passado agora.";
+			mes "Bem, você deve saber alguma coisa a respeito do início da viagem.";
+			mes "A expedição contava com grandes homens, os melhores no que faziam.";
+			next;
+			mes "[Pesquisador]";
+			mes "Eles passaram muito tempo no mar à procura da Ilha, não tanto quanto uns e outros dizem, mas alguns meses, sim.";
+			mes "A Ilha das Tartarugas era um desafio que Niliria queria vencer a qualquer custo. Ele era jovem então, e pensava menos nas riquezas do que em provar a si mesmo que era capaz de achá-la.";
+			mes "Não acredite tanto nas lendas, é verdade que muito do que ocorreu é inexplicável, mas nenhum daqueles homens era invencível, especialmente Jonadan.";
+			mes "Nenhum deles era um Deus, nenhum deles era nada além de um bom ser humano. Homens de grande coragem e corações bravios, mas nem isso foi de grande valia.";
+			mes "A Ilha cobrou seu preço no final de tudo, como você deve saber.";
+			mes "Tem a ver com a névoa, segundo dizem alguns, mas não acho que seja verdade...";
+			next;
+			mes "[Pesquisador]";
+			mes "O estranho nevoeiro que circundava a Ilha das Tartarugas e que os deteve, tanto na ida quanto na volta...";
+			mes "A fonte dele, antes de sobrenatural ou mágica, se localiza numa caverna junto à costa, onde dentro existe uma enorme queda d'água.";
+			mes "A força da água que cai cria a névoa, que se espalha pela costa da Ilha e détem os navegantes.";
+			mes "Nada tão excitante quanto uma estranha névoa amaldiçoada, não é?";
+			mes "Apenas um estranho fenômeno natural...(silêncio)";
+			next;
+			mes "[Jonadan Niliria]";
+			mes "(Exaltado) As pessoas tentam criar lendas... criar contos de fadas de pessoas extraordinárias...";
+			mes "Quando na verdade eram apenas homens, tentando fugir de um estúpido nevoeiro!";
+			mes "Nada do que dizem os outros é verdade, não existem feitos corajosos, nem cantos místicos que libertam o herói!";
+			mes "Porque não existe tal herói.";
+			mes "É a única coisa em que eu posso crer. Eu não me lembro com certeza...";
+			mes "Sei que cada um de meus companheiros, com exceção de Gotanblue, morreu naquela névoa.";
+			mes "E por isso, qualquer sonho que eu tivesse, qualquer desafio é inútil. Nada poderia justificar o que aconteceu.";
+			next;
+			mes "[Jonadan Niliria]";
+			mes "Eu condenei os melhores homens que conheci à morte, essa é a verdade.";
+			mes "E não me importa como eles morreram mais, pra mim hoje aquele nevoeiro era apenas... um estúpido fenêmeno natural, nada mágico, nenhuma maldição.";
+			mes "Uma causa estúpida para mortes estúpidas. E a culpa é toda minha.";
+			mes "Jonadan Niliria morreu assim que escapou daquela ilha.";
+			mes "Estou certo que dizem que eu não descansaria até sair dali... que eu faria de tudo pra vencer.";
+			mes "Mas eu tinha medo. Eu só queria morrer junto com meus companheiros. E eles me salvaram.";
+			next;
+			mes "[Pesquisador]";
+			mes "Por isso, Niliria está morto agora.";
+			mes "Esqueça a lenda, não existem heróis, jovem. Existem fatos, e são eles que eu tento descobrir.";
+			mes "E através dos anos, consegui provar alguns fatos sobre a ilha, destruir o mito.";
+			mes "A verdade é que no fim das contas, a mágica deixa de existir quando você não precisa mais acreditar nela.";
+			mes "Para Gotanblue, ela ainda existe, pois ele crê piamente em maldições e nevoeiros demoníacos.";
+			mes "Mas eu sou um pesquisador agora, seja lá o que aconteceu lá, é tudo mentira.";
+			next;
+			mes "[Pesquisador]";
+			mes "Algumas coisas ainda me intrigam na verdade...Isso eu tenho que admitir.";
+			mes "Nunca consegui descobrir o paradeiro do último fragmento da jóia... Não me entenda mal...";
+			mes "Eu ainda estou pesquisando, é só uma questão de tempo até que eu jogue alguma luz sobre mais essa 'lenda'.";
+			mes "A única coisa que eu preciso provar agora é a futilidade dos meus erros.";
+			mes "É o meio que achei de espiar minhas falhas... Pense o que quiser.";
+			mes "Agora por favor, me deixe sozinho com meus afazeres.";
+			close;
+
+		case 2:
+			mes "[Pesquisador]";
+			mes "Hehee...Sim, talvez eu esteja.";
+			mes "Me desculpe, eu tendo a ficar perdido em relação ao mundo às vezes...";
+			mes "Meus estudos me fazem um homem um tanto solitário, mas fique à vontade para perguntar o que quiser.";
+			mes "Eu tenho alguns fatos importantes para contar sobre a Ilha das Tartarugas se quiser ouví-los.";
+			mes "A escolha é sua, eu me satisfaço em ajudar àqueles que se interessam pela sua história.";
+			close;
+			
+		case 3:
+			mes "[Pesquisador]";
+			mes "Eu acho que a procura da verdade...";
+			mes "É a única busca que se justifica.";
+			mes "É o que eu dedico minha vida a fazer.";
+			mes "....";
+			next;
+			mes "[Pesquisador]";
+			mes "Nada mais tem feito sentido na minha cabeça agora... Sinto que envelheci demais, perdi coisas demais.";
+			mes "Eu pesquiso pra encontrar ordem nas coisas.";
+			mes "A Ilha das Tartarugas...ela não é surreal, não é amaldiçoada.";
+			mes "Ela simplesmente não foi dissecada, aberta numa mesa de operações e explicada.";
+			mes "Eu sou a única pessoa que parece ver isso, e portanto esse é meu trabalho.";
+			mes "É o mínimo que posso fazer.";
+			close;
+	}
+}
+
+alberta_in,18,102,4	script	Carta	111,{
+	
+	mes "[Carta do explorador]";
+	mes "- O / X / XOVX -";
+	mes "Àquele que ler esta carta,";
+	mes "Saiba que nossa expedição rumo à Ilha das Tartarugas falhou.";
+	mes "Nossos números já estão reduzidos à metade...";
+	mes "E com os perigos da ilha e a escassez de alimentos eu...";
+	mes "Temo que muito em breve estaremos todos mortos.";
+	next;
+	mes "[Carta do explorador]";
+	mes "Espero que essa carta chegue às mãos de alguém...";
+	mes "E que, se um resgate se mostre impossível...";
+	mes "Que, ao menos, ela sirva como um aviso aos que intencionarem nos seguir.";
+	mes "Por favor...";
+	mes "Entenda apenas uma coisa:";
+	mes "A Ilha é amaldiçoada.";
+	next;
+	mes "[Carta retornada]";
+	mes "- V / O / XOVX  -";
+	mes "O pombo correio que usei para enviar a carta anterior voltou essa manhã.";
+	mes "O animal, mesmo ensinado, foi incapaz de deixar a ilha...";
+	mes "Oh, Deus...";
+	mes "Estamos amaldiçoados...";
+	mes "......";
+	next;
+	mes "[Carta retornada]";
+	mes "Maldita ilha!";
+	mes "Não há mais comida aqui! Todas as frutas são venenosas!";
+	mes "Ajude-me!";
+	mes "Ajudem, por favor!";
+	mes "Alguém, por favor, me escute!";
+	mes "E me salve...";
+	next;
+	mes "[Carta amarrotada]";
+	mes "- V / x / XOVX  -";
+	mes "^3355FF- Embora a carta esteja tão destruída que se torne impossível de ler... -^000000";
+	mes "^3355FF- Algumas palavras podem ser definidas: 'ajudem-me' e 'inferno'. A mensagem, logo, está bem clara. -^000000";
+	close;
+}
+
+alberta,248,93,4	script	Diário de Bordo	111,{
+	
+	if (rand(1,2) == 1)
+	{
+		mes "[Diário de Bordo]";
+		mes "= 03:20 am =";
+		mes "A noite está escura demais. A luz da lua é fraca.";
+		mes "É difícil ver a 100 m de distância em qualquer direção.";
+		mes "Estamos ainda cercados pela névoa.";
+		mes "Posso ver o terror no rosto de cada um de meus companheiros...";
+		mes "Todos nós temos sofrido com falta de sono e a fraqueza que esta névoa parece causar.";
+		next;
+		mes "[Diário de Bordo]";
+		mes "É algo sobrenatural...";
+		mes "Nunca vi um nevoeiro durar por tanto tempo e nem ter propriedades como essas.";
+		mes "É difícil medir até o passar dos dias...";
+		mes "E alguma coisa vai acontecer... Estamos todos sentindo isso.";
+		mes "O sol vai nascer em breve...";
+		next;
+		mes "[Diário de Bordo]";
+		mes "= 12:10  =";
+		mes "Por volta das 4:00 da manhã algo realmente aconteceu.";
+		mes "O navio bateu de encontro à um recife e sofreu sérios danos estruturais.";
+		mes "O mastro principal foi arrancado com a força da batida.";
+		mes "O primeiro imediato, Samura, foi esmagado pela queda dele.";
+		mes "Sua cabeça foi...";
+		next;
+		mes "[Diário de Bordo]";
+		mes "O horário estimado da morte é 04:07.";
+		mes "A queda do mastro destruiu também boa parte do deck da embarcação.";
+		mes "Porém, foi o próprio recife que escorou os destroços e evitou que o 'Titania' afundasse.";
+		mes "Exaustos e feridos pela batida, fomos capazes de chegar até a ilha. Sim, chegamos à Ilha das Tartarugas.";
+		mes "Estávamos diante dela o tempo todo... Ela é linda e impressionante, mas ainda não consigo entender o que acabamos de concretizar.";
+		mes "A maioria dos membros da tripulação está desmaiada na areia a meu lado...";
+		next;
+		mes "[Diário de Bordo]";
+		mes "Estou montando guarda, mas sinto-me mais cansado do que jamais estive.";
+		next;
+		mes "[Diário de Bordo]";
+		mes "= 13:45 =";
+		mes "Pedi a três dos homens que me ajudassem a vistoriar o que sobrou do navio.";
+		mes "Os reparos poderão ser feitos logo, só levaremos algum tempo retirando o mastro.";
+		mes "Enquanto estávamos na embarcação, os homens que ficaram em terra foram atacados por um pequeno grupo de monstros e tiveram alguns ferimentos.";
+		mes "Havia algumas criaturas no porão do navio também, que conseguimos matar com alguma dificuldade.";
+		mes "A ilha não parece ser muito amigável.";
+		next;
+		mes "[Diário de Bordo]";
+		mes "Planejo explorar os arredores deste pequeno acampamento improvisado que erguemos na praia.";
+		mes "Estou no entanto, preocupado com a natureza hostil da Ilha das Tartarugas.";
+		mes "Gotanblue virá comigo, de forma a mapear o terreno como puder.";
+		mes "O resto ficará na praia e trabalhando no navio.";
+		mes "É melhor que, mesmo querendo explorar a ilha, possamos ter sempre a opção de escapar dela quando necessário.";
+		mes "Algo que temo, terá que ser feito.";
+		next;
+		mes "[Diário de Bordo]";
+		mes "Estou preocupado com nosso estoque de comida.";
+		mes "A inspeção do 'Titania' mostrou que algo como 70% das provisões afundaram na colisão com o recife.";
+		mes "Evidentemente, existem árvores frutíferas aqui na ilha.";
+		mes "Porém, não sei dizer se elas podem ou não ser venenosas...";
+		mes "A natureza aqui é bem diferente de outros lugares que visitei.";
+		next;
+		mes "[Diário de Bordo]";
+		mes "= 17:23 =";
+		mes "O resto do dia não teve grandes eventualidades.";
+		mes "Estamos tentando manter o acampamento seguro contra os monstros.";
+		mes "Uma tartaruga de cerca de um metro e meio de comprimento nos atacou, e foi preciso do esforço de todos nós para matá-la.";
+		mes "Ela tinha uma estranha corcova com algum tipo de organismo vivo em suas costas.";
+		mes "Estarei montando guarda hoje à noite. Por isso, termino aqui essa parte das anotações.";
+		next;
+		mes "[Diário de Bordo]";
+		mes "- Diário de bordo -";
+		mes "- Capitão Jonadan Niliria -";
+		close;
+	}
+	if (turtle_npc == 1)
+	{
+		mes "^3355FF- O papel do diário está gasto e rasgado.^000000";
+		mes "^3355FF- Em alguns lugares há vestígios de algas e lodo...^000000";
+		mes "^3355FF- Você tenta ler algumas páginas, sem sucesso. -^000000";
+		mes "^3355FF- Está incompreensível. -^000000";
+		mes "^3355FF- É melhor desistir e evitar que ele seja ainda mais danificado.-^000000";
+		next;
+		switch (rand(1,3))
+		{
+			case 1:
+				mes "^3355FF- Virando as páginas do diário-^000000";
+				mes "^3355FF- Você se depara com uma casca de banana cortada marcando uma das passagens. Estranho... -^000000";
+				next;
+				mes "[Diário de Bordo]";
+				mes "= O / x date =";
+				mes "Já faz uma semana que estamos aqui na ilha.";
+				mes "Eu mencionei problemas com o estoque de comida antes...";
+				mes "E bem, eles ficaram piores assim que ele acabou.";
+				mes "O biólogo da expedição, Sawaya, passou este tempo todo tentando determinar a natureza das plantas e espécies daqui.";
+				mes "Existem frutas aqui, como eu já devo ter dito, mas é necessário muita pesquisa para determinar quais são comestíveis. Sem resultados ainda.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "Da mesma maneira, a carne dos animais não parece muito apetitosa também.";
+				mes "Existem vermes aqui que eu certamente preferiria morrer de fome a experimentar. Experimentar de novo, na verdade.";
+				mes "Caçamos um coelho gigante outro dia que serviu para um bom ensopado, embora ele tivesse muito pouca carne.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "= X / X  date =";
+				mes "Sawaya achou uma fruta que parece comestível! Ele não tem absoluta certeza disso, mas aceitamos o risco.";
+				mes "Estamos bastante satisfeitos, elas parecem-se com bananas, e bem, tem gosto de bananas...";
+				mes "Eu diria que são bananas, mas têm uma cor diferente, mais alaranjada.";
+				mes "Ao que parece, são de uma espécie diferente... Não que isso faça muita diferença pra nós, afinal podemos comê-las.";
+				mes "Mas tente explicar isso para um cientista... Ele disse que seria melhor ficarmos longe delas ate ele poder fazer testes melhores...";
+				next;
+				mes "[Diário de Bordo]";
+				mes "= XO / X date =";
+				mes "Bem... as bananas têm suprido bem nossas necessidades, junto com alguma caça.";
+				mes "Temos explorado bastante a ilha nesses últimos dias.";
+				mes "O maior achado é uma série de cavernas e túneis para o norte da ilha.";
+				mes "Dentro deles habitam tipos diferentes de tartarugas...";
+				mes "Encontramos também alguns escritos muito estranhos, que bem, eu estava propositalmente esquecendo de mencionar.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "Ao que parece alguém já esteve aqui antes, um explorador solitário numa pequena balsa...";
+				mes "Ele deixou algumas impressões sobre a ilha e encontramos uma ou duas páginas a respeito... Existe uma menção à uma pedra preciosa de grande valor.";
+				mes "No entanto, as notas não parecem ser muito antigas, e sinto que existem mais delas espalhadas pela ilha.";
+				mes "As páginas que encontramos dizem muito pouco sobre ele, mas algo não me sai da cabeça... Acho que este homem ainda está aqui...";
+				mes "Ele se refere à ilha como seu território... Não acho que ele a deixaria assim sem mais nem menos.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "São dois mistérios que ainda temos de solucionar...";
+				mes "A tal pedra preciosa, e quem é e onde está este homem...";
+				mes "Sinto que ambas as respostas estão nos túneis inferiores das cavernas. Espero achar mais informações à respeito.";
+				mes "Bom, por hora é só.";
+				mes "Está na hora da 'janta' de hoje.";
+				mes "Pois é... Bananas e o que mais o cozinheiro tenha conseguido achar... Coelho, ou vermes ou libélulas gigantes ou tartarugas...";
+				next;
+				mes "[Diário de Bordo]";
+				mes "Pelo menos temos comida...";
+				mes "É melhor reclamar de barriga cheia afinal...";
+				mes "Bom, por hoje é só.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "= O / O date=";
+				mes "No meio da noite de hoje";
+				mes "Um dos marujos apresentou um...";
+				mes "Forte problema estomacal. Ao que parece é diarréia.";
+				mes "O médico da expedição examinou-o e deu esse parecer.";
+				mes "'Certamente é intoxicação alimentar', ele me disse. ";
+				next;
+				mes "[Diário de Bordo]";
+				mes "= OO / O date =";
+				mes "Obviamente apareceram novos casos de intoxicação hoje.";
+				mes "Eu pedi a todos que evitassem comer qualquer coisa antes que determinássemos o que pode ser.";
+				mes "Mesmo o homem com o estômago mais forte, o próprio cozinheiro...";
+				mes "Está começando a apresentar os mesmos problemas.";
+				mes "Estou começando a me preocupar.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "O marujo que primeiro começou a sofrer da diarréia está piorando.";
+				mes "Seu estado está mudando e ele apresenta mais e mais fraqueza.";
+				mes "É incapaz de deixar sua tenda e vomita muito.";
+				mes "O médico disse que não conhece nenhum remédio contra isso, uma vez que não se tarata mais de uma diarréia comum.";
+				mes "Eu cortei todas as reservas de comida da tripulação que provém da ilha.";
+				mes "Estamos nos alimentando de água e dos poucos restos dos mantimentos que trouxemos.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "= XO / O date =";
+				mes "O marujo doente morreu esta manhã.";
+				mes "Ele passou a note inteira em estado de dor extrema e não houve o que o médico pudesse fazer.";
+				mes "E conseguimos descobrir a causa disso.";
+				mes "As malditas bananas.";
+				mes "Estou arrependido de ter duvidado de Sawaya, ele tinha razão em duvidar das frutas.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "Foi completa idiotice da minha parte.";
+				mes "Uma simples observação da nossa parte mostrou que nenhum dos animais as come.";
+				mes "Começo a duvidar de minha capacidade de liderar esta expedição.";
+				mes "Isso já custou a vida de dois de meus homens e temo que possa custar mais.";
+				mes "Maldição.";
+				mes "Maldita ilha.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "= OX / O date =";
+				mes "As frutas foram tiradas de nosso menu, mas o médico e Sawaya têm feito algumas pesquisas.";
+				mes "Ao que parece a casca dela tem algumas propriedades curativas.";
+				mes "Um pequeno preparado provou ser eficaz contra a doença nos seus estágios iniciais.";
+				mes "Estou bastante satisfeito com isso.";
+				mes "Após todo o esforço que tivemos em chegar aqui...";
+				next;
+				mes "[Diário de Bordo]";
+				mes "Seria a maior das frustrações sermos levados por uma fruta estúpida.";
+				mes "Espero qe não exista mais nenhuma contra-indicação...";
+				mes "Estou com medo que o remédio também apresente problemas.";
+				mes "Bem, de qualquer maneira, guardei algumas frutas num lugar seguro.";
+				mes "Na verdade, foi por pedido de Sawaya.";
+				mes "Ele disse que podemos encontrar algum outro uso pra ela quando voltarmos pra Alberta.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "Sinceramente, eu e os outros queríamos queimar todo o nosso estoque...";
+				mes "Mas caso alguém mais venha a sofrer de envenenamento, pelo menos teremos algumas à disposição.";
+				mes "Essa experiência toda me mostrou que preciso dar mais atenção aos conselhos alheios.";
+				mes "Foi meu erro que matou o marujo de envenenamento.";
+				mes "É melhor que eu aprenda a cuidar melhor de nossa expedição daqui pra frente.";
+				mes "....";
+				next;
+				mes "[Diário de Bordo]";
+				mes "É melhor deixar alguma indicação para o esconderijo das bananas...";
+				mes "Caso eu venha a me esquecer.";
+				mes "^FF3355- tur_dun01 -^000000";
+				mes "^FF3355- X : 160 . Y : 81 -^000000";
+				next;
+				mes "^3355FF- Marcando esta página do diário está uma pequena chave. -^000000";
+				mes "^3355FF- Um exame mais próximo mostra que existe uma pequena caveira entalhada nela. -^000000";
+				mes "";
+				mes "^3355FF- Você obteve uma-^000000";
+				mes "^3355FF- Chave de Caveira -^000000";
+				set turtle_npc, 2;
+				close;
+					
+			case 2:
+				mes "^3355FF- Em uma das páginas há a marca da pegada de um passáro.-^000000";
+				mes "^3355FF- Parece ser na verdade uma espécie de selo ou brasão... -^000000";
+				mes "^3355FF- Pois as cores não são naturais.-^000000";
+				next;
+				mes "[Diário de Bordo]";
+				mes "= X / OO date =";
+				mes "Acho que mencionei anteriormente algumas páginas que achamos nos primeiros dias na ilha.";
+				mes "Esta manhã achamos mais uma delas.";
+				mes "Meu orgulho tinha me impedido de dar mais atenção a isso...";
+				mes "Afinal, termos encontrado registros de outras pessoas significa que não fomos os primeiros";
+				mes "A chegar à Ilha das Tartarugas.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "As páginas que achamos forma escritas por um homem que diz ter chegado aqui sozinho, à bordo de uma pequena jangada.";
+				mes "Ao que parece, também isso não faz muito tempo... Algumas das datas eram de cinco anos atrás.";
+				mes "A página achada hoje não adicionou muita informação ao que já sabiamos.";
+				mes "Nela estão descritas algumas técnicas de manejo de espada - bastante elaboradas, aliás- e há uma menção à um tesouro escondido.";
+				mes "Acredito que seja uma referência à tal jóia de que ele falou...";
+				mes "Decidi concentrar nossos esforços em buscar mais pistas deste homem.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "Ja é hora de descobrirmos o que a ilha esconde.";
+				mes "Reunirei um grupo para vasculhá-la amanhã.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "= O / OO date =";
+				mes "Estamos com dificuldades de achar mais pistas.";
+				mes "A expedição de hoje foi bastante infrutífera.";
+				mes "Procuramos por toda a costa, mas ao que parece ele não deixou grandes vestígios nesta parte da ilha.";
+				mes "Os ataques sucessivos de animais durante o dia...";
+				mes "Realmente causaram danos ao nosso grupo de busca. Gotanblue foi ferido no braço.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "No entanto...";
+				mes "Acredito que não há de fato mais sinais a serem encontrados na superfície.";
+				mes "É hora de voltarmos às cavernas e descobrir o que há nos níveis mais baixos.";
+				mes "Espero que as coisas não saiam do controle.";
+				mes "Estou preocupado que seja lá qual for o paredeiro deste homem, ou o destino que ele teve...";
+				mes "Que eu possa estar nos levando para ele também...";
+				next;
+				mes "[Diário de Bordo]";
+				mes "= XO / OO date =";
+				mes "Boas notícias!";
+				mes "Fizemos a maior das descobertas desde que chegamos à Ilha.";
+				mes "Vasculhando os níveis subterrâneos da ilha, conseguimos encontrar o diário do antigo 'habitante'.";
+				mes "E agora, posso finalmente melhor a história por trás dele.";
+				mes "Ao que parece...";
+				next;
+				mes "[Diário de Bordo]";
+				mes "Seu nome era 'One'.";
+				mes "Ele foi um espadachim de grande técnica e perícia.";
+				mes "Ele era famoso em Alberta, ouvi dizer que ele era capaz de matar uma horda de monstros e sequer suar.";
+				mes "Ao que parece ele veio até a ilha em busca de novos desafios para suas habilidades.";
+				mes "E partiu, simplesmente subindo numa jangada e remando na direção da ilha.";
+				mes "Como ele sabia o caminho eu não sei dizer ainda...";
+				next;
+				mes "[Diário de Bordo]";
+				mes "O diário que encontramos parece ter sido feito do couro de algum animal da ilha.";
+				mes "Certamente ele pensou em deixá-lo como recordação...";
+				mes "Ele não sofreu danos e parece capaz de durar por mais um bom tempo.";
+				mes "Ele descreveu boa parte da topografia e dos animais da ilha...";
+				mes "E há mais detalhes sobre o tesouro...";
+				next;
+				mes "[Diário de Bordo]";
+				mes "De acordo com o diário de One...";
+				mes "A ilha tem 4 níveis subterrâneos.";
+				mes "E não há qualquer vestígio de presença humana.";
+				mes "No entanto, ele foi capaz de encontrar nesses níveis das cavernas...";
+				mes "Uma variedade de perigos e armadilhas movidos à alguma estranha força natural.";
+				mes "O que pode indicar que houve sim uma sociedade racional aqui antes.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "Há estranhos cristais que lembram as pedras do Emperium, pelo que pudermos ver...";
+				mes "Me pergunto se é esta a tal jóia que ele se referiu, mas duvido.";
+				mes "Esta passagem mostra uma desconfiança dele:";
+				mes "'Há uma presença estranha na Ilha das Tartarugas...";
+				mes "'Como se houvesse...";
+				mes "'Alguém ou algo a controlando.'";
+				next;
+				mes "[Diário de Bordo]";
+				mes "Após lermos e relermos as anotações...";
+				mes "Decidimos que seria melhor mantê-las na ilha, escondidas.";
+				mes "No caso que alguma coisa aconteça a nós...";
+				mes "O valor inestimável delas não será perdido.";
+				mes "Deixarei indicações aqui.";
+				next;
+				mes "- Na última página deste relato -";
+				mes "- Há uma nota que diz -";
+				mes "- Na grafia do capitão: -";
+				mes "^3355FF- tur_dun02 -^000000";
+				mes "^3355FF- X : 132 . Y : 251 -^000000";
+				mes "^3355FF- Sob as raízes da árvore-^000000";
+				next;
+				mes "^3355FF- Há uma pequena chave -^000000";
+				mes "^3355FF- Engravada com o signo destas raízes. -^000000";
+				mes "";
+				mes "^3355FF- Você obteve a -^000000";
+				mes "^3355FF- Chave das Raízes -^000000";
+				set turtle_npc, 3;
+				close;
+					
+			case 3:
+				mes "^3355FF- As páginas a seguir estão marcadas por manchas de lama. -^000000";
+				mes "^3355FF- Olhando com cuidado... -^000000";
+				mes "^3355FF- Você percebe que uma delas foi arrancada com desleixo. -^000000";
+				mes "^3355FF- Você começa a ler, tentando entender as palavras em meio à sujeira. -^000000";
+				next;
+				mes "[Diário de Bordo]";
+				mes "= O / XX date =";
+				mes "O tesouro de que One falava... A jóia... ";
+				mes "Estivemos procurando por ela nas últimas semanas e...";
+				mes "Falhamos.";
+				mes "Ela está oculto em algum lugar desta ilha...";
+				mes "Mas não fomos capazes de encontrá-la.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "Estou decepcionado com meus própros esforços...";
+				mes "E com a minha capacidade de organizar as buscas e a tripulação.";
+				mes "E por isso tomei a decisão de deixarmos a Ilha das Tartarugas.";
+				mes "Sim, a verdade é que...";
+				mes "Não há mais nada aqui para ser encontrado...";
+				mes "Nada que sejamos capazes de encontrar ao menos.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "Mais dois membros foram mortos em uma dessas buscas e agora...";
+				mes "Nosso grupo está bastante reduzido.";
+				mes "Todos os cadáveres de nossos companheiros foram queimados de acordo com as tradições...";
+				mes "Lançados ao mar em piras flutuantes...";
+				mes "Tenho medo que o Titania também seja nossa última embarcação rumo ao Outro Lado, quando zarparmos rumo à Alberta...";
+				next;
+				mes "[Diário de Bordo]";
+				mes "= XO / XX date =";
+				mes "Deixaremos a ilha hoje.";
+				mes "Durante nossa estada, conseguimos encontrar alguns tesouros e objetos valiosos...";
+				mes "E como forma de pagar respeito aos Deuses e nossos companheiros mortos, e esperar que eles nos desejem uma viagem segura...";
+				mes "Decidimos deixar parte deles aqui.";
+				mes "Pareceu ser a coisa certa a fazer.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "Colocamos os espólios dentro de uma caixa especial.";
+				mes "Ela está guardada por uma armadilha...";
+				mes "Em algum lugar do 4 nível subterrâneo da Ilha das Tartarugas.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "Esta caixa foi encontrada neste mesmo nível...";
+				mes "E tem propriedades especiais.";
+				mes "Embora seja de um tamanho reduzido...";
+				mes "Ela é capaz de guardar quantidades quase infinitas de objetos.";
+				mes "Ela está lá agora, escondida.";
+				mes "Escrevo aqui para que, aqueles que se forem capazes de encontrá-la, possam obter nossos tesouros, no futuro.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "No entanto devo avisar que existe um perigo maior do que a armadilha que colocamos nela.";
+				mes "Pois encontramos One.";
+				mes "Ele não é mais um ser humano comum e tornou-se algo mais.";
+				mes "Ele é o rei desta ilha, seu general, e não acolhe bem visitantes.";
+				mes "Portanto cuidado.";
+				mes "Nosso encontro quase custou mais mortes desnecessárias.";
+				next;
+				mes "[Diário de Bordo]";
+				mes "Estamos partindo... Maldita seja essa ilha.";
+				mes "Este diário acaba aqui, vamos de encontro ao nevoeiro, e espero, nossa casa. Adeus. ";
+				next;
+				mes "- Na última página do diário... -";
+				mes "- Está escrita uma pequena nota... -";
+				mes "- E há uma chave presa com um selo marcado 'JN'.-";
+				mes "^3355FF- tur_dun01 -^000000";
+				mes "^3355FF- X : 203 . Y : 155 -^000000";
+				mes "^3355FF- Sob a Pedra de Tartaruga... -^000000";
+				next;
+				mes "^3355FF- Você verá três oríficios.-^000000";
+				mes "^3355FF- Use a chave. -^000000";
+				mes "";
+				mes "^3355FF- Você obteve a -^000000";
+				mes "^3355FF- Chave do Segredo. -^000000";
+				set turtle_npc, 4;
+				close;
+		}
+	}
+	mes "^3355FF- Você fecha o Diário de Bordo -^000000";
+	close;
+}
+
+tur_dun01,160,81,4	script	Lápide de Caveira	111,{
+	
+	if (turtle_npc == 2)
+	{
+		mes "^3355FF- Em um dos lados da lápide... -^000000";
+		mes "^3355FF- Existe um pequeno buraco de fechadura. -^000000";
+		mes "^3355FF- E o signo de uma caveira. -^000000";
+		mes "";
+		mes "^3355FF- Você insere a 'Chave de Caveira' no buraco. -^000000";
+		mes "^3355FF- Ela cede com alguma dificuldade quando você a gira. -^000000";
+		next;
+		mes "^3355FF- click! click! -^000000";
+		next;
+		mes "^3355FF- O topo da lápide se abre levemente. -^000000";
+		mes "^3355FF- Você empurra a tampa.-^000000";
+		mes "^3355FF- Existem alguns itens dentro. -^000000";
+		next;
+		switch (rand(1,3))
+		{
+			case 1:
+				set turtle_npc, 20;
+				getitem 532, 5; //Suco de Banana
+				mes "^3355FF- Você encontrou -^000000";
+				mes "^3355FF- 5 Sucos de Banana -^000000";
+				close;
+			
+			case 2:
+				set turtle_npc, 20;
+				getitem 513, 5; //Banana
+				mes "^3355FF- Você encontrou -^000000";
+				mes "^3355FF- 5 Bananas -^000000";
+				close;
+			
+			case 3:
+				set turtle_npc, 20;
+				getitem 513, 5; //Banana
+				getitem 532, 5; //Suco de Banana
+				mes "^3355FF- Você encontrou -^000000";
+				mes "^3355FF- 5 Bananas -^000000";
+				mes "^3355FF- e 5 Sucos de Banana -^000000";
+				close;
+		}
+	}
+	mes "^3355FF- Você examina a estranha lápide. -^000000";
+	mes "^3355FF- Ela parece estar aqui por alguma razão... -^000000";
+	mes "^3355FF- Há a marca de uma caveira talhada nela. -^000000";
+	mes "^3355FF- Um túmulo possivelmente? -^000000";
+	close;
+}
+
+tur_dun02,132,251,4	script	Raízes Estranhas	111,{
+	
+    if (turtle_npc == 3)
+	{
+		mes "^3355FF- Sob as raízes parece haver alguma coisa estranha... -^000000";
+		mes "^3355FF- No chão abaixo delas você consegue ver uma pequena fechadura. -^000000";
+		mes "^3355FF- Parece haver uma tampa escondida. -^000000";
+		mes "";
+		mes "^3355FF- Você insere a 'Chave de Caveira' na fechadura...-^000000";
+		mes "^3355FF- E gira com cuidado. -^000000";
+		next;
+		mes "^3355FF- click. -^000000";
+		next;
+		mes "^3355FF- A tampa cede e abre. -^000000";
+		mes "^3355FF- Há um pequeno compartimento sob ela e alguns pedaços de papel. -^000000";
+		mes "^3355FF- Eles estão quase todos gastos e ilegíveis... -^000000";
+		mes "^3355FF- Mas um pergaminho enrolado está em perfeito estado de conservação. -^000000";
+		next;
+		mes "[Pergaminho]";
+		mes "^FF3355 Eu vim até esta ilha em busca de aprimoramento.^000000";
+		mes "^FF3355 Eu sou conhecido pelos quatro cantos de Midgard como o grande espadachim que sou.^000000";
+		mes "^FF3355 Mas isso não é o bastante.^000000";
+		mes "^FF3355 O meu caminho do guerreiro é o de sempre procurar desafios maiores e nunca descansar.^000000";
+		mes "^FF3355 E por isso estou aqui.^000000";
+		mes "^FF3355 Para desbravar esta 'lenda' e mostrar minha força.^000000";
+		next;
+		mes "[Pergaminho]";
+		mes "^FF3355 É dito que a maior das artes da espada...^000000";
+		mes "^FF3355 É aquela que torna o guerreiro capaz de cortar o casco de uma tartaruga com um único golpe.^000000";
+		mes "^FF3355 Eu já matei mais de mil delas desde que cheguei aqui. Sou capaz de matar mais de uma com um único golpe.^000000";
+		mes "^FF3355 Será que não existem mais desafios para mim?^000000";
+		mes "^FF3355 Eu sou a partir de agora, talvez o gerreiro mais habilidoso de todo o reino.^000000";
+		mes "^FF3355 E esta ilha é minha.^000000";
+		next;
+		mes "[Pergaminho]";
+		mes "^FF3355-A Ilha das Tartarugas é meu lar, e sempre será a partir de agora. -^000000";
+		mes "^FF3355-O poder que ela exerce sobre mim exige que eu também a domine. -^000000";
+		mes "^FF3355-Minha ilha... -^000000";
+		mes "^FF3355-....Dos diários de 'One'.... -^000000";
+		next;
+		mes "[Pergaminho]";
+		mes "^FF3355= Vá até... =^000000";
+		mes "^FF3355tur_dun02^000000";
+		mes "^FF3355X : 46 . Y : 125^000000";
+		mes "^FF3355 Dentro de uma pila de Cristais de Tartaruga...^000000";
+		next;
+		mes "^3355FF- Haverá um pergaminho -^000000";
+		mes "^3355FF- E uma fechadura com o signo de um Cristal de Tartaruga nela -^000000";
+		mes "^3355FF- Use esta chave. -^000000";
+		mes "";
+		set turtle_npc, 7;
+		mes "^3355FF- Você obteve a -^000000";
+		mes "^3355FF- Chave de Cristal de Tartaruga.-^000000";
+		close;
+	}
+	mes "^3355FF- Existe uma pilha de raízes aqui. -^000000";
+	mes "^3355FF- Elas parecem velhas e são muito grossas. -^000000";
+	mes "^3355FF- Há algo de estranho em sua aparência... -^000000";
+	mes "^3355FF- Mas nada que você consiga definir.-^000000";
+	close;
+}
+
+tur_dun02,46,125,4	script	Pilha de Cristais	111,{
+	
+	if (turtle_npc == 7)
+	{
+		mes "^3355FF- Sob uma parte da pilha de Cristais...  -^000000";
+		mes "^3355FF- Há uma pequena fechadura... -^000000";
+		mes "^3355FF- E acima dela uma figura de uma tartaruga.-^000000";
+		mes "";
+		mes "^3355FF- Você insere a 'Chave de Cristal de Tartaruga' -^000000";
+		mes "^3355FF- Na fechadura. -^000000";
+		next;
+		mes "^3355FF- Click! Click! -^000000";
+		next;
+		mes "^3355FF- A parte da pilha onde estava a fechadura estremece. -^000000";
+		mes "^3355FF- Um brilho emana dela...-^000000";
+		mes "^3355FF- E uma pequena porta aparece.-^000000";
+		mes "^3355FF- Dentro dela há uma placa de cristal com alguns escritos.-^000000";
+		next;
+		mes "[Placa]";
+		mes "^3355AA Esta ilha ainda me reserva alguns desafios.^000000";
+		mes "^3355AA Após provar a mim mesmo que sou capaz de cortar...^000000";
+		mes "^3355AA Até a casca da mais temível tartaruga daqui...^000000";
+		mes "^3355AA Decidi que deveria ir além.^000000";
+		mes "^3355AA Estou desenvolvendo uma técnica que me fará capaz de cortar até o mais duro cristal.^000000";
+		next;
+		mes "[Placa]";
+		mes "^3355AA Os cristais desta ilha me deram esta idéia.^000000";
+		mes "^3355AA Eles tÊm uma superfície irregular e duríssima.^000000";
+		mes "^3355AA No entanto, estou obtendo resultados, ainda que pequenos.^000000";
+		mes "^3355AA Tanto que sou capaz de arranhar sua estrutura, buscando os pontos mais fracos. ^000000";
+		mes "^3355AA É com esta técnica que esculpi esta placa.^000000";
+		next;
+		mes "[Placa]";
+		mes "^3355AA Mas arranhar não é o bastante.^000000";
+		mes "^3355AA Minha espada ainda irá partir estes cristais em pedaços.^000000";
+		next;
+		mes "[Placa]";
+		mes "^3355AA Ande 5 passos para o leste^000000";
+		mes "^3355AA 30 passos para o sul ^000000";
+		mes "^3355AA e a 5 passos do...^000000";
+		mes "^3355AA- Pilar da Tartaruga -^000000";
+		mes "^3355AA Você encontrará os segredos da minha arte da espada.^000000";
+		mes "^3355AA .... Dos diários de 'One'....^000000";
+		next;
+		mes "^3355FF- Na base da placa de cristal -^000000";
+		mes "^3355FF- Existe um nicho, com um chave longa dentro. -^000000";
+		mes "";
+		set turtle_npc, 8;
+		mes "^3355FF- Você obteve a -^000000";
+		mes "^3355FF- Chave do Pilar da Tartaruga. -^000000";
+		close;
+	}
+	mes "^3355FF- Há muitos destes Cristais de Tartaruga na ilha.-^000000";
+	mes "^3355FF- São cristais de propriedades estranhas que não são encontrados em mais nenhum lugar de Midgard...-^000000";
+	mes "^3355FF- Uma luz sobrenatural emana deles.-^000000";
+	close;
+}
+
+tur_dun02,49,158,4	script	Pilar da Tartaruga	111,{
+	
+	if (turtle_npc == 8)
+	{
+		mes "^3355FF- Sob algumas raízes em volta do pilar... -^000000";
+		mes "^3355FF- Você consegue perceber uma pequena fechadura. -^000000";
+		mes "^3355FF- Existe uma marca em forma de tartaruga sobre ela. -^000000";
+		mes "";
+		mes "^3355FF- Você insere a 'Chave do Pilar da Tartaruga' -^000000";
+		mes "^3355FF- Na fechadura. -^000000";
+		next;
+		mes "^3355FF- Click! Crack!! -^000000";
+		next;
+		mes "^3355FF- Sob o pilar, você percebe um movimento... -^000000";
+		mes "^3355FF- Uma pequena porta aparece ali. -^000000";
+		mes "^3355FF- De dentro dela cai um placa de cristal empoeirada, em forma de tartaruga.-^000000";
+		mes "^3355FF- Há algumas inscrições nela:-^000000";
+		next;
+		mes "[Placa de Tartaruga]";
+		mes "^33AA55 Eu consegui desenvolver a técnica suprema de espada.^000000";
+		mes "^33AA55 Os cristais partem-se como o ar ao toque da lâmina.^000000";
+		mes "^33AA55 Eu finalmente sei que não existem mais desafios ao meu alcance.^000000";
+		mes "^33AA55 ESte pilar no entanto, é do material mais resistente que já encontrei no mundo.^000000";
+		mes "^33AA55 Mesmo com a minha técnica sou incapaz de arranhá-lo.^000000";
+		mes "^33AA55 Ele exerce uma estranha atração sobre mim...^000000";
+		next;
+		mes "[Placa de Tartaruga]";
+		mes "^33AA55 E por isso deve permanecer intocado.^000000";
+		mes "^33AA55 Esta ilha é a minha casa.^000000";
+		mes "^33AA55 Destruir este pilar, eu sei...^000000";
+		mes "^33AA55 Faria com que ela desmoronasse.^000000";
+		mes "^33AA55 Ele é o ponto de suporte e força mística dela.^000000";
+		mes "^33AA55 A alma da Ilha das Tartarugas.^000000";
+		next;
+		mes "[Placa de Tartaruga]";
+		mes "^33AA55 Eu passo muito tempo observando este pilar.^000000";
+		mes "^33AA55 Ele em certos momentos parece falar comigo, me sussurrar segredos da ilha.^000000";
+		mes "^33AA55 Ele me pede que eu me torne um com ela...^000000";
+		mes "^33AA55 Logo, eu me tornarei.^000000";
+		mes "^33AA55 Minha arte da espada não conhece mais limites, eu sou invencível às criaturas desta ilha.^000000";
+		mes "^33AA55 Está na hora de reinar junto a elas e assumir meu posto.^000000";
+		next;
+		mes "[Placa de Tartaruga]";
+		mes "^33AA55 O segredo final que há de me ser passado pela ilha me tornará mais forte...^000000";
+		mes "^33AA55 A hora chegará logo.^000000";
+		mes "^33AA55 Deixo aqui alguns materiais que usei no desenvolvimento da minha arte.^000000";
+		mes "^33AA55 Eles não me servem mais, são inúteis agora que não há mais nada a aprender.^000000";
+		mes "^33AA55 Se alguém achá-los, use-os, e tente desenvolver técnicas como a minha...^000000";
+		mes "^33AA55 E ouse me desafiar.^000000";
+		next;
+		mes "[Placa de Tartaruga]";
+		mes "^33AA55 Eu sou o General, a Ilha das Tartarugas me pertence. ^000000";
+		mes "^33AA55 E eu a ela.^000000";
+		mes "^33AA55 Morte àqueles que duvidarem de nossa força.^000000";
+		next;
+		mes "^3355FF- Há muitos itens escondidos sobre o pilar. -^000000";
+		mes "^3355FF- Você decide pegar um ao acaso, ainda com receio das palavras de 'One'. -^000000";
+		switch (rand(1,10))
+		{
+			case 1:
+				set turtle_npc, 20;
+				getitem 702, 1; //Sangue de Animal
+				mes "^3355FF- Você obteve um -^000000";
+				mes "^3355FF- Sangue de Animal -^000000";
+				close;
+				
+			case 2:
+			case 6:
+			case 7:
+			case 8:
+			case 9:
+				set turtle_npc, 20;
+				getitem 716, 1; //Gema Vermelha
+				mes "^3355FF- Você obteve uma -^000000";
+				mes "^3355FF- Gema Vermelha -^000000";
+				close;
+				
+			case 3:
+				set turtle_npc, 20;
+				getitem 734, 1; //Moldura Vermelha
+				mes "^3355FF- Você obteve a -^000000";
+				mes "^3355FF- Moldura Vermelha -^000000";
+				close;
+
+			case 4:
+				set turtle_npc, 20;
+				getitem 10019, 1; //Pano Vermelho
+				mes "^3355FF- Você obteve o -^000000";
+				mes "^3355FF- Pano Vermelho -^000000";
+				close;
+				
+			case 5:
+			case 10:
+				set turtle_npc, 20;
+				getitem 725, 1; //Peridoto
+				mes "^3355FF- Você obteve o -^000000";
+				mes "^3355FF- Peridoto -^000000";
+				close;
+		}
+	}
+	mes "^3355FF- Este pilar parece diferente dos outros. -^000000";
+	mes "^3355FF- Certamente há algo de especial nele... -^000000";
+	mes "^3355FF- Mas o quê? -^000000";
+	close;
+}
+
+tur_dun01,203,155,4	script	Pedra de Tartaruga#td1	111,{
+	
+    if (turtle_npc == 4)
+	{
+		mes "^3355FF- Na parte de cima da pedra... -^000000";
+		mes "^3355FF- Existe uma fechadura,-^000000";
+		mes "^3355FF- E um ornamento em forma de tartaruga.-^000000";
+		mes "";
+		mes "^3355FF- Você insere a 'Chave do Segredo' -^000000";
+		mes "^3355FF- Na fechadura. -^000000";
+		next;
+		mes "^3355FF- Tat tat tat tat -^000000";
+		next;
+		mes "^3355FF- Lentamente, a parte da trás da pedra se abre... -^000000";
+		mes "^3355FF- Dentro da pedra existe uma placa... -^000000";
+		mes "^3355FF- Ela subitamente brilha e palavras aparecem sobre a superfície de cristal. -^000000";
+		next;
+		mes "[Pedra de Tartaruga]";
+		mes "- Àquele que sonha em se tornar-";
+		mes "- Uma luz da paz em meio ao caos-";
+		mes "- Empunhe um cometa e três estrelas em suas mãos.-";
+		mes "- O que você carrega agora é o cometa.-";
+		mes "- Receba de mim a primeira das estrelas.-";
+		mes "- ...-";
+		next;
+		mes "[Pedra de Tartaruga]";
+		mes "- E use-a com sabedoria. -";
+		mes "";
+		mes "== Jonadan Niliria ==";
+		mes "";
+		mes "- A segunda estrela -";
+		mes "^FF3355B2 . X : 75 . Y : 249^000000";
+		next;
+		mes "^3355FF-No meio da placa você percebe um pequeno brilho... -^000000";
+		mes "^3355FF-As palavras desaparecem.-^000000";
+		mes "^3355FF-E uma pequena pedra vermelha surge na placa.-^000000";
+		next;
+		set turtle_npc, 10;
+		mes "^3355FF- Você observa atentamente a pedra vermelha... -^000000";
+		mes "^3355FF- Ela parece ter alguma relação com a Chave do Segredo. -^000000";
+		mes "^3355FF- Você percebe três pequenos buracos na chave, -^000000";
+		mes "^3355FF- E insere a pedra vermelha no primeiro deles. -^000000";
+		close;
+	}
+	mes "^3355FF- Parece ser apenas uma pedra de tartaruga comum... -^000000";
+	mes "^3355FF- Há outras dessas na ilha, ao que parece. -^000000";
+	mes "^3355FF- No entanto... -^000000";
+	mes "^3355FF- Olhando com atenção na parte de cima dela, você consegue ler uma inscrição: -^000000";
+	mes "^3355FF- 'Primeira estrela'.-^000000";
+	close;
+}
+
+tur_dun02,75,249,4	script	Pedra de Tartaruga#td2	111,{
+	
+	if (turtle_npc == 10)
+	{
+		mes "^3355FF- Na parte de cima da pedra... -^000000";
+		mes "^3355FF- Existe uma fechadura,-^000000";
+		mes "^3355FF- E um ornamento em forma de tartaruga.-^000000";
+		mes "";
+		mes "^3355FF- Você insere a 'Chave do Segredo' -^000000";
+		mes "^3355FF- Na fechadura. -^000000";
+		next;
+		mes "^3355FF- Click! Click! -^000000";
+		next;
+		mes "^3355FF- Lentamente, a parte da trás da pedra se abre... -^000000";
+		mes "^3355FF- Dentro da pedra existe uma placa... -^000000";
+		mes "^3355FF- Ela subitamente brilha e palavras aparecem sobre a superfície de cristal. -^000000";
+		next;
+		mes "[Pedra de Tartaruga]";
+		mes "- Àquele que sonha em se tornar-";
+		mes "- Uma luz da paz em meio ao caos-";
+		mes "- Empunhe um cometa e três estrelas em suas mãos.-";
+		mes "- O que você carrega agora é o cometa.-";
+		mes "- Receba de mim a segunda das estrelas.-";
+		mes "- ...-";
+		next;
+		mes "[Pedra de Tartaruga]";
+		mes "- E use-a com sabedoria. -";
+		mes "";
+		mes "== Jonadan Niliria ==";
+		mes "";
+		mes "- A terceira estrela -";
+		mes "^FF3355B3 . X : 118 . Y : 233^000000";
+		next;
+		mes "^3355FF-No meio da placa você percebe um pequeno brilho... -^000000";
+		mes "^3355FF-As palavras desaparecem.-^000000";
+		mes "^3355FF-E uma pequena pedra amarela surge na placa.-^000000";
+		next;
+		set turtle_npc, 11;
+		mes "^3355FF- Você observa atentamente a pedra amarela... -^000000";
+		mes "^3355FF- E a insere em outro dos buracos da chave.-^000000";
+		mes "^3355FF- A pedra vermelha brilha mais forte em conjunção com a amarela. -^000000";
+		mes "^3355FF- Só falta uma das estrelas agora. -^000000";
+		close;
+	}
+	mes "^3355FF- Parece ser apenas uma pedra de tartaruga comum... -^000000";
+	mes "^3355FF- Há outras dessas na ilha, ao que parece. -^000000";
+	mes "^3355FF- No entanto... -^000000";
+	mes "^3355FF- Olhando com atenção na parte de cima dela, você consegue ler uma inscrição: -^000000";
+	mes "^3355FF- 'Segunda estrela'.-^000000";
+	close;
+}
+
+tur_dun03,118,233,4	script	Pedra de Tartaruga#td3	111,{
+	
+	if (turtle_npc == 11)
+	{
+		mes "^3355FF- Na parte de cima da pedra... -^000000";
+		mes "^3355FF- Existe uma fechadura,-^000000";
+		mes "^3355FF- E um ornamento em forma de tartaruga.-^000000";
+		mes "";
+		mes "^3355FF- Você insere a 'Chave do Segredo' -^000000";
+		mes "^3355FF- Na fechadura. -^000000";
+		next;
+		mes "^3355FF- Click! Click! -^000000";
+		next;
+		mes "^3355FF- Lentamente, a parte da trás da pedra se abre... -^000000";
+		mes "^3355FF- Dentro da pedra existe uma placa... -^000000";
+		mes "^3355FF- Ela subitamente brilha e palavras aparecem sobre a superfície de cristal. -^000000";
+		next;
+		mes "[Pedra de Tartaruga]";
+		mes "- Àquele que sonha em se tornar-";
+		mes "- Uma luz da paz em meio ao caos-";
+		mes "- Empunhe um cometa e três estrelas em suas mãos.-";
+		mes "- O que você carrega agora é o cometa.-";
+		mes "- Receba de mim a última das estrelas.-";
+		mes "- ...-";
+		next;
+		mes "[Pedra de Tartaruga]";
+		mes "- E use-a com sabedoria. -";
+		mes "";
+		mes "== Jonadan Niliria ==";
+		mes "";
+		mes "-O segredo-";
+		mes "^FF3355B4 . X : 113 . Y : 178^000000";
+		next;
+		mes "^3355FF-No meio da placa você percebe um pequeno brilho... -^000000";
+		mes "^3355FF-As palavras desaparecem.-^000000";
+		mes "^3355FF-E uma pequena pedra azul surge na placa.-^000000";
+		next;
+		set turtle_npc, 12;
+		mes "^3355FF- Você observa atentamente a pedra azul... -^000000";
+		mes "^3355FF- E a insere no último dos buracos da chave.-^000000";
+		mes "^3355FF- As três pedras brilham com vigor e a chave acende-se como uma lâmpada. -^000000";
+		mes "^3355FF- É hora de usá-la para seu propósito. -^000000";
+		close;
+	}
+	mes "^3355FF- Parece ser apenas uma pedra de tartaruga comum... -^000000";
+	mes "^3355FF- Há outras dessas na ilha, ao que parece. -^000000";
+	mes "^3355FF- No entanto... -^000000";
+	mes "^3355FF- Olhando com atenção na parte de cima dela, você consegue ler uma inscrição: -^000000";
+	mes "^3355FF- 'Terceira estrela'.-^000000";
+	close;
+}
+
+tur_dun04,113,178,4	script	Pedra de Tartaruga#td4	111,{
+	
+	if (turtle_npc == 12)
+	{
+		mes "^3355FF- Na parte de cima da pedra... -^000000";
+		mes "^3355FF- Existe uma fechadura,-^000000";
+		mes "^3355FF- E um ornamento em forma de tartaruga.-^000000";
+		mes "";
+		mes "^3355FF- Você insere a 'Chave do Segredo' -^000000";
+		mes "^3355FF- Na fechadura. -^000000";
+		next;
+		mes "^3355FF- Click! Click! -^000000";
+		next;
+		mes "^3355FF- Lentamente, a parte da trás da pedra se abre... -^000000";
+		mes "^3355FF- Dentro da pedra existe uma placa... -^000000";
+		mes "^3355FF- Ela subitamente brilha e palavras aparecem sobre a superfície de cristal. -^000000";
+		next;
+		mes "[Pedra de Tartaruga]";
+		mes "- Àquele que sonha em se tornar-";
+		mes "- Uma luz da paz em meio ao caos.-";
+		mes "- Empunhe agora o cometa e suas três estrelas. -";
+		mes "- E receba o segredo contido nesta pedra. -";
+		mes "- Jonadan Niliria -";
+		next;
+		mes "^3355FF- Você segura a chave diante da placa. -^000000";
+		mes "^3355FF- Um quadrado de luz aparece onde antes estavam as letras...-^000000";
+		mes "^3355FF- A placa se abre num flash. -^000000";
+		mes "^3355FF- Você fecha os olhos com a luz cegante. -^000000";
+		mes "^3355FF- E ao abrí-los de novo, vê que há algo sobre a placa. -^000000";
+		next;
+		if (rand(1,20) == 7)
+		{
+			switch (rand(1,4))
+			{
+				case 1:
+					set turtle_npc, 20;
+					getitem 644, 1; //Caixa de Presente
+					mes "^3355FF- Sobre a placa de cristal,-^000000";
+					mes "^3355FF- você vê uma-^000000";
+					mes "^3355FF- Caixa de Presente. -^000000";
+					mes "^3355FF- Você obteve uma -^000000";
+					mes "^3355FF- ` Caixa de Presente '. -^000000";
+					close;
+
+				case 2:
+					set turtle_npc, 20;
+					getitem 616, 1; //Velho Álbum de Cartas
+					mes "^3355FF- Sobre a placa de cristal,-^000000";
+					mes "^3355FF- você vê um -^000000";
+					mes "^3355FF- Velho Álbum de Cartas. -^000000";
+					mes "^3355FF- Você obteve um -^000000";
+					mes "^3355FF- `Velho Álbum de Cartas'. -^000000";
+					close;
+
+				case 3:
+					set turtle_npc, 20;
+					getitem 617, 1; //Velha Caixa Roxa
+					mes "^3355FF- Sobre a placa de cristal,-^000000";
+					mes "^3355FF- Você vê uma -^000000";
+					mes "^3355FF- Velha Caixa Roxa. -^000000";
+					mes "^3355FF- Você obteve uma  -^000000";
+					mes "^3355FF- `Velha Caixa Roxa'. -^000000";
+					close;
+
+				case 4:
+					set turtle_npc, 20;
+					getitem 617, 1; //Velha Caixa Roxa
+					mes "^3355FF- Sobre a placa de cristal,-^000000";
+					mes "^3355FF- Você vê uma -^000000";
+					mes "^3355FF- Velha Caixa Roxa. -^000000";
+					mes "^3355FF- Você obteve uma  -^000000";
+					mes "^3355FF- `Velha Caixa Roxa'. -^000000";
+					close;
+			}
+		}
+		else
+		{
+			set turtle_npc,20;
+			getitem 604,1; //Galho Seco
+			mes "^3355FF- Sobre a placa de cristal,-^000000";
+			mes "^3355FF- você vê um -^000000";
+			mes "^3355FF- Galho Morto. -^000000";
+			mes "^3355FF- Você obteve um -^000000";
+			mes "^3355FF- `Galho Morto'. -^000000";
+			close;
+		}
+	}
+	mes "^3355FF- É apenas uma estátua de tartaruga...-^000000";
+	mes "^3355FF- Feita de um tipo de pedra comum na ilha. -^000000";
+	mes "^3355FF- Nada de extraordinário. -^000000";
+	mes "^3355FF- Porém, no topo da pedra... -^000000";
+	mes "^3355FF- Você consegue ler uma inscrição:-^000000";
+	mes "^3355FF- 'Segredo'. -^000000";
+	close;
+}
+
+tur_dun03,105,76,4	script	Chefe dos Cavaleiros	110,5,5,{
+	
+	mes "[Expedito]";
+	mes "O que foi?!";
+	mes "Onde estão meus homens?";
+	mes "Que confusão dos infernos!";
+	next;
+	mes "[Expedito]";
+	mes "E quem é você!?";
+	next;
+	switch (select ("Por quê você quer saber?:Eu sou eu, ué.:O que você está fazendo aqui?:Me diga quem VOCÊ é antes!"))
+	{
+		case 1:
+			mes "[Expedito]";
+			mes "Como ousa responder dessa maneira?";
+			mes "Se eu lhe faço uma pergunta, você a responda!";
+			mes "Não sabe quem eu sou por acaso?!";
+			mes "Eu sou Expedito!";
+			mes "Líder da Brigada de Segurança de Alberta!";
+			mes "Os Kobolds tremem ao ouvir meu nome!";
+			next;
+			mes "[Expedito]";
+			mes "E você aparece aqui e me desrespeita!";
+			mes "Se eu estivesse em Alberta eu te jogaria na prisão!";
+			mes "No entanto, eu não tenho poderes aqui, pois estou em missão extra-oficial.";
+			mes "Vá embora civil.";
+			mes "Malditos caçadores de tesouro.";
+			mes "Além de ficarem retirando todas as riquezas da ilha, ainda me enchem a paciência.";
+			next;
+			mes "[Expedito]";
+			mes "Vai, vai embora!";
+			mes "Saia dessa ilha já!";
+			close;
+
+		case 2:
+			mes "[Expedito]";
+			mes "Humm... " + strcharinfo(0) + " ...";
+			mes "Você tem um nome melhor que o meu...";
+			mes "E também mais cabelo que eu.";
+			mes "Prazer jovem, meu nome é Expedito.";
+			mes "Eu sou o chefe da Brigada de Segurança de Alberta.";
+			mes "Humm...";
+			next;
+			mes "[Expedito]";
+			mes "Estou aqui como inspetor das atividades civis na ilha...";
+			mes "No caso, estou fiscalizando os caçadores de tesouros.";
+			mes "A verdade é que alguns tem de ser resgatados também, e por isso também, estou aqui.";
+			mes "Só tem um problema: meus homens se separaram e não consigo achá-los.";
+			mes "Se os ver, avise-os que estou aqui.";
+			next;
+			mes "[Expedito]";
+			mes "Até logo.";
+			close;
+
+		case 3:
+			mes "[Expedito]";
+			mes "Estou aqui como inspetor das atividades civis na ilha...";
+			mes "No caso, estou fiscalizando os caçadores de tesouros.";
+			mes "A verdade é que alguns tem de ser resgatados também, e por isso também, estou aqui.";
+			mes "Só tem um problema: meus homens se separaram e não consigo achá-los.";
+			mes "Se os ver, avise-os que estou aqui.";
+			next;
+			mes "[Expedito]";
+			mes "Esta expedição virou uma verdadeira bagunça.";
+			mes "Maldito pelotão sem disciplina!";
+			next;
+			mes "[Expedito]";
+			mes "Eu não suporto fazer um trabalho malfeito...";
+			mes "E agora não estou sendo nem capaz de fazer a fiscalização dos tesouros encontrados...";
+			mes "O que significa que eu tenho de tirar um pequeno imposto para o governo da cidade...";
+			mes "E nem de ajudar os exploradores perdidos, ou em perigo.";
+			mes "Tudo pela incompetência dos meus homens!";
+			mes "...";
+			next;
+			mes "[Expedito]";
+			mes "A verdade é que eu tenho dado muita moleza para eles...";
+			mes "Estão gordos e bem alimentados demais!";
+			mes "Daqui em diante, vou cortar a ração de comida deles pela metade...";
+			mes "Mas não diga isso a eles quando os encontrar!";
+			mes "Senão é aí que eles não voltam mesmo.";
+			close;
+
+		case 4:
+			mes "[Expedito]";
+			mes "Eu?";
+			mes "Eu sou Expedito.";
+			mes "Um bravo cavaleiro.";
+			mes "E Líder da Brigada de Segurança de Alberta.";
+			mes "Eu sou um homem de respeito...";
+			mes "E portanto exigo respeito dos que falam comigo.";
+			next;
+			mes "[Expedito]";
+			mes "Eu estou aqui em missão pelo governo da cidade de Alberta.";
+			mes "Ao que parece muitos aventureiros tem vindo pra cá em busca de tesouros.";
+			mes "E é minha responsbilidade cuidar para que eles retornem em segurança para a cidade se estiverem com problemas.";
+			mes "Foi pedido também que ue fiscalizasse os tesouros e mantivesse uma pequena taxa para a cidade.";
+			mes "Mas eu não estou realmente cobrando esta taxa. Acho desnecessário. E não tenho como fazer isso com tanta gente que tem aparecido aqui.";
+			next;
+			mes "[Mudasamu]";
+			mes "Ele é um grande homem!";
+			next;
+			mes "[Expedito]";
+			mes "Quieto!";
+			next;
+			mes "[Expedito]";
+			mes "De qualquer maneira...";
+			mes "O meu trabalho deveria ser esse, mas tem um pequeno problema.";
+			mes "Devido à falta de organização de meus homens...";
+			mes "Eles se separaram de mim após umataque que sofremos assim que chegamos na Ilha das Tartarugas.";
+			mes "Os covardes fugiram... Vergonhoso.";
+			next;
+			mes "[Expedito]";
+			mes "Mudasamu! Pode me explicar por que meu pelotão é tão incompetente assim?!";
+			next;
+			mes "[Mudasamu]";
+			mes "Me desculpe, senhor!";
+			close;
+	}
+
+	OnTouch:
+		mes "[Corvo]";
+		mes "Cáá! Cáá!";
+		mes "Cáá! Cáá";
+		next;
+		mes "[?]";
+		mes "ARGH! Eu odeio corvos!";
+		mes "De onde saiu essa ave maldita?!";
+		close;
+}
+
+tur_dun03,105,74,4	script	Membro da Brigada#td1	119,{
+	
+	mes "[Mudasamu]";
+	mes "Meu nome é Mudasamu. Eu sou o assistente do grande Expedito, o líder da Brigada de Segurança de Alberta.";
+	mes "Nós obtivemos relatórios de que alguns aventureiros têm vindo até esta ilha em busca de tesouros...";
+	mes "Contrariando os avisos do governo de que ela deve ser evitada por seu perigo.";
+	mes "Por isso, estamos aqui para prestar auxílio e mandá-los para casa, se eles precisarem.";
+	next;
+	mes "[Expedito]";
+	mes "Ei, Mudasamu! Pare de tagarelar!";
+	next;
+	mes "[Mudasamu]";
+	mes "Me... Me desculpe, líder!";
+	next;
+	mes "Ele está um pouco de mau humor hoje. Os caveliros do pelotão sumiram e estamos tentano achá-los para que possamos voltar.";
+	mes "Se você puder nos ajudar nessa empreitada e localizá-los eu ficaria grato.";
+	next;
+	select("Acho que não...");
+	mes "[Mudasamu]";
+	mes "...................";
+	close;
+}
+
+tur_dun01,190,115,4	script	Membro da Brigada#td2	119,{
+	
+	mes "[?]";
+	mes "Cadê todo mundo?";
+	mes "Oh! Você é um dos aventureiros?";
+	mes "Você por acaso sabe onde está o resto do meu pessoal?";
+	next;
+	switch (select ("Quem é você?:Não, não sei.:Por quê você está aqui?:Como você chegou aqui?"))
+	{
+		case 1:
+			mes "[Passars]";
+			mes "Bem...";
+			mes "Meu nome é Passars. Eu sou da Brigada de Segurança de Alberta.";
+			mes "Ao que parece viemos para cá para ajudar aventureiros perdidos na ilha...";
+			mes "Mas pra falar a verdade, eu não sei como eu poderia ajudar muito...";
+			mes "Eu sou só um pobre soldado.";
+			next;
+			mes "[Passars]";
+			mes "E além de tudo, quando a gente chegou...";
+			mes "Apareceram uns monstros aqui e daí todo mundo se separou...";
+			mes "E pra falar a verdade eu estou com um pouco de medo.";
+			mes "Eu fiquei sozinho e não sei me cuidar muito bem aqui...";
+			mes "Por favor, me ajuda a achar o resto do pessoal!";
+			close;
+		
+		case 2:
+			mes "[Passars]";
+			mes "Você tem o mesmo nível do meu cérebro...";
+			next;
+			percentheal 40, 0;
+			mes "[Passars]";
+			mes "Bem que você podia me ajudar...";
+			close;
+		
+		case 3:
+			mes "[Passars]";
+			mes "Tudo começou há muito tempo atrás...";
+			mes "Um mercador que se perdeu no mar disse que existia uma ilha perto da costa de Alberta...";
+			mes "Uma ilha com forma de tartaruga, cheia de mosntros estranhos. Mas ninguém acreditou muito nele.";
+			mes "E um dia, uma expedição de valentes guerreiros saiu pelo mar e a encontrou.";
+			mes "E era aqui!";
+			mes "E daí, ela pôde ser colocada nos mapas...";
+			next;
+			mes "[Passars]";
+			mes "E ao que parece ela tem todo tipo de tesouros também...";
+			mes "Por isso, um sujeito de ALberta que era dos exploradores que chegaram aqui...";
+			mes "Traz pessoas de barco pra cá e elas procuram os tais tesouros.";
+			mes "Só que muita gente se dá mal e acaba ferida.";
+			next;
+			mes "[Passars]";
+			mes "E, por isso, mandaram a gente pra cá...";
+			mes "Pra ver se a gente podia ajudar esse pessoal.";
+			mes "E por isso estamos aqui...";
+			mes "Ufa!";
+			next;
+			mes "[Passars]";
+			mes "Acho que eu não precisava ter falado tudo isso...";
+			close;
+		
+		case 4:
+			mes "[Passars]";
+			mes "Sabe que eu não sei?";
+			next;
+			select("Hein?!");
+			mes "[Passars]";
+			mes "Sabe o que é?";
+			mes "Eu meio que bebi vodka demais ontem à noite e fui dormir no quartel lá em Alberta...";
+			mes "E desmaiei no sono.";
+			mes "Quando acordei, estava aqui na Ilha das Tartarugas e nosso grupo foi atacado por monstros e todo mundo dispersou...";
+			mes "Que bela maneira de passar uma ressaca, né?";
+			next;
+			mes "[Passars]";
+			mes "Eu não pedi pra ninguém me trazer junto, pôxa...";
+			close;
+	}
+}
+
+tur_dun03,189,126,4	script	Membro da Brigada#td3	105,{
+	
+	mes "[J. Proget]";
+	mes "Oh! Um civil.";
+	mes "Prazer em conhecê-lo, viu?";
+	mes "Eu sou um membro da Brigada de Segurança de Alberta.";
+	mes "Sou o soldado J. Proget, ao seu dispor!";
+	if (select ("Certo.:Desinteressanteee.") == 1)
+	{
+		mes "[J. Proget]";
+		mes "É, bem é mais ou menos só isso, mesmo.";
+		mes "HaHaHaHaHa!";
+		next;
+		mes "[J. Proget]";
+		mes "Aiai...";
+		mes "Que dia bonito, não?";
+		next;
+		mes "[J. Proget]";
+		mes "Todos esses monstros por ai...";
+		mes "Uma ilha paradisíaca não pode deixar de ter uns monstros assustadores!";
+		mes "HaHaHaHaHa!";
+		next;
+		mes "[J. Proget]";
+		mes "Enfim, eu estou meio perdido por aqui...";
+		mes "Mas não esquenta, eu não estou preocupado também...";
+		close;
+	}
+	mes "[J. Proget]";
+	mes "Bom, acho que é mesmo... ";
+	mes "Ah, sei lá.";
+	next;
+	mes "[J. Proget]";
+	mes "Eu só estou descansando um pouco por aqui...";
+	mes "O pessoal da minha expedição sumiu e eu tô dando uma passeada.";
+	next;
+	if (select ("Você fugiu?:Ceeerto, divirta-se então.") == 1)
+	{
+		mes "[J. Proget]";
+		mes "Não é bem assim também...";
+		mes "Eu estava com o resto do grupo e tal.";
+		mes "Mas daí eu sentei pra descansar um pouco...";
+		next;
+		mes "[J. Proget]";
+		mes "E bem, o pessoal foi atacado por uns monstros.";
+		mes "E daí, sei lá, eu achei melhor não em meter e sair de perto.";
+		mes "É, pensando bem, eu acho que fugi mesmo.";
+		mes "Hehehe, não conta pra ninguém.";
+		next;
+		mes "[J. Proget]";
+		mes "Mas a verdade é que os monstros daqui são muito fortes...";
+		mes "No que um soldado raso como eu vai poder ajudar?";
+		mes "Eu já tenho dificulade em matar aqueles coelhinhos que moram perto de Alberta...";
+		mes "É eu sei, eu sou meio fracote, mas eu não ligo não.";
+		mes "Eu só me alistei na Brigada pra viajar um pouco por aí...";
+		mes "E a comida é bem boa...";
+		next;
+		mes "[J. Proget]";
+		mes "Bem, eu estou tranqüilo...";
+		mes "Se você achar alguém da Brigada por aí, nem se preocupa em avisar eles que eu tô aqui...";
+		mes "Cedo ou tarde eles me achamd e de qualquer maneira, e eu não estou com muita pressa de levar bronca do capitão.";
+		mes "Hehhehe, até mais.";
+		close;
+	}
+	mes "[J. Proget]";
+	mes "Ora, obrigado!";
+	close;
+}
+
+tur_dun03,104,171,4	script	Membro da Brigada#td4	105,{
+	
+	mes "[Squarr]";
+	mes "Serei eu sou o único que sobrou?";
+	mes "Onde estão todos os outros?";
+	mes "Maldição, eu não consigo achá-los... Eu acho que vou enlouquecer...";
+	next;
+	switch (select ("Quem sabe eles fugiram?:É, eu também acho.:O que exatamente aconteceu?"))
+	{
+		case 1:
+			mes "[Squarr]";
+			mes "Não, não é possível.";
+			mes "A Brigada de Alberta é muito leal.";
+			mes "Duvido que alguém fugisse, a não ser que fosse uma ordem do líder.";
+			mes "Afinal de contas...";
+			next;
+			mes "[Squarr]";
+			mes "Todos os soldados são responsáveis...";
+			mes "E destemidos também!";
+			mes "Eu duvido que eles negariam seus deveres para com a sociedade e fugiriam!";
+			mes "Deserção é uma grande desonra para um soldado.";
+			mes "Ninguém faria isso...";
+			next;
+			mes "[Squarr]";
+			mes "Se bem que...";
+			mes "Eu não vi mais ninguém depois que fomos atacados pelos monstros...";
+			mes "Eu fiquei e tive que lidar com eles sozinho.";
+			mes "Bem, talvez eu esteja errado, talvez eles tenham deserdado...";
+			mes "Uma coisa é certa, o líder da Brigada vai saber disso quando eu encontrá-lo...";
+			mes "E esses covardes vão pra corte marcial quando voltarmos a Alberta!";
+			close;
+
+		case 2:
+			mes "[Squarr]";
+			mes "Hmm... Você não deveria fazer pouco de mim.";
+			mes "Eu sou um soldado e sofro e luto pelo seu bem estar, sabia?";
+			mes "A sociedade precisa dos soldados e de nosso esforço em colocar ordem nas coisas!";
+			mes "Sim, eu sei que existem péssimos exemplos disso nas froças armadas...";
+			mes "Mas não é assim que eu vejo nosso papel.";
+			next;
+			mes "[Squarr]";
+			mes "Essa é uma situação muito séria.";
+			mes "Se eles deserdaram, o líder vai ficar sabendo...";
+			mes "Malditos irresponsáveis...";
+			mes "Grrrr...";
+			close;
+
+		case 3:
+			mes "[Squarr]";
+			mes "Fomos atacados por uma horda de monstros vorazes por sangue!";
+			mes "O líder da Brigada ordenou que mantivessemos a calma e lutássemos...";
+			mes "Eu lutei e lutei...";
+			mes "E quando olhei em volta, não vi mais ninguém.";
+			mes "Não queria acreditar que eles pudessem ter fugido, por isso achei que estavam todos mortos.";
+			mes "Mas agora que estou pensando à respeito...";
+			next;
+			mes "[Squarr]";
+			mes "Acho que posso estar errado...";
+			mes "Quero dizer, a maioria dos rapazes é bem humorada...";
+			mes "Mas começo a achar que eles não são muito dedicados ao trabalho.";
+			mes "Na verdade, acho que eles estão até fazendo pouco da minha lealdade à Brigada.";
+			next;
+			mes "[Squarr]";
+			mes "Acho que é por isso que eles me dão tapinhas na cabeça e me chamam de escoteiro...";
+			mes "E eu que sempre achei que era um elogio... GRRRR...";
+			mes "Ora, eles vão ver quando eu os encontrar!";
+			mes "Vou mostrar como um verdadeiro cavaleiro se comporta!";
+			mes "GRrrr....";
+			next;
+			mes "[Squarr]";
+			mes "Droga, é por isso que ninguém respeita os militares!";
+			close;
+	}
+}
+
+tur_dun03,67,130,4	script	Membro da Brigada#td5	105,{
+	
+	mes "[Nysura]";
+	mes "Hã? Quem é você?";
+	mes "Nossa!";
+	mes "É uma surpresa ver uma alma viva por aqui!";
+	mes "Depois que o pessoal todo sumiu...";
+	mes "Achei que ninguém fosse capaz de sobreviver nesse lugar horrível!";
+	next;
+	if (BaseLevel <= 40)
+	{
+		mes "[Nysura]";
+		mes "Dureza, né?";
+		next;
+		if (Zeny <= 3000)
+		{
+			mes "[Nysura]";
+			mes "Sabe, mesmo você sendo de um nível alto...";
+			mes "Dá pra ver que você está meio sem dinheiro...";
+			mes "Acho que no final das contas, as coisas não estão muito fáceis pra você também, não é?";
+			mes "Eu posso te levar até Alberta. Quer?";
+			next;
+			if (select ("Sim, a ajuda cairia bem.:Não, estou bem.") == 1)
+			{
+				mes "[Nysura]";
+				mes "Ok. Então...";
+				mes "Feche os olhos!";
+				close2;
+				warp "alberta",241,115;
+				end;	
+			}
+			mes "[Nysura]";
+			mes "Tude bem, então.";
+			mes "Admiro sua coragem.";
+			mes "Só lembre de tomar cuidado.";
+			mes "Eu mesmo não estou muito seguro sozinho aqui.";
+			next;
+			mes "[Nysura]";
+			mes "Boa sorte por aí.";
+			close;
+		}
+		mes "[Nysura]";
+		mes "Você não acha meio perigoso ficar aqui, não?";
+		mes "Esse lugar não é muito amigável...";
+		mes "Tome cuidado, ok?";
+		next;
+		mes "Se você encontrar alguns cavaleiros por aí...";
+		mes "Avise que estou por aqui.";
+		next;
+		mes "[Nysura]";
+		mes "E boa sorte!";
+		close;
+	}
+	mes "[Nysura]";
+	mes "Você parece bem confiável...";
+	mes "Uma pessoa forte!";
+	mes "Se nossos soldados fossem tão fortes quanto você, certamente o que aconteceu hoje teria sido evitado.";
+	mes "Pois é, eu tenho que admitir...";
+	mes "A Brigada de Segurança não anda muito bem de recrutas...";
+	mes "A maioria é bem fracote...";
+	next;
+	mes "[Nysura]";
+	mes "Quer dizer, eu mesmo gostaria de ser forte!";
+	mes "Me tornar um grande cavaleiro...";
+	mes "Mas o líder não pega leve com a gente...";
+	mes "Ele virou pra mim e disse: 'Pare de sonhar, cabeça-oca!'";
+	next;
+	mes "[Nysura]";
+	mes "Ele não é nada legal...";
+	mes "Desculpe ficar me lamentando pra você.";
+	mes "Siga seu caminho, eu não vou mais te incomodar.";
+	mes "Aliás, tome muito cuidado, este nível das cavernas é perigosíssimo.";
+	mes "Os monstros aqui não tem misericórdia e podem te matar facilmente!";
+	next;
+	mes "[Nysura]";
+	mes "Isso sem falar em um que eu vi hoje passando...";
+	mes "Era um homem enorme, com diversas armas nas mãos!";
+	mes "Cuidado, por favor! Se o ver, faça como eu e fuja!";
+	close;
+}

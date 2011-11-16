@@ -1,0 +1,85 @@
+//===== Cronus Script ================================================= 
+//= Garota Negociante
+//===== Por: ==========================================================
+//= Rafael (baseado na do Mehah, oficial do cronus)
+//===== Versão Atual: ================================================= 
+//= 1.3
+//===== Descrição: ==================================================== 
+//= Aluga ao jogador falcão, peco, carrinho, mado, warg ou grifo.
+//===== Changelog: ====================================================
+//= 1.1 Otimizado [Mooka]
+//= 1.1a Removido show [Keoy]
+//= 1.2 Realizada outra otimização [Mara]
+//= 1.3 Adicionado suporte a Warg, Mado e Grifo. [Mara]
+//=====================================================================
+prontera,130,196,5	script	Garota Negociante	90,{
+
+	// Preço do aluguel em zeny. Deixe 0 para que seja grátis.
+	set .@preco, 0;
+	
+	mes "[Garota Negociante]";
+	mes "Olá, aqui você pode alugar uma montaria depedendo de sua profissão.";
+	next;
+	mes "[Garota Negociante]";
+	if( .@preco && Zeny < .@preco )
+	{
+		mes "Você não possui a quantia de Zeny para alugar.";
+		close;
+	}
+	if( BaseClass == 5 || Class == 23 )
+	{
+		if( checkcart() && checkmado() )
+			callsub S_OnExit;
+		if( getskilllv(2255) )
+		{
+			mes "O que você deseja alugar?";
+			if( select("Carrinho:Mado") == 2 )
+			{
+				if( !checkmado() )
+					setmado;
+				if( checkcart() )
+					close;
+			}
+		}
+		if( !checkcart() && getskilllv(39) )
+			setcart;
+		else
+		{
+			next;
+			mes "[Garota Negociante]";
+			callsub S_OnExit;
+		}
+	}
+	else if( BaseClass == 1 && !checkriding() && ( getskilllv(63) || getskilllv(2007) ) )
+		setriding;
+	else if( BaseClass == 3 || BaseClass == 11 )
+	{
+		if( getskilllv(2241) )
+		{
+			if( checkfalcon() || checkwarg() )
+				callsub S_OnExit;
+			mes "O quê deseja alugar?";
+			next;
+			if( select("Falcão:Warg") == 1 )
+				setfalcon;
+			else
+				setwarg;
+		}
+		else if( getskilllv(127) && !checkfalcon() && Class < 4054 )
+			setfalcon;
+		else
+			callsub S_OnExit;
+	}
+	else
+	{
+		S_OnExit:
+			mes "Desculpe, mas não posso ajudar você.";
+			mes "Verifique se você já possui a habilidade necessária ou se já está com algo alugado!";
+			close;
+		return;
+	}
+	if( .@preco )
+		set Zeny, Zeny - .@preco;
+	mes "Aqui está, faça bom proveito!";
+	close;
+}

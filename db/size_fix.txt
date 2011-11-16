@@ -1,0 +1,19 @@
+// _________                                    
+// \_   ___ \_______  ____   ____  __ __  ______
+// /    \  \/\_  __ \/  _ \ /    \|  |  \/  ___/
+// \     \____|  | \(  <_> )   |  \  |  /\___ \ 
+//  \______  /|__|   \____/|___|  /____//____  >
+//         \/                   \/           \/  
+//-----------------------------------------------
+// 1.0 Traduzido [Vianna]
+//-----------------------------------------------
+
+// Database de correção de dano por tamanho do oponente.
+
+// Colunas: Tipo da arma
+// Linhas: Tamanho do oponente (pequeno, médio e grande, respectivamente)
+
+// Soco, Adagas, Espadas (1M), Espadas (2M), Lanças (1M), Lanças (2M), Machados (1M), Machados (2M), Maças (1M), Maças (2M), Cajados (1M), Arcos, Soqueiras, Instrumentos, Chicotes, Livros, Katares, Revólveres, Rifles, Espingardas, Metralhadoras Gatling, Lança-Granadas, Shurikens Huuma, Cajados (2M)
+    100,    100,           75,           75,          75,          75,            50,            50,         75,        100,          100,   100,       100,           75,       75,    100,      75,        100,    100,         100,                   100,            100,             100,          100
+    100,     75,          100,           75,          75,          75,            75,            75,        100,        100,          100,   100,        75,          100,      100,    100,     100,        100,    100,         100,                   100,            100,             100,          100
+    100,     50,           75,          100,         100,         100,           100,           100,        100,        100,          100,    75,        50,           75,       50,     50,      75,        100,    100,         100,                   100,            100,             100,          100

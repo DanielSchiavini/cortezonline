@@ -1,0 +1,143 @@
+//===== Cronus Script ======================================== 
+//= NPCs da Torre do Relógio
+//===== Por: ================================================= 
+//= Minos
+//===== Versão: ============================================== 
+//= 1.2
+//===== Compatível com: ====================================== 
+//= Emulador [3010]; Cliente [EP 12.1]
+//===== Descrição: =========================================== 
+//= [Conversão do Aegis]
+//= NPCs da torre do relógio
+//===== Comentários adicionais: ============================== 
+//= 1.0 Conversão do Aegis [Minos]
+//= 1.1 Revisado [Squall]
+//= 1.2 Otimizado [Mara]
+//============================================================ 
+
+c_tower3,10,249,4	script	Guardião#Riku	84,{
+	callfunc "F_TorreRelogio", "Andar", 7026, "c_tower4", 185, 44;
+}
+
+alde_dun03,264,16,4	script	Criança#Guardiã	101,{
+	callfunc "F_TorreRelogio", "Subsolo", 7027, "alde_dun04", 79, 267;
+}
+
+function	script	F_TorreRelogio	{
+	
+	mes "["+strnpcinfo(1)+"]";
+	mes "Bem vindo a";
+	mes "Torre Azul Kinase - Gallino.";
+	mes "Uma das grandes atrações turísticas de Al De Baran.";
+	mes "Contudo, Não é permitida a entrada para";
+	mes "o Quarto "+getarg(0)+" dessa Torre.";
+	mes "Por favor, volte por onde veio.";
+	next;
+	switch (select ("Fale sobre a Torre do Relógio:Fale sobre o Quarto "+getarg(0)+"","Ir para o Quarto "+getarg(0)+"","Fim"))
+	{
+		case 1:
+			mes "["+strnpcinfo(1)+"]";
+			mes "Al De Baran, a Terra da Alquimia!";
+			mes "Há muitos anos atrás, aqui viveram";
+			mes "3 Alquimistas lendários... Seus nomes eram";
+			mes "Bruno Seimer,";
+			mes "Philipe Warisez,";
+			mes "E..";
+			next;
+			mes "["+strnpcinfo(1)+"]";
+			mes "Romero Specialre!";
+			mes "Esta arquitetura venerável";
+			mes "é a obra de arte desses mestres.";
+			mes "Acredito que você tenha sentido uma atmosfera estranha";
+			mes "enquanto se encaminhava para esse local.";
+			mes "Cada detalhe desta Torre";
+			next;
+			mes "["+strnpcinfo(1)+"]";
+			mes "foi criado através de um Poder mágico muito antigo e misterioso.";
+			mes "É uma estrutura...";
+			mes "essencialmente mágica.";
+			mes "Caminhar sem propósito por aqui";
+			mes "pode ser muito perigoso.";
+			mes "Compreende?";
+			next;
+			mes "["+strnpcinfo(1)+"]";
+			mes "Se por algum acaso,";
+			mes "Você tiver o infortúnio de encontrar";
+			mes "com alguma das crituras que guardam essa Torre.";
+			mes "Por favor, tenha cuidado...";
+			mes "Por favor...";
+			close;
+
+		case 2:
+			mes "["+strnpcinfo(1)+"]";
+			mes "Alquimistas ancestrais";
+			mes "Selaram o portal para o Quarto Subsolo através de um dispositivo alquímico";
+			mes "Para evitar que algo,";
+			mes "Como criaturas malignas ou humanos gananciosos,";
+			mes "Cruzassem este portal.";
+			mes "Enfim...";
+			next;
+			mes "["+strnpcinfo(1)+"]";
+			mes "É preciso uma Chave.";
+			mes "Existem rumores que esta Chave pode ser conseguida através das Criaturas Guardiãs da Torre";
+			mes "Que vagam por aqui.";
+			mes "Então, você sabe como consegui-la?";
+			mes "Você vai ter que convencê-las a lhe dar uma... Haha.";
+			next;
+			mes "["+strnpcinfo(1)+"]";
+			mes "A Chave é a epítome da Alquimia Antiga,";
+			mes "É dito que se usada uma vez,";
+			mes "Magias antigas serão liberadas";
+			mes "E ela desapareçerá.";
+			mes "Saiba disso!";
+			next;
+			mes "["+strnpcinfo(1)+"]";
+			mes "Se possuíres";
+			mes "Uma dessas Chaves,";
+			mes "Mostre para mim.";
+			mes "Aquele que possui a Chave";
+			mes "Será permitido atravessar o portal";
+			mes "Se assim desejar!";
+			next;
+			mes "["+strnpcinfo(1)+"]";
+			mes "Serás afortunado se possuíres a Chave!";
+			mes "Eu lhe darei uma oportunidade";
+			mes "de conhecer as maravilhas que se escondem.";
+			mes "além deste Portal!";
+			close;
+
+		case 3:
+			if (countitem(getarg(1)))
+			{
+				mes "["+strnpcinfo(1)+"]";
+				mes "Hmm! Eu já havia pressentido que você não era uma pessoa comum,";
+				mes "Agora parece que meus instintos estavam certos.";
+				mes "Hummm.";
+				mes "A você a entrada é permitida.";
+				mes "E que os Deuses lhe abençoe...";
+				close2;
+				delitem getarg(1), 1;
+				warp getarg(2), getarg(3), getarg(4);
+				end;
+			}
+			mes "["+strnpcinfo(1)+"]";
+			mes ". . . . . .";
+			mes "Infelizmente, você não merece o privilégio";
+			mes "de atravessar este Portal..";
+			mes "Não será possível enquanto";
+			mes "os espíritos dos Antigos Alquimistas";
+			mes "Não aprovarem você.";
+			close;
+
+		case 4:
+			mes "["+strnpcinfo(1)+"]";
+			mes "Nesta Torre do Relógio,";
+			mes "Os 3 Alquimistas ancestrais que a construíram, ";
+			mes "Deixaram seus espíritos e habilidades.";
+			mes "Por favor, não danifique seu interior.";
+			mes "Por favor...";
+			mes "Respeite os espíritos.";
+			close;
+	}
+	return;
+}

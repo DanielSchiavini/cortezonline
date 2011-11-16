@@ -1,0 +1,165 @@
+//===== Cronus Script ========================================
+//= Trocador de Poções Vermelhas
+//===== Por: =================================================
+//= Minos
+//===== Versão Atual: ========================================
+//= 1.1
+//===== Compatível Com: ======================================
+//= Emulador [3010]; Cliente [EP 12.1]
+//===== Descrição: ===========================================
+//= [Conversão do Aegis]
+//= NPC trocador de Bonecos
+//===== Comentários Adicionais: ==============================
+//= 1.0 Conversão do Aegis [Minos]
+//= 1.1 Revisado e otimizado [Mara]
+//============================================================
+
+alberta,190,173,4	script	Phelix#alb	85,{
+	
+	if ((MaxWeight-Weight) < 10000)
+	{
+  		mes "- Espere um minuto! -";
+	 	mes "- No momento, você está acima do peso. -";
+   		mes "- Por favor, alivie a sua carga -";
+   		mes "- e tente outra vez. -";
+		close;
+	}
+	if (!.@event_zelopy)
+	{
+   		mes "[Phelix]";
+    	mes "Que diabos está fazendo aqui?";
+    	mes "Não há nada grátis nesse navio. Se quiser ser recompensado, trabalhe!!";
+    	next;
+    	mes "[Phelix]";
+    	mes "Hmm, mas se me trouxer 10 Jellopy até posso te dar 1 poção.";
+    	mes "Bem, se for pedir muito de você, 3 Jellopy servirão por 1 batata doce.";
+    	next;
+    	mes "[Phelix]";
+    	mes "Se estiver interessado me procure depois com as coisas.";
+		set .@event_zelopy, 1;
+		close;
+	}
+	else
+	{
+		mes "Hmm.. você quer trocar jellopy por Poção Vermelha ou Batata Doce. O que quer?";
+		next;
+		if ( select("Poção Vermelha.:Batata Doce.") == 1)
+		{
+			mes "[Phelix]";
+			mes "Ok então deixe-me ver o que trouxe..";
+			next;
+			mes "[Phelix]";
+			if (countitem(909) < 10)
+			{
+				mes "Ei! Não é o suficiente. Eu disse 1 Poção Vermelha por 10 Jellopy. Entendeu?";
+				close;
+			}
+			else
+			{
+				set .@max, countitem(909)/10;
+				mes "Nada mal...";
+				mes "Quantas poções quer?";
+				next;
+				switch (select ("Quantas eu tiver direito.:Te direi.:Nenhuma."))
+				{
+					case 1:
+						delitem 909, .@max*10;
+						getitem 501, .@max;
+						break;
+						
+					case 2:
+						mes "[Phelix]";
+						mes "Escreva um número menor que 100, OK? Se mudar de idéia escreva '0'.";
+						mes "Posso te dar um máximo de... " + .@max + " pelo o que tem.";
+						input .@amount;
+						next;
+						mes "[Phelix]";
+						if (.@amount < 1)
+						{
+							mes "Volte depois quando quiser.";
+							close;
+						}
+						if (.@amount > 100)
+						{
+							mes "Mais que 100 é demais. Escolha outro número.";
+							close;
+						}
+						if (countitem(909) < .@amount*10)
+						{
+							mes "Bem bem, você não tem o suficiente em Jellopy.";
+							mes "Volte quando tiver mais Jellopy";
+							close;
+						}
+						delitem 909, .@amount*10;
+						getitem 501, .@amount;
+						break;
+	
+					case 3:
+						mes "[Phelix]";
+						mes "OK, até a próxima.";
+						close;
+				}
+				mes "[Phelix]";
+				mes "Aqui estão! Poções como prometido. Use-as sabiamente.";
+				close;
+			}
+		}
+		mes "[Phelix]";
+		mes "Deixe-me ver o que trouxe..";
+		next;
+		mes "[Phelix]";
+		if (countitem(909) < 3)
+		{
+			mes "Ei! Não é o suficiente. Eu disse 1 Batata Doce por 3 Jellopy.. Entendeu?";
+			close;
+		}
+		else
+		{
+			set .@max, countitem(909)/3;
+			mes "Quantas batatas vai querer?";
+			next;
+			switch (select ("Quantas tiver direito:Prefiro escrever um número.:Nenhuma."))
+			{
+				case 1:
+					delitem 909, .@max*3;
+					getitem 515, .@max;
+					break;
+
+				case 2:
+					mes "[Phelix]";
+					mes "Escreva um número menor que 100. Se mudar de idéia escreva '0'.";
+					mes "Posso te dar... " + .@max + " pelo que tem.";
+					input .@amount;
+					next;
+					mes "[Phelix]";
+					if (!.@amount)
+					{
+						mes "Até a próxima.";
+						close;
+					}
+					if (.@amount > 100)
+					{
+						mes "Escreva outro número, mais que 100 é demais.";
+						close;
+					}
+					if (countitem(909) < .@amount*10)
+					{
+						mes "Bem bem, você não tem Jellopy o suficiente.";
+						mes "Traga-me mais Jellopy";
+						close;
+					}
+					delitem 909, .@amount*3;
+					getitem 515, .@amount;
+					break;
+
+				case 3:
+					mes "[Phelix]";
+					mes "Volte depois.";
+					close;
+			}
+			mes "[Phelix]";
+			mes "Aqui estão! Batatas doces como prometido. Use-as sabiamente.";
+			close;
+		}
+	}
+}

@@ -1,0 +1,26 @@
+// _________                                    
+// \_   ___ \_______  ____   ____  __ __  ______
+// /    \  \/\_  __ \/  _ \ /    \|  |  \/  ___/
+// \     \____|  | \(  <_> )   |  \  |  /\___ \ 
+//  \______  /|__|   \____/|___|  /____//____  >
+//         \/                   \/           \/  
+//-----------------------------------------------
+// 1.0 Traduzido restante do arquivo [Jokker]
+//-----------------------------------------------
+
+// Database para delay de items.
+// O número máximo de entradas é definido no itemdb.h como MAX_ITEMDELAYS
+// ALERTA: Adicionar/Modificar/Remover entradas aqui e usando o comando @reloaditemdb irá causar problemas/inconsistências.
+//
+// Estrutura:
+// Item ID,Delay em Millisegundos.
+
+12208,60000	//Battle_Manual
+12210,60000	//Bubble_Gum
+14538,300000	//Glass_Of_Illusion
+14586,180000	//Spark_Candy
+
+// Bifrost Items
+11522,1000	//Red_Laphine_Sap
+11523,2000	//Yellow_Laphine_Sap
+11524,3000	//White_Laphine_Sap

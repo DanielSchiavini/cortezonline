@@ -1,0 +1,56 @@
+//===== Cronus Script ========================================
+//= Kafra de Alberta
+//===== Por: =================================================
+//= Dojo
+//===== Versão Atual: ========================================
+//= [Conversão Aegis]
+//= 1.0
+//===== Compatibilidade: =====================================
+//= Cronus / eAthena
+//===== Comentários Adicionais: ==============================
+//= 1.0 Primeira Versão [Dojo]
+//============================================================
+
+
+// NorthWest -----------------------------------------------------------------
+alberta,28,229,0	script	Funcionária Kafra::kaf_alberta	116,{
+	cutin "kafra_02",2;
+	callfunc "F_KafSetAlb";
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,0,0,50,850;
+
+	M_Save:
+		savepoint "alberta",31,231;
+		callfunc "F_KafEnd",0,1,"na cidade de Alberta";
+}
+
+// South ---------------------------------------------------------------------
+alberta,113,60,6	script	Funcionária Kafra::kaf_alberta2	112,{
+	cutin "kafra_06",2;
+	callfunc "F_KafSetAlb";
+	mes "[Kafra Recepcionista]";
+	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
+	mes "Em que posso ajudá-lo?";
+	callfunc "F_Kafra",5,0,0,50,850;
+
+	M_Save:
+		savepoint "alberta",117,57;
+		callfunc "F_KafEnd",0,1,"na cidade de Alberta";
+}
+
+
+// Function: Sets variables for Ablerta Kafras -------------------------------
+function	script	F_KafSetAlb	{
+	cleararray @wrpC$[0],"",getarraysize(@wrpC$);
+	setarray @wrpP[0], 1200, 1800, 1800;
+	setarray @wrpD$[0], "Payon", "Morroc", "Prontera";
+	set @wrpC$[0], @wrpD$[0]+" -> "+@wrpP[0];
+	set @wrpC$[1], @wrpD$[1]+" -> "+@wrpP[1];
+	set @wrpC$[2], @wrpD$[2]+" -> "+@wrpP[2];
+	set @wrpC$[3], "Cancel";
+	setarray @viewpX[0], 28, 113, 0, 0;
+	setarray @viewpY[0], 229, 60, 0, 0;
+	return;
+}

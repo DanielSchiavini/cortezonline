@@ -1,0 +1,105 @@
+//===== Cronus Script ======================================== 
+//= Bongun Taming Item
+//===== Por: ================================================= 
+//= DoJo
+//===== Versão: ============================================== 
+//= 1.0
+//===== Compatível com: ====================================== 
+//= Emulador [3010]; Cliente [EP 12.1]
+//===== Descrição: =========================================== 
+//= [Conversão do Aegis]
+//===== Comentários adicionais: ============================== 
+//= 1.0 Conversão do Aegis [DoJo]
+//============================================================ 
+
+comodo,112,182,0	script	Vovó da Munak	103,{
+	if (countitem(1558) > 0) {
+		mes "[Vovó da Munak]";
+		mes "Minha nossa... você viu minha netinha, garot"+(sex == 1?"o":"a")+"? Minha pobre netinha...";
+		mes "Talvez seja minha culpa... Deus! Qual o seu problema? Você não tem coração?...";
+		next;
+		mes "[Vovó da Munak]";
+		mes "Não me lembro quando foi... aconteceu quando morava em Payon, eu tinha uma linda netinha.";
+		mes "Ela ficava muito feliz quando eu fazia o cabelo dela como ^000077trança^000000. Minha nossa...";
+		next;
+		mes "[Vovó da Munak]";
+		mes "Ela trabalhava na casa do chefe da vila... mas eu nunca via seu rosto. Ela era muito boa.";
+		mes "Ela se dava muito bem com o filho do chefe...";
+		next;
+		mes "[Vovó da Munak]";
+		mes "Não sei por que razão... mas aquele filho do chefe ficou muito doente!";
+		mes "Eles disseram que tinhamos que fazer um ritual de sacrifício! Por que.. Por que foi... minha netinha...?";
+		next;
+		mes "[Vovó da Munak]";
+		mes "Então, o filho do chefe recuperou a saúde... Mas lá eu sempre lembrava de minha neta...";
+		mes "Então, depois de um tempo, aqui estou, em Comodo... Minha nossa...";
+		next;
+		if(select("Meu deus! Anime-se!:se... este diário é...") == 1) {
+			mes "[Vovó da Munak]";
+			mes "Oh Deus... ainda vejo em meus sonhos... Minha pobre netinha...";
+			close;
+		}
+		if (countitem(901) > 0) {
+			mes "[Vovó da Munak]";
+			mes "Oh Deus! É o diário de minha neta!";
+			mes "Esta.. Esta é... sua escrita. Deus...";
+			next;
+			mes "[Vovó da Munak]";
+			if (Sex) {
+				mes "Meu jovem... Eu lerei isto para você e depois me dê junto com a trança, por favor.";
+			}else{
+				mes "Minha jovem... Eu lerei isto para você e depois me dê junto com a trança, por favor.";
+			}
+			mes "Eu não tenho nada dela...";
+			next;
+			if(select("Nem pensar.:Ok, eu darei.") == 1) {
+				mes "[Vovó da Munak]";
+				if (Sex) {
+					mes "OK, meu jovem... muito obrigada.";
+				}else{
+					mes "OK, minha jovem... muito obrigada.";
+				}
+				mes "Ela pode ser boa... talvez ela esteja bem!";
+				close;
+			}
+			delitem 1558,1; //Girl's_Diary
+			delitem 901,1; //Danggie
+			mes "[Vovó da Munak]";
+			if (Sex) {
+				mes "Oh! Meu jovem... obrigada, muito obrigada!";
+			}else{
+				mes "Oh! minha jovem... obrigada, muito obrigada!";
+			}
+			mes "Minha netinha... oh... oh Deus...";
+			next;
+			mes "[Vovó da Munak]";
+			mes "Tudo bem... lerei então.";
+			mes "Deixe-me ver... oh, diário... certo, certo...";
+			next;
+			mes "[Vovó da Munak]";
+			mes "Deus, posso saber isso agora...";
+			mes "Ela gostava do filho do chefe!";
+			next;
+			getitem 659,1; //Heart_Of_Her
+			mes "[Vovó da Munak]";
+			mes "Sim, ela... Agora posso entendê-la com este diário...";
+			mes "Muito obrigada... Deus te abençoe!";
+			close;
+		}
+		else {
+			mes "[Vovó da Munak]";
+			mes "O que? um diário? Que diário é esse...?";
+			mes "Eu não sei disso... não me lembro, óh Deus...";
+			next;
+			mes "[Vovó da Munak]";
+			mes "Como gostaria de arrumar seu cabelo como o de ^000077trança^000000...";
+			mes "Como gostaria... Oh Deus, minha netinha...";
+			close;
+		}
+	}
+	else {
+		mes "[Vovó da Munak]";
+		mes "Meu Deus... minha doce netinha... por que o céu levou uma criança tão pequena como você?";
+		close;
+	}
+}
