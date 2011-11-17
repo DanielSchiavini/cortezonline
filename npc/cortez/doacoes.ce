@@ -5,9 +5,13 @@ L_START:
 	mes "Caso ainda não tenha doado, pode conseguir mais informações.";
 	mes "Se você doou algo pro servidor, pode retirar sua recompensa aqui!";
 	next;
+	query_sql "Select amount-claimed From ro.donate Where account_id = "+getcharid(3), #CASHPOINTS;
 	menu "Mais informações",L_Info,"Itens Disponíveis",-,"Verificar crédito",L_VerCreditos;
 L_Itens:
 	mes "^336699[Doações]^333333";
+	mes "Não temos nenhum item disponível por enquanto.";
+	close;
+	
 	mes "Deseja ver qual tipo de item?";
 	next;
 	set .@tipo, select("Voltar", "Itens", "Cartas", "Equips", "Cartas MVP");
@@ -20,7 +24,6 @@ L_Itens:
 		case 5:	set .@tipo$, "VipMvps";		break;
 		default: end;
 	}
-	query_sql "Select amount-claimed From ro.donate Where account_id = "+getcharid(3), #CASHPOINTS;
 	dispbottom "Você tem " + #CASHPOINTS + " ROPS disponíveis.";
 	callshop .@tipo$, 1;
 	npcshopattach .@tipo$;
@@ -106,7 +109,7 @@ L_Reload:
 	query_sql "Select npc From ro.donate_tipos", .@npcs$;
 	for(set .@i, 0; .@i < getarraysize(.@npcs$); set .@i, .@i + 1){
 		// Clearing NPCs
-		npcshopitem .@npcs$[.@i],501,1000;
+		npcshopitem .@npcs$[.@i],501,10000;
 		debugmes "cleaning npc "+.@npcs$[.@i];
 		
 		// Adding items
@@ -131,7 +134,7 @@ L_Reload:
 	}
 }
 
--	cashshop	VipItens	-1,501:-1,502:-1,503:-1;
--	cashshop	VipCartas	-1,501:-1,502:-1,503:-1;
--	cashshop	VipEquips	-1,501:-1,502:-1,503:-1;
--	cashshop	VipMvps	-1,501:-1,502:-1,503:-1;
+-	cashshop	VipItens	-1,501:-1;
+-	cashshop	VipCartas	-1,501:-1;
+-	cashshop	VipEquips	-1,501:-1;
+-	cashshop	VipMvps	-1,501:-1;
