@@ -23,6 +23,6 @@ prontera,56,66,4	script	Vendas	726,{
 		setcell "prontera",0,0,300,300,cell_novending,1;
 		setcell "prontera",56,66,56,35,cell_novending,0;
 		sleep 2000;
-		waitingroom "Vendas Na Minha Frente!",0;
+		waitingroom "Vendas na minha frente!",0;
 		end;
 }
