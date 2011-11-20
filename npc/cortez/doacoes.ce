@@ -110,27 +110,27 @@ L_Reload:
 	for(set .@i, 0; .@i < getarraysize(.@npcs$); set .@i, .@i + 1){
 		// Clearing NPCs
 		npcshopitem .@npcs$[.@i],501,10000;
-		debugmes "cleaning npc "+.@npcs$[.@i];
+		//debugmes "cleaning npc "+.@npcs$[.@i];
 		
 		// Adding items
 		query_sql "Select id, price From ro.donate_item_db i join ro.donate_tipos t on t.id_tipo = i.tipo Where npc = '" + .@npcs$[.@i] + "' and serv in (0," + $serv + ") Order by name", .@ids, .@prices;
 		for(set .@j, 0; .@j < getarraysize(.@ids); set .@j, .@j + 1){
 			npcshopadditem .@npcs$[.@i], .@ids[.@j], .@prices[.@j];
-			debugmes "Adding item: "+ .@npcs$[.@i] + "@ "+ .@ids[.@j] + ":" + .@prices[.@j];
+			//debugmes "Adding item: "+ .@npcs$[.@i] + "@ "+ .@ids[.@j] + ":" + .@prices[.@j];
 		}
 		deletearray .@ids$, getarraysize(.@ids$);
 		deletearray .@prices$, getarraysize(.@prices$);
 		
 		// Clearing NPCs
 		npcshopdelitem .@npcs$[.@i],501;
-		debugmes "redpot from npc "+.@npcs$[.@i];
+		//debugmes "redpot from npc "+.@npcs$[.@i];
 	}
 	deletearray .@npcs$, getarraysize(.@npcs$);
 	
 	if(playerattached()){
 		dispbottom "Itens de doação recarregados";
 	}else{
-		debugmes "Itens de doação recarregados";
+		//debugmes "Itens de doação recarregados";
 	}
 }
 
