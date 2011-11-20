@@ -1,4 +1,4 @@
-prontera,53,53,4	script	Salas de Chat	748,{
+prontera,53,66,4	script	Salas de Chat	748,{
 	show "[^3333CC Salas de Chat ^000000]";
 	show "As salas de chat somente podem ser criadas em linha, na minha frente.";
 	show "Assim podemos manter nossa cidade organizada.";
@@ -7,12 +7,12 @@ prontera,53,53,4	script	Salas de Chat	748,{
 	
 	OnInit:
 		setcell "prontera",0,0,300,300,cell_nochat,1;
-		setcell "prontera",53,53,53,35,cell_nochat,0;
+		setcell "prontera",53,66,53,35,cell_nochat,0;
 		waitingroom "Chats na minha frente!",0;
 		end;
 }
 
-prontera,56,53,4	script	Vendas	726,{
+prontera,56,66,4	script	Vendas	726,{
 	show "[^CC3333 Comércio ^000000]";
 	show "As salas de comércio somente podem ser criadas, em frente a nós!.";
 	show "Assim podemos manter nossa cidade organizada!";
@@ -21,7 +21,7 @@ prontera,56,53,4	script	Vendas	726,{
 	
 	OnInit:
 		setcell "prontera",0,0,300,300,cell_novending,1;
-		setcell "prontera",56,53,56,35,cell_novending,0;
+		setcell "prontera",56,66,56,35,cell_novending,0;
 		sleep 2000;
 		waitingroom "Vendas Na Minha Frente!",0;
 		end;
