@@ -1,4 +1,11 @@
 
+new_zone01	mapflag	noloot
+prontera	mapflag	town
+prontera	mapflag	nodrop
+
+xmas_dun01,0,0,0,0	monster	Antonio	1247,40,0,0
+prontera,0,0,0,0	monster	Antonio	1247,40,0,0
+
 prontera,74,62,3	script	Funcionária Kafra::kaf_cortez	112,{
 	cutin "kafra_06",2;
 	callfunc "F_KafSetPront";
@@ -11,3 +18,7 @@ M_Save:
 	savepoint "prontera",157,327;
 	callfunc "F_KafEnd",0,1,"na cidade de Prontera";
 }
+
+
+prontera,56,57,4	duplicate(Hohenschwangau2)	Astrum#ctz	722
+prontera,56,61,4	duplicate(LF_sc01_2)	Himinn#ctz	722
