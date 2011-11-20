@@ -33,7 +33,7 @@ end;
 				announce "[Enquete] Venha votar na enquete que está no ar... " + $the_poll_question$,8;
 				sleep 15000;
 			}
-			announce "[Doações] Ajude o Cortez Online fazendo sua doação! Você ganhará itens e conta vip!",8;
+			announce "[Doações] Ajude o Cortez Online fazendo sua doação!",8;
 			break;
 		case 4:
 			announce "[Atenção] NUNCA passe sua senha para NINGUÉM! A equipe do servidor não pede sua senha.",bc_all;
@@ -66,7 +66,7 @@ end;
 			sleep 2000;
 			announce "[Doações] Ajude o Cortez! Doações são a única forma de nos sustentar...",bc_all;
 			sleep 2000;
-			announce "[Doações] E você ainda ganha itens e conta VIP como agradecimento!",bc_all;
+			announce "[Doações] E você ainda ganha conta VIP como agradecimento!",bc_all;
 			break;
 		default:
 	}
