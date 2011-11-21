@@ -1,3 +1,52 @@
-
 //client.conf
 display_version: no
+packet_ver_flag: 0x10000
+max_lv: 150
+aura_lv: 150
+
+// drops.conf
+item_rate_common: 10000
+item_rate_heal: 10000
+item_rate_use: 10000
+item_rate_equip: 10000
+item_rate_card: 10000
+
+item_rate_common_boss: 100
+item_rate_heal_boss: 100
+item_rate_use_boss: 100
+item_rate_equip_boss: 100
+item_rate_card_boss: 1000
+
+item_rate_mvp: 1000
+item_rate_adddrop: 100
+item_rate_treasure: 250
+rare_drop_announce: 10
+
+//exp.conf
+base_exp_rate: 20000
+job_exp_rate: 20000
+mvp_exp_rate: 20000
+quest_exp_rate: 20000
+
+death_penalty_base: 1000
+death_penalty_job: 1000
+
+//gm.conf
+lowest_gm_level: 10
+any_warp_GM_min_level: 20
+gm_cant_drop_min_lv: 10
+gm_cant_drop_max_lv: 90
+disp_hpmeter: 70
+gm_viewequip_min_lv: 80
+gm_cant_party_min_lv: 10
+
+//guild.conf
+max_guild_alliance: 0
+
+//monster.conf
+mvp_hp_rate: 200
+monster_hp_rate: 100
+
+//player.conf
+hp_rate: 100
+sp_rate: 100

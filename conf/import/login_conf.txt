@@ -1,0 +1,9 @@
+
+login_port: 6901
+
+check_client_version: yes
+client_version_to_connect: 20
+
+ipban.enable: yes
+
+min_level_to_connect: 7

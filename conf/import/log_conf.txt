@@ -1,0 +1,17 @@
+//enable_logs: 7934 //All except Type=C
+enable_logs: 1
+sql_logs: 1
+log_filter: 3952 //all except healing, etc+arrows, usable+scrolls, pet acc+eggs
+
+log_branch: 1
+
+refine_items_log: 5
+rare_items_log: 1000
+price_items_log: 4000
+amount_items_log: 100
+log_zeny: 1
+
+log_mvpdrop: 1 //outdated
+log_gm: 6
+log_npc: 1
+log_chat: 32

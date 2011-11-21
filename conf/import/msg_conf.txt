@@ -1,0 +1,8 @@
+325: Jogador VIP: %d
+326: Evento: %d
+327: Mediador: %d
+328: Sub-GM: %d
+329: Pré-GM: %d
+330: GM: %d
+331: GM Chefe: %d
+332: Administrador: %d
