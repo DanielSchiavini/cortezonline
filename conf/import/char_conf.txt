@@ -14,3 +14,6 @@ char_name_letters: abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZÁáéíóúàâ
 
 char_del_level: 100
 char_del_delay: 86400
+
+guild_max_member: 2
+guild_max_extension: 1

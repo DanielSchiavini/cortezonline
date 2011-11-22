@@ -6,4 +6,4 @@ client_version_to_connect: 20
 
 ipban.enable: yes
 
-min_level_to_connect: 7
+min_level_to_connect: 0
