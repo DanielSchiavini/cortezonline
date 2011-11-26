@@ -6,7 +6,7 @@ poring_w01,0,0,0	script	ranking_pvp	-1,{
 	//Se não achar o mapa
 	if(getmapxy(.@mapname$,@mapx,@mapy,0) == -1) end;
 	//Se não for um dos mapas habilitados (para o Killing Spree), cancela a execução
-	if(.@mapname$!="poring_w01" && .@mapname$!="sec_in02" && .@mapname$!="guild_vs3" && .@mapname$!="guild_vs5") end; //pvp, pvp exp, pvp ini, evento pvp
+	//if(.@mapname$!="poring_w01" && .@mapname$!="sec_in02" && .@mapname$!="guild_vs3" && .@mapname$!="guild_vs5") end; //pvp, pvp exp, pvp ini, evento pvp
 	set .@ranking, (.@mapname$=="poring_w01");
 	set .@CharName$, strcharinfo(0);
 	
