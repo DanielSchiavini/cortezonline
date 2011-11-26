@@ -1,5 +1,5 @@
-prontera,78,62,5	script	Totó::healer	81,{
-    if(MaxHp<Hp || MaxSp<Sp){
+prontera,72,62,5	script	Totó::healer	81,{
+    if(Hp<MaxHp || Sp<MaxSp){
 		skilleffect 28,MaxHp-Hp;
 		heal MaxHp,MaxSp;
 	}
