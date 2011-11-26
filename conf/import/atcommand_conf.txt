@@ -21,6 +21,7 @@ noks: 0,60
 autoloot: 0,60
 autotrade: 0,60
 at: 0,60
+mount: 0,40
 
 // VIPs
 mobinfo: 5,5
@@ -46,7 +47,6 @@ mobsearch: 5,80
 showmobs: 5,80
 whereis: 5,80
 request: 5,40
-mount: 5,40
 return: 5,60
 load: 5,60
 identify: 5,40
