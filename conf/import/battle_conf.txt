@@ -23,10 +23,10 @@ item_rate_treasure: 250
 rare_drop_announce: 10
 
 //exp.conf
-base_exp_rate: 20000
-job_exp_rate: 20000
-mvp_exp_rate: 20000
-quest_exp_rate: 20000
+base_exp_rate: 15000
+job_exp_rate: 15000
+mvp_exp_rate: 15000
+quest_exp_rate: 15000
 
 death_penalty_base: 1000
 death_penalty_job: 1000
