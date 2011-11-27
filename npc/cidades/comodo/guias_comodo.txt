@@ -16,17 +16,17 @@
 
 comodo,322,178,4	script	Guia Turístico#01::CmdGuide	700,{
 
-	callfunc "F_CmdGuide:Aborígene Kokomo";
+	callfunc "F_CmdGuide","Aborígene Kokomo";
 }
 
 comodo,176,350,4	script	Guia Turístico#02	700,{
 
-	callfunc "F_CmdGuide:Aborígene Nukoko";
+	callfunc "F_CmdGuide","Aborígene Nukoko";
 }
 
 comodo,37,219,4	script	Guia Turístico#03	700,{
 
-	callfunc "F_CmdGuide:Aborígine Papaya";
+	callfunc "F_CmdGuide","Aborígine Papaya";
 }
 
 function	script	F_CmdGuide	{
