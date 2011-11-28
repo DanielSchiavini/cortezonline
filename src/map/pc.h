@@ -550,10 +550,10 @@ enum equip_index {
 	EQI_ARMOR,
 	EQI_HAND_L,
 	EQI_HAND_R,
-	EQI_AMMO,
 	EQI_HEAD_TOP_C,
 	EQI_HEAD_MID_C,
 	EQI_HEAD_LOW_C,
+	EQI_AMMO,
 	EQI_MAX
 };
 
