@@ -14,7 +14,7 @@ prontera,73,134,0	shop	Leiteira#prt	90,519:-1
 
 prontera,104,49,0	shop	Feirante#prt1	102,512:-1,513:-1
 
-prontera,48,58,0	shop	Feirante#prt2	91,515:-1,516:-1,535:-1
+//prontera,48,58,0	shop	Feirante#prt2	91,515:-1,516:-1,535:-1
 
 prontera,64,125,0	shop	Açougueiro#prt	87,517:-1,528:-1
 

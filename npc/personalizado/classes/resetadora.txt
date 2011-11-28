@@ -14,12 +14,18 @@
 //= 2.2 Otimizado script [Mara]
 //============================================================
 
-prontera,158,193,6	script	Resetadora	77,{
+prontera,48,58,0	script	Resetadora	77,{
 
 //===== Configurações: =======================================
-set .@atrib, 5000;	// Reset de Atributos
-set .@habil, 5000;	// Reset de Habilidades
-set .@ambos, 9000;	// Reset de Ambos
+if(getgmlevel()>=5){
+	set .@atrib, 10;	// Reset de Atributos
+	set .@habil, 10;	// Reset de Habilidades
+	set .@ambos, 15;	// Reset de Ambos
+}else{
+	set .@atrib, 100000;	// Reset de Atributos
+	set .@habil, 100000;	// Reset de Habilidades
+	set .@ambos, 150000;	// Reset de Ambos
+}
 //============================================================
 
 	mes "[Resetadora]";
