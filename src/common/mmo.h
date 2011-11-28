@@ -132,10 +132,10 @@
 #endif
 
 #define MAX_PARTY 12
-#define MAX_GUILD 2+10*1	// increased max guild members +6 per 1 extension levels [Lupus]
-#define MAX_GUILDPOSITION 12	// increased max guild positions to accomodate for all members [Valaris] (removed) [PoW]
-#define MAX_GUILDEXPULSION 12
-#define MAX_GUILDALLIANCE 1
+#define MAX_GUILD 16+10*6	// increased max guild members +6 per 1 extension levels [Lupus]
+#define MAX_GUILDPOSITION 20	// increased max guild positions to accomodate for all members [Valaris] (removed) [PoW]
+#define MAX_GUILDEXPULSION 32
+#define MAX_GUILDALLIANCE 16
 #define MAX_GUILDSKILL	15 // increased max guild skills because of new skills [Sara-chan]
 #define MAX_GUILDCASTLE 34	// Updated to include new entries for WoE:SE. [L0ne_W0lf]
 #define MAX_GUILDLEVEL 50
