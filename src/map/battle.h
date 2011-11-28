@@ -531,6 +531,8 @@ extern struct Battle_Config
 	int renewal_cast_setting;
 	int penalty1_rate;
 	int penalty2_rate;
+
+	int enable_grave_system;
 } battle_config;
 
 void do_init_battle(void);

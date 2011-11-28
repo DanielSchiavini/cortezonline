@@ -288,6 +288,13 @@ spl_fild01	mapflag	nightenabled
 bat_c01	mapflag	nightenabled
 bat_c02	mapflag	nightenabled
 bat_c03	mapflag	nightenabled
+dewata	mapflag	nightenabled
+dew_fild01	mapflag	nightenabled
+dew_dun02	mapflag	nightenabled
+dicastes01	mapflag	nightenabled
+dicastes02	mapflag	nightenabled
+dic_fild01	mapflag	nightenabled
+dic_fild02	mapflag	nightenabled
 
 // Torre sem Fim =================
 e_tower	mapflag	nightenabled

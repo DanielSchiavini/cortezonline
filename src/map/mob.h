@@ -161,6 +161,10 @@ struct mob_data {
 	short skillidx;
 	unsigned int skilldelay[MAX_MOBSKILL];
 	char npc_event[EVENT_NAME_LENGTH];
+
+	unsigned int grave_nid;
+
+	bool can_summon : 1; // Used to flag summon deletions, saves a worth amount of memory.
 };
 
 

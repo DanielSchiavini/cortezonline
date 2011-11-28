@@ -49,8 +49,8 @@
 // 20110928 - 2011-09-28aRagexeRE+ - 0x6b, 0x6d
 
 #ifndef PACKETVER
-	//#define PACKETVER	20110111
-	#define PACKETVER 20100730
+	#define PACKETVER	20110111
+	//#define PACKETVER 20100730
 #endif
 // backward compatible PACKETVER 8 and 9
 #if PACKETVER == 8

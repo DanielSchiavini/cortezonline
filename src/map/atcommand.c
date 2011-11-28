@@ -4636,8 +4636,10 @@ ACMD_FUNC(mapinfo)
 		strcat(atcmd_output, "Fireworks | ");
 	if (map[m_id].flag.leaves)
 		strcat(atcmd_output, "Leaves | ");
+	/* no longer avaiable
 	if (map[m_id].flag.rain)
 		strcat(atcmd_output, "Rain | ");
+	*/
 	if (map[m_id].flag.nightenabled)
 		strcat(atcmd_output, "Displays Night | ");
 	clif_displaymessage(fd, atcmd_output);
@@ -6428,8 +6430,9 @@ ACMD_FUNC(autolootitem)
 }
 
 /*==========================================
- * Isso faz chover
+ * Isso faz chover (Não habilitado)
  *------------------------------------------*/
+/*
 ACMD_FUNC(rain)
 {
 	nullpo_retr(-1, sd);
@@ -6444,7 +6447,7 @@ ACMD_FUNC(rain)
 	}
 	return 0;
 }
-
+*/
 /*==========================================
  * Isso faz nevar.
  *------------------------------------------*/
@@ -6582,7 +6585,7 @@ ACMD_FUNC(fireworks)
 ACMD_FUNC(clearweather)
 {
 	nullpo_retr(-1, sd);
-	map[sd->bl.m].flag.rain=0;
+	//map[sd->bl.m].flag.rain=0;
 	map[sd->bl.m].flag.snow=0;
 	map[sd->bl.m].flag.sakura=0;
 	map[sd->bl.m].flag.clouds=0;
@@ -8884,7 +8887,7 @@ ACMD_FUNC(font)
 		}
 		else
 		{
-			clif_displaymessage(fd, "Use @font <1..9> para mudar a fonte das mensagens.");
+			clif_displaymessage(fd, "Use @font <1-9> para mudar a fonte das mensagens.");
 			clif_displaymessage(fd, "Use 0 ou nenhum parâmetro para voltar à fonte normal.");
 		}
 	}
@@ -9341,9 +9344,14 @@ bool is_atcommand(const int fd, struct map_session_data* sd, const char* message
 	info = get_atcommandinfo_byname(command);
 	if( info == NULL || info->func == NULL || ( type && ((*atcmd_msg == atcommand_symbol && pc_isGM(sd) < info->level) || (*atcmd_msg == charcommand_symbol && pc_isGM(sd) < info->level2)) ) )
 	{
+		if( pc_isGM(sd) )
+		{
 			sprintf(output, msg_txt(153), command); // %s é um comando inválido.
 			clif_displaymessage(fd, output);
 			return true;
+		}
+		else
+			return false;
 	}
 	
 	if( strcmpi("adjgmlvl",command+1) && ssd ) { lv = ssd->gmlevel; ssd->gmlevel = sd->gmlevel; }

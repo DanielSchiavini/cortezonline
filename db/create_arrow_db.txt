@@ -5,14 +5,18 @@
 //  \______  /|__|   \____/|___|  /____//____  >
 //         \/                   \/           \/  
 //-----------------------------------------------
-// 1.0 Traduzida a estrutura [Vianna]
-// 1.1 Traduzido restante do arquivo [Jokker]
-//-----------------------------------------------
 
-// Database de criação de flechas com a habilidade 'Fabricar Flechas' (AC_MAKINGARROW) 
+// Arrow Crafting Database
 //
-// Estrutura da Database
-// MaterialID,FlechaID1,Quant1,...,FlechaID5,Quant5
+// Structure of Database:
+// SourceID,MakeID1,MakeAmount1,...,MakeID5,MakeAmount5
+//
+// 01. SourceID     ID of the item, that is consumed by Arrow Crafting.
+// 02. MakeID       ID of the item received from Arrow Crafting.
+// 03. MakeAmount   Amount of MakeID item received from Arrow Crafting.
+// ...
+//
+// NOTE: Up to MAX_ARROW_RESOURCE (typically 5) ID/Amount pairs can be specified.
 
 // Velha Caixa Azul --> 50x Flecha Afiada, 50x Flecha Sonífera
 603,1764,50,1768,50

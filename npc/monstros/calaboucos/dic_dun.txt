@@ -3,11 +3,12 @@
 //===== Por: =================================================
 //= Mara
 //===== Versão Atual: ========================================
-//= 1.0
+//= 1.1
 //===== Compatível Com: ======================================
 //= Emulador [3010+]; Cliente [EP 13.3]
 //===== Comentários Adicionais: ==============================
 //= 1.0 Conversão do Aegis [Mara]
+//= 1.1 Adicionado 3º Andar [Mara]
 //============================================================
 
 // dic_dun01 - Underground Passage Kamidal Tunnel
@@ -22,3 +23,14 @@ dic_dun02,0,0,0,0	monster	Rake Scaraba	2086,45,5000,0,0
 dic_dun02,0,0,0,0	monster	Antler Scaraba Egg	2090,15,5000,0,0
 dic_dun02,0,0,0,0	monster	Rake Scaraba Egg	2091,15,5000,0,0
 dic_dun02,0,0,0,0	boss_monster	Queen Scaraba	2087,1,7200000,0,0
+
+// dic_dun03 - Scaraba Hole Nightmare Mode
+dic_dun03,0,0,0,0	monster	One-Horn Scaraba	2161,50,0,0,0
+dic_dun03,0,0,0,0	monster	Two-Horn Scaraba	2162,45,0,0,0
+dic_dun03,0,0,0,0	monster	Antler Scaraba	2163,50,0,0,0
+dic_dun03,0,0,0,0	monster	Rake Scaraba	2164,45,0,0,0
+dic_dun03,0,0,0,0	monster	One-Horn Scaraba Egg	2166,15,0,0,0
+dic_dun03,0,0,0,0	monster	Two-Horn Scaraba Egg	2167,15,0,0,0
+dic_dun03,0,0,0,0	monster	Antler Scaraba Egg	2168,15,0,0,0
+dic_dun03,0,0,0,0	monster	Rake Scaraba Egg	2169,15,0,0,0
+dic_dun03,0,0,0,0	boss_monster	Queen Scaraba	2165,1,7200000,600000,1

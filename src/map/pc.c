@@ -60,7 +60,7 @@ struct fame_list smith_fame_list[MAX_FAME_LIST];
 struct fame_list chemist_fame_list[MAX_FAME_LIST];
 struct fame_list taekwon_fame_list[MAX_FAME_LIST];
 
-static unsigned short equip_pos[EQI_MAX]={EQP_ACC_L,EQP_ACC_R,EQP_SHOES,EQP_GARMENT,EQP_HEAD_LOW,EQP_HEAD_MID,EQP_HEAD_TOP,EQP_ARMOR,EQP_HAND_L,EQP_HAND_R,EQP_AMMO,EQP_HEAD_TOP_C,EQP_HEAD_MID_C,EQP_HEAD_LOW_C};
+static unsigned short equip_pos[EQI_MAX]={EQP_ACC_L,EQP_ACC_R,EQP_SHOES,EQP_GARMENT,EQP_HEAD_LOW,EQP_HEAD_MID,EQP_HEAD_TOP,EQP_ARMOR,EQP_HAND_L,EQP_HAND_R,EQP_HEAD_TOP_C,EQP_HEAD_MID_C,EQP_HEAD_LOW_C,EQP_AMMO};
 
 #define MOTD_LINE_SIZE 128
 static char motd_text[MOTD_LINE_SIZE][CHAT_SIZE_MAX]; // Message of the day buffer [Valaris]
@@ -617,7 +617,7 @@ int pc_makesavestatus(struct map_session_data *sd)
 
   	//Only copy the Cart/Peco/Falcon/Dragon/Warg/Mado options, the rest are handled via
 	//status change load/saving. [Skotlex]
-	sd->status.option = sd->sc.option&(OPTION_CART|OPTION_FALCON|OPTION_RIDING|OPTION_RIDING_DRAGON|OPTION_WUG|OPTION_RIDING_WUG|OPTION_MADO);
+	sd->status.option = sd->sc.option&(OPTION_CART|OPTION_FALCON|OPTION_RIDING|OPTION_RIDING_DRAGON|OPTION_WUG|OPTION_RIDING_WUG|OPTION_MADO|OPTION_MOUNTING);
 		
 	if (sd->sc.data[SC_JAILED])
 	{	//When Jailed, do not move last point.
@@ -3996,6 +3996,13 @@ int pc_isUseitem(struct map_session_data *sd,int n)
 
 	if( nameid >= 12153 && nameid <= 12182 && sd->md != NULL )
 		return 0; // Mercenary Scrolls
+	
+	
+	if ( itemdb_is_rune(nameid) && ( ( ( sd->class_&JOBL_THIRD ) != MAPID_RUNE_KNIGHT ) || ( ( sd->class_&JOBL_THIRD ) != MAPID_RUNE_KNIGHT_T ) ) )
+		return 0; // Only Rune Knight are able to use Runes
+	
+	if ( itemdb_is_poison(nameid) && ( ( ( sd->class_&JOBL_THIRD ) != MAPID_GUILLOTINE_CROSS ) || ( ( sd->class_&JOBL_THIRD ) != MAPID_GUILLOTINE_CROSS_T ) ) )
+		return 0; // Only Guillotine Cross are able to use Poison
 
 	if( pc_isriding(sd, OPTION_RIDING_WUG) && ((nameid >= 686 && nameid <= 700) || (nameid >= 12215 && nameid <= 12220) || (nameid >= 12000 && nameid <= 12003)) )
 		return 0; // Magic Scrolls cannot be used while riding a Warg. [Jobbie]
@@ -6209,6 +6216,8 @@ int pc_resetskill(struct map_session_data* sd, int flag)
 			i &= ~OPTION_RIDING_WUG;
 		if( i&OPTION_MADO && (sd->class_ == MAPID_MECHANIC || sd->class_ == MAPID_MECHANIC_T) ) // You can equip a Mado w/o license.
 			i &= ~OPTION_MADO;
+		if( i&OPTION_MOUNTING )
+			i &= ~OPTION_MOUNTING;
 
 		if( i != sd->sc.option )
 			pc_setoption(sd, i);
@@ -7350,6 +7359,17 @@ int pc_setoption(struct map_session_data *sd,int type)
 		clif_clearcart(sd->fd);
 		if( pc_checkskill(sd, MC_PUSHCART) < 10 )
 			status_calc_pc(sd,0); //Remove speed penalty.
+	}
+	
+	if (type&OPTION_MOUNTING && !(p_type&OPTION_MOUNTING))
+	{ 
+		clif_status_load_notick(&sd->bl,SI_ALL_RIDING,2,1,0,0); 
+		status_calc_pc(sd,0);  
+	} 
+	else if (!(type&OPTION_MOUNTING) && p_type&OPTION_MOUNTING)
+	{ 
+		clif_status_load_notick(&sd->bl,SI_ALL_RIDING,0,0,0,0); 
+		status_calc_pc(sd,0); 
 	}
 
 	if( type&OPTION_FALCON && !(p_type&OPTION_FALCON) )

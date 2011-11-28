@@ -62,6 +62,11 @@ struct npc_data {
 			short x,y; // destination coords
 			unsigned short mapindex; // destination map
 		} warp;
+		struct {
+			struct mob_data *md;
+			time_t kill_time;
+			char *killer_name;
+		} grave;
 	} u;
 };
 
@@ -69,15 +74,19 @@ struct npc_data {
 
 #define START_NPC_NUM 110000000
 
-#define WARP_CLASS 45
-#define WARP_DEBUG_CLASS 722
-#define FLAG_CLASS 722
-#define INVISIBLE_CLASS 32767
+enum actor_classes
+{
+	WARP_CLASS = 45,
+	HIDDEN_WARP_CLASS = 139,  // server-side only, never sent to client
+	WARP_DEBUG_CLASS = 722,
+	FLAG_CLASS = 722,
+	INVISIBLE_CLASS = 32767,
+};
 
 #define MAX_NPC_CLASS 1000
 //Checks if a given id is a valid npc id. [Skotlex]
 //Since new npcs are added all the time, the max valid value is the one before the first mob (Scorpion = 1001)
-#define npcdb_checkid(id) ( ( (id) >= 46 && (id) <= 125) || (id) == 139 || ( (id) > 400 && (id) < MAX_NPC_CLASS ) || (id) == INVISIBLE_CLASS )
+#define npcdb_checkid(id) ( ( (id) >= 46 && (id) <= 125) || (id) == HIDDEN_WARP_CLASS || ( (id) > 400 && (id) < MAX_NPC_CLASS ) || (id) == INVISIBLE_CLASS )
 
 #ifdef PCRE_SUPPORT
 void npc_chat_finalize(struct npc_data* nd);

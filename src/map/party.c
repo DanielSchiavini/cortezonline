@@ -558,7 +558,7 @@ int party_member_withdraw(int party_id, int account_id, int char_id)
 		ARR_FIND( 0, MAX_PARTY, i, p->party.member[i].account_id == account_id && p->party.member[i].char_id == char_id );
 		if( i < MAX_PARTY )
 		{
-			clif_party_withdraw(p,sd,account_id,p->party.member[i].name,0x00);
+			clif_party_withdraw(p,sd,account_id,p->party.member[i].name,0x0);
 			memset(&p->party.member[i], 0, sizeof(p->party.member[0]));
 			memset(&p->data[i], 0, sizeof(p->data[0]));
 			p->party.count--;

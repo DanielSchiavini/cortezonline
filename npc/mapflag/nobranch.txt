@@ -98,6 +98,8 @@ ve_in	mapflag	nobranch
 ve_in02	mapflag	nobranch
 thor_camp	mapflag	nobranch
 bra_in01	mapflag	nobranch
+dew_in01	mapflag	nobranch
+dic_in01	mapflag	nobranch
 
 // Job Quests ====================
 job_sword1	mapflag	nobranch
@@ -253,6 +255,9 @@ yuno	mapflag	nobranch
 rachel	mapflag	nobranch
 veins	mapflag	nobranch
 brasilis	mapflag	nobranch
+dewata	mapflag	nobranch
+dicastes01	mapflag	nobranch
+dicastes02	mapflag	nobranch
 
 //Aldebaran Turbo Track ========
 turbo_room	mapflag	nobranch

@@ -831,8 +831,8 @@ int battle_calc_bg_damage(struct block_list *src, struct block_list *bl, int dam
 		case PA_PRESSURE:
 		case HW_GRAVITATION:
 		case NJ_ZENYNAGE:
-		case RK_DRAGONBREATH:
-		case GN_HELLS_PLANT_ATK:
+		//case RK_DRAGONBREATH:
+		//case GN_HELLS_PLANT_ATK:
 			break;
 		default:
 			if( flag&BF_SKILL )
@@ -894,15 +894,10 @@ int battle_calc_gvg_damage(struct block_list *src,struct block_list *bl,int dama
 	case PA_PRESSURE:
 	case HW_GRAVITATION:
 	case NJ_ZENYNAGE:
-	case RK_DRAGONBREATH:
-	case GN_HELLS_PLANT_ATK:
+	//case RK_DRAGONBREATH:
+	//case GN_HELLS_PLANT_ATK:
 		break;
 	default:
-		/* Uncomment if you want god-mode Emperiums at 100 defense. [Kisuka]
-		if (md && md->guardian_data) {
-			damage -= damage * (md->guardian_data->castle->defense/100) * battle_config.castle_defense_rate/100;
-		}
-		*/
 		if (flag & BF_SKILL) { //Skills get a different reduction than non-skills. [Skotlex]
 			if (flag&BF_WEAPON)
 				damage = damage * battle_config.gvg_weapon_damage_rate/100;
@@ -1005,8 +1000,8 @@ int battle_addmastery(struct map_session_data *sd,struct block_list *target,int 
 		case W_2HAXE:
 			if((skill = pc_checkskill(sd,AM_AXEMASTERY)) > 0)
 				damage += (skill * 3);
-			if((skill = pc_checkskill(sd,NC_TRAININGAXE)) > 0)
-				damage += (skill * 5);
+			if((skill = pc_checkskill(sd,NC_TRAININGAXE)) > 0)//Code shows it also works with Maces, but also shows maces is 4 instead of 5. Will recheck later. [Rytech]
+				damage += (skill * 5);//Reminder to also recheck the HIT for this skill on Maces as well when I do.
 			break;
 		case W_MACE:
 		case W_2HMACE:
@@ -3726,20 +3721,6 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 				if( sc && sc->data[SC_GLOOMYDAY_SK] )
 					ATK_ADD(50 + 5 * sc->data[SC_GLOOMYDAY_SK]->val1);
 				break;
-			case NC_AXEBOOMERANG:
-				//TODO: Need to get official value of weight % as addition to skill damage. [Jobbie]
-				if( sd )
-				{
-					short index = sd->equip_index[EQI_HAND_R];
-					if (index >= 0 &&
-						sd->inventory_data[index] &&
-						sd->inventory_data[index]->type == IT_WEAPON)
-						wd.damage = sd->inventory_data[index]->weight/5;
-				} else
-					wd.damage = sstatus->rhw.atk2*2;
-				i=100+(40*(skill_lv-1));
-				ATK_ADDRATE(i);
-				break;
 			case HFLI_SBR44:	//[orn]
 				if(src->type == BL_HOM) {
 					wd.damage = ((TBL_HOM*)src)->homunculus.intimacy ;
@@ -4156,7 +4137,7 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 					skillratio = 100 * (sd ? pc_checkskill(sd,RK_RUNEMASTERY) : 1) +  100 * (sstatus->int_ / 4);
 					break;
 				case RK_PHANTOMTHRUST:
-					skillratio = 50 * skill_lv + 10 * pc_checkskill(sd,KN_SPEARMASTERY);
+					skillratio = 50 * skill_lv + 10 * ( sd ? pc_checkskill(sd,KN_SPEARMASTERY) : 10); 
 					//if( s_level > 100 ) skillratio += skillratio * s_level / 150;	// Base level bonus. This is official, but is disabled until I can confirm something with was changed or not. [Rytech]
 					if( s_level > 100 ) skillratio += skillratio * s_level / 150;	// Base level bonus.
 					break;
@@ -4215,7 +4196,7 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 					if( s_level > 100 ) skillratio += skillratio * (s_level - 100) / 200;	// Base level bonus.
 					break;
 				case NC_VULCANARM:
-					skillratio += 70 * skill_lv - 100 + sstatus->dex;
+					skillratio = 70 * skill_lv + sstatus->dex;
 					if( s_level > 100 ) skillratio += skillratio * (s_level - 100) / 200;	// Base level bonus.
 					break;
 				case NC_FLAMELAUNCHER:
@@ -4226,9 +4207,9 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 				case NC_ARMSCANNON:
 					switch( tstatus->size )
 					{
-						case 0: skillratio += 100 + 500 * skill_lv; break;//small
-						case 1: skillratio += 100 + 400 * skill_lv; break;//medium
-						case 2: skillratio += 100 + 300 * skill_lv; break;//large
+						case 0: skillratio += 100 + 500 * skill_lv; break; // Small
+						case 1: skillratio += 100 + 400 * skill_lv; break; // Medium
+						case 2: skillratio += 100 + 300 * skill_lv; break; // Large
 					}
 					if( s_level > 100 ) skillratio += skillratio * (s_level - 100) / 200;	// Base level bonus.
 					break;
@@ -4242,6 +4223,12 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 					break;
 				case NC_AXETORNADO:
 					skillratio += 100 + 100 * skill_lv + sstatus->vit;
+					if( sd )
+					{
+						short index = sd->equip_index[EQI_HAND_R];
+						if( index >= 0 && sd->inventory_data[index] && sd->inventory_data[index]->type == IT_WEAPON )
+						skillratio += sd->inventory_data[index]->weight / 10;// Weight is divided by 10 since 10 weight in coding make 1 whole actural weight. [Rytech]
+					}
 					if( s_level > 100 ) skillratio += skillratio * (s_level - 100) / 200;	// Base level bonus.
 					break;
 				case SC_FATALMENACE:
@@ -5933,7 +5920,21 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 		break;
 	case CR_ACIDDEMONSTRATION: // updated the formula based on a Japanese formula found to be exact [Reddozen]
 		if(tstatus->vit+sstatus->int_) //crash fix
-			md.damage = (int)((int64)7*tstatus->vit*sstatus->int_*sstatus->int_ / (10*(tstatus->vit+sstatus->int_)));
+		{
+			if (!battle_config.renewal_setting&0x20 || src->type != BL_PC)
+				md.damage = (int)((int64)7*tstatus->vit*sstatus->int_*sstatus->int_ / (10*(tstatus->vit+sstatus->int_)));
+			else if (src->type == BL_PC)
+			{
+				int atk = max((sstatus->batk + sstatus->rhw.atk) - (tstatus->def), 0);
+				int matk = max((sd->wmatk + sstatus->status_matk) - (tstatus->mdef), 0);
+				int wpnsizepnlty  = sd->right_weapon.atkmods[tstatus->size] / 10;
+
+				if ((atk && wpnsizepnlty) || matk)
+					md.damage = (int)((int64)(((atk * 7 * tstatus->vit) * wpnsizepnlty + (matk * 7 * tstatus->vit)) * 50) / 10000);	
+				else
+					md.damage = 0;
+			}
+		}
 		else
 			md.damage = 0;
 		if (tsd) md.damage>>=1;
@@ -5989,7 +5990,10 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 		md.damage = md.damage + (5 * sstatus->int_) + (40 * pc_checkskill(sd,RA_RESEARCHTRAP));
 		break;
 	case NC_SELFDESTRUCTION:
-		md.damage = (sstatus->hp + sstatus->sp) * 50 * skill_lv / 100;
+		md.damage = pc_checkskill(sd,NC_MAINFRAME) * skill_lv * (status_get_sp(src) + sstatus->vit);
+		if (status_get_lv(src) > 100) md.damage = md.damage * s_level / 150;// Base level bonus.
+		if (sd) md.damage = md.damage + status_get_hp(src);
+		status_set_sp(src, 0, 0);
 		break;
 	case GN_THORNS_TRAP:
 		md.damage = 100 + 200 * skill_lv + sstatus->int_;
@@ -7370,15 +7374,15 @@ static const struct _battle_data {
 	{ "motd_type",                          &battle_config.motd_type,                       0,      0,      1,              },
 	{ "finding_ore_rate",                   &battle_config.finding_ore_rate,                100,    0,      INT_MAX,        },
 	{ "exp_calc_type",                      &battle_config.exp_calc_type,                   0,      0,      1,              },
-	{ "exp_bonus_attacker",                 &battle_config.exp_bonus_attacker,              25,     0,      INT_MAX,        },
-	{ "exp_bonus_max_attacker",             &battle_config.exp_bonus_max_attacker,          12,     2,      INT_MAX,        },
+	{ "exp_bonus_attacker",                 &battle_config.exp_bonus_attacker,              5,     0,       INT_MAX,        },
+	{ "exp_bonus_max_attacker",             &battle_config.exp_bonus_max_attacker,          20,     2,      INT_MAX,        },
 	{ "min_skill_delay_limit",              &battle_config.min_skill_delay_limit,           100,    10,     INT_MAX,        },
 	{ "default_walk_delay",                 &battle_config.default_walk_delay,              300,    0,      INT_MAX,        },
 	{ "no_skill_delay",                     &battle_config.no_skill_delay,                  BL_MOB, BL_NUL, BL_ALL,         },
 	{ "attack_walk_delay",                  &battle_config.attack_walk_delay,               BL_ALL, BL_NUL, BL_ALL,         },
 	{ "require_glory_guild",                &battle_config.require_glory_guild,             0,      0,      1,              },
 	{ "idle_no_share",                      &battle_config.idle_no_share,                   0,      0,      INT_MAX,        },
-	{ "party_even_share_bonus",             &battle_config.party_even_share_bonus,          0,      0,      INT_MAX,        }, 
+	{ "party_even_share_bonus",             &battle_config.party_even_share_bonus,          20,      0,     INT_MAX,        }, 
 	{ "delay_battle_damage",                &battle_config.delay_battle_damage,             1,      0,      1,              },
 	{ "hide_woe_damage",                    &battle_config.hide_woe_damage,                 0,      0,      1,              },
 	{ "display_version",                    &battle_config.display_version,                 1,      0,      1,              },
@@ -7502,6 +7506,7 @@ static const struct _battle_data {
 	{ "renewal_cast_setting",               &battle_config.renewal_cast_setting,            2,		0,      2,	},
 	{ "penalty1_rate",                      &battle_config.penalty1_rate,	                2,		0,      100,	},
 	{ "penalty2_rate",                      &battle_config.penalty2_rate,                   2,		0,      100,	},
+	{ "enable_grave_system",              &battle_config.enable_grave_system,                  1,     0,            1,        },
 };
 
 int battle_set_value(const char* w1, const char* w2)

@@ -890,6 +890,24 @@ int mob_spawn (struct mob_data *md)
 		// Added for carts, falcons and pecos for cloned monsters. [Valaris]
 		md->sc.option = md->db->option;
 
+	if (md->spawn && md->spawn->state.grave && md->grave_nid)
+	{
+		struct npc_data *nd = (struct npc_data *)map_id2bl(md->grave_nid);
+
+		if (nd)
+		{
+			npc_unload_duplicates(nd);
+			npc_unload(nd);
+
+			if (nd->u.grave.killer_name)
+				aFree(nd->u.grave.killer_name);
+
+			aFree(nd);
+		}
+
+		md->grave_nid = 0;
+	}
+
 	map_addblock(&md->bl);
 	clif_spawn(&md->bl);
 	skill_unit_move(&md->bl,tick,1);
@@ -2188,93 +2206,27 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 
 		if (sd && battle_config.renewal_setting&0x10 && !(status->mode&MD_BOSS) && battle_config.renewal_exp_nerf)
 		{
-			int nerf;
-			int difer = md->db->lv - sd->status.base_level;
+			uint8_t nerf;
+			uint8_t difer = md->db->lv - sd->status.base_level;
 
-			if (difer == 3)
-			{
-				nerf = 105;
-			}
-			else if (difer == 4)
-			{
-				nerf = 110;
-			}
-			else if (difer == 5)
-			{
-				nerf = 115;
-			}
-			else if (difer == 6)
-			{
-				nerf = 120;
-			}
-			else if (difer == 7)
-			{
-				nerf = 125;
-			}
-			else if (difer == 8)
-			{
-				nerf = 130;
-			}
-			else if (difer == 9)
-			{
-				nerf = 135;
-			}
-			else if (difer == 10)
-			{
-				nerf = 140;
-			}
-			else if (difer == 11)
-			{
-				nerf = 135;
-			}
-			else if (difer == 12)
-			{
-				nerf = 130;
-			}
-			else if (difer == 13)
-			{
-				nerf = 125;
-			}
-			else if (difer == 14)
-			{
-				nerf = 120;
-			}
-			else if (difer == 15)
-			{
-				nerf = 115;
-			}
+			if (difer > 2 && difer < 16)
+				nerf = ( (difer > 10) ? (190 - difer*5) : (90 + difer*5) );
 			else if (difer >= 16)
-			{
 				nerf = 40;
-			}
 			else if (difer <= -6 && difer > -11)
-			{
 				nerf = 95;
-			}
 			else if (difer <= -11 && difer > -16)
-			{
 				nerf = 90;
-			}
 			else if (difer <= -16 && difer > -21)
-			{
 				nerf = 85;
-			}
 			else if (difer <= -21 && difer > -26)
-			{
 				nerf = 60;
-			}
 			else if (difer <= -26 && difer > -31)
-			{
 				nerf = 35;
-			}
 			else if (difer <= -31)
-			{
 				nerf = 10;
-			}
 			else
-			{
 				nerf = 0;
-			}
 
 			if (nerf)
 			{
@@ -2358,50 +2310,28 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 				int difer = md->db->lv - sd->status.base_level;
 
 				if (difer >= 4 && difer < 7)
-				{
 					nerf = 80;
-				}
 				else if (difer >= 7 && difer < 10)
-				{
 					nerf = 70;
-				}
 				else if (difer >= 10 && difer < 13)
-				{
 					nerf = 60;
-				}
 				else if (difer >= 13)
-				{
 					nerf = 50;
-				}
 				else if (difer <= -4 && difer > -7)
-				{
 					nerf = 90;
-				}
 				else if (difer <= -7 && difer > -10)
-				{
 					nerf = 80;
-				}
 				else if (difer <= -10 && difer > -13)
-				{
 					nerf = 70;
-				}
 				else if (difer <= -13 && difer > -16)
-				{
 					nerf = 60;
-				}
 				else if (difer <= -16)
-				{
 					nerf = 50;
-				}
 				else
-				{
 					nerf = 0;
-				}
 
 				if (nerf)
-				{
 					drop_rate = drop_rate * nerf / 100;
-				}
 			}
 
 			// attempt to drop the item
@@ -2615,7 +2545,9 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 		md->deletetimer = INVALID_TIMER;
 	}
 
-	mob_deleteslave(md);
+	// Only loops if necessary
+	if( md->can_summon )
+		mob_deleteslave(md);
 	
 	map_freeblock_unlock();
 
@@ -2629,6 +2561,44 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 
 	if( !rebirth )
 		mob_setdelayspawn(md); //Set respawning.
+
+	// Grave [GreenBox]
+	if (battle_config.enable_grave_system && md->spawn->state.grave)
+	{
+		struct npc_data* nd;
+
+		CREATE(nd, struct npc_data, 1);
+
+		md->grave_nid = npc_get_new_npc_id();;
+		
+		nd->bl.prev = nd->bl.next = NULL;
+		nd->bl.m = md->bl.m;
+		nd->bl.x = md->bl.x;
+		nd->bl.y = md->bl.y;
+		nd->bl.type = BL_NPC;
+		nd->bl.id = md->grave_nid;
+		safestrncpy(nd->name, msg_txt(750), sizeof(nd->name));
+
+		nd->class_ = 565; // Grave ID
+		nd->speed = 200;
+		nd->subtype = GRAVE;
+
+		nd->u.grave.md = md;
+		nd->u.grave.kill_time = time(NULL);
+		if (mvp_sd && mvp_sd->status.name)
+			nd->u.grave.killer_name = aStrdup(mvp_sd->status.name);
+		else
+			nd->u.grave.killer_name = 0;
+
+		map_addnpc(m,nd);
+		map_addblock(&nd->bl);
+		status_set_viewdata(&nd->bl, nd->class_);
+		status_change_init(&nd->bl);
+		unit_dataset(&nd->bl);
+		nd->ud.dir = nd->bl.m;
+		clif_spawn(&nd->bl);
+	}
+
 	return 3; //Remove from map.
 }
 
@@ -2878,6 +2848,9 @@ int mob_summonslave(struct mob_data *md2,int *value,int amount,int skill_id)
 	if(mobdb_checkid(value[0]) == 0)
 		return 0;
 
+	// Flags this monster is able to summon; saves a worth amount of memory upon deletion
+	md2->can_summon = 1;	
+		
 	while(count < 5 && mobdb_checkid(value[count])) count++;
 	if(count < 1) return 0;
 	if (amount > 0 && amount < count) { //Do not start on 0, pick some random sub subset [Skotlex]

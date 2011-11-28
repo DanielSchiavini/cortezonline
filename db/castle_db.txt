@@ -5,13 +5,19 @@
 //  \______  /|__|   \____/|___|  /____//____  >
 //         \/                   \/           \/  
 //-----------------------------------------------
-// 1.0 Tradução [Cainho]
-//-----------------------------------------------
 
-// Banco de Dados dos Castelos
+// Guild Castles Database
 //
-// Estrutura:
-// IDdoCastelo,NomedoMapa,NomedoCastelo,OnGuildBreakEventName(para abandonar castelos capturados),Flag(reservado)
+// Structure of Database:
+// CastleID,MapName,CastleName,OnGuildBreakEventName,Flag
+//
+// 01. CastleID                 Unique ID of the castle.
+// 02. MapName                  Map name to be considered as the castle map.
+// 03. CastleName               Name of the castle (used by scripts and guardian name tags).
+// 04. OnGuildBreakEventName    NPC unique name to invoke ::OnGuildBreak on, when a occupied
+//                              castle is abandoned during guild break.
+// 05. Flag                     Switch flag (reserved as of athena-dev mod0796~0801, not used by server).
+
 0,aldeg_cas01,Sirius,Agit#aldeg_cas01,1
 1,aldeg_cas02,Astrum,Agit#aldeg_cas02,1
 2,aldeg_cas03,Canopus,Agit#aldeg_cas03,1

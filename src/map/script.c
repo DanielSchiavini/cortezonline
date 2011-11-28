@@ -324,7 +324,7 @@ enum {
 	MF_FOG,
 	MF_SAKURA,
 	MF_LEAVES,
-	MF_RAIN,	//20
+	//MF_RAIN,	//20
 	// 21 free
 	MF_NOGO = 22,
 	MF_CLOUDS,
@@ -6788,7 +6788,7 @@ BUILDIN_FUNC(getbrokenid)
 
 	num=script_getnum(st,2);
 	for(i=0; i<MAX_INVENTORY; i++) {
-		if(sd->status.inventory[i].attribute){
+		if(sd->status.inventory[i].attribute && sd->status.inventory[i].attribute != 5){
 				brokencounter++;
 				if(num==brokencounter){
 					id=sd->status.inventory[i].nameid;
@@ -6817,7 +6817,7 @@ BUILDIN_FUNC(repair)
 
 	num=script_getnum(st,2);
 	for(i=0; i<MAX_INVENTORY; i++) {
-		if(sd->status.inventory[i].attribute){
+		if(sd->status.inventory[i].attribute && sd->status.inventory[i].attribute != 5){
 				repaircounter++;
 				if(num==repaircounter){
 					sd->status.inventory[i].attribute=0;
@@ -9874,7 +9874,7 @@ BUILDIN_FUNC(getmapflag)
 			case MF_FIREWORKS:			script_pushint(st,map[m].flag.fireworks); break;
 			case MF_SAKURA:				script_pushint(st,map[m].flag.sakura); break;
 			case MF_LEAVES:				script_pushint(st,map[m].flag.leaves); break;
-			case MF_RAIN:				script_pushint(st,map[m].flag.rain); break;
+			//case MF_RAIN:				script_pushint(st,map[m].flag.rain); break;
 			case MF_NIGHTENABLED:		script_pushint(st,map[m].flag.nightenabled); break;
 			case MF_NOGO:				script_pushint(st,map[m].flag.nogo); break;
 			case MF_NOBASEEXP:			script_pushint(st,map[m].flag.nobaseexp); break;
@@ -9946,7 +9946,7 @@ BUILDIN_FUNC(setmapflag)
 			case MF_FIREWORKS:			map[m].flag.fireworks=1; break;
 			case MF_SAKURA:				map[m].flag.sakura=1; break;
 			case MF_LEAVES:				map[m].flag.leaves=1; break;
-			case MF_RAIN:				map[m].flag.rain=1; break;
+			//case MF_RAIN:				map[m].flag.rain=1; break;
 			case MF_NIGHTENABLED:		map[m].flag.nightenabled=1; break;
 			case MF_NOGO:				map[m].flag.nogo=1; break;
 			case MF_NOBASEEXP:			map[m].flag.nobaseexp=1; break;
@@ -10015,7 +10015,7 @@ BUILDIN_FUNC(removemapflag)
 			case MF_FIREWORKS:			map[m].flag.fireworks=0; break;
 			case MF_SAKURA:				map[m].flag.sakura=0; break;
 			case MF_LEAVES:				map[m].flag.leaves=0; break;
-			case MF_RAIN:				map[m].flag.rain=0; break;
+			//case MF_RAIN:				map[m].flag.rain=0; break;
 			case MF_NIGHTENABLED:		map[m].flag.nightenabled=0; break;
 			case MF_NOGO:				map[m].flag.nogo=0; break;
 			case MF_NOBASEEXP:			map[m].flag.nobaseexp=0; break;

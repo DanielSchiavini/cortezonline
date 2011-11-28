@@ -1122,7 +1122,7 @@
 2128,Spiritus Sancti,Spiritus Sancti,5,128000,,1600,,120,,1,0x00004000,15,2,32,,83,1,3,{ bonus bVit,3; bonus bInt,2; bonus bMdef,3; bonus bUnbreakableShield,0; },{},{}
 2129,Bíblia de Exorcismo,Bíblia de Exorcismo,5,20,,600,,80,,0,0x00008100,15,2,32,,50,1,1,{ bonus bHPrecovRate,3; bonus bSPrecovRate,3; bonus bInt,1; if(isequipped(1631)) { bonus2 bSkillAtk,"PR_MAGNUS",20; bonus3 bAutoSpellWhenHit,"PR_TURNUNDEAD",1,20; } },{},{}
 2130,Escudo Cruzado,Escudo Cruzado,5,20,,2000,,130,,1,0x00004000,15,2,32,,80,1,1,{ bonus bStr,1; bonus2 bSkillAtk,"PA_SHIELDCHAIN",30; bonus2 bSkillAtk,"CR_SHIELDBOOMERANG",30; bonus bUseSPrate,10; },{},{}
-2131,Bíblia da Magia Vol. 1,Bíblia da Magia Vol. 1,5,20,,1000,,18,,1,0x00010204,10,2,32,,70,1,1,{ bonus bMDef,3; bonus bInt,2; bonus2 bAddEffWhenHit,Eff_Stun,1000; },{},{}
+2131,Bíblia da Magia Vol. 1,Bíblia da Magia Vol. 1,5,20,,1000,,18,,1,0x00010204,10,7,32,,70,1,1,{ bonus bMDef,3; bonus bInt,2; bonus2 bAddEffWhenHit,Eff_Stun,1000; },{},{}
 2132,Escudo de Força [A],Escudo de Força [A],5,0,,0,,140,,0,0xFFFFFFFF,10,2,32,,0,0,1,{ bonus2 bSubEle,Ele_Neutral,20; bonus2 bSubEle,Ele_Water,20; bonus2 bSubEle,Ele_Earth,20; bonus2 bSubEle,Ele_Fire,20; bonus2 bSubEle,Ele_Wind,20; bonus2 bSubEle,Ele_Poison,20; bonus2 bSubEle,Ele_Holy,20; bonus2 bSubEle,Ele_Dark,20; bonus2 bSubEle,Ele_Ghost,20; bonus2 bSubEle,Ele_Undead,20; bonus bShortWeaponDamageReturn,1; },{},{}
 2133,Escudo de Torneio,Escudo de Torneio,5,20,,1000,,105,,1,0x00004082,10,2,32,,50,1,3,{ bonus2 bAddRace,RC_NonBoss,1; bonus2 bAddRace,RC_Boss,1; if( Class == Job_Lord_Knight ) bonus bAspdRate,-5; if( isequipped(1420) || isequipped(1421) || isequipped(1422) ) { bonus2 bAddRace,RC_NonBoss,4; bonus2 bAddRace,RC_Boss,4; bonus bDef,2; } },{},{}
 2134,Escudo de Escamas de Naga,Escudo de Escamas de Naga,5,20,,500,,35,,1,0x00CFFF80,10,2,32,,70,1,3,{ bonus bMdef,3; if(getrefine()<11) { autobonus2 "{ bonus bShortWeaponDamageReturn,(getrefine()*3); }",10,5000,BF_WEAPON,"{ specialeffect2 EF_GUARD; }"; } else { autobonus2 "{ bonus bShortWeaponDamageReturn,30); }",10,(getrefine()*500),BF_WEAPON,"{ specialeffect2 EF_GUARD; }"; } },{},{}
@@ -2014,7 +2014,7 @@
 4360,Carta_Eremes_Guile,Carta Eremes Guile,6,20,,10,,,,,,,,2,,,,,{ bonus2 bCriticalAddRace,RC_DemiHuman,10; },{},{}
 4361,Carta_Mestre-ferreiro_Howard,Carta Mestre-ferreiro Howard,6,20,,10,,,,,,,,2,,,,,{ bonus bBreakWeaponRate,1000; bonus bBreakArmorRate,700; },{},{}
 4362,Carta_Howard_Alt-Eisen,Carta Howard Alt-Eisen,6,20,,10,,,,,,,,2,,,,,{ bonus bAspdRate,-5; bonus bHit,30; },{},{}
-4363,Carta_Sumo_Sacerdotisa_Margaretha,Carta Sumo Sacerdotisa Margaretha,6,20,,10,,,,,,,,16,,,,,{ bonus5 bAutoSpellWhenHit,"HP_ASSUMPTIO",1,50,BF_WEAPON|BF_MAGIC,0; },{},{}
+4363,Carta_Sumo_Sacerdotisa_Margaretha,Carta Sumo Sacerdotisa Margaretha,6,20,,10,,,,,,,,16,,,,,{ bonus5 bAutoSpellWhenHit,"HP_ASSUMPTIO",5,50,BF_WEAPON|BF_MAGIC,0; },{},{}
 4364,Carta_Margaretha_Sorin,Carta Margaretha Sorin,6,20,,10,,,,,,,,769,,,,,{ bonus bInt,1; bonus5 bAutoSpellWhenHit,"PR_LEXDIVINA",5,150,BF_MAGIC,1; },{},{}
 4365,Carta_Arquimaga_Kathryne,Carta Arquimaga Kathryne,6,20,,10,,,,,,,,769,,,,,{ bonus bIgnoreMDefRace,RC_NonBoss; bonus bCastrate,100; bonus bSPrecovRate,-100; },{},{ heal 0,-2000; }
 4366,Carta_Kathryne_Keyron,Carta Kathryne Keyron,6,20,,10,,,,,,,,769,,,,,{ bonus bCastrate,getrefine()*-1; if(getrefine()>=9) { bonus bMatkRate,2; } },{},{}
@@ -2717,7 +2717,7 @@
 5754,Disciplina_do_Espírito,Disciplina do Espírito,5,20,,100,,6,,1,0x00008000,8,2,256,,100,1,631,{ bonus bStr,1; bonus bVit,1; bonus bMdef,5; if(readparam(bStr)>=120){ bonus bAtk,10; bonus bHit,3; }; },{},{}
 5755,Som_do_Silêncio,Som do Silêncio,5,20,,100,,3,,0,0x00001000,8,2,513,,100,0,632,{ bonus bAgi,1; bonus bMdef,5; if(readparam(bAgi)>=120){ bonus bAtk,10; bonus bFlee2,5; }; },{},{}
 5756,Sussurro_dos_Elementos,Sussurro dos Elementos,5,20,,100,,4,,1,0x00010000,8,2,256,,100,1,633,{ bonus bInt,1; bonus bDex,1; bonus bMdef,5; if(readparam(bAgi)>=120){ bonus bHit,5; bonus bAspd,1; }; bonus2 bSkillAtk,SO_SPELLFIST,8; bonus2 bSkillAtk,SO_PSYCHIC_WAVE,8; },{},{}
-5757,Ordem_do_Protetor,Ordem do Protetor,5,20,,100,,8,,1,0x00004000,8,2,768,,100,1,634,{ bonus bVit,2; bonus bInt,1; bonus bMdef,5; if(readparam(bInt)>=120){ bonus bMatkRate,10; bonus bDef,5; }; },{},{}
+5757,Ordem_do_Protetor,Ordem do Protetor,5,20,,100,,8,,1,0x00004000,8,2,768,,100,1,634,{ bonus bVit,2; bonus bInt,1; bonus bMdef,5; if(readparam(bInt)>=120){ bonus bMatkRate,10; bonus bDef,2; }; },{},{}
 5758,Súplica_do_Cisne,Súplica do Cisne,5,20,,100,,6,,1,0x00080000,8,0,256,,100,1,635,{ bonus bInt,1; bonus bLuk,1; bonus bMdef,5; bonus bAtkRate,5; bonus bUseSPrate,-10; },{},{}
 5760,Talento_do_Piloto_,Talento do Piloto,5,20,,100,,6,,1,0x00000400,8,0,256,,100,1,637,{ bonus bStr,1; bonus bDex,1; bonus bMdef,5; if(readparam(bStr)>=120){ bonus bAtk,10; bonus bCritical,3; }; },{},{}
 5775,Donut_de_Chocolate,Donut de Chocolate,5,20,,50,,1,,0,0xFFFFFFFF,7,2,1,,1,0,653,{},{},{}
@@ -4105,7 +4105,7 @@
 12619,C_Grade_Coin_Bag,C Grade Coin Bag,2,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
 12620,D_Grade_Coin_Bag,D Grade Coin Bag,2,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
 12621,E_Grade_Coin_Bag,E Grade Coin Bag,2,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
-12622,Reins_Of_Mounts,Reins Of Mounts,11,0,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ itemskill "ALL_RIDING",1; },{},{}
+12622,Sela,Sela,11,0,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ itemskill "ALL_RIDING",1; },{},{}
 12623,Advanced_Weapons_Box,Advanced Weapons Box,2,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
 12624,Delicious_Jelly,Delicious_Jelly,0,20,,50,,,,,0xFFFFFFFF,7,2,,,,,,{ percentheal 3,3; },{},{}
 12636,Malangdo_Canned_Specialties,Malangdo_Canned_Specialties,2,20,,0,,,,,0xFFFFFFFF,7,2,,,,,,{ warp "malangdo",140,114; },{},{}
@@ -4134,14 +4134,14 @@
 12731,Runa_Thurisaz,Runa Thurisaz,11,2,,100,,,,,0xFFFFFFFF,7,2,,,,,,{ itemskill "RK_GIANTGROWTH",1; },{},{}
 12732,Runa_Wyrd,Runa Wyrd,11,2,,100,,,,,0xFFFFFFFF,7,2,,,,,,{ itemskill "RK_STORMBLAST",1; },{},{}
 12733,Runa_Hagalaz,Runa Hagalaz,11,2,,100,,,,,0xFFFFFFFF,7,2,,,,,,{ itemskill "RK_STONEHARDSKIN",1; },{},{}
-12734,Runa_Bruta_Forte,Runa Bruta Forte,2,2,,100,,,,,0xFFFFFFFF,8,2,,,,,,{ makerune 1; },{},{}
-12735,Runa_Bruta_Antiga,Runa Bruta Antiga,2,2,,100,,,,,0xFFFFFFFF,8,2,,,,,,{ makerune 2; },{},{}
-12736,Runa_Bruta_Mística,Runa Bruta Mística,2,2,,100,,,,,0xFFFFFFFF,8,2,,,,,,{ makerune 3; },{},{}
-12737,Runa_Bruta_Comum,Runa Bruta Comum,2,2,,100,,,,,0xFFFFFFFF,8,2,,,,,,{ makerune 4; },{},{}
-12738,Runa_Bruta_Rara,Runa Bruta Rara,2,2,,100,,,,,0xFFFFFFFF,8,2,,,,,,{ makerune 5; },{},{}
-12742,Caixa de Presente do Dia dos Namorados,Caixa de Presente do Dia dos Namorados,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
-12743,Caixa de Presente do Dia dos Namorados,Caixa de Presente do Dia dos Namorados,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
-12744,Caixa de Chocolates,Caixa de Chocolates,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
+12734,Runa_Bruta_Forte,Runa Bruta Forte,2,2,,100,,,,,0x00000080,8,2,,,,,,{ makerune 1; },{},{}
+12735,Runa_Bruta_Antiga,Runa Bruta Antiga,2,2,,100,,,,,0x00000080,8,2,,,,,,{ makerune 2; },{},{}
+12736,Runa_Bruta_Mística,Runa Bruta Mística,2,2,,100,,,,,0x00000080,8,2,,,,,,{ makerune 3; },{},{}
+12737,Runa_Bruta_Comum,Runa Bruta Comum,2,2,,100,,,,,0x00000080,8,2,,,,,,{ makerune 4; },{},{}
+12738,Runa_Bruta_Rara,Runa Bruta Rara,2,2,,100,,,,,0x00000080,8,2,,,,,,{ makerune 5; },{},{}
+12742,Caixa de Presente do Dia dos Namorados,Caixa de Presente do Dia dos Namorados,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 7946,1; },{},{}
+12743,Caixa de Presente do Dia dos Namorados,Caixa de Presente do Dia dos Namorados,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 7947,1; },{},{}
+12744,Caixa de Chocolates,Caixa de Chocolates,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 558,1; },{},{}
 12745,Anotação,Anotação,3,20,,120,,,,,,,,,,,,,{},{},{}
 12746,Bola_de_Neve_Misteriosa,Bola de Neve Misteriosa,3,,10,10,,,,,,,,,,,,,{},{},{}
 12754,Pastel_Chinês,Pastel Chinês,0,10,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ percentheal 50,50; },{},{}
@@ -4600,9 +4600,9 @@
 14301,Ears_of_Ifrit_Box,Ears of Ifrit Box,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
 14317,Ovo da Fada-Serpente,Ovo da Fada-Serpente,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
 14345,Pergaminho da Fauna,Pergaminho da Fauna,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
-14466,Caixa de Anel do Dia dos Namorados,Caixa de Anel do Dia dos Namorados,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
+14466,Caixa de Anel do Dia dos Namorados,Caixa de Anel do Dia dos Namorados,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 5817,1; },{},{}
 14469,Ovo de Majoruros,Ovo de Majoruros,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
-14508,Ovo da Fortuna,Ovo da Fortuna,2,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
+14508,Ovo da Fortuna,Ovo da Fortuna,2,20,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ set Zeny, Zeny + rand(1000, 77777); },{},{}
 14509,Poção_de_Concentração_Leve,Poção de Concentração Leve,2,800,,20,,,,,0xFFFFFFFF,7,2,,,,,,{ sc_start SC_ASPDPOTION0,1800000,0; },{},{}
 14511,Poção_da_Fúria_Selvagem_Leve,Poção da Fúria Selvagem Leve,2,3000,,20,,,,,0x01E646A6,7,2,,,85,,,{ sc_start SC_ASPDPOTION2,1800000,0; },{},{}
 //=============================================================

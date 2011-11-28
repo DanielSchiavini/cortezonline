@@ -9,6 +9,57 @@ Projeto baseado no eAthena http://www.eathena.ws/ ou http://svn.eathena.ws/svn/e
 Vide LICENCE para informações da licença desse projeto (GNU/GPL)
 -------------------------------------------------------------------------------------------------
 
+23/11/2011
+	* Corrigido o Item Sela (12622) agora o mesmo tem um delay de 3 segundos para utilizar o mesmo novamente. [PedroxD]
+	* Realizada pequena otimização no nerf de exp/mob_lv; [Mara]
+	* Dewata:
+		+ Realizadas pequenas mudanças no npc principal de Dewata; [Mara]
+		+ Adicionado os portais; [Mara]
+		+ Mais spawns adicionados; [Mara]
+		+ Flags para mapas também adicionados. [Mara]
+	* El Dicastes:
+		+ Adicionado os portais do episódio El Dicastes; [Mara]
+		+ Spawns adicionados; [Mara]
+		+ Flags adicionados. [Mara]
+	* Adicionado suporte para compilação com múltiplos processadores no vcproj-10 (Visual Studio 2010). [Mara]
+	* Adicionada battleflag para ativar ou desativar os túmulos dos MVPs [GreenBox]
+	* Correção do sistema de montarias [GreenBox]
+	* Corrigida formula da renovação da skill Demonstração Ácida [GreenBox]
+
+22/11/2011
+	* Adicionado sistema de túmulo dos MVPs [GreenBox]
+	* Correções no sistema de costumes [GreenBox]
+	- Agradecimento aos membros do eAthena por reportar bugs.
+
+20/11/2011
+	* Atualizado à r14996 do eAthena; [Mara]
+	* Atualizado à r652 do 3CeAM; [Mara]
+	- Não totalmente, devido à algumas atualizações relacionadas as 2nd classes de Ninja e outras não usadas;
+	* Atualizado à r51 do ReAM; [Mara]
+	- Pequena correção na Carta Sumo Sacerdotisa Margaretha;
+	- Modificado share em grupo para 20% por padrão;
+	- Revertida resistência de SC_FREEZE e SC_STONE a LUK e INT para MDEF.
+	* Corrigido erro no item Bíblia da Magia Vol. 1; [Mara]
+	- Impedia que Espiritualistas o equipassem.
+	* Corrigido item Ovo da Fortuna (não estava dando o zeny); [Mara]
+	- issue: 157
+	* Pequenas modificações na item_db2.txt; [Mara]
+	- Apenas removendo alguns itens que já existiam na item_db.txt.
+	* As seguintes mudanças foram retiradas do RR-Emu (agradecimentos ao Ind e equipe): [Mara]
+	- Modificada splash area da habilidade Vento Cortante [29];
+	- Corrigido problema de memória na proteção anti-KS;
+	- Corrigido client timer que poderia chegar a valores negativos;
+	- Adicionado verificação para apenas:
+		+ Lorde Rúnico poder usar Runas;
+		+ Sicário usar Venenos.
+	- Pequena modificação na habilidade Arpão;
+	- Corrigido erro antigo ao digitar um texto iniciado com @;
+		+ Ao digitar, por exemplo, @twitter, o server entendia como um comando inválido.
+	- Corrigido erro no fakename;
+	- Modificada a performance da Mob AI, impedindo que uma quantidade desnecessária de memória seja usada;
+	- Algumas modificações no sistema de montarias;
+	- Adicionada grande documentação na src/map/clif.c.
+	
 19/10/2011
 	* Corrigido erro nas skills dos elementais [GreenBox]
 	- Quase todas skills estavam como nodamage

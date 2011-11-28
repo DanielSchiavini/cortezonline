@@ -1101,7 +1101,7 @@ int unit_skilluse_id2(struct block_list *src, int target_id, short skill_num, sh
 	if( !target || src->m != target->m || !src->prev || !target->prev )
 		return 0;
 
-	if( mob_ksprotected(src, target) )
+	if( battle_config.ksprotection && sd && mob_ksprotected(src, target) )
 		return 0;
 	
 	tsc = status_get_sc(target);

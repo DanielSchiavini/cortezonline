@@ -243,7 +243,7 @@ enum bl_type {
 //For common mapforeach calls. Since pets cannot be affected, they aren't included here yet.
 #define BL_CHAR (BL_PC|BL_MOB|BL_HOM|BL_MER|BL_ELEM)
 
-enum npc_subtype { WARP, SHOP, SCRIPT, CASHSHOP };
+enum npc_subtype { WARP, SHOP, SCRIPT, CASHSHOP, GRAVE };
 
 enum {
 	RC_FORMLESS=0,
@@ -313,12 +313,13 @@ struct spawn_data {
 	signed short xs,ys;
 	unsigned short num; //Number of mobs using this structure
 	unsigned short active; //Number of mobs that are already spawned (for mob_remove_damaged: no)
-	unsigned int delay1,delay2; //Min delay before respawning after spawn/death
+	unsigned int delay1,delay2; //Spawn delay (fixed base + random variance)
 	struct {
 		unsigned int size :2; //Holds if mob has to be tiny/large
 		unsigned int ai :2;	//Holds if mob is special ai.
 		unsigned int dynamic :1; //Whether this data is indexed by a map's dynamic mob list
 		unsigned int boss : 1;
+		unsigned int grave : 1;
 	} state;
 	char name[NAME_LENGTH],eventname[EVENT_NAME_LENGTH]; //Name/event
 };
@@ -524,7 +525,7 @@ struct map_data {
 		unsigned fireworks : 1;
 		unsigned sakura : 1; // [Valaris]
 		unsigned leaves : 1; // [Valaris]
-		unsigned rain : 1; // [Valaris]
+		//unsigned rain : 1; // [Valaris]
 		unsigned nogo : 1; // [Valaris]
 		unsigned nobaseexp	: 1; // [Lorky] added by Lupus
 		unsigned nojobexp	: 1; // [Lorky]

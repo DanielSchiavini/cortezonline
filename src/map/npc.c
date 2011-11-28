@@ -96,7 +96,7 @@ static struct script_event_s
 
 struct view_data* npc_get_viewdata(int class_)
 {	//Returns the viewdata for normal npc classes.
-	if (class_ == INVISIBLE_CLASS)
+	if( class_ == HIDDEN_WARP_CLASS || class_ == INVISIBLE_CLASS )
 		return &npc_viewdb[0];
 	if (npcdb_checkid(class_) || class_ == WARP_CLASS)
 		return &npc_viewdb[class_];
@@ -1056,6 +1056,30 @@ int npc_globalmessage(const char* name, const char* mes)
 	return 0;
 }
 
+//
+//
+//
+void grave_show(time_t killtime, struct mob_data *md, char *name, struct map_session_data *sd, int oid)
+{
+	char buffer[200];
+	char time[10];
+
+	strftime(time, sizeof(time), "%H:%M", localtime(&killtime));
+
+	snprintf(buffer, sizeof(buffer), "[ ^EE0000%s^000000 ]", md->db->name);
+	clif_scriptmes(sd, oid, buffer);
+
+	clif_scriptmes(sd, oid, "Sua curta vida acabou.");
+
+	snprintf(buffer, sizeof(buffer), "Horário da Derrota: ^EE0000%s^000000", time);
+	clif_scriptmes(sd, oid, buffer);
+
+	snprintf(buffer, sizeof(buffer), "Héroi que derrotou o MVP [^EE0000%s^000000].", name ? name : "Desconhecido");
+	clif_scriptmes(sd, oid, buffer);
+
+	clif_scriptclose(sd, oid);
+}
+
 /*==========================================
  * ƒNƒŠƒbƒNŽž‚ÌNPCˆ—
  *------------------------------------------*/
@@ -1084,6 +1108,9 @@ int npc_click(struct map_session_data* sd, struct npc_data* nd)
 		break;
 	case SCRIPT:
 		run_script(nd->u.scr.script,0,sd->bl.id,nd->bl.id);
+		break;
+	case GRAVE:
+		grave_show(nd->u.grave.kill_time, nd->u.grave.md, nd->u.grave.killer_name, sd, nd->bl.id);
 		break;
 	}
 
@@ -2790,7 +2817,8 @@ static const char* npc_parse_mob(char* w1, char* w2, char* w3, char* w4, const c
 
 	memset(&mob, 0, sizeof(struct spawn_data));
 
-	mob.state.boss = !strcmpi(w2,"boss_monster");
+	// Todo boss sumonado por boss_monster deve sumonar a grave automaticamente [GreenBox]
+	mob.state.grave = mob.state.boss = !strcmpi(w2,"boss_monster");
 
 	// w1=<map name>,<x>,<y>,<xs>,<ys>
 	// w4=<mob id>,<amount>,<delay1>,<delay2>,<event>
@@ -3141,8 +3169,8 @@ static const char* npc_parse_mapflag(char* w1, char* w2, char* w3, char* w4, con
 		map[m].flag.sakura=state;
 	else if (!strcmpi(w3,"leaves"))
 		map[m].flag.leaves=state;
-	else if (!strcmpi(w3,"rain"))
-		map[m].flag.rain=state;
+	//else if (!strcmpi(w3,"rain"))
+	//	map[m].flag.rain=state;
 	else if (!strcmpi(w3,"nightenabled"))
 		map[m].flag.nightenabled=state;
 	else if (!strcmpi(w3,"nogo"))

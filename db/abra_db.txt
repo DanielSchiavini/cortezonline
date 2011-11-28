@@ -5,16 +5,20 @@
 //  \______  /|__|   \____/|___|  /____//____  >
 //         \/                   \/           \/  
 //-----------------------------------------------
-// 1.0 Traduzido [Dubugras]
-// 1.1 Tradução da estrutura [Vianna]
-//	* Removidos alguns comentários.
-//	* Removidos espaços extras.
-//-----------------------------------------------
 
-// Database de habilidades conjuráveis pela habilidade 'Abracadabra' (SA_ABRACADABRA)
+// Hocus-Pocus (Abrakadabra) Castable Skills Database
 //
-// Estrutura da Database:
-// HabilidadeID,Nome,NivelAbracadabraRequerido,Chance
+// Structure of Database:
+// SkillID,DummyName,RequiredHocusPocusLevel,Rate
+//
+// 01. SkillID                  Skill ID to be casted by hocus pocus.
+// 02. DummyName                Name of the skill (informative, not used by server).
+// 03. RequiredHocusPocusLevel  Minimum skill level of hocus pocus for the current skill to be selected.
+// 04. Rate                     Chance at which the skill is selected (1 = 0.01%, 10000 = 100%).
+//
+// NOTE: The skill is picked at random from the entire database and then tested for rate. If it
+//       does not succeed at that rate, an another skill is picked and tested. This continues
+//       until a skill succeeds.
 
 5,Golpe Fulminante,1,5000
 6,Provocar,1,5000

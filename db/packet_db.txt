@@ -1,15 +1,41 @@
+// Client<->Map Packet Database
+//
+// Structure of Database:
+// PacketType,PacketLength[,Name,FieldIndex1:FieldIndex2:FieldIndex3:...]
+//
+// 01. PacketType       ID of the packet.
+// 02. PacketLength     Length of the packet. If 0, packet is disabled in current packet version. If -1, packet has variable size.
+// 03. Name             Name of the packet parser function (optional, for incoming packets only).
+// 04. FieldIndex       Specifies the offset of a packet field in bytes from the begin of the packet (only specified when Name is given).
+//                      Can be 0, when the layout is not known.
+// ...
+//
+// NOTE: Up to MAX_PACKET_POS (typically 20) field indexes may be used.
+//
 // The packet database allows you to add support for new clients,
 // because packets change every release.
+//
 // Note: Every packet version needs a wanttoconnection specification, since
 // that is the packet used to identify a client's version.
 // If multiple versions have the same connection packet, the higher version
 // will be used (unless the lower one is specified as the default)
-
+//
+// Incoming packets have their parser function and layout specified, which enables
+// them for the current and all higher versions, unless explicitely disabled.
+//
+// Outgoing packets must be specified in order to enable them for the current
+// and all higher versions, unless explocitely disabled. Packets that are not
+// enabled for a packet version are silently discarded when sent as multicast.
+//
+// Every packet version inherits packet definitions from the previous (lower)
+// packet version.
+//
 // Main packet version of the DB to use (default = max available version)
 // Client detection is faster when all clients use this version.
 // Version 23 is the latest Sakexe (above versions are for Renewal clients)
+
 //packet_db_ver: default
-packet_db_ver: 25
+packet_db_ver: 26
 
 packet_ver: 5
 0x0064,55
@@ -767,10 +793,10 @@ packet_ver: 18
 0x0249,3
 0x024a,70
 0x024b,4,auctioncancelreg,2
-0x024c,8,auctionsetitem,0
+0x024c,8,auctionsetitem,2:4
 0x024d,14
-0x024e,6,auctioncancel,0
-0x024f,10,auctionbid,0
+0x024e,6,auctioncancel,2
+0x024f,10,auctionbid,2:6
 0x0250,3
 0x0251,2
 0x0252,-1
@@ -825,7 +851,7 @@ packet_ver: 19
 //2005-10-13aSakexe
 0x007a,6
 0x0251,32
-0x025c,4,auctionbuysell,0
+0x025c,4,auctionbuysell,2
 
 //2005-10-17aSakexe
 0x007a,58
@@ -837,8 +863,7 @@ packet_ver: 19
 0x0260,6
 
 //2005-11-07aSakexe
-0x024e,6,auctioncancel,0
-0x0251,34,auctionsearch,0
+0x0251,34,auctionsearch,2:4:8:32
 
 //2006-01-09aSakexe
 0x0261,11

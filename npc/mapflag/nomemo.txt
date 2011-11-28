@@ -661,6 +661,17 @@ man_in01	mapflag	nomemo
 splendide	mapflag	nomemo
 spl_fild01	mapflag	nomemo
 spl_in01	mapflag	nomemo
+dew_in01	mapflag	nomemo
+dew_dun01	mapflag	nomemo
+dew_dun02	mapflag	nomemo
+dicastes01	mapflag	nomemo
+dicastes02	mapflag	nomemo
+dic_in01	mapflag	nomemo
+dic_fild01	mapflag	nomemo
+dic_fild02	mapflag	nomemo
+dic_dun01	mapflag	nomemo
+dic_dun02	mapflag	nomemo
+dic_dun03	mapflag	nomemo
 
 // Calabouço Memorial dos Orcs ===
 1@orcs	mapflag	nomemo

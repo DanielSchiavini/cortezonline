@@ -40,25 +40,25 @@ struct eventlist {
 	struct eventlist *next;
 };
 
-// ギルドのEXPキャッシュのフラッシュに関連する定数
-#define GUILD_SEND_XY_INVERVAL	5000	// 座標やＨＰ送信の間隔
-#define GUILD_PAYEXP_INVERVAL 10000	// 間隔(キャッシュの最大生存時間、ミリ秒)
-#define GUILD_PAYEXP_LIST 8192	// キャッシュの最大数
+#define GUILD_SEND_XY_INVERVAL	5000
+#define GUILD_PAYEXP_INVERVAL 10000
+#define GUILD_PAYEXP_LIST 8192
 
-// ギルドのEXPキャッシュ
+
 struct guild_expcache {
 	int guild_id, account_id, char_id;
 	uint64 exp;
 };
 static struct eri *expcache_ers; //For handling of guild exp payment.
 
+#define MAX_GUILD_SKILL_REQUIRE 5
 struct{
 	int id;
 	int max;
 	struct{
 		short id;
 		short lv;
-	}need[6];
+	}need[MAX_GUILD_SKILL_REQUIRE];
 } guild_skill_tree[MAX_GUILDSKILL];
 
 int guild_payexp_timer(int tid, unsigned int tick, int id, intptr_t data);
@@ -124,7 +124,7 @@ static bool guild_read_guildskill_tree_db(char* split[], int columns, int curren
 		guild_skill_tree[id].max = 1;
 	}
 
-	for( k = 0; k < 5; k++ )
+	for( k = 0; k < MAX_GUILD_SKILL_REQUIRE; k++ )
 	{
 		guild_skill_tree[id].need[k].id = atoi(split[k*2+2]);
 		guild_skill_tree[id].need[k].lv = atoi(split[k*2+3]);
@@ -141,13 +141,13 @@ int guild_check_skill_require(struct guild *g,int id)
 	int i;
 	int idx = id-GD_SKILLBASE;
 
-	if(g == NULL)
+	if (g == NULL)
 		return 0;
 
 	if (idx < 0 || idx >= MAX_GUILDSKILL)
 		return 0;
 
-	for(i=0;i<5;i++)
+	for(i = 0 ; i < MAX_GUILD_SKILL_REQUIRE; i++)
 	{
 		if(guild_skill_tree[idx].need[i].id == 0) break;
 		if(guild_skill_tree[idx].need[i].lv > guild_checkskill(g,guild_skill_tree[idx].need[i].id))
@@ -1942,7 +1942,7 @@ void do_init_guild(void)
 	sv_readdb(db_path, "castle_db.txt", ',', 4, 5, -1, &guild_read_castledb);
 
 	memset(guild_skill_tree,0,sizeof(guild_skill_tree));
-	sv_readdb(db_path, "guild_skill_tree.txt", ',', 12, 12, -1, &guild_read_guildskill_tree_db); //guild skill tree [Komurka]
+	sv_readdb(db_path, "guild_skill_tree.txt", ',', 2+MAX_GUILD_SKILL_REQUIRE*2, 2+MAX_GUILD_SKILL_REQUIRE*2, -1, &guild_read_guildskill_tree_db); //guild skill tree [Komurka]
 
 	add_timer_func_list(guild_payexp_timer,"guild_payexp_timer");
 	add_timer_func_list(guild_send_xy_timer, "guild_send_xy_timer");

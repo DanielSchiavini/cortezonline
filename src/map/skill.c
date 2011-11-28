@@ -76,7 +76,7 @@ int icewall_unit_pos;
 int earthstrain_unit_pos;
 
 struct s_skill_nounit_layout skill_nounit_layout[MAX_SKILL_UNIT_LAYOUT];
-int windcutter_nounit_pos;
+//int windcutter_nounit_pos; //check splash
 int overbrand_nounit_pos;
 int overbrand_brandish_nounit_pos;
 
@@ -606,9 +606,9 @@ struct s_skill_unit_layout* skill_get_unit_layout (int skillid, int skilllv, str
 
 struct s_skill_nounit_layout* skill_get_nounit_layout (int skillid, int skilllv, struct block_list* src, int x, int y, int dir)
 {
-	if( skillid == RK_WINDCUTTER )
+/*	if( skillid == RK_WINDCUTTER )
 		return &skill_nounit_layout[windcutter_nounit_pos + dir];
-	else if( skillid == LG_OVERBRAND )
+	else*/ if( skillid == LG_OVERBRAND )
 		return &skill_nounit_layout[overbrand_nounit_pos + dir];
 	else if( skillid == LG_OVERBRAND_BRANDISH )
 		return &skill_nounit_layout[overbrand_brandish_nounit_pos + dir];
@@ -1144,11 +1144,11 @@ int skill_additional_effect (struct block_list* src, struct block_list *bl, int 
 		break;
 	case NC_PILEBUNKER:
 		if( rand()%100 < 5 + 15*skilllv )
-		{ //Deactivatable Statuses: Kyrie Eleison, Assumptio, Mental Strength, Auto Guard, Millennium Shield
+		{ //Deactivatable Statuses: Kyrie Eleison, Auto Guard, Steel Body, Assumptio, and Millennium Shield
 			status_change_end(bl, SC_KYRIE, -1);
-			status_change_end(bl, SC_ASSUMPTIO, -1);
-			status_change_end(bl, SC_STEELBODY, -1);
 			status_change_end(bl, SC_AUTOGUARD, -1);
+			status_change_end(bl, SC_STEELBODY, -1);
+			status_change_end(bl, SC_ASSUMPTIO, -1);
 			status_change_end(bl, SC_MILLENNIUMSHIELD, -1);
 		}
 		break;
@@ -2205,7 +2205,6 @@ int skill_attack(int attack_type, struct block_list* src, struct block_list *dsr
 	//Skills that need be passed as a normal attack for the client to display correctly.
 	case HVAN_EXPLOSION:
 	case NPC_SELFDESTRUCTION:
-	case NC_SELFDESTRUCTION:
 		if(src->type==BL_PC)
 			dmg.blewcount = 10;
 		dmg.amotion = 0; //Disable delay or attack will do no damage since source is dead by the time it takes effect. [Skotlex]
@@ -7021,10 +7020,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, in
 				sc_start(bl,type,100,skilllv,skill_get_time(skillid, skilllv));
 		} else if (status_get_guild_id(src)) {
 			clif_skill_nodamage(src,bl,skillid,skilllv,1);
-			map_foreachinrange(skill_area_sub, src,
-				skill_get_splash(skillid, skilllv), BL_PC,
-				src,skillid,skilllv,tick, flag|BCT_GUILD|1,
-				skill_castend_nodamage_id);
+			map_foreachinrange(skill_area_sub, src, skill_get_splash(skillid, skilllv), BL_PC, src,skillid,skilllv,tick, flag|BCT_GUILD|1, skill_castend_nodamage_id);
 			if (sd)
 				guild_block_skill(sd,skill_get_time2(skillid,skilllv));
 		}
@@ -7798,7 +7794,6 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, in
 		if( sd )
 		{
 			pc_setoption(sd, sd->sc.option&~OPTION_MADO);
-			status_zap(src, 0, sd->status.sp);
 			clif_skill_nodamage(src, bl, skillid, skilllv, 1);
 			skill_castend_damage_id(src, src, skillid, skilllv, tick, flag);
 		}
@@ -9628,6 +9623,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, int skillid, int sk
 		}
 		break;
 
+/* check official splash
 	case RK_WINDCUTTER:
 		{
 			int dir = map_calc_dir(src, x, y);
@@ -9637,10 +9633,12 @@ int skill_castend_pos2(struct block_list* src, int x, int y, int skillid, int sk
 				map_foreachincell(skill_area_sub, src->m, x+layout->dx[i], y+layout->dy[i], BL_CHAR, src, skillid, skilllv, tick, flag|BCT_ENEMY,skill_castend_damage_id);
 		}
 		break;
+*/
 
 	case NC_COLDSLOWER:
 	case NC_ARMSCANNON:
 	case RK_DRAGONBREATH:
+	case RK_WINDCUTTER: //check official splash
 	case WM_LULLABY_DEEPSLEEP:
 		i = skill_get_splash(skillid,skilllv);
 		map_foreachinarea(skill_area_sub,src->m,x-i,y-i,x+i,y+i,BL_CHAR,
@@ -15807,7 +15805,7 @@ int skill_magicdecoy(struct map_session_data *sd, int nameid)
 	y = sd->menuskill_itemused&0xffff;
 	sd->menuskill_itemused = sd->menuskill_val = 0;
 
-	class_ = (nameid == 990 || nameid == 991) ? 2043 + nameid - 990 : (nameid == 992) ? 2045 : 2046;
+	class_ = (nameid == 990 || nameid == 991) ? 2043 + nameid - 990 : (nameid == 992) ? 2046 : 2045;
 
 
 	md =  mob_once_spawn_sub(&sd->bl, sd->bl.m, x, y, sd->status.name, class_, "");
@@ -16536,7 +16534,7 @@ void skill_init_nounit_layout (void)
 	int i, pos = 0;
 
 	memset(skill_nounit_layout,0,sizeof(skill_nounit_layout));
-
+/* Check official bRO area splash
 	windcutter_nounit_pos = pos;
 	for( i = 0; i < 8; i++ )
 	{
@@ -16576,7 +16574,7 @@ void skill_init_nounit_layout (void)
 		}
 		pos++;
 	}
-
+*/
 	overbrand_nounit_pos = pos;
 	for( i = 0; i < 8; i++ )
 	{

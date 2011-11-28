@@ -119,6 +119,7 @@ ve_in	mapflag	noteleport
 ve_in02	mapflag	noteleport
 thor_camp	mapflag	noteleport
 bra_in01	mapflag	noteleport
+dic_in01	mapflag	noteleport
 
 // Job Quests ====================
 job_sword1	mapflag	noteleport
@@ -364,6 +365,7 @@ schg_que01	mapflag	noteleport
 arug_que01	mapflag	noteleport
 man_in01	mapflag	noteleport
 spl_in01	mapflag	noteleport
+dew_in01	mapflag	noteleport
 
 // Calabouço Memorial dos Orcs ===
 1@orcs	mapflag	noteleport
