@@ -5,9 +5,9 @@ max_lv: 150
 aura_lv: 150
 
 // drops.conf
-item_rate_common: 10000
-item_rate_heal: 10000
-item_rate_use: 10000
+item_rate_common: 100
+item_rate_heal: 100
+item_rate_use: 100
 item_rate_equip: 10000
 item_rate_card: 10000
 
