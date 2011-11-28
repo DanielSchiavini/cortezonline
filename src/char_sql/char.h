@@ -63,6 +63,8 @@ extern char quest_db[256];
 extern int db_use_sqldbs; // added for sql item_db read for char server [Valaris]
 
 extern int guild_exp_rate;
+extern int guild_max_member;
+extern int guild_max_extension;
 extern int log_inter;
 
 //Exported for use in the TXT-SQL converter.

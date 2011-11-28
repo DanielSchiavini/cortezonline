@@ -750,21 +750,23 @@ int _vShowMessage(enum msg_type flag, const char *string, va_list ap)
 	}
 
 #if defined(DEBUGLOGMAP) || defined(DEBUGLOGCHAR) || defined(DEBUGLOGLOGIN)
-	if(strlen(DEBUGLOGPATH) > 0) {
-		fp=fopen(DEBUGLOGPATH,"a");
-		if (fp == NULL)	{
-			FPRINTF(STDERR, CL_RED"[ERROR]"CL_RESET": Could not open '"CL_WHITE"%s"CL_RESET"', access denied.\n", DEBUGLOGPATH);
-			FFLUSH(STDERR);
+	if(flag==MSG_DEBUG || flag == MSG_WARNING || flag == MSG_ERROR || flag == MSG_SQL || flag == MSG_FATALERROR) {
+		if(strlen(DEBUGLOGPATH) > 0) {
+			fp=fopen(DEBUGLOGPATH,"a");
+			if (fp == NULL)	{
+				FPRINTF(STDERR, CL_RED"[ERROR]"CL_RESET": Could not open '"CL_WHITE"%s"CL_RESET"', access denied.\n", DEBUGLOGPATH);
+				FFLUSH(STDERR);
+			} else {
+				fprintf(fp,"%s ", prefix);
+				va_copy(apcopy, ap);
+				vfprintf(fp,string,apcopy);
+				va_end(apcopy);
+				fclose(fp);
+			}
 		} else {
-			fprintf(fp,"%s ", prefix);
-			va_copy(apcopy, ap);
-			vfprintf(fp,string,apcopy);
-			va_end(apcopy);
-			fclose(fp);
+			FPRINTF(STDERR, CL_RED"[ERROR]"CL_RESET": DEBUGLOGPATH not defined!\n");
+			FFLUSH(STDERR);
 		}
-	} else {
-		FPRINTF(STDERR, CL_RED"[ERROR]"CL_RESET": DEBUGLOGPATH not defined!\n");
-		FFLUSH(STDERR);
 	}
 #endif
 

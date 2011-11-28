@@ -145,6 +145,9 @@ int start_weapon = 1201;
 int start_armor = 2301;
 int guild_exp_rate = 100;
 
+int guild_max_member = 16; // <<< It is set to default.
+int guild_max_extension = 6;
+
 //Custom limits for the fame lists. [Skotlex]
 int fame_list_size_chemist = MAX_FAME_LIST;
 int fame_list_size_smith = MAX_FAME_LIST;
@@ -4331,6 +4334,10 @@ int char_config_read(const char* cfgName)
 			}
 		} else if (strcmpi(w1, "guild_exp_rate") == 0) {
 			guild_exp_rate = atoi(w2);
+		} else if (strcmpi(w1, "guild_max_member") == 0) {
+			guild_max_member = atoi(w2);
+		} else if (strcmpi(w1, "guild_max_extension") == 0) {
+			guild_max_extension = atoi(w2);
 		} else if (strcmpi(w1, "import") == 0) {
 			char_config_read(w2);
 		}

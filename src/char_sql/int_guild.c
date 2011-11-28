@@ -891,7 +891,7 @@ int guild_calcinfo(struct guild *g)
 	g->next_exp = nextexp;
 
 	// Set the max number of members, Guild Extention skill - currently adds 6 to max per skill lv.
-	g->max_member = 16 + guild_checkskill(g, GD_EXTENSION) * 6; 
+	g->max_member = guild_max_member + guild_checkskill(g, GD_EXTENSION) * guild_max_extension; 
 	if(g->max_member > MAX_GUILD)
 	{	
 		ShowError("Guild %d:%s has capacity for too many guild members (%d), max supported is %d\n", g->guild_id, g->name, g->max_member, MAX_GUILD);
@@ -1283,7 +1283,7 @@ int mapif_parse_CreateGuild(int fd,int account_id,char *name,struct guild_member
 	}
 
 	// Initialize guild property
-	g->max_member=16;
+	g->max_member=guild_max_member;
 	g->average_lv=master->lv;
 	g->connect_member=1;
 

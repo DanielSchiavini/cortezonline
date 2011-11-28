@@ -4484,7 +4484,7 @@ ACMD_FUNC(reloadmotd)
 ACMD_FUNC(reloadscript)
 {
 	nullpo_retr(-1, sd);
-	//atcommand_broadcast( fd, sd, "@broadcast", "eAthena Server is Rehashing..." );
+	atcommand_broadcast( fd, sd, "@broadcast", "Recarregando NPCs, desculpem-nos pelo lag..." );
 	//atcommand_broadcast( fd, sd, "@broadcast", "You will feel a bit of lag at this point !" );
 	//atcommand_broadcast( fd, sd, "@broadcast", "Reloading NPCs..." );
 
