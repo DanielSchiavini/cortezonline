@@ -7,7 +7,7 @@
 507,Erva_Vermelha,Erva Vermelha,0,18,,30,,,,,0xFFFFFFFF,15,2,,,,,,{ itemheal rand(18,28),0; },{},{}
 508,Erva_Amarela,Erva Amarela,0,40,,50,,,,,0xFFFFFFFF,15,2,,,,,,{ itemheal rand(38,58),0; },{},{}
 509,Erva_Branca,Erva Branca,0,120,,70,,,,,0xFFFFFFFF,15,2,,,,,,{ itemheal rand(75,115),0; },{},{}
-510,Erva_Azul,Erva Azul,0,60,,70,,,,,0xFFFFFFFF,15,2,,,,,,{ itemheal 0,rand(15,30); },{},{}
+510,Erva_Azul,Erva Azul,0,2200,60,70,,,,,0xFFFFFFFF,15,2,,,,,,{ itemheal 0,rand(15,30); },{},{}
 511,Erva_Verde,Erva Verde,0,10,,30,,,,,0xFFFFFFFF,15,2,,,,,,{ sc_end SC_Poison; },{},{}
 512,Maçã,Maçã,0,15,,20,,,,,0xFFFFFFFF,15,2,,,,,,{ itemheal rand(16,22),0; },{},{}
 513,Banana,Banana,0,15,,20,,,,,0xFFFFFFFF,15,2,,,,,,{ itemheal rand(17,21),0; },{},{}
