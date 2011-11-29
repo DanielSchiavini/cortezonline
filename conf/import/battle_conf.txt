@@ -46,6 +46,7 @@ max_guild_alliance: 0
 //monster.conf
 mvp_hp_rate: 200
 monster_hp_rate: 100
+enable_grave_system: no //tava bugado em 2011-11-29
 
 //player.conf
 hp_rate: 100
