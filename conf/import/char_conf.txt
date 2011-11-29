@@ -1,5 +1,6 @@
 
 char_new_display: 0
+autosave_time: 30 // salva clans a cada 30 segundos
 
 start_point: prontera,76,55
 start_weapon: 1201
