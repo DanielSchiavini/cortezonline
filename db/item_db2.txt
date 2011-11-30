@@ -1461,6 +1461,7 @@
 2703,Anel_do_Especialista,Anel do Especialista,5,10000,,150,,0,,2,0xFFFFFFFE,2,2,136,,50,0,0,{ bonus bDelayRate,-5; bonus bUseSPrate,5; },{},{}
 2707,Gusli,Gusli,5,20,,100,,0,,1,0xFFFFFFFF,7,2,136,,0,0,0,{},{},{}
 2710,Bola de Ferro Ensangüentada [A],Bola de Ferro Ensangüentada [A],5,0,,0,,0,,1,0xFFFFFFFE,7,2,136,,1,0,0,{ bonus bBaseAtk,30; },{},{}
+2711,Anel_Espiritual_C,Anel Espiritual,5,1,,0,,0,,1,0xFFFFFFFF,7,2,136,,0,0,0,{ bonus bInt,2; bonus bDex,2; if(isequipped(2607) || isequipped(2608) || isequipped(2626)) { bonus2 bSkillAtk,"AL_HEAL",50; bonus2 bSkillAtk,"PR_MAGNUS",30; bonus bSPrecovRate,9; } },{},{}
 2715,Anel de Caveira,Anel de Caveira,5,10000,,100,,0,,2,0xFFFFFFFF,7,2,136,,0,0,0,{ bonus2 bSubRace,RC_Undead,1; },{},{}
 2716,Luva de Bibliotecário,Luva de Bibliotecário,5,20,,100,,0,,2,0x00810200,7,2,136,,0,0,0,{ bonus bMaxSP,20; if ((isequipped(1572) || isequipped(1573)) && isequipped(2717)) { bonus bInt,5; bonus bMaxHP,700; bonus bAspdRate,5; } },{},{}
 2717,Relógio de Bolso,Relógio de Bolso,5,20,,200,,0,,1,0x00010204,7,2,136,,80,0,0,{},{},{}

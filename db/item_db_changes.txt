@@ -361,6 +361,7 @@
 2703,Anel_do_Especialista,,,,,,,,,2,,,,,,,,,,,
 2707,Gusli,,,,,,,,,1,,,,,,,,,,,
 2710,Bola de Ferro Ensangüentada [A],,,,,,,,,1,,,,,,,,,,,
+2711,Anel_Espiritual_C,Anel Espiritual,5,1,,0,,0,,1,0xFFFFFFFF,7,2,136,,0,0,0,{ bonus bInt,2; bonus bDex,2; if(isequipped(2607) || isequipped(2608) || isequipped(2626)) { bonus2 bSkillAtk,"AL_HEAL",50; bonus2 bSkillAtk,"PR_MAGNUS",30; bonus bSPrecovRate,9; } },{},{}
 2715,Anel de Caveira,,,,,,,,,2,,,,,,,,,,,
 2716,Luva de Bibliotecário,,,,,,,,,2,,,,,,,,,,,
 2717,Relógio de Bolso,,,,,,,,,1,,,,,,,,,,,
