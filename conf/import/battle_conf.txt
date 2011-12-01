@@ -36,9 +36,10 @@ lowest_gm_level: 10
 any_warp_GM_min_level: 20
 gm_cant_drop_min_lv: 10
 gm_cant_drop_max_lv: 90
-disp_hpmeter: 70
+disp_hpmeter: 50
 gm_viewequip_min_lv: 80
 gm_cant_party_min_lv: 10
+gm_skill_unconditional: 50
 
 //guild.conf
 max_guild_alliance: 0
