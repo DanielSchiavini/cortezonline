@@ -35,15 +35,16 @@
 -	script	Teletransportadora#01::cWarp	-1,{
 
 //===== Configurações: ======================================= 
-set @lwarp,	0;	// Habilitar último warp gravado? (Nota 1)
+set @lwarp,	1;	// Habilitar último warp gravado? (Nota 1)
 set @sdung,	1;	// Exibir calabouços no menu? (Nota 1)
+set @smais,	1;	// Exibir calabouços no menu? (Nota 1)
 //============================================================ 
 
 	mes "[Teletransportadora]";
 	mes "Olá "+strcharinfo(0)+", seja bem-vindo ao Serviço de Teletransporte!";
 	mes "Para onde você gostaria de ir?";
 	next;
-	switch (select (((@lwarp)?"Último Destino":"")+"","Cidades",""+((@sdung)?"Outros Lugares":"")))
+	switch (select (((@lwarp)?"Último Destino":"")+"","Cidades",""+((@sdung)?"Outros Lugares":""),""+((@smais)?"Mapas especiais":"")))
 	{
 		case 1:
 			if (lwarpx)
@@ -159,6 +160,14 @@ set @sdung,	1;	// Exibir calabouços no menu? (Nota 1)
 				case 39: callsub F_DoWarp, "cmd_fild02", 222, 372;
 			}
 			
+		case 4:
+			mes "[Teletransportadora]";
+			mes "Selecione o seu destino:";
+			next;
+			switch (select ("Mapa PvP"))
+			{
+				case 1: callsub F_DoWarp, "poring_w01", 97, 98;
+			}
 	}
 	
 	F_DoWarp:
