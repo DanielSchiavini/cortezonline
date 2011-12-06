@@ -56,8 +56,8 @@ OnTimer60000:
 		{
 			if (getcastledata(.@maps$[.@i],1))
 				announce "O Castelo de [" + getcastlename(.@maps$[.@i]) + "] foi conquistado pelo Clã [" + getguildname(getcastledata(.@maps$[.@i],1)) + "].", bc_blue|bc_woe;
-			else
-				announce "O Castelo de [" + getcastlename(.@maps$[.@i]) + "] está totalmente desocupado.", bc_blue|bc_woe;
+			//else
+			//	announce "O Castelo de [" + getcastlename(.@maps$[.@i]) + "] está totalmente desocupado.", bc_blue|bc_woe;
 		}
 	return;
 }
