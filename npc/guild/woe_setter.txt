@@ -22,11 +22,11 @@
 //= --- Caso não haja guerra no dia, o valor a ser setado deve ser '-1'.
 	set $agit_hora_start[0],-1;	// Domingo
 	set $agit_hora_start[1],-1;	// Segunda
-	set $agit_hora_start[2],21;	// Terça
+	set $agit_hora_start[2],19;	// Terça
 	set $agit_hora_start[3],-1;	// Quarta
-	set $agit_hora_start[4],21;	// Quinta
+	set $agit_hora_start[4],20;	// Quinta
 	set $agit_hora_start[5],-1;	// Sexta
-	set $agit_hora_start[6],16;	// Sábado
+	set $agit_hora_start[6],-1;	// Sábado
 	
 	
 //= Horário de finalização da GdE (Guerra do Emperium) em HORAS
@@ -34,11 +34,11 @@
 //= --- Caso não haja guerra no dia, o valor a ser setado deve ser '-1'.
 	set $agit_hora_end[0],-1;	// Domingo
 	set $agit_hora_end[1],-1;	// Segunda
-	set $agit_hora_end[2],23;	// Terça
+	set $agit_hora_end[2],21;	// Terça
 	set $agit_hora_end[3],-1;	// Quarta
-	set $agit_hora_end[4],23;	// Quinta
+	set $agit_hora_end[4],22;	// Quinta
 	set $agit_hora_end[5],-1;	// Sexta
-	set $agit_hora_end[6],18;	// Sábado
+	set $agit_hora_end[6],-1;	// Sábado
 	
 	
 //= Horário de início da GdE (Guerra do Emperium) em MINUTOS

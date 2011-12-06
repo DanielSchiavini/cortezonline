@@ -22,7 +22,7 @@
 //= Horário de início da GdE (Guerra do Emperium) em HORAS
 //= --- Configure o número anterior ao 'ponto-e-vírgula ( ; ) ' com o horário para iniciar a GdE em formato 24 horas.
 //= --- Caso não haja guerra no dia, o valor a ser setado deve ser '-1'.
-	set $agit_hora_start_se[0],-1;	// Domingo
+	set $agit_hora_start_se[0],20;	// Domingo
 	set $agit_hora_start_se[1],-1;	// Segunda
 	set $agit_hora_start_se[2],-1;	// Terça
 	set $agit_hora_start_se[3],-1;	// Quarta
@@ -34,7 +34,7 @@
 //= Horário de finalização da GdE (Guerra do Emperium) em HORAS
 //= --- Configure o número anterior ao 'ponto-e-vírgula ( ; ) ' com o horário para finalizar a GdE em formato 24 horas.	
 //= --- Caso não haja guerra no dia, o valor a ser setado deve ser '-1'.
-	set $agit_hora_end_se[0],-1;	// Domingo
+	set $agit_hora_end_se[0],22;	// Domingo
 	set $agit_hora_end_se[1],-1;	// Segunda
 	set $agit_hora_end_se[2],-1;	// Terça
 	set $agit_hora_end_se[3],-1;	// Quarta
