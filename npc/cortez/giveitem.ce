@@ -1,0 +1,135 @@
+// Script desenvolvido por SOLA e BRUNIM
+
+new_zone01,65,116,1	script	Entregador de Prêmios	902,{
+	if(getgmlevel()<10) close;
+	set .max_premios, 6;
+	
+	mes	"[^660066 Entregador de Prêmios ^000000]";
+	if($premios_dia>=.max_premios){ // Eventos extras com double rate
+		mes "Os "+.max_premios+" prêmios de hoje foram esgotados.";
+		close;
+	}else{
+		mes "Olá, Sr. GM, você gostaria de premiar alguém?";
+		mes "Ainda podemos dar " + (.max_premios-$premios_dia) + " prêmios hoje";
+	}
+	menu "Sim",-,"Não",L_Fail;
+	
+	L_INICIO:
+		set .@account_id, 0;
+		while(.@vencedor$!="fim" && .@account_id==0){
+			next;
+			mes	"[^660066 Entregador de Prêmios ^000000]";
+			mes "Digite o nome do vencedor (fim para cancelar)";
+			input .@vencedor$; //localizando o vencedor
+			set .@account_id, getcharid(3, .@vencedor$);
+			if(!.@account_id)
+				mes .@vencedor$+" não localizado";
+			else if(!isloggedin(.@account_id))
+				mes .@vencedor$+" está offline";
+			else if(.@vencedor$!=rid2name(.@account_id))
+				mes .@vencedor$+" está online no personagem "+rid2name(.@account_id);
+		}
+		if(.@account_id==0) close;
+		set .@vencedor$, rid2name(.@account_id);
+		set .@account_gm, getcharid(3);
+		next;
+		mes	"[^660066 Entregador de Prêmios ^000000]";
+		mes "Escolha o Evento";
+		goto L_Escolha;
+
+	L_Escolha:
+		next;
+		menu "Eventos pré-determinados",L_Eventos,"Premiação avulsa",L_Avulsa,"Não quero nada disso",L_FAIL;
+		next;
+
+	L_Eventos:
+		mes	"[^660066 Entregador de Prêmios ^000000]";
+		mes "Escolha o prêmio";
+		menu "Dado da Morte",L_Dado,"Godzilla Z0MG",L_Godzilla,"Clique Rapido",L_Clique,"Nada disso",L_Escolha;
+		next;
+
+	L_Avulsa:
+		mes "Digite a quantidade de moedas";
+		input .@qtde[0];
+		if(.@qtde[0]==0)
+			goto L_INICIO;
+		else if(.@qtde[0]==1)
+			set .@nomePremio$, .@qtde[0]+" Tickets de evento";
+		else
+			set .@nomePremio$, .@qtde[0]+" Tickets de evento";
+		setarray .@id[0], 7180;
+		goto L_ENTREGA;
+
+	L_Dado:
+		set .@nomePremio$, "3 Tickets de evento";
+		setarray .@id[0], 7180;
+		setarray .@qtde[0], 3;
+		goto L_ENTREGA;	
+
+	L_Godzilla:
+		set .@nomePremio$, "2 Tickets de evento";
+		setarray .@id[0], 7180;
+		setarray .@qtde[0], 2;
+		goto L_ENTREGA;	
+
+	L_Clique:
+		set .@nomePremio$, "2 Tickets de evento";
+		setarray .@id[0], 7180;
+		setarray .@qtde[0], 2;
+		goto L_ENTREGA;	
+	
+	L_ENTREGA:
+		next;
+		set @qtde, 0;
+		for(set @i, 0; @i < getarraysize(.@id); set @i,@i+1)
+			set @qtde, @qtde + .@qtde[@i];
+		if($premios_dia + @qtde >= .max_premios){
+			mes "Você está entregando itens demais.";
+			mes "O limite diário é "+.max_premios+" mas já foram entregues "+$premios_dia+" prêmios.";
+			close;
+		}
+		mes	"[^660066 Entregador de Prêmios ^000000]";
+		mes "Você dará ^FF9933"+.@nomePremio$+"^000000 para o jogador ^FF9933"+.@vencedor$+"^000000.";
+		mes "Tem certeza?";
+		menu "Sim",-,"Não",L_Escolha;
+		next;
+		mes	"[^660066 Entregador de Prêmios ^000000]";
+		mes "Qual o evento motivo da entrega deste prêmio?";
+		input .@justificativa$;
+		if(.@justificativa$!="") set .@justificativa$, " ("+.@justificativa$+")";
+		
+		if(isloggedin(.@account_id)){
+			close2;
+			warp "new_zone01",60,116;//Jogador ficava travado, não consegui resolver de outra forma
+			
+			if(attachrid(.@account_id)){
+				set @peso, 0;
+				for(set @i, 0; @i < getarraysize(.@id); set @i,@i+1)
+					set @peso, @peso + getiteminfo(.@id[@i],6)*.@qtde[@i];
+				
+				if(MaxWeight/2-Weight>@peso){
+					for(set @i, 0; @i < getarraysize(.@id); set @i,@i+1)
+						getitem .@id[@i], .@qtde[@i];
+					announce "O jogador "+strcharinfo(0)+" recebeu "+.@nomePremio$+" como premiação!"+.@justificativa$,bc_all;
+					logmes "[Premio] Recebeu "+.@nomePremio$+" de "+rid2name(.@account_gm)+.@justificativa$+" ("+.@qtde[0]+"x"+.@id[0]+")";
+					set $premios_dia, $premios_dia+.@qtde[@i];
+				}else{
+					message rid2name(.@account_gm),"Entregador de Prêmios: O jogador estava acima do peso!";
+					message strcharinfo(0),"Seu prêmio "+.@nomePremio$+" não foi entregue pois você está com muito peso!";
+					message strcharinfo(0),"Por favor libere "+((@peso+Weight-MaxWeight/2)/10)+" de peso e peça para "+rid2name(.@account_gm)+" tentar novamente!";
+				}
+			}else{
+				message rid2name(.@account_gm),"O jogador não pôde ser contactado";
+			}
+			end;
+		}else{
+			mes	"[^660066 Entregador de Prêmios ^000000]";
+			mes "O jogador não pôde ser contactado";
+		}
+		
+	L_FAIL:
+		close;
+	
+	OnClock0400:
+		set $premios_dia, 0;
+}
