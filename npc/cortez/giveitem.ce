@@ -1,6 +1,6 @@
 // Script desenvolvido por SOLA e BRUNIM
 
-new_zone01,65,116,1	script	Entregador de Prêmios	902,{
+new_1-1,65,116,1	script	Entregador de Prêmios	902,{
 	if(getgmlevel()<10) close;
 	set .max_premios, 6;
 	
@@ -100,7 +100,7 @@ new_zone01,65,116,1	script	Entregador de Prêmios	902,{
 		
 		if(isloggedin(.@account_id)){
 			close2;
-			warp "new_zone01",60,116;//Jogador ficava travado, não consegui resolver de outra forma
+			warp "new_1-1",60,116;//Jogador ficava travado, não consegui resolver de outra forma
 			
 			if(attachrid(.@account_id)){
 				set @peso, 0;
