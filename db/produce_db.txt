@@ -332,7 +332,7 @@
 //-- White Potion <-- AM_PHARMACY & Potion Creation Guide & 1 White Herb, 1 Empty Potion Bottle
 504,22,228,1,7144,0,509,1,1093,1
 //-- Blue Potion <-- AM_PHARMACY & Potion Creation Guide & 1 Blue Herb, 1 Scell, 1 Empty Potion Bottle
-505,22,228,1,7144,0,510,1,911,1,1093,1
+505,22,228,1,7144,0,510,100,911,1,1093,1
 //-- Condensed Red Potion <-- AM_PHARMACY & Condensed Potion Creation Guide & 1 Red Potion, 1 Empty Testtube, 1 Cactus Needle
 545,22,228,1,7133,0,501,1,1092,1,952,1
 //-- Condensed Yellow Potion <-- AM_PHARMACY & Condensed Potion Creation Guide & 1 Yellow Potion, 1 Empty Testtube, 1 Mole Whiskers
