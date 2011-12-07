@@ -22,6 +22,7 @@ autoloot: 0,60
 autotrade: 0,60
 at: 0,60
 mount: 0,40
+storage: 0,70
 
 // VIPs
 mobinfo: 5,5
@@ -53,7 +54,6 @@ identify: 5,40
 storeall: 5,40
 guild: 5,80
 gstorage: 5,80
-storage: 5,70
 go: 5,90
 changesex: 5,80
 
