@@ -107,6 +107,11 @@ function	script	F_Kafra	{
 			setarray @K_Menu0$[0],"Salvar","Usar Armazém","Ver outras informações","Cancelar";
 			break;
 
+		// NPC do cortez usa este tipo
+		case 9:
+			setarray @K_Menu0$[0],"Salvar","Usar Armazém","Usar Armazém do Clã","Guia","Ver outras informações","Cancelar";
+			break;
+
 		// Common Kafra Employee
 		default:
 			setarray @K_Menu0$[0],"Salvar","Usar Armazém","Usar Teleporte","Alugar um carrinho","Guia","Ver outras informações","Cancelar";

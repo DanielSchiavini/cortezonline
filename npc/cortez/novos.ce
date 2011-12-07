@@ -25,7 +25,7 @@ prontera,74,62,3	script	Funcionária Kafra::kaf_cortez	112,{
 	mes "[Kafra Recepcionista]";
 	mes "Bem-vindo à Corporação Kafra, nós sempre estamos ao seu lado.";
 	mes "Em que posso ajudá-lo?";
-	callfunc "F_Kafra",5,0,0,40,800;
+	callfunc "F_Kafra",5,9,0,40,800;
 
 M_Save:
 	savepoint "prontera",72,55;
