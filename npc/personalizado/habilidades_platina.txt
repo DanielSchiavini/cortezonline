@@ -43,7 +43,7 @@ set .@custo,0;
 		case Job_Assassin: callfunc("skill:add",.@custo,6,149,150,151,152,1003,1004);
 		case Job_Crusader: callfunc("skill:add",.@custo,4,144,145,146,1002);
 		case Job_Monk: callfunc("skill:add",.@custo,3,156,1015,1016);
-		case Job_Sage: callfunc("skill:add",.@custo,2,157,1007);
+		case Job_Sage: callfunc("skill:add",.@custo,6,157,1007,1008,1017,1018,1019);
 		case Job_Rogue: callfunc("skill:add",.@custo,5,149,150,151,152,1005);
 		case Job_Alchem: callfunc("skill:add",.@custo,4,153,154,155,238);
 		case Job_Bard: callfunc("skill:add",.@custo,3,147,148,1010);
