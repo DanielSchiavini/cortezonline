@@ -4,6 +4,9 @@ new_zone01	mapflag	noloot
 prontera	mapflag	town
 prontera	mapflag	nodrop
 
+aldeg_cas02	mapflag	nocommand
+schg_cas01	mapflag	nocommand
+
 prontera,56,47,7	shop	Poções	58,611:-1,501:-1,502:-1,503:-1,504:-1,506:-1,522:-1,525:-1,509:-1,547:-1,645:-1,656:-1,657:-1,684:-1
 prontera,59,47,7	shop	Utilidades	59,601:-1,602:-1,1065:-1,7137:-1,7138:-1,7139:-1,717:-1,716:-1,715:-1,1061:-1,911:-1,1093:-1,1092:-1
 
