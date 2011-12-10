@@ -113,7 +113,7 @@ set @smais,	1;	// Exibir calabouços no menu? (Nota 1)
 				case 1: callsub F_DoWarp, "nameless_n", 164, 184;
 				case 2: callsub F_DoWarp, "abyss_01", 264, 271;
 				case 3: callsub F_DoWarp, "ama_dun01", 229, 10;
-				case 4: callsub F_DoWarp, "moc_fild20", 163, 145;
+				case 4: callsub F_DoWarp, "cmd_fild08", 235, 356;
 				case 5: callsub F_DoWarp, "ayo_fild02", 277, 150;
 				case 6: callsub F_DoWarp, "izlu2dun", 107, 89;
 				case 7: 
