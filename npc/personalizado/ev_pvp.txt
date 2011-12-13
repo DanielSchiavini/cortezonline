@@ -151,7 +151,7 @@ new_1-1,47,118,5	script	Senhor do PvP#1	52,{
 	
 	OnTimer30000:
 	if($tipopremio==1){
-		announce "O prêmio será 2 Moedas Cortez",0;
+		announce "O prêmio será 2 Tickets de Evento",0;
 		set $@premio$,$quantpremio+" "+$nomepremio$;
 	}else if($tipopremio==2){
 		announce "O prêmio será "+($quantpremio/1000000)+" milhões de zeny!",0;
