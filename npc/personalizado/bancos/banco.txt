@@ -17,13 +17,13 @@
 //= 1.5e Mais otimizações [Mara]
 //============================================================ 
 
-prontera,132,217,5	script	Banqueiro	109,{
+prontera,46,75,5	script	Banqueiro	109,{
 
 //========== Configurações: ==================================
 set .@custo,	0;			//Custo de cada transferência.
 set .@depmax,	10000000;	//Valor máximo para depósito.
 set .@saqmax,	10000000;	//Valor máximo para saque.
-set .@trasfmax,	10000000;	//Valor máximo para transferência.
+set .@trasfmax,	0;	//Valor máximo para transferência.
 //============================================================
 
 	mes "[Banqueiro]";
