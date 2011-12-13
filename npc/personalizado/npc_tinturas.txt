@@ -1,0 +1,281 @@
+morocc_in,146,99,2	script	Dye Maker JavaDullihan	58,{
+	mes "[Dye Maker JavaDullihan]";
+	mes "Olá "+StrCharInfo(0)+"!";
+	mes "Eu Posso lhe fornecer tinturas, em troca de alguns itens, tem interesse?";
+	next;
+	if( select("Claro!:Talvez mais tarde...") == 2 )
+	{
+		mes "[Dye Maker JavaDullihan]";
+		mes "Tudo bem, estarei aqui se você mudar de idéia.";
+		close;
+	}
+	mes "[Dye Maker JavaDullihan]";
+	mes "Bem, estas são as tinturas que eu posso produzir...";
+	mes "Sobre qual delas vai querer saber mais?";
+	next;
+	switch(select("Tintura Vermelha:Tintura Amarela:Tintura Azul:Tintura Verde:Tintura Laranja:Tintura Violeta:Tintura Branca:Tintura Preta:Nenhum"))
+	{
+	case 1:
+		mes "[Tintura Vermelha]";
+		mes "Para que eu produza esta tintura, eu preciso dos seguintes itens:";
+		mes "30x "+getitemname(507);
+		mes "1x "+getitemname(973);
+		mes "1x "+getitemname(713);
+		mes "3000 Zenys";
+		next;
+		mes "[Dye Maker JavaDullihan]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Dye Maker JavaDullihan]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(507) >= 30 && countitem(973) >= 1 && countitem(713) >= 1 && Zeny >= 3000)
+		{
+			delitem 507,30;
+			delitem 973,1;
+			delitem 713,1;
+			set Zeny,Zeny-3000;
+			getitem 975,1;
+			mes "[Dye Maker JavaDullihan]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 2:
+		mes "[Tintura Amarela]";
+		mes "Para que eu produza esta tintura, eu preciso dos seguintes itens:";
+		mes "30x "+getitemname(508);
+		mes "1x "+getitemname(973);
+		mes "1x "+getitemname(713);
+		mes "3000 Zenys";
+		next;
+		mes "[Dye Maker JavaDullihan]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Dye Maker JavaDullihan]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(508) >= 30 && countitem(973) >= 1 && countitem(713) >= 1 && Zeny >= 3000)
+		{
+			delitem 508,30;
+			delitem 973,1;
+			delitem 713,1;
+			set Zeny,Zeny-3000;
+			getitem 976,1;
+			mes "[Dye Maker JavaDullihan]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 3:
+		mes "[Tintura Azul]";
+		mes "Para que eu produza esta tintura, eu preciso dos seguintes itens:";
+		mes "20x "+getitemname(510);
+		mes "1x "+getitemname(973);
+		mes "1x "+getitemname(713);
+		mes "3500 Zenys";
+		next;
+		mes "[Dye Maker JavaDullihan]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Dye Maker JavaDullihan]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(510) >= 20 && countitem(973) >= 1 && countitem(713) >= 1 && Zeny >= 3500)
+		{
+			delitem 510,20;
+			delitem 973,1;
+			delitem 713,1;
+			set Zeny,Zeny-3500;
+			getitem 978,1;
+			mes "[Dye Maker JavaDullihan]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 4:
+		mes "[Tintura Verde]";
+		mes "Para que eu produza esta tintura, eu preciso dos seguintes itens:";
+		mes "5x "+getitemname(510);
+		mes "1x "+getitemname(973);
+		mes "20x "+getitemname(511);
+		mes "20x "+getitemname(508);
+		mes "1x "+getitemname(974);
+		mes "1x "+getitemname(713);
+		mes "5000 Zenys";
+		next;
+		mes "[Dye Maker JavaDullihan]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Dye Maker JavaDullihan]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(510) >= 5 && countitem(973) >= 1 && countitem(511) >= 20 && countitem(508) >= 20 && countitem(974) >= 1 && countitem(713) >= 1 && Zeny >= 5000)
+		{
+			delitem 510,5;
+			delitem 973,1;
+			delitem 511,20;
+			delitem 508,20;
+			delitem 974,1;
+			delitem 713,1;
+			set Zeny,Zeny-5000;
+			getitem 979,1;
+			mes "[Dye Maker JavaDullihan]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 5:
+		mes "[Tintura Laranja]";
+		mes "Para que eu produza esta tintura, eu preciso dos seguintes itens:";
+		mes "20x "+getitemname(507);
+		mes "20x "+getitemname(508);
+		mes "1x "+getitemname(973);
+		mes "1x "+getitemname(974);
+		mes "1x "+getitemname(713);
+		mes "5000 Zenys";
+		next;
+		mes "[Dye Maker JavaDullihan]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Dye Maker JavaDullihan]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(507) >= 20 && countitem(508) >= 20 && countitem(973) >= 1 && countitem(974) >= 1 && countitem(713) >= 1 && Zeny >= 5000)
+		{
+			delitem 507,20;
+			delitem 508,20;
+			delitem 973,1;
+			delitem 974,1;
+			delitem 713,1;
+			set Zeny,Zeny-5000;
+			getitem 980,1;
+			mes "[Dye Maker JavaDullihan]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 6:
+		mes "[Tintura Violeta]";
+		mes "Para que eu produza esta tintura, eu preciso dos seguintes itens:";
+		mes "10x "+getitemname(510);
+		mes "30x "+getitemname(507);
+		mes "1x "+getitemname(973);
+		mes "1x "+getitemname(974);
+		mes "1x "+getitemname(713);
+		mes "5000 Zenys";
+		next;
+		mes "[Dye Maker JavaDullihan]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Dye Maker JavaDullihan]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(510) >= 10 && countitem(507) >= 30 && countitem(973) >= 1 && countitem(974) >= 1 && countitem(713) >= 1 && Zeny >= 5000)
+		{
+			delitem 510,10;
+			delitem 507,30;
+			delitem 973,1;
+			delitem 974,1;
+			delitem 713,1;
+			set Zeny,Zeny-5000;
+			getitem 981,1;
+			mes "[Dye Maker JavaDullihan]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 7:
+		mes "[Tintura Branca]";
+		mes "Para que eu produza esta tintura, eu preciso dos seguintes itens:";
+		mes "30x "+getitemname(509);
+		mes "1x "+getitemname(973);
+		mes "1x "+getitemname(713);
+		mes "3000 Zenys";
+		next;
+		mes "[Dye Maker JavaDullihan]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Dye Maker JavaDullihan]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(509) >= 30 && countitem(973) >= 1 && countitem(713) >= 1 && Zeny >= 3000)
+		{
+			delitem 509,30;
+			delitem 973,1;
+			delitem 713,1;
+			set Zeny,Zeny-3000;
+			getitem 982,1;
+			mes "[Dye Maker JavaDullihan]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 8:
+		mes "[Tintura Preta]";
+		mes "Para que eu produza esta tintura, eu preciso dos seguintes itens:";
+		mes "30x "+getitemname(507);
+		mes "30x "+getitemname(508);
+		mes "30x "+getitemname(511);
+		mes "5x "+getitemname(510);
+		mes "1x "+getitemname(973);
+		mes "1x "+getitemname(974);
+		mes "1x "+getitemname(713);
+		mes "7000 Zenys";
+		next;
+		mes "[Dye Maker JavaDullihan]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Dye Maker JavaDullihan]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(507) >= 30 && countitem(508) >= 30 && countitem(511) >= 30 && countitem(510) >= 5 && countitem(973) >= 1 && countitem(974) >= 1 && countitem(713) >= 1 && Zeny >= 7000)
+		{
+			delitem 507,30;
+			delitem 508,30;
+			delitem 511,30;
+			delitem 510,5;
+			delitem 973,1;
+			delitem 974,1;
+			delitem 713,1;
+			set Zeny,Zeny-7000;
+			getitem 983,1;
+			mes "[Dye Maker JavaDullihan]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 9:
+		mes "[Dye Maker JavaDullihan]";
+		mes "Tudo bem, estarei aqui se você mudar de idéia.";
+		close;
+	}
+	mes "[Dye Maker JavaDullihan]";
+	mes "Me desculpe, mas você não tem todos os itens necessários para esta quest.";
+	mes "Volte quando você tiver todos os itens!";
+	close;
+}
