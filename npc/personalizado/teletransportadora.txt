@@ -113,11 +113,8 @@ set @smais,	1;	// Exibir calabouços no menu? (Nota 1)
 				case 1: callsub F_DoWarp, "nameless_n", 164, 184;
 				case 2: callsub F_DoWarp, "abyss_01", 264, 271;
 				case 3: callsub F_DoWarp, "ama_dun01", 229, 10;
-<<<<<<< .mine
+
 				case 4: callsub F_DoWarp, "cmd_fild08", 330, 355;
-=======
-				
->>>>>>> .r1020
 				case 5: callsub F_DoWarp, "ayo_fild02", 277, 150;
 				case 6: callsub F_DoWarp, "izlu2dun", 107, 89;
 				case 7: 
@@ -224,7 +221,7 @@ splendide,200,152,5	duplicate(cWarp)	Teletransportadora#28	721
 nameless_n,163,187,5	duplicate(cWarp)	Teletransportadora#29	721
 abyss_01,263,274,4	duplicate(cWarp)	Teletransportadora#30	721
 ama_dun01,231,12,4	duplicate(cWarp)	Teletransportadora#31	721
-moc_fild20,162,148,6	duplicate(cWarp)	Teletransportadora#32	721
+cmd_fild08,329,360,6	duplicate(cWarp)	Teletransportadora#32	721
 ayo_fild02,278,153,4	duplicate(cWarp)	Teletransportadora#33	721
 izlu2dun,103,86,7	duplicate(cWarp)	Teletransportadora#34	721
 comodo,32,218,6	duplicate(cWarp)	Teletransportadora#35	721
