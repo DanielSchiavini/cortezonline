@@ -20,7 +20,7 @@ guild_vs5	mapflag	nowarpto
 guild_vs5	mapflag	pvp_noparty
 guild_vs5	mapflag	pvp_noguild
 
-prontera,69,57,5	script	Senhor do PvP#1	52,{
+new_1-1,47,118,5	script	Senhor do PvP#1	52,{
 	if(getgmlevel()<59) close;
 	if ($eventopvp == 1) goto EVENTOACONTECENDO;
 	if(getgmlevel()<80){
@@ -238,7 +238,7 @@ prontera,69,57,5	script	Senhor do PvP#1	52,{
 	end;
 }
 
-new_1-1,51,115,5	script	Senhor do PvP#2	52,{
+prontera,69,57,5	script	Senhor do PvP#2	52,{
 	if ($eventopvp == 0) goto SEMEVENTO;
 	if (reborn == 0) set reborn, 1;
 	if (reborn-1 < $levelminimo || reborn-1 > $levelmaximo) goto SEMLEVEL;
