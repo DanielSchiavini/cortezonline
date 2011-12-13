@@ -20,7 +20,7 @@ guild_vs5	mapflag	nowarpto
 guild_vs5	mapflag	pvp_noparty
 guild_vs5	mapflag	pvp_noguild
 
-new_1-1,47,117,5	script	Senhor do PvP#1	52,{
+prontera,69,57,5	script	Senhor do PvP#1	52,{
 	if(getgmlevel()<59) close;
 	if ($eventopvp == 1) goto EVENTOACONTECENDO;
 	if(getgmlevel()<80){
@@ -151,7 +151,7 @@ new_1-1,47,117,5	script	Senhor do PvP#1	52,{
 	
 	OnTimer30000:
 	if($tipopremio==1){
-		announce "O prêmio será 2 Tickets de Evento",0;
+		announce "O prêmio será 2 Moedas Cortez",0;
 		set $@premio$,$quantpremio+" "+$nomepremio$;
 	}else if($tipopremio==2){
 		announce "O prêmio será "+($quantpremio/1000000)+" milhões de zeny!",0;
@@ -242,7 +242,8 @@ new_1-1,51,115,5	script	Senhor do PvP#2	52,{
 	if ($eventopvp == 0) goto SEMEVENTO;
 	if (reborn == 0) set reborn, 1;
 	if (reborn-1 < $levelminimo || reborn-1 > $levelmaximo) goto SEMLEVEL;
-	mes "[Senhor do PvP]";
+	mes "[Senhor do 
+]";
 	mes "Olá! Veio se inscrever no Evento PvP?";
 	mes "Você tem "+(reborn-1)+" resets, portanto pode participar!";
 	next;
