@@ -20,7 +20,7 @@ guild_vs5	mapflag	nowarpto
 guild_vs5	mapflag	pvp_noparty
 guild_vs5	mapflag	pvp_noguild
 
-new_1-1,47,118,5	script	Senhor do PvP#1	52,{
+new_1-1,47,117,5	script	Senhor do PvP#1	52,{
 	if(getgmlevel()<59) close;
 	if ($eventopvp == 1) goto EVENTOACONTECENDO;
 	if(getgmlevel()<80){
@@ -32,15 +32,15 @@ new_1-1,47,118,5	script	Senhor do PvP#1	52,{
 
 		INICIAR2:
 			mes "[Senhor do PvP]";
-			mes "O premio atual que deve ser dado em um Evento PVP sao Duas Moedas Cortez.";
+			mes "O premio atual que deve ser dado em um Evento PVP sao Duas Ticket de Evento.";
 			next;
 			set $tipopremio,1; 	//Tipo=Itens	Se não for dar itens, trocar depois
 			set $quantpremio,1;	//Qtde=1		Se for mais, mudar depois
-			menu "Cancelar",CANCEL,"Moedas Cortez",PR_PVP;
+			menu "Cancelar",CANCEL,"Ticket de Evento",PR_PVP;
 		
 		PR_PVP:
-			set $idpremio,7539;
-			set $nomepremio$,"Moedas Cortez";
+			set $idpremio,7180;
+			set $nomepremio$,"Ticket de Evento";
 			set $quantpremio,2;
 			goto LEVELEVENTO;
 		
@@ -151,7 +151,7 @@ new_1-1,47,118,5	script	Senhor do PvP#1	52,{
 	
 	OnTimer30000:
 	if($tipopremio==1){
-		announce "O prêmio será 2 Tickets de Evento",0;
+		announce "O prêmio será 2 Tickets de Evento!",0;
 		set $@premio$,$quantpremio+" "+$nomepremio$;
 	}else if($tipopremio==2){
 		announce "O prêmio será "+($quantpremio/1000000)+" milhões de zeny!",0;
@@ -242,8 +242,7 @@ prontera,69,57,5	script	Senhor do PvP#2	52,{
 	if ($eventopvp == 0) goto SEMEVENTO;
 	if (reborn == 0) set reborn, 1;
 	if (reborn-1 < $levelminimo || reborn-1 > $levelmaximo) goto SEMLEVEL;
-	mes "[Senhor do 
-]";
+	mes "[Senhor do PvP]";
 	mes "Olá! Veio se inscrever no Evento PvP?";
 	mes "Você tem "+(reborn-1)+" resets, portanto pode participar!";
 	next;
@@ -309,10 +308,20 @@ function	script	premio_eventoPvp	{
 	mes "[Senhor do PvP]";
 	switch($tipopremio){
 		case 1: //item
-			getitem 7180,2;
+			getitem $idpremio,$quantpremio;
 			mes "Aqui está o seu premio! Meus parabéns!";
 			break;
-		
+		case 2:	//zeny
+			query_logsql "INSERT INTO zenylog(time,char_id,src_id,type,amount,map)VALUES(now(),"+getcharid(0)+","+getcharid(0)+",'N',"+$quantpremio+",'evento_pvp')";
+			set Zeny,Zeny+$quantpremio;
+			mes "Aqui está o seu premio! Meus parabéns!";
+			break;
+		case 3:	//Nada
+			mes "O importante e competir, e este evento não estava valendo nenhum prêmio! Mesmo assim parabéns!";
+			break;
+		case 4: //GM
+			mes "O GM lhe chamará no castelo daqui a pouco para que você receba o seu prêmio!";
+			break;
 	}
 	
 	mes "Agora volte para a cidade!";
