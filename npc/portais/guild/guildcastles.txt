@@ -448,8 +448,8 @@ arug_cas05,321,52,0	warp	arug503	1,1,arug_cas05,141,45
 
 //==================  4 Novices Guild Castles =============================
 //Novices Guild: Al de Baran Guild Castles Map
-n_castle,184,16,0	warp	naldg01	1,1,nguild_alde,34,248
-nguild_alde,34,252,0	warp	naldg01-1	1,1,n_castle,187,16
+//n_castle,184,16,0	warp	naldg01	1,1,nguild_alde,34,248
+//nguild_alde,34,252,0	warp	naldg01-1	1,1,n_castle,187,16
 
 nguild_alde,50,222,0	warp	naldg101	1,1,nguild_alde,104,108
 nguild_alde,104,112,0	warp	naldg101-1	1,1,nguild_alde,45,224
@@ -470,9 +470,9 @@ nguild_alde,171,175,0	warp	naldg108	1,1,nguild_alde,35,197
 nguild_alde,31,197,0	warp	naldg108-1	1,1,nguild_alde,175,175
 
 //Novices Guild: Geffen Castles Map		
-n_castle,183,183,0	warp	ngefg01	1,1,nguild_gef,34,140
-nguild_gef,34,136,0	warp	ngefg01-1	1,1,n_castle,183,180
-nguild_gef,99,178,0	warp	ngefg02-1	1,1,n_castle,183,180
+//n_castle,183,183,0	warp	ngefg01	1,1,nguild_gef,34,140
+//nguild_gef,34,136,0	warp	ngefg01-1	1,1,n_castle,183,180
+//nguild_gef,99,178,0	warp	ngefg02-1	1,1,n_castle,183,180
 
 nguild_gef,170,14,0	warp	ngefg106-1	1,1,nguild_gef,50,84	
 nguild_gef,170,34,0	warp	ngefg105-1	1,1,nguild_gef,30,167	
@@ -490,8 +490,8 @@ nguild_gef,62,9,0	warp	ngefg101-1	1,1,nguild_gef,39,192
 nguild_gef,90,51,0	warp	ngefg102-1	1,1,nguild_gef,54,185	
 
 //Novices Guild: Payon Guild Castles Map
-n_castle,18,181,0	warp	npayg01	1,1,nguild_pay,214,48
-nguild_pay,214,44,0	warp	npayg01-1	1,1,n_castle,18,178
+//n_castle,18,181,0	warp	npayg01	1,1,nguild_pay,214,48
+//nguild_pay,214,44,0	warp	npayg01-1	1,1,n_castle,18,178
 
 nguild_pay,201,125,0	warp	npayg101	1,1,nguild_pay,102,19
 nguild_pay,102,16,0	warp	npayg101-1	3,1,nguild_pay,201,122
@@ -507,8 +507,8 @@ nguild_pay,53,111,0	warp	npayg106	1,1,nguild_pay,115,147
 nguild_pay,115,151,0	warp	npayg106-1	1,1,nguild_pay,53,115
 
 //Novices Guild: Prontera Castles Map
-n_castle,16,14,0	warp	nprtg01	1,1,nguild_prt,99,32
-nguild_prt,103,32,0	warp	nprtg01-1	1,1,n_castle,19,14
+//n_castle,16,14,0	warp	nprtg01	1,1,nguild_prt,99,32
+//nguild_prt,103,32,0	warp	nprtg01-1	1,1,n_castle,19,14
 
 nguild_prt,109,163,0	warp	nprtg107	1,1,nguild_prt,202,183
 nguild_prt,147,120,0	warp	nprtg106	1,1,nguild_prt,75,187
