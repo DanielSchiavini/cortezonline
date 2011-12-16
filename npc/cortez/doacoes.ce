@@ -8,20 +8,25 @@ L_START:
 	query_sql "Select amount-claimed From ro.donate Where account_id = "+getcharid(3), #CASHPOINTS;
 	menu "Mais informações",L_Info,"Itens Disponíveis",-,"Verificar crédito",L_VerCreditos;
 L_Itens:
-	mes "^336699[Doações]^333333";
-	mes "Não temos nenhum item disponível por enquanto.";
-	close;
-	
 	mes "Deseja ver qual tipo de item?";
 	next;
-	set .@tipo, select("Voltar", "Itens", "Cartas", "Equips", "Cartas MVP");
+	//select group_concat('"',tipo,'" ') from donate_tipos order by id_tipo;
+	set .@tipo, select("Chapéus", "Itens de Aluguel", "Equipamentos", "Itens Consumiveis", "Loja de Bichinhos", "Cartas: Chapéus", "Cartas: Armamentos", "Cartas: Escudos", "Cartas: Vestimentas", "Cartas: Capas", "Cartas: Calçados", "Cartas: Acessórios", "Voltar");
 	close2;
 	switch(.@tipo)
-	{
-		case 2:	set .@tipo$, "VipItens";	break;
-		case 3:	set .@tipo$, "VipCartas";	break;
-		case 4:	set .@tipo$, "VipEquips";	break;
-		case 5:	set .@tipo$, "VipMvps";		break;
+	{ // select concat('case ',id_tipo,':/tset .@tipo$, "',npc,'";/tbreak;') from donate_tipos;
+		case 1:	set .@tipo$, "Vip1";	break;
+		case 2:	set .@tipo$, "Vip2";	break;
+		case 3:	set .@tipo$, "Vip3";	break;
+		case 4:	set .@tipo$, "Vip4";	break;
+		case 5:	set .@tipo$, "Vip5";	break;
+		case 6:	set .@tipo$, "Vip6";	break;
+		case 7:	set .@tipo$, "Vip7";	break;
+		case 8:	set .@tipo$, "Vip8";	break;
+		case 9:	set .@tipo$, "Vip9";	break;
+		case 10:set .@tipo$, "Vip10";	break;
+		case 11:set .@tipo$, "Vip11";	break;
+		case 12:set .@tipo$, "Vip12";	break;
 		default: end;
 	}
 	dispbottom "Você tem " + #CASHPOINTS + " ROPS disponíveis.";
