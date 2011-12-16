@@ -140,7 +140,7 @@ n_castle,0,0,0	script	#ev_devilsquare	-1,{
 						//setarray .ds_mobs[0],1373,3102,3104,3108,3157,3098,3099,3103,3105,3106; // lv 5
 						//setarray .ds_mobs[0],1373,1046,1583,1389,1112,1511,1779; // original  
 						//setarray .ds_mobnr[0],  1,   1,   1,   1,   1,   1,   1; // original  
-						setarray .ds_mobs[0],	1991,	1157,	1990,	1262,	1623,	1734,	1978,	1178,	1139;
+						setarray .ds_mobs[0],	1991,	1157,	1990,	1262,	1623,	1734,	1867,	1178,	1139;
 						setarray .ds_mobnr[0],	1,	1,	1,	6,	1,	1,	5,	15,	20;
 						break;
 					case 6:
