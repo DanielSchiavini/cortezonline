@@ -198,7 +198,7 @@ n_castle,0,0,0	script	#ev_devilsquare	-1,{
 		end;
 }
 
-new_1-1,53,118,4	script	Devil Square	705,{
+prontera,66,53,4	script	Devil Square	705,{
 	if($devil_square!=1){
 		disablenpc "Devil Square";
 		doevent "#ev_devilsquare::OnInit";
