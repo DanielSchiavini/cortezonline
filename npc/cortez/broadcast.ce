@@ -1,0 +1,271 @@
+//===== eAthena Script ======================================= 
+//= Kafra Express - Broadcasting Module
+//===== By: ================================================== 
+//= Skotlex 
+//===== Current Version: ===================================== 
+//= 3.0
+//===== Compatible With: ===================================== 
+//= eAthena SVN3424+
+//===== Description: ========================================= 
+//= Part of the Kafra Express Script Package.
+//= Offers broadcasting for party requests, pvp, general
+//= and anonymous. Broadcasts can be to the current map 
+//= or server-wide
+//===== Additional Comments: ================================= 
+//= See config.txt for configuration.
+//= For the PVP broadcasts, variables from the Pvp Warping
+//= Module are used.
+//============================================================ 
+
+prontera,96,64,5	script	Anunciante	89,{
+	set $@globalFactor, 1000; //10x
+	set $@bc_showOnline, 1;
+	set @name$, "Anunciante";
+	mes "["+@name$+"]";
+	mes "Olá caro jogador! Eu posso te ajudar a comunicar algo para os outros jogadores!";
+	next;
+	callfunc("F_keBroadcast","prontera");
+	close;
+}
+
+//Function F_keBroadcast(String currentMapName)
+function	script	F_keBroadcast	{
+
+	function	SF_calcPrice;
+	function	SF_broadcasts;
+	function	SF_bcPvp;
+	function	SF_doBroadcast;
+
+	if(compare(strcharinfo(0),"[TR]") || getgmlevel()>10){
+		set @kmenu, select(
+			"- Ir embora",
+			"- Anunciar no mapa ("+getarg(0)+"/"+getmapusers(getarg(0))+" jogadores)",
+			"- Anunciar no jogo todo ("+getusers(1)+" jogadores)",
+			"- Oferecer suporte na cidade"
+		);
+	}else{
+		if ($@bc_showOnline) {
+			set @kmenu, select(
+				"- Ir embora",
+				"- Anunciar no mapa ("+getarg(0)+"/"+getmapusers(getarg(0))+" jogadores)",
+				"- Anunciar no jogo todo ("+getusers(1)+" jogadores)"
+			);
+		} else {
+			set @kmenu, select(
+				"- Ir embora",
+				"- Anunciar no mapa ("+getarg(0)+")",
+				"- Anunciar no jogo todo"
+			);
+		}
+	}
+	switch(@kmenu) {
+	case 2:
+		SF_calcPrice(0);
+		set @map$,getarg(0);
+		SF_broadcasts("Map ("+getarg(0)+")");
+		break;
+	case 3:
+		SF_calcPrice(1);
+		set @map$,"";
+		SF_broadcasts("Global");
+		break;
+	case 4:
+		SF_doBroadcast 0,"",strcharinfo(0)+": Estou oferecendo suporte, venha para "+getarg(0)+" se precisar!",0,0x0099FF;
+		break;
+	}
+	return;
+
+//Sub Function SF_broadcasts: Handles main broadcast menu. 
+	function	SF_broadcasts	{
+		
+		do {
+			switch (select (
+				"- Ir embora",
+				"- Chamar para grupo ("+@partycost+"z)",
+				"- Chamar para PvP ("+@pvpcost+"z)",
+				"- Recrutar para clã ("+@partycost+"z)",
+				"- Anúncio de Compra ("+@cost+"z)",
+				"- Anúncio de Venda ("+@cost+"z)",
+				"- Anúncio de Troca ("+@cost+"z)",
+				"- Procura de jogadores ("+@cost+"z)"
+			)) {
+			case 2:	//Party
+				mes "["+@name$+"]";
+				mes "Você está procurando um grupo para...?";
+				SF_doBroadcast @partycost,@map$,strcharinfo(0)+": Sou "+jobname(Class)+" "+baselevel+"/"+joblevel+" e procuro um grupo para ",1;
+				break;
+			case 3:	//Pvp
+				SF_bcPvp @pvpcost,@map$,0,0;
+				break;
+			case 4:	//Clã
+				if (getcharid(2) <= 0) {
+					mes "Desculpe mas você precisa ter um clã.";
+					return;
+				}
+				SF_doBroadcast @partycost,@map$,strcharinfo(0)+": Estou recrutando para o clã "+strcharinfo(2),0;
+				break;
+			case 5:	//Compra
+				mes "["+@name$+"]";
+				mes "Digite o nome do item que deseja comprar";
+				SF_doBroadcast @cost,@map$,strcharinfo(0)+": Estou comprando ",1;
+				break;
+			case 6:	//Venda
+				mes "["+@name$+"]";
+				mes "Digite o nome do item que deseja vender";
+				SF_doBroadcast @cost,@map$,strcharinfo(0)+": Estou vendendo ",1;
+				break;
+			case 7:	//Troca
+				mes "["+@name$+"]";
+				mes "Digite os nomes dos itens que deseja trocar";
+				SF_doBroadcast @cost,@map$,strcharinfo(0)+": Desejo trocar ",1;
+				break;
+			case 8:	//Jogador
+				mes "["+@name$+"]";
+				mes "Digite o nome do jogador que está procurando";
+				SF_doBroadcast @cost,@map$,strcharinfo(0)+": Estou procurando por ",1;
+				break;
+			default:
+				mes "Muito bem, o que posso fazer por você?";
+				return;
+			}
+			next;
+		} while (1);
+	}	//SF_ end
+
+//SubFunction: Calculates prices for Broadcast services (argument 0 == 1 for global bc, 0 for map bc
+	function	SF_calcPrice {
+		set @partycost, 8000;
+		set @pvpcost, 8000;
+		set @cost, 10000;
+		set @anoncost, 100000;
+		if (getarg(0)) {	//Global fix
+			set @partycost,@partycost*$@globalFactor/100;
+			set @pvpcost,@pvpcost*$@globalFactor/100;
+			set @cost,@cost*$@globalFactor/100;
+			set @anoncost,@anoncost*$@globalFactor/100;
+		}
+	}	//SF_ end
+
+//SubFunction SF_doBroadcast(int cost, String map, String message, int input, hex color=0x00FF7F)
+//If map is "", do a global broadcast
+//If input is 1, concat a user string to message.
+	function	SF_doBroadcast {
+		set @cost, getarg(0);
+		if (getarg(1,"")=="")
+			set @cost, @cost*$@globalFactor/100;
+		if (getarg(3)) {
+			mes "^990000ATENÇÃO:^000000";
+			mes "Mensagens pessoais de outros assuntos são proibidas e serão punidas!!!";
+			next;
+			input @msg$;
+			set @msg$,getarg(2)+@msg$;
+		} else
+			set @msg$,getarg(2);
+		
+		mes "["+@name$+"]";
+		mes "Deseja anunciar \""+@msg$+"\"?";
+		set @sec, (gettimetick(0)-$bc_tick)/1000;
+		if(@sec>60 || getarg(1,"")!="" || getarg(4,0x00FF7F)!=0x00FF7F || @sec<0){
+			// Ou tempo suficiente, ou se for no mapa, ou cor diferente, ou bugado
+			mes "Tempo de Espera: Nenhum";
+			if (select("- Ir embora","- Enviar Mensagem")==2) {
+				if (Zeny<@cost) {
+					mes "^990000Você não tem o dinheiro suficiente...^000000";
+				}else{
+					set Zeny, Zeny-@cost;
+					if (getarg(1,"")==""){
+						announce @msg$,0,getarg(4,0x00FF7F);
+						logmes "[Anuncio] "+@msg$;
+						set $bc_tick, gettimetick(0);
+						if(@sec>60)
+							set $bc_qtde,0;
+					}else{
+						mapannounce getarg(1),@msg$,0,getarg(4,0x00FF7F);
+					}
+					mes "Enviado...!";
+				}
+			}else{
+				mes "Ok...";
+			}
+			return;
+		}else{
+			if($bc_qtde){
+				mes "Tempo de Espera: ~"+($bc_qtde-$bc_atu+1)+" minutos";
+				if (select("- Ir embora","- Enviar Mensagem")==2) {
+					if (Zeny<@cost) {
+						mes "^990000Você não tem o dinheiro suficiente...^000000";
+					}else{
+						set Zeny, Zeny-@cost;
+						set $bc$[$bc_qtde], @msg$;
+						logmes "[Anuncio] (Rec."+($bc_qtde+1)+") "+@msg$;
+						set $bc_qtde, $bc_qtde+1;
+						mes "Ok, sua mensagem foi colocada na fila e será enviada em breve!";
+					}
+					return;
+				}else{
+					mes "Ok...";
+				}
+			}else{
+				mes "Tempo de Espera: ~1 minuto";
+				if (select("- Ir embora","- Enviar Mensagem")==2) {
+					if (Zeny<@cost) {
+						mes "^990000Você não tem o dinheiro suficiente...^000000";
+						return;
+					}else{
+						set Zeny, Zeny-@cost;
+						next;
+						mes "["+@name$+"]";
+						mes "Ok, sua mensagem foi colocada na fila e será enviada em breve.";
+						logmes "[Anuncio] (Rec.1) "+@msg$;
+						close2;
+						
+						set $bc_qtde, 1;
+						set $bc_atu, 0;
+						set $bc$[0], @msg$;
+						sleep 60000-gettimetick(0)+$bc_tick;
+						while($bc_atu<$bc_qtde){
+							announce $bc$[$bc_atu],0,getarg(4,0x00FF7F);
+							callfunc("log_mes","[Anuncio] (Env."+($bc_atu+1)+") "+$bc$[$bc_atu],"Anuncio","anuncio");
+							set $bc_tick, gettimetick(0);
+							set $bc$[$bc_atu],"";
+							set $bc_atu,$bc_atu+1;
+							sleep 60000;
+						}
+						set $bc_atu,0;
+						set $bc_qtde,0;
+						end;
+					}
+				}else{
+					mes "Ok...";
+				}
+			}
+		}
+		end;
+	}
+
+//SubFunction SF_bcPvp (int cost, String map, int min level, int max level)
+//Does the second part of PvP Room Advertising. Level is the level group to
+//advertise (1->8 where 8 is free for all)
+	function	SF_bcPvp {
+		set @msg$, "advertising";
+		set @lvls$, "";
+		if (getarg(3)) {
+			if (BaseLevel < getarg(2) || BaseLevel > getarg(3)) {
+				mes "Você só pode enviar mensagens para as salas que pode entrar!";
+				return;
+			}
+			set @msg$,"níveis "+getarg(2)+"-"+getarg(3);
+			set @lvls$,"(níveis "+getarg(2)+"-"+getarg(3)+") ";
+		}
+		set @pvpcost,getarg(0);
+		switch(select(
+			"- Ir embora (Sala PvP "+@msg$+")",
+			"- Chamar para PvP"
+		)) {
+		case 2:	//Sandwich
+			SF_doBroadcast @pvpcost,@map$,"O "+jobname(Class)+" "+strcharinfo(0)+" está procurando quem possa desafiá-lo no PvP!",0;
+			break;
+		}
+	}
+
+}
