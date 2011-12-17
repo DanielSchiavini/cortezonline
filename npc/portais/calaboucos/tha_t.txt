@@ -25,7 +25,7 @@ tha_t02,149,125,0	warp	WarpThana1b	1,1,tha_t01,150,145
 
 // Thanatos Tower Level 2 (tha_t02)
 tha_t03,217,165,0	warp	WarpThana2a	1,1,tha_t02,227,157
-
+tha_t02,226,163,0	warp	warpthana3c	1,1,tha_t03,217,162
 // Thanatos Tower Level 3 (tha_t03)
 tha_t03,59,140,0	warp	WarpThana3a	1,1,tha_t04,60,142
 tha_t04,60,137,0	warp	WarpThana3b	1,1,tha_t03,59,135

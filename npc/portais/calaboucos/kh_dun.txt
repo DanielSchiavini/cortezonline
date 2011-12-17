@@ -29,10 +29,15 @@ kh_dun01,232,176,0	warp	kh_dun_03	1,1,kh_dun01,63,12
 kh_dun02,43,195,0	script	kh_dun04	45,1,1,{
 OnTouch:
 	if (rand(1,2) == 1) {
-		warp "kh_dun01",41,206;
+		warp "kh_dun01",41,208;
 	}
 	else {
 		warp "kh_dun01",32,199;
 	}
 
 }
+
+kh_dun01,34,198,0	warp	kh_dun_05	1,1,kh_dun02,41,198
+kh_dun01,41,204,0	warp	kh_dun_06	1,1,kh_dun02,41,198
+
+

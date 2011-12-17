@@ -1,0 +1,11 @@
+// portais dungeon de brasilis
+// script feito por Marcos
+// portais nível 1
+
+bra_dun01,200,35,0	warp	bra_dun1	1,1,bra_dun02,262,262
+
+
+// portais nível 2
+
+bra_dun02,262,265,0	warp	bra_dun2	1,1,bra_dun01,200,38
+
