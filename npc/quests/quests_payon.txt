@@ -251,9 +251,21 @@ payon_in01,56,12,7	script	Jovem#pay02	89,{
 			mes "Faça como quiser...";
 			close;
 		}
-		
+		if ((countitem(2229) > 0) && (countitem(2254) > 0) && (countitem(7036) > 4)) {
+			mes "[Jovem]";
+			mes ".....Hum. Certo, já te darei.";
+			mes "Aqui, pegue.";
+			delitem 2229,1; //Helm_
+			delitem 2254,1; //Angelic_Chain
+			delitem 7036,5; //Fang_Of_Garm
+			next;
+			getitem 5025,1; //Helm of Angel
+			close;
+		}
 		else {
-			getitem 5025,1 ;
+			mes "[Jovem]";
+			mes ".......Não são os itens certos";
+			mes "Verifique denovo.";
 			close;
 		}
 	case 2:
