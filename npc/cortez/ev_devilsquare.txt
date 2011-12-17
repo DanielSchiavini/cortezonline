@@ -1,0 +1,276 @@
+n_castle	mapflag	noteleport
+n_castle	mapflag	nopenalty
+//n_castle	mapflag	nodrop
+n_castle	mapflag	nomemo
+//n_castle	mapflag	monster_noteleport
+//n_castle	mapflag	nocommand	50
+n_castle	mapflag	nosave	SavePoint
+//n_castle	mapflag	restricted	4
+
+//Quinta/Domingo às 20h
+//Preço: 100k, revertidos para loteria
+//1º round: raydric, poring, skeleton, violi, cruiser, antonio
+//2º round: raydric, ray archer, violy, chimera, abysmal, joker
+//3º round: raydric, ray archer, violy, joker, abysmal, incubbus, succubus, 1 DL
+//4º round: ray, ray archer, violy, joker, abysmal, 1 Vesper, 1 GTB, 1 Bacsojin
+//5º round: ray archer, joker, abismal, lab 2, detale, yuufa, Pharaó, Amon ra, Doppelganger
+//6º round: Bring it on! e depois tesouros
+
+
+n_castle,0,0,0	script	#ev_devilsquare	-1,{
+	
+	//OnThu2055:
+	//OnSun1455:
+	OnStartEvent:
+		if(!playerattached())
+			query_logsql "INSERT INTO npclog (npc_date,account_id,char_id,char_name,map,mes) Values (now(),1,150000,'ev_devilsquare','n_castle','[DS] Evento Iniciado Automaticamente')";
+		set $devil_square, 1;
+		enablenpc "Devil Square";
+		announce "[DS] O portão da Devil Square foi aberto por 5 minutos!",bc_all;
+		sleep 5000;
+		announce "[DS] Estou aguardando no centro da cidade!",bc_all;
+		sleep (55000+60000);
+		announce "[DS] O portão da Devil Square se fechará em 3 minutos!",bc_all;
+		sleep 5000;
+		announce "[DS] Estou aguardando no centro da cidade!",bc_all;
+		sleep (55000+60000);
+		announce "[DS] O portão da Devil Square se fechará em 1 minuto!",bc_all;
+		sleep 5000;
+		announce "[DS] Estou aguardando no centro da cidade!",bc_all;
+		sleep 55000;
+		set .ds_players, getmapusers("n_castle");
+		disablenpc "Devil Square";
+		if(.ds_players>0){
+			announce "[DS] O portão da Devil Square foi fechado e o evento vai começar!",bc_all;
+			sleep 5000;
+			announce "[DS] Lembrem-se que ao morrer no evento é impossível voltar!",bc_all;
+			set $devil_square, 1;
+			initnpctimer;
+		}else{
+			announce "[DS] O Devil Square foi cancelado pois nenhum jogador se habilitou a participar!",bc_all;
+			set $devil_square, 0;
+			end;
+		}
+		
+		//setarray .ds_mobs[0],1028,1189,1165,1016,1149,1164; // lv 0 - original //setarray .ds_mobnr[0], 10,  15,  10,  15,  15,  10;
+		//setarray .ds_mobs[0],1253,1193,1257,1191,1192; // lv 1 - original //setarray .ds_mobnr[0], 15,  10,  10,  15,  10;
+		//setarray .ds_mobs[0],1163,1276,1195,1205,1390; // original 
+		//setarray .ds_mobnr[0], 50,  30,  30,   5,  20; // original 
+		setarray .ds_mobs[0],	1121,	1507,	1216,	1503,	1504,	1714,	1717,	1836,	1203,	1091,	1969,	1146,	1243,	1170,	1119,	1782,	2074,	1687,	1242,	1269,	1096;
+		setarray .ds_mobnr[0],	10,	5,	10,	5,	5,	5,	5,	8,	5,	8,	5,	5,	8,	8,	8,	8,	8,	8,	7,	8,	1;
+	OnMobSpawn:
+		if(.ds_alive!=0){
+			debugmes "#ev_devilsquare::OnMobSpawn executado com .ds_alive="+.ds_alive;
+			end;
+		}
+		
+		sleep 10000;
+		//set .@rate, sqrt(getmapusers("n_castle"))*100/$devil_square;
+		//announce "[DS] sqrt("+getmapusers("n_castle")+"*100)/("+$devil_square+"+1) = " + .@rate, bc_map|bc_npc;
+		//if(.@rate<100)
+			set .@rate, 100;
+		
+		for(set .@i, 0; .@i<getarraysize(.ds_mobs); set .@i, .@i + 1){
+			set .ds_mobnr[.@i], (.ds_mobnr[.@i] * .@rate)/100;
+			areamonster "n_castle",0,0,300,300,"[DS] "+getmonsterinfo(.ds_mobs[.@i],MOB_NAME),.ds_mobs[.@i],.ds_mobnr[.@i],"#ev_devilsquare::OnMobDied";
+			set .ds_alive, .ds_alive + .ds_mobnr[.@i];
+		}
+		
+		if($devil_square<6){
+			announce "[DS] O Devil Square nível " + $devil_square + " acaba de começar!", bc_all; //+.ds_alive+"/"+.@rate
+		}else if($devil_square==6){
+			announce "[DS] O Devil Square foi conquistado! Parabéns à todos que participaram!!!", bc_all;
+			sleep 3000;
+			announce "Para conseguir seu prêmio, procure e mate a sua plantinha. Tem uma pra cada um!", bc_map|bc_npc|bc_blue;
+		}
+		set .@rate,0;
+		end;
+		
+	OnMobDied:
+		set .ds_alive, .ds_alive - 1;
+		if(playerattached() && .ds_alive>1 && $devil_square<6) dispbottom "Restam "+.ds_alive+" monstros vivos.";
+		switch(.ds_alive){
+			case 500:
+			case 300:
+			case 200:
+			case 150:
+			case 100:
+			case 60:
+			case 40:
+			case 20:
+			case 5:
+				if($devil_square<6)
+					announce "[DS] Faltam " + .ds_alive + " monstros para o "+($devil_square==5?"final do Devil Square":("nível "+($devil_square + 1)))+"!", bc_map|bc_npc;
+				break;
+			case 1:
+				if($devil_square==5){
+					announce "[DS] Apenas um monstro restante para o final do Devil Square!", bc_map|bc_npc;
+				}
+				break;
+			case 0:
+				announce "[DS] Todos os monstros foram mortos!", bc_map|bc_npc;
+				set $devil_square, $devil_square + 1;
+				deletearray .ds_mobs[0], getarraysize(.ds_mobs);
+				deletearray .ds_mobnr[0], getarraysize(.ds_mobnr);
+				//announce "  - $devil_square="+$devil_square,0;
+				switch($devil_square){
+					case 2:
+						//setarray .ds_mobs[0],1206,1208,1109,1131,1302,1190,1272,1832; // lv 2 - original //setarray .ds_mobnr[0], 15,  15,  10,  15,   1,   1,   1,   1;
+						//setarray .ds_mobs[0],1453,1131,1195,1159; // original  lv 2
+						//setarray .ds_mobnr[0], 20,  20,  20,   1; // original 
+						setarray .ds_mobs[0],	1505,	1259,	1630,	1038,	1388,	1219,	1248,	1271,	1096,	1515,	1289,	1656,	1264,	1297;
+						setarray .ds_mobnr[0],	13,	7,	1,	1,	2,	10,	8,	15,	1,	13,	1,	7,	7,	7;
+						break;
+					case 3:
+						//setarray .ds_mobs[0],1388,1507,1408,1456,1120,1296,1408,1259,1308; // lv 3 - original // setarray .ds_mobnr[0],  3,   5,   6,   4,   3,   2,   6,   3,   3;
+						//setarray .ds_mobs[0],1453,1195,1702,1252,1059; // original lv 3
+						//setarray .ds_mobnr[0], 20,  30,  10,   1,   1; // original 
+						setarray .ds_mobs[0],	1120,	1190,	1492,	1109,	1271,	1150,	1519,	2068,	1087,	1101;
+						setarray .ds_mobnr[0],	8,	1,	1,	10,	15,	1,	10,	1,	1,	10;
+						break;
+					case 4:
+						//setarray .ds_mobs[0],1399,1373,1383,1157,1038,1718,1312,1087,1190,1708,1870,1157; // lv 4 - original // setarray .ds_mobnr[0],  2,   2,   1,   1,   1,   1,   2,   1,   2,   2,   2,   2;
+						// setarray .ds_mobs[0],1453,1702,1700,1701,1388,1046,3251,3250,1688; // original  lv 4
+						// setarray .ds_mobnr[0], 25,  10,  10,  10,   3,   2,   3,   3,   1; // original 
+						setarray .ds_mobs[0],	1685,	1086,	1312,	1700,	1866,	1019,	1864,	1272,	1702,	1306;
+						setarray .ds_mobnr[0],	1,	1,	1,	10,	10,	15,	7,	1,	10,	8;
+						break;
+					case 5:
+						//setarray .ds_mobs[0],1511,1038,1373,1708,1870,1157,1650,1649,1642,1641,1640,1779; // lv 5 - original //setarray .ds_mobnr[0],  5,   3,   2,   2,   2,   2,   2,   1,   2,   2,   1,   2;
+						//setarray .ds_mobs[0],1373,3102,3104,3108,3157,3098,3099,3103,3105,3106; // lv 5
+						//setarray .ds_mobs[0],1373,1046,1583,1389,1112,1511,1779; // original  
+						//setarray .ds_mobnr[0],  1,   1,   1,   1,   1,   1,   1; // original  
+						setarray .ds_mobs[0],	1991,	1157,	1990,	1262,	1623,	1734,	1867,	1178,	1139;
+						setarray .ds_mobnr[0],	1,	1,	1,	6,	1,	1,	5,	15,	20;
+						break;
+					case 6:
+						set .ds_players, getmapusers("n_castle");
+						setarray .ds_mobs[0],1081,1082,1083; // tesouros
+						setarray .ds_mobnr[0], .ds_players/2, .ds_players/2, 2;
+						break;
+					case 7:
+						set $devil_square,0;
+						goto OnEndEvent;
+						break;
+					default:
+						debugmes "#ev_devilsquare::OnMobDied, switch($devil_square)="+$devil_square;
+				}
+				goto OnMobSpawn;
+		}
+		if($devil_square==6 && playerattached()){
+			getitem 7180,1;
+			dispbottom "Aqui está seu prêmio. Obrigado pela participação no evento, e até a próxima!";
+			warp "SavePoint",0,0;
+		}
+		end;
+	
+	OnVerifyPlayers:
+	OnTimer30000:
+		//announce "Verificando jogadores... "+.ds_players+"/"+getmapusers("n_castle"),bc_all;
+		if(getmapusers("n_castle")!=.ds_players){
+			set .ds_players, getmapusers("n_castle");
+			if(.ds_players == 0 && $devil_square>0){
+				if($devil_square<6)
+					announce "[DS] Todos os jogadores foram eliminados do Devil Square!",bc_all;
+				query_logsql "INSERT INTO npclog (npc_date,account_id,char_id,char_name,map,mes) Values (now(),1,150000,'ev_devilsquare','n_castle','[DS] Evento Finalizado no nível "+$devil_square+"')";
+				killmonsterall "n_castle";
+				set $devil_square, 0;
+			}else{
+				announce "[DS] Ainda há "+.ds_players+" jogador"+(.ds_players>1?"es":"")+" no Devil Square!",bc_map|bc_npc;
+			}
+		}
+	OnEndEvent:
+		if($devil_square == 0){
+			setnpctimer 0;
+			stopnpctimer;
+			deletearray .ds_mobs[0], getarraysize(.ds_mobs);
+			deletearray .ds_mobnr[0], getarraysize(.ds_mobnr);
+			set .ds_alive, 0;
+			mapwarp "n_castle","prontera",72,57;
+		}else{
+			initnpctimer;
+		}
+		end;
+	
+	OnInit:
+		set $devil_square, 0;
+		disablenpc "Devil Square";
+		end;
+}
+
+prontera,66,53,4	script	Devil Square	705,{
+	if($devil_square!=1){
+		disablenpc "Devil Square";
+		doevent "#ev_devilsquare::OnInit";
+	}else{
+		mes "[ Devil Square ]";
+		mes "O jogo consiste em 5 níveis de monstros. Se você sobreviver à todos, ganhará os prêmios.";
+		next;
+		mes "[ Devil Square ]";
+		mes "Deseja ir para a arena?";
+		mes "O valor da entrada é de 300.000z!";
+		set #ev_ds_pagou, 0;
+		next;
+		switch(select("Não, obrigado:Pagar 300.000z")){
+			case 2:
+				if(Zeny<300000){
+					next;
+					mes "[ Devil Square ]";
+					mes "Você não tem os 300.000z necessários...";
+					close;
+				}else{
+					query_logsql "INSERT INTO zenylog(time,char_id,src_id,type,amount,map)VALUES(now(),"+getcharid(0)+","+getcharid(0)+",'N',-300000,'devsquare')";
+					set Zeny, Zeny - 300000;
+					set #cred_loteria,#cred_loteria+1;
+					mes "[ Devil Square ]";
+					mes "Tudo certo, pode entrar!";
+				}
+				break;
+			default:
+				close;
+		}
+		close2;
+		if($devil_square==1) warp "n_castle",103,103;
+	}
+	end;
+}
+
+new_1-1,49,122,5	script	Evento DS	46,{
+		if(getgmlevel()<59) close;
+	mes "[^666699 Evento Devil Square ^000000]";
+	if($devil_square>0){
+		mes "O evento já está acontecendo!";
+		mes "Os jogadores estão no nível "+$devil_square+".";
+		mes "Há no momento "+getmapusers("n_castle")+" jogadores no mapa.";
+		if(getmapusers("n_castle")==0){
+			close2;
+			doevent "#ev_devilsquare::OnVerifyPlayers";
+			end;
+		} else {
+			mes "Deseja ir para lá?";
+			if(select("Não, obrigado:Sim, por favor")==1){
+				mes "[^666699 Evento Devil Square ^000000]";
+				mes "Deseja cancelar o evento???";
+				if(select("Não, obrigado:Sim, por favor")==1){
+					if(select("Sim, por favor:Não, obrigado")==2){
+						close;
+					}else{
+						close2;
+						set $devil_square, 0;
+						announce "[DS] O evento Devil Square foi cancelado! Desculpem-nos pelo problema.",bc_all;
+						doevent "#ev_devilsquare::OnEndEvent";
+						end;
+					}
+				}
+			}
+		}
+	}else{
+		mes "Deseja iniciar o evento de devil square?";
+		if(select("Não, obrigado:Sim, por favor")==1) close;
+		logmes "[DS] Devil Square Iniciado";
+		doevent "#ev_devilsquare::OnStartEvent";
+	}
+	close2;
+	warp "n_castle",103,103;
+	end;
+}
