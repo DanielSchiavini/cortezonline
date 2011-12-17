@@ -9,7 +9,7 @@ L_START:
 	menu "Mais informações",L_Info,"Itens Disponíveis",-,"Verificar crédito",L_VerCreditos;
 L_Itens:
 	mes "^336699[Doações]^333333";
-	if(1){
+	if(0){
 		mes "Doações indisponíveis";
 		close;
 	}
@@ -119,7 +119,7 @@ L_Reload:
 	query_sql "Select npc From ro.donate_tipos", .@npcs$;
 	for(set .@i, 0; .@i < getarraysize(.@npcs$); set .@i, .@i + 1){
 		// Clearing NPCs
-		npcshopitem .@npcs$[.@i],501,10000;
+		npcshopitem .@npcs$[.@i],501,1000;
 		//debugmes "cleaning npc "+.@npcs$[.@i];
 		
 		// Adding items
@@ -128,8 +128,8 @@ L_Reload:
 			npcshopadditem .@npcs$[.@i], .@ids[.@j], .@prices[.@j];
 			//debugmes "Adding item: "+ .@npcs$[.@i] + "@ "+ .@ids[.@j] + ":" + .@prices[.@j];
 		}
-		deletearray .@ids$, getarraysize(.@ids$);
-		deletearray .@prices$, getarraysize(.@prices$);
+		deletearray .@ids, getarraysize(.@ids);
+		deletearray .@prices, getarraysize(.@prices);
 		
 		// Clearing NPCs
 		npcshopdelitem .@npcs$[.@i],501;
