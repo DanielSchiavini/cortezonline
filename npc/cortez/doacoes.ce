@@ -8,10 +8,15 @@ L_START:
 	query_sql "Select amount-claimed From ro.donate Where account_id = "+getcharid(3), #CASHPOINTS;
 	menu "Mais informações",L_Info,"Itens Disponíveis",-,"Verificar crédito",L_VerCreditos;
 L_Itens:
+	mes "^336699[Doações]^333333";
+	if(1){
+		mes "Doações indisponíveis";
+		close;
+	}
 	mes "Deseja ver qual tipo de item?";
 	next;
 	//select group_concat('"',tipo,'" ') from donate_tipos order by id_tipo;
-	set .@tipo, select("Chapéus", "Itens de Aluguel", "Equipamentos", "Itens Consumiveis", "Loja de Bichinhos", "Cartas: Chapéus", "Cartas: Armamentos", "Cartas: Escudos", "Cartas: Vestimentas", "Cartas: Capas", "Cartas: Calçados", "Cartas: Acessórios", "Voltar");
+	set .@tipo, select("Chapéus", "Itens de Aluguel", "Equipamentos", "Itens Consumiveis", "Loja de Bichinhos", "Cartas p/ Chapéus", "Cartas p/ Armamentos", "Cartas p/ Escudos", "Cartas p/ Vestimentas", "Cartas p/ Capas", "Cartas p/ Calçados", "Cartas p/ Acessórios", "Voltar");
 	close2;
 	switch(.@tipo)
 	{ // select concat('case ',id_tipo,':/tset .@tipo$, "',npc,'";/tbreak;') from donate_tipos;
@@ -139,7 +144,15 @@ L_Reload:
 	}
 }
 
--	cashshop	VipItens	-1,501:-1;
--	cashshop	VipCartas	-1,501:-1;
--	cashshop	VipEquips	-1,501:-1;
--	cashshop	VipMvps	-1,501:-1;
+-	cashshop	Vip1	-1,501:1000;
+-	cashshop	Vip2	-1,501:1000;
+-	cashshop	Vip3	-1,501:1000;
+-	cashshop	Vip4	-1,501:1000;
+-	cashshop	Vip5	-1,501:1000;
+-	cashshop	Vip6	-1,501:1000;
+-	cashshop	Vip7	-1,501:1000;
+-	cashshop	Vip8	-1,501:1000;
+-	cashshop	Vip9	-1,501:1000;
+-	cashshop	Vip10	-1,501:1000;
+-	cashshop	Vip11	-1,501:1000;
+-	cashshop	Vip12	-1,501:1000;
