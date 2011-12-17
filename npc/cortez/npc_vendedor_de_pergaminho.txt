@@ -1,1 +1,0 @@
-yuno_in03,176,22,4	shop	Scroll Merchant	754,7433:4000
