@@ -1,0 +1,804 @@
+prontera,65,47,4	script	Negociante	902,{
+	
+	mes	"[^660066 Negociante ^000000]";
+	mes "Olá!";
+	menu "Oi!",-,"Sai fora daqui!",L_FAIL;
+	mes "Err. desculpe o incomodo, você tem algum Ticket de Evento aí?";
+	menu "Tenho sim, o que você tem aí?",L_INICIO,"Ticket o que? Sai fora seu louco",L_FAIL;
+	
+	L_INICIO:
+		
+		mes	"[^660066 Negociante ^000000]";
+		mes "O ho ho meu caro! O que não me falta são mercadorias!";
+		mes "O que você está procurando?";
+		menu "Não quero nada disso",L_FAIL,"Chapéus",L_HATS,"Vestimentas",L_ARMOR,"Armas",L_WEAPON,"Escudos",L_SHIELD,"Sapatos",L_BOOTS,"Acessórios",L_ACESSORY,"Poções etc",L_POT;
+		next;
+
+	L_HATS:
+		mes	"[^660066 Negociante ^000000]";
+		mes "Chapéus: Veja as opções";
+		menu "Nada disso",L_INICIO,"Olhos Biônicos",L_OlhosBionicos,"Boné de Carteiro",L_1,"Chapéu de Pintinho",L_2,"Máscara da Morte",L_3,"Coroa do Deus-Sol",L_4,"Coroa da Abelha Rainha",L_5,"Chapéu de Angeling",L_6,"Boneca de Alice",L_7,"Chapéu de Olho Mágico",L_8,"Tiara Dourada",L_9,"Chapéu de Menestrel",L_10,"Lendárias Asas de Anjo",L_11,"Chapéu de Deviling",L_12,"Auréolas de Anjo",L_13,"Asas de Peco-Peco",L_14,"Chapéu de Lamen",L_15,"Boneca da Lady Solace",L_16,"Boneca de Tatiana",L_17,"Boneca de Bianca",L_18,"Boneca de Deborah",L_19,"Orelhas Felinas",L_20,"Chifres Majestosos Gigantes",L_21,"Chapéu de Jibóia",L_22,"Chapéu de Galinha",L_23,"Elmo de Anubis",L_24,"Touca de Pijama Azul",L_25,"Chapéu do Pesar de Thanatos",L_26,"Venda Sombria",L_27,"Óculos Vermelhos",L_28,"Máscara do Mason",L_29,"Asinhas de Peco Peco",L_30,"Espírito Olímpico",L_31,"Máscara de Fugitivo",L_32,"Pergaminho de Ninpou",L_33,"Máscara Colorida",L_34,"Orelhas Felinas",L_35,"Gato Tagarela",L_36,"Máscara Colorida",L_37,"Boina Alada",L_38,"Boina Brasileira",L_39,"Boina Charmosa",L_40,"Boina da Páscoa",L_41,"Boina de Coelho",L_42,"Boina Militar de Louyang",L_43,"Boina Romântica",L_44,"Boina Rosa",L_45,"Chifre de Lord Kaho",L_46,"Chapéu de Bebe Selvagem",L_47,"Máscara de Fugitivo",L_48,"Placa de AFK",L_49;
+		next;
+
+		
+		L_OlhosBionicos:
+			set .@nomePremio$, "Olhos Biônicos";
+			setarray .@id[0], 5325;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;	
+			
+		L_1:
+			set .@nomePremio$, "Boné Carteiro";
+			setarray .@id[0], 5466;
+			setarray .@qtde[0], 1;
+			set .@preco, 20;
+			goto L_ENTREGA;
+		
+		L_2:
+			set .@nomePremio$, "Chapéu de Pintinho";
+			setarray .@id[0], 5283;
+			setarray .@qtde[0], 1;
+			set .@preco, 15;
+			goto L_ENTREGA;
+			
+		L_3:
+			set .@nomePremio$, "Máscara da Morte";
+			setarray .@id[0], 5564;
+			setarray .@qtde[0], 1;
+			set .@preco, 20;
+			goto L_ENTREGA;
+
+		L_4:
+			set .@nomePremio$, "Coroa do Deus-Sol";
+			setarray .@id[0], 5022;
+			setarray .@qtde[0], 1;
+			set .@preco, 20;
+			goto L_ENTREGA;
+
+		L_5:
+			set .@nomePremio$, "Coroa da Abelha Rainha";
+			setarray .@id[0], 5081;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;
+
+		L_6:
+			set .@nomePremio$, "Chapéu de Angeling";
+			setarray .@id[0], 5132;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;
+
+		L_7:
+			set .@nomePremio$, "Boneca de Alice";
+			setarray .@id[0], 5137;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;
+
+		L_8:
+			set .@nomePremio$, "Chapéu do Olho Mágico";
+			setarray .@id[0], 5138;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;
+
+		L_9:
+			set .@nomePremio$, "Tiara Dourada";
+			setarray .@id[0], 5179;
+			setarray .@qtde[0], 1;
+			set .@preco, 28;
+			goto L_ENTREGA;
+
+		L_10:
+			set .@nomePremio$, "Chapéu de Menestrel";
+			setarray .@id[0], 5188;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;
+
+		L_11:
+			set .@nomePremio$, "Lendárias Asas de Anjo";
+			setarray .@id[0], 5210;
+			setarray .@qtde[0], 1;
+			set .@preco, 28;
+			goto L_ENTREGA;
+
+		L_12:
+			set .@nomePremio$, "Chapéu de Deviling";
+			setarray .@id[0], 5254;
+			setarray .@qtde[0], 1;
+			set .@preco, 28;
+			goto L_ENTREGA;
+
+		L_13:
+			set .@nomePremio$, "Auréolas de Anjo";
+			setarray .@id[0], 5257;
+			setarray .@qtde[0], 1;
+			set .@preco, 28;
+			goto L_ENTREGA;
+
+		L_14:
+			set .@nomePremio$, "Asas de Peco-Peco";
+			setarray .@id[0], 5286;
+			setarray .@qtde[0], 1;
+			set .@preco, 28;
+			goto L_ENTREGA;
+
+		L_15:
+			set .@nomePremio$, "Chapéu de Lamen";
+			setarray .@id[0], 5293;
+			setarray .@qtde[0], 1;
+			set .@preco, 28;
+			goto L_ENTREGA;
+
+		L_16:
+			set .@nomePremio$, "Boneca da Lady Solace";
+			setarray .@id[0], 5324;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;
+			
+		L_17:
+			set .@nomePremio$, "Boneca de Tatiana";
+			setarray .@id[0], 5343;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;	
+				
+		L_18:
+			set .@nomePremio$, "Boneca de Bianca";
+			setarray .@id[0], 5344;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;
+			
+		L_19:
+			set .@nomePremio$, "Boneca de Deborah";
+			setarray .@id[0], 5345;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;		
+
+		L_20:
+			set .@nomePremio$, "Orelhas Felinas";
+			setarray .@id[0], 5360;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;
+
+		L_21:
+			set .@nomePremio$, "Chifres Majestosos Gigantes";
+			setarray .@id[0], 5374;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;
+
+		L_22:
+			set .@nomePremio$, "Chapéu de Jibóia";
+			setarray .@id[0], 5388;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;
+		
+		L_23:
+			set .@nomePremio$, "Chapéu de Galinha";
+			setarray .@id[0], 5431;
+			setarray .@qtde[0], 1;
+			set .@preco, 20;
+			goto L_ENTREGA;	
+			
+		L_24:
+			set .@nomePremio$, "Elmo de Anubis";
+			setarray .@id[0], 5490;
+			setarray .@qtde[0], 1;
+			set .@preco, 35;
+			goto L_ENTREGA;	
+			
+		L_25:
+			set .@nomePremio$, "Touca de Pijama Azul";
+			setarray .@id[0], 5506;
+			setarray .@qtde[0], 1;
+			set .@preco, 28;
+			goto L_ENTREGA;	
+			
+		L_26:
+			set .@nomePremio$, "Chapéu do Pesar de Thanatos";
+			setarray .@id[0], 5563;
+			setarray .@qtde[0], 1;
+			set .@preco, 35;
+			goto L_ENTREGA;	
+			
+		L_27:
+			set .@nomePremio$, "Venda Sombria";
+			setarray .@id[0], 5104;
+			setarray .@qtde[0], 1;
+			set .@preco, 20;
+			goto L_ENTREGA;	
+			
+		L_28:
+			set .@nomePremio$, "Óculos Vermelhos";
+			setarray .@id[0], 5288;
+			setarray .@qtde[0], 1;
+			set .@preco, 30;
+			goto L_ENTREGA;	
+			
+		L_29:
+			set .@nomePremio$, "Máscara do Mason";
+			setarray .@id[0], 5314;
+			setarray .@qtde[0], 1;
+			set .@preco, 30;
+			goto L_ENTREGA;	
+			
+		L_30:
+			set .@nomePremio$, "Asinhas de Peco Peco";
+			setarray .@id[0], 5358;
+			setarray .@qtde[0], 1;
+			set .@preco, 30;
+			goto L_ENTREGA;	
+			
+		L_31:
+			set .@nomePremio$, "Espírito Olímpico";
+			setarray .@id[0], 5389;
+			setarray .@qtde[0], 1;
+			set .@preco, 30;
+			goto L_ENTREGA;	
+			
+		L_32:
+			set .@nomePremio$, "Máscara de Fugitivo";
+			setarray .@id[0], 5361;
+			setarray .@qtde[0], 1;
+			set .@preco, 30;
+			goto L_ENTREGA;	
+			
+		L_33:
+			set .@nomePremio$, "Pergaminho de Ninpou";
+			setarray .@id[0], 5362;
+			setarray .@qtde[0], 1;
+			set .@preco, 30;
+			goto L_ENTREGA;	
+			
+		L_34:
+			set .@nomePremio$, "Máscara Colorida";
+			setarray .@id[0], 5463;
+			setarray .@qtde[0], 1;
+			set .@preco, 30;
+			goto L_ENTREGA;	
+			
+		L_35:
+			set .@nomePremio$, "Orelhas Felinas";
+			setarray .@id[0], 5360;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;	
+			
+		L_36:
+			set .@nomePremio$, "Gato Tagarela";
+			setarray .@id[0], 5372;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;	
+			
+		L_37:
+			set .@nomePremio$, "Máscara Colorida";
+			setarray .@id[0], 5463;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;	
+			
+		L_38:
+			set .@nomePremio$, "Boina Alada";
+			setarray .@id[0], 5170;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;	
+			
+		L_39:
+			set .@nomePremio$, "Boina Brasileira";
+			setarray .@id[0], 5601;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;	
+			
+		L_40:
+			set .@nomePremio$, "Boina Charmosa";
+			setarray .@id[0], 5468;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;	
+			
+		L_41:
+			set .@nomePremio$, "Boina da Páscoa";
+			setarray .@id[0], 5489;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;	
+			
+		L_42:
+			set .@nomePremio$, "Boina de Coelho";
+			setarray .@id[0], 5568;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;	
+			
+		L_43:
+			set .@nomePremio$, "Boina Militar de Louyang";
+			setarray .@id[0], 5535;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;	
+			
+		L_44:
+			set .@nomePremio$, "Boina Romântica";
+			setarray .@id[0], 5379;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;	
+			
+		L_45:
+			set .@nomePremio$, "Boina Rosa";
+			setarray .@id[0], 5200;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;	
+			
+			L_46:
+			set .@nomePremio$, "Chifre de Lord Kaho";
+			setarray .@id[0], 5013;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;	
+			
+			L_47:
+			set .@nomePremio$, "Chapéu de Bebe Selvagem";
+			setarray .@id[0], 5572;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;	
+			
+			L_48:
+			set .@nomePremio$, "Máscara de Fugitivo";
+			setarray .@id[0], 5361;
+			setarray .@qtde[0], 1;
+			set .@preco, 20;
+			goto L_ENTREGA;	
+			
+			L_49:
+			set .@nomePremio$, "Placa de AFK";
+			setarray .@id[0], 5474;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;	
+
+	L_ARMOR:
+		mes	"[^660066 Negociante ^000000]";
+		mes "Vestimentas: Veja as opções";
+		menu "Nada disso",L_INICIO,"Armadura do Legionário",L_ArmaduraLegionario,"Armadura de Goibne",L_ArmaduradeGoibne,"Couraça da Fúria Flamejante",L_CouracaFlamejante,"Couraça da Submissão Oceânica",L_CouracaOceanica,"Couraça da Liberdade Celestial",L_CouracaCelestial,"Couraça da Perseverança Continental",L_CouracaContinental,"Manto de Seda",L_MantodeSeda,"Vestimenta Arcana",L_VestimentaArcana;
+		next;
+
+		L_ArmaduraLegionario:
+			set .@nomePremio$, "Armadura do Legionário";
+			setarray .@id[0], 2341;
+			setarray .@qtde[0], 1;
+			set .@preco, 20;
+			goto L_ENTREGA;
+		
+		L_ArmaduradeGoibne:
+			set .@nomePremio$, "Armadura de Goibne";
+			setarray .@id[0], 2354;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;
+			
+		L_CouracaFlamejante:
+			set .@nomePremio$, "Couraça da Fúria Flamejante";
+			setarray .@id[0], 2345;
+			setarray .@qtde[0], 1;
+			set .@preco, 30;
+			goto L_ENTREGA;	
+			
+		L_CouracaOceanica:
+			set .@nomePremio$, "Couraça da Submissão Oceânica";
+			setarray .@id[0], 2347;
+			setarray .@qtde[0], 1;
+			set .@preco, 30;
+			goto L_ENTREGA;	
+
+		L_CouracaCelestial:
+			set .@nomePremio$, "Couraça da Liberdade Celestial";
+			setarray .@id[0], 2349;
+			setarray .@qtde[0], 1;
+			set .@preco, 30;
+			goto L_ENTREGA;	
+
+		L_CouracaContinental:
+			set .@nomePremio$, "Couraça da Perseverança Continental";
+			setarray .@id[0], 2351;
+			setarray .@qtde[0], 1;
+			set .@preco, 30;
+			goto L_ENTREGA;		
+
+		L_MantodeSeda:
+			set .@nomePremio$, "Manto de Seda";
+			setarray .@id[0], 2322;
+			setarray .@qtde[0], 1;
+			set .@preco, 5;
+			goto L_ENTREGA;
+
+		L_VestimentaArcana:
+			set .@nomePremio$, "Vestimenta Arcana";
+			setarray .@id[0], 2334;
+			setarray .@qtde[0], 1;
+			set .@preco, 10;
+			goto L_ENTREGA;
+
+	L_WEAPON:
+		mes	"[^660066 Negociante ^000000]";
+		mes "Armas: Veja as opções";
+		menu "Nada disso",L_Inicio,"Azoth",L_Azoth,"Brionac",L_Brionac,"Chave Inglesa",L_ChaveInglesa,"Cruz Impiedosa",L_CruzImpiedosa,"Guitarra Elétrica",L_GuitarraEletrica,"Gungnir",L_Gungnir,"Infiltrador",L_Infiltrador,"Machado Sangrento",L_MachadoSangrento,"Muramasa",L_Muramasa,"Rondel",L_Rondel,"Rosa Fustigante",L_RosaFustigante,"Zéfiro",L_Zefiro;
+		next;
+
+		L_Azoth:
+			set .@nomePremio$, "Azoth";
+			setarray .@id[0], 1235;
+			setarray .@qtde[0], 1;
+			set .@preco, 15;
+			goto L_ENTREGA;
+
+		L_Brionac:
+			set .@nomePremio$, "Brionac";
+			setarray .@id[0], 1470;
+			setarray .@qtde[0], 1;
+			set .@preco, 5;
+			goto L_ENTREGA;
+			
+			L_ChaveInglesa:
+			set .@nomePremio$, "Chave Inglesa";
+			setarray .@id[0], 1531;
+			setarray .@qtde[0], 1;
+			set .@preco, 7;
+			goto L_ENTREGA;	
+
+		L_CruzImpiedosa:
+			set .@nomePremio$, "Cruz Impiedosa";
+			setarray .@id[0], 1366;
+			setarray .@qtde[0], 1;
+			set .@preco, 15;
+			goto L_ENTREGA;
+			
+		L_GuitarraEletrica:
+			set .@nomePremio$, "Guitarra Elétrica";
+			setarray .@id[0], 1913;
+			setarray .@qtde[0], 1;
+			set .@preco, 10;
+			goto L_ENTREGA;	
+
+		L_Gungnir:
+			set .@nomePremio$, "Gungnir";
+			setarray .@id[0], 1413;
+			setarray .@qtde[0], 1;
+			set .@preco, 5;
+			goto L_ENTREGA;
+
+		L_Infiltrador:
+			set .@nomePremio$, "Infiltrador";
+			setarray .@id[0], 1266;
+			setarray .@qtde[0], 1;
+			set .@preco, 20;
+			goto L_ENTREGA;
+
+		L_MachadoSangrento:
+			set .@nomePremio$, "Machado Sangrento";
+			setarray .@id[0], 1363;
+			setarray .@qtde[0], 1;
+			set .@preco, 15;
+			goto L_ENTREGA;
+
+		L_Muramasa:
+			set .@nomePremio$, "Muramasa";
+			setarray .@id[0], 1164;
+			setarray .@qtde[0], 1;
+			set .@preco, 5;
+			goto L_ENTREGA;
+
+		L_Rondel:
+			set .@nomePremio$, "Rondel";
+			setarray .@id[0], 1230;
+			setarray .@qtde[0], 1;
+			set .@preco, 10;
+			goto L_ENTREGA;
+			
+		L_RosaFustigante:
+			set .@nomePremio$, "Rosa Fustigante";
+			setarray .@id[0], 1963;
+			setarray .@qtde[0], 1;
+			set .@preco, 10;
+			goto L_ENTREGA;	
+
+		L_Zefiro:
+			set .@nomePremio$, "Zéfiro";
+			setarray .@id[0], 1468;
+			setarray .@qtde[0], 1;
+			set .@preco, 5;
+			goto L_ENTREGA;
+
+	L_SHIELD:
+		mes	"[^660066 Negociante ^000000]";
+		mes "Escudos: Veja as opções";
+		menu "Nada disso",L_INICIO,"Broquel de Pedra",L_BroqueldePedra,"Broquel",L_Broquel,"Escudo da Valquíria",L_EscudodaValquiria,"Spiritus Sancti",L_SpiritusSancti,"Vembrassa",L_Vembrassa,"Traversa de Orleans",L_TravessadeOrleans;
+
+		L_BroqueldePedra:
+			set .@nomePremio$, "Broquel de Pedra";
+			setarray .@id[0], 2114;
+			setarray .@qtde[0], 1;
+			set .@preco, 3;
+			goto L_ENTREGA;
+
+		L_Broquel:
+			set .@nomePremio$, "Broquel";
+			setarray .@id[0], 2104;
+			setarray .@qtde[0], 1;
+			set .@preco, 2;
+			goto L_ENTREGA;
+
+		L_EscudodaValquiria:
+			set .@nomePremio$, "Escudo da Valquíria";
+			setarray .@id[0], 2115;
+			setarray .@qtde[0], 1;
+			set .@preco, 20;
+			goto L_ENTREGA;
+			
+		L_TravessadeOrleans:
+			set .@nomePremio$, "Traversa de Orleans";
+			setarray .@id[0], 2123;
+			setarray .@qtde[0], 1;
+			set .@preco, 20;
+			goto L_ENTREGA;
+
+		L_SpiritusSancti:
+			set .@nomePremio$, "Spiritus Sancti";
+			setarray .@id[0], 2111;
+			setarray .@qtde[0], 1;
+			set .@preco, 15;
+			goto L_ENTREGA;
+
+		L_Vembrassa:
+			set .@nomePremio$, "Vembrassa";
+			setarray .@id[0], 2102;
+			setarray .@qtde[0], 1;
+			set .@preco, 1;
+			goto L_ENTREGA;
+	
+	L_BOOTS:
+		mes	"[^660066 Negociante ^000000]";
+		mes "Sapatos: Veja as opções";
+		menu "Nada disso",L_INICIO,"Botas",L_Botas,"Botas do Taekwon",L_BotasdoTaekwon,"Sapatos",L_Sapatos;
+	
+		L_Botas:
+			set .@nomePremio$, "Botas";
+			setarray .@id[0], 1406;
+			setarray .@qtde[0], 1;
+			set .@preco, 4;
+			goto L_ENTREGA;
+
+		L_BotasdoTaekwon:
+			set .@nomePremio$, "Botas do Taekwon";
+			setarray .@id[0], 9932;
+			setarray .@qtde[0], 1;
+			set .@preco, 7;
+			goto L_ENTREGA;
+
+
+		L_Sapatos:
+			set .@nomePremio$, "Sapatos";
+			setarray .@id[0], 2404;
+			setarray .@qtde[0], 1;
+			set .@preco, 2;
+			goto L_ENTREGA;
+
+	L_ACESSORY:
+		mes	"[^660066 Negociante ^000000]";
+		mes "Acessórios: Veja as opções";
+		menu "Nada disso",L_INICIO,"Anel",L_Anel,"Brinco",L_Brinco,"Colar",L_Colar,"Broche",L_Broche,"Rosário",L_Rosario,"Luva",L_Luva,"Anel Espiritual",L_AnelEspiritual,"Anel do Senhor das Chamas",L_AneldoSenhor,"Anel da Ressonância",L_AneldaRessonancia,"Anel de Defesa",L_AneldeDefesa,"Luva De Orleans",L_luvadeorleans,"Anel De Diabolus",L_Aneldediabolus,"Anel Certeiro",L_Anelcerteiro;
+
+		L_Anel:
+			set .@nomePremio$, "Anel";
+			setarray .@id[0], 2621;
+			setarray .@qtde[0], 1;
+			set .@preco, 3;
+			goto L_ENTREGA;
+			
+		L_Brinco:
+			set .@nomePremio$, "Brinco";
+			setarray .@id[0], 2622;
+			setarray .@qtde[0], 1;
+			set .@preco, 3;
+			goto L_ENTREGA;
+			
+		L_Colar:
+			set .@nomePremio$, "Colar";
+			setarray .@id[0], 2623;
+			setarray .@qtde[0], 1;
+			set .@preco, 3;
+			goto L_ENTREGA;
+				
+		L_Broche:
+			set .@nomePremio$, "Broche";
+			setarray .@id[0], 2625;
+			setarray .@qtde[0], 1;
+			set .@preco, 3;
+			goto L_ENTREGA;
+			
+		L_Rosario:
+			set .@nomePremio$, "Rosário";
+			setarray .@id[0], 2626;
+			setarray .@qtde[0], 1;
+			set .@preco, 3;
+			goto L_ENTREGA;
+			
+		L_Luva:
+			set .@nomePremio$, "Luva";
+			setarray .@id[0], 2624;
+			setarray .@qtde[0], 1;
+			set .@preco, 3;
+			goto L_ENTREGA;
+			
+		L_AnelEspiritual:
+			set .@nomePremio$, "Anel Espiritual";
+			setarray .@id[0], 2677;
+			setarray .@qtde[0], 1;
+			set .@preco, 23;
+			goto L_ENTREGA;
+
+		L_AneldoSenhor:
+			set .@nomePremio$, "Anel do Senhor das Chamas";
+			setarray .@id[0], 2678;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;
+
+		L_AneldaRessonancia:
+			set .@nomePremio$, "Anel da Ressonância";
+			setarray .@id[0], 2679;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;
+
+		L_AneldeDefesa:
+			set .@nomePremio$, "Anel de Defesa";
+			setarray .@id[0], 2615;
+			setarray .@qtde[0], 1;
+			set .@preco, 3;
+			goto L_ENTREGA;
+			
+		L_Luvadeorleans:
+			set .@nomePremio$, "Luva de Orleans";
+			setarray .@id[0], 2701;
+			setarray .@qtde[0], 1;
+			set .@preco, 25;
+			goto L_ENTREGA;
+			
+		L_AneldeDiabolus:
+			set .@nomePremio$, "Anel de Diabolus";
+			setarray .@id[0], 2729;
+			setarray .@qtde[0], 1;
+			set .@preco, 28;
+			goto L_ENTREGA;
+			
+		L_AnelCerteiro:
+			set .@nomePremio$, "Anel Certeiro";
+			setarray .@id[0], 2616;
+			setarray .@qtde[0], 1;
+			set .@preco, 30;
+			goto L_ENTREGA;
+
+
+	L_POT:
+		mes	"[^660066 Negociante ^000000]";
+		mes "Itens de Utilidades: Veja as opções";
+		menu "Nada disso",L_INICIO,"Caixa Da Luz do Sol",L_CaixaLuzDoSol,"Caixa da Sonolência",L_CaixaSonolencia,"Caixa do Ressentimento",L_CaixaRessentimento,"Caixa Do Trovão",L_CaixaTrovao,"Oridecon Enriquecido",L_OrideconEnriquecido,"Elunium Enriquecido",L_EluniumEnriquecido,"Asa de Mosca Gigante 100x",L_AMG,"Erva Azul 1000x",L_EA,"Poção Branca 1000x",L_PB,"Poção Branca Compacta 1000x",L_PBC;
+
+		L_CaixaLuzDoSol:
+			set .@nomePremio$, "Caixa Da Luz do Sol";
+			setarray .@id[0], 12033;
+			setarray .@qtde[0], 2;
+			set .@preco, 1;
+			goto L_ENTREGA;
+			
+		L_CaixaSonolencia:
+			set .@nomePremio$, "Caixa Da Sonolência";
+			setarray .@id[0], 12031;
+			setarray .@qtde[0], 3;
+			set .@preco, 1;
+			goto L_ENTREGA;
+		
+		L_CaixaRessentimento:
+			set .@nomePremio$, "Caixa Do Ressentimento";
+			setarray .@id[0], 12030;
+			setarray .@qtde[0], 3;
+			set .@preco, 1;
+			goto L_ENTREGA;
+		
+		L_CaixaTrovao:
+			set .@nomePremio$, "Caixa Do Trovão";
+			setarray .@id[0], 12028;
+			setarray .@qtde[0], 3;
+			set .@preco, 1;
+			goto L_ENTREGA;
+			
+		L_OrideconEnriquecido:
+			set .@nomePremio$, "Oridecon Enriquecido";
+			setarray .@id[0], 12921;
+			setarray .@qtde[0], 1;
+			set .@preco, 5;
+			goto L_ENTREGA;
+			
+		L_EluniumEnriquecido:
+			set .@nomePremio$, "Elunium Enriquecido";
+			setarray .@id[0], 12920;
+			setarray .@qtde[0], 1;
+			set .@preco, 5;
+			goto L_ENTREGA;
+		
+		L_AMG:
+			set .@nomePremio$, "100x Asa de Mosca Gigante";
+			setarray .@id[0], 12910;
+			setarray .@qtde[0], 10;
+			set .@preco, 3;
+			goto L_ENTREGA;
+
+		L_EA:
+			set .@nomePremio$, "1000x Erva Azul";
+			setarray .@id[0], 510;
+			setarray .@qtde[0], 1000;
+			set .@preco, 13;
+			goto L_ENTREGA;
+
+		L_PB:
+			set .@nomePremio$, "1000x Poção Branca";
+			setarray .@id[0], 504;
+			setarray .@qtde[0], 1000;
+			set .@preco, 5;
+			goto L_ENTREGA;
+
+		L_PBC:
+			set .@nomePremio$, "1000x Poção Branca Compacta";
+			setarray .@id[0], 547;
+			setarray .@qtde[0], 1000;
+			set .@preco, 8;
+			goto L_ENTREGA;
+	
+	L_ENTREGA:
+		next;
+		mes	"[^660066 Entregador de Prêmios ^000000]";
+		mes "O eu troco o item "+.@nomePremio$+", por apenas "+.@preco+" Tickets de Evento";
+		mes "Então, quer trocar?";
+		menu "Não",L_Inicio,"Sim",-;
+		next;
+
+		set @peso, 0;
+		for(set @i, 0; @i < getarraysize(.@id); set @i,@i+1){
+			set @peso, @peso + getiteminfo(.@id[@i],6)*.@qtde[@i];
+		}
+		
+		if(countitem(7180)>=.@preco){
+			if(MaxWeight/2-Weight>@peso){
+				delitem 7180, .@preco;
+				for(set @i, 0; @i < getarraysize(.@id); set @i,@i+1){
+					getitem .@id[@i], .@qtde[@i];
+				}
+				logmes "[Premio] Jogador "+.getridname+" recebeu "+.@nomePremio$;
+			}else{
+				mes "Libere "+((@peso+Weight-MaxWeight/2)/10)+" de peso e tente novamente!";
+				close;
+			}
+		}else{
+				mes "Garanta o valor em Tickets correto!";
+				close;
+		}
+		
+	L_FAIL:
+		mes "...";
+		close;
+}
