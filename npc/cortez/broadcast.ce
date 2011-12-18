@@ -151,8 +151,8 @@ function	script	F_keBroadcast	{
 //If input is 1, concat a user string to message.
 	function	SF_doBroadcast {
 		set @cost, getarg(0);
-		if (getarg(1,"")=="")
-			set @cost, @cost*$@globalFactor/100;
+		//if (getarg(1,"")=="")
+		//	set @cost, @cost*$@globalFactor/100;
 		if (getarg(3)) {
 			mes "^990000ATENÇÃO:^000000";
 			mes "Mensagens pessoais de outros assuntos são proibidas e serão punidas!!!";
