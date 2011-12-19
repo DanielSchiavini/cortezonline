@@ -917,6 +917,7 @@
 9122,0,0,0,0,0,0,0,"Lina's Curse"
 9123,0,0,0,0,0,0,0,"Lina's Curse"
 9024,0,0,0,0,0,0,0,"An errand boy from Einbroch"
+9027,0,0,0,0,0,0,0,"Quest diária"
 // kRO
 //9028,0,0,0,0,0,0,0,"strange Mouse"
 //9029,86400,0,0,0,0,0,0,"Strange Mouse : present conditions"
