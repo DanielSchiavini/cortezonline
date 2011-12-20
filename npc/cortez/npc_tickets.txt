@@ -573,7 +573,7 @@ prontera,65,47,4	script	Negociante	902,{
 	L_BOOTS:
 		mes	"[^660066 Negociante ^000000]";
 		mes "Sapatos: Veja as opções";
-		menu "Nada disso",L_INICIO,"Botas",L_Botas,"Botas do Taekwon",L_BotasdoTaekwon,"Sapatos",L_Sapatos;
+		menu "Nada disso",L_INICIO,"Botas",L_Botas,"Sapatos",L_Sapatos;
 	
 		L_Botas:
 			set .@nomePremio$, "Botas";
@@ -581,14 +581,6 @@ prontera,65,47,4	script	Negociante	902,{
 			setarray .@qtde[0], 1;
 			set .@preco, 4;
 			goto L_ENTREGA;
-
-		L_BotasdoTaekwon:
-			set .@nomePremio$, "Botas do Taekwon";
-			setarray .@id[0], 9932;
-			setarray .@qtde[0], 1;
-			set .@preco, 7;
-			goto L_ENTREGA;
-
 
 		L_Sapatos:
 			set .@nomePremio$, "Sapatos";
