@@ -23,3 +23,4 @@ dic_dun02,102,148,0	warp	scarabahole0007	1,1,dic_dun01,290,103
 dic_dun01,370,100,0	warp	scarabahole0008	1,1,dic_dun01,33,44
 dic_dun01,29,44,0	warp	scarabahole0009	1,1,dic_dun01,366,100
 dic_dun03,102,148,0	warp	scarabahole0010	1,1,dic_dun01,290,103
+dic_dun01,290,107,0	warp	scarabahole0011	1,1,dic_dun02,102,145
