@@ -1,5 +1,11 @@
 
 poring_w01	mapflag	pvp
+poring_w01	mapflag	noteleport
+poring_w01	mapflag	nomemo
+poring_w01	mapflag	noreturn
+poring_w01	mapflag	nowarpto
+poring_w01	mapflag	nowarp
+
 new_zone01	mapflag	noloot
 prontera	mapflag	town
 prontera	mapflag	nodrop
