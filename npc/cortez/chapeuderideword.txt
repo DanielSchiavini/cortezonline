@@ -1,0 +1,69 @@
+//=============================================
+//== Cronus Tools :: Gerador de Quest's =======
+//== Versão: ==================================
+//== 1.0
+//== Autor: ===================================
+//== RoM
+//=============================================
+prontera,50,292,6	script	Viajante	50,{
+	mes "[Viajante]";
+	mes "Olá "+StrCharInfo(0)+"!";
+	mes "Eu tenho alguns itens interessantes aqui, deseja dar uma olhada?";
+	next;
+	if( select("Claro!:Talvez mais tarde...") == 2 )
+	{
+		mes "[Viajante]";
+		mes "Tudo bem, estarei aqui se você mudar de idéia.";
+		close;
+	}
+	mes "[Viajante]";
+	mes "Bem, estes são os itens que eu tenho...";
+	mes "Sobre qual deles vai querer saber mais?";
+	next;
+	switch(select("Chapéu de Rideword:Nenhum"))
+	{
+	case 1:
+		mes "[Chapéu de Rideword]";
+		mes "Para poder fazer este chapéu, eu vou precisar de:";
+		mes "500x "+getitemname(1097);
+		mes "130x "+getitemname(7015);
+		mes "10x "+getitemname(4185);
+		mes "100x "+getitemname(7449);
+		mes "10x "+getitemname(4388);
+		mes "15x "+getitemname(2221);
+		mes "20000 Zenys";
+		next;
+		mes "[Viajante]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Viajante]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(1097) >= 500 && countitem(7015) >= 130 && countitem(4185) >= 10 && countitem(7449) >= 100 && countitem(4388) >= 10 && countitem(2221) >= 15 && Zeny >= 20000)
+		{
+			delitem 1097,500;
+			delitem 7015,130;
+			delitem 4185,10;
+			delitem 7449,100;
+			delitem 4388,10;
+			delitem 2221,15;
+			set Zeny,Zeny-20000;
+			getitem 5208,1;
+			mes "[Viajante]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 2:
+		mes "[Viajante]";
+		mes "Tudo bem, estarei aqui se você mudar de idéia.";
+		close;
+	}
+	mes "[Viajante]";
+	mes "Me desculpe, mas você não tem todos os itens necessários para esta quest.";
+	mes "Volte quando você tiver todos os itens!";
+	close;
+}
