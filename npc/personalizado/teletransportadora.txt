@@ -107,7 +107,7 @@ set @smais,	1;	// Exibir calabouços no menu? (Nota 1)
 							"Calabouço da Mina","Gefenia","Calabouço de Geffen","Glast Heim","Santuário de Xi Wang Mu","Labirinto da Floresta","Caverna de Gelo","Ruínas de Juperos","Fábrica de Robôs","Biolaboratório de Somatologia",
 							"A Tumba Real","Calabouço de Magma","Floresta Encantada","Campos de Niflheim","Santuário de Odin","Caverna dos Orcs","Caverna de Payon","Esgoto de Prontera",
 							"Pirâmide","Santuário de Rachel","Esfinge","Navio Fantasma","Torre de Thanatos","Vulcão de Thor","Fábrica de Brinquedos","Ilha da Tartaruga","Loja de Carpintaria","Caverna das Cataratas",
-							"Poringlândia","Praia das Focas"))
+							"Poringlândia","Praia das Focas","Scaraba Dungeon"))
 			{
 			
 				case 1: callsub F_DoWarp, "nameless_n", 164, 184;
@@ -159,6 +159,7 @@ set @smais,	1;	// Exibir calabouços no menu? (Nota 1)
 				case 37: callsub F_DoWarp, "bra_dun01", 88, 47;
 				case 38: callsub F_DoWarp, "pay_fild04", 20, 165;
 				case 39: callsub F_DoWarp, "cmd_fild02", 222, 372;
+				case 40: callsub f_DoWarp, "dic_dun01",	368,44;
 			}
 			
 		case 4:
@@ -254,4 +255,4 @@ umbala,110,281,6	duplicate(cWarp)	Teletransportadora#61	721
 bra_dun01,83,47,6	duplicate(cWarp)	Teletransportadora#62	721
 pay_fild04,21,169,6	duplicate(cWarp)	Teletransportadora#63	721
 cmd_fild02,217,373,5	duplicate(cWarp)	Teletransportadora#64	721
-//============================================================ 
+dic_dun01,368,50,5	duplicate(cWarp)	Teletransportadora#65	721//============================================================ 
