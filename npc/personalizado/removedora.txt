@@ -40,6 +40,11 @@ set .@falhar, 0;	// A remoção pode falhar? [1=Sim/0=Não]
 			}
 			next;
 			set .@menu, select (.@menu$);
+			set .@price, 200000+(getequipcardcnt(.@menu)*40000);
+			if(getgmlevel()){
+				set .@price, 0;
+			}
+			
 			mes "[Velha Sábia]";
 			if (!getequipisequiped(.@menu))
 				callsub F_MesThenClose, "Não há nada equipado aí.";
@@ -48,12 +53,16 @@ set .@falhar, 0;	// A remoção pode falhar? [1=Sim/0=Não]
 			if (!checkweight(1202,(getequipcardcnt(.@menu)+1)))
 				callsub F_MesThenClose, "Você está com peso de mais. Vá até o armazém e guarde algumas coisas.";
 			mes "O item escolhido possui "+getequipcardcnt(.@menu)+" carta(s) equipada(s).";
-			mes "Para aprimorar minha magia, serão necessários "+((getequipcardcnt(.@menu)*40000)+200000)+"z,";
-			mes "1 Fragmento Estelar e 1 Gema Amarela.";
+			if(.@price){
+				mes "Para aprimorar minha magia, serão necessários "+.@price+"z,";
+				mes "1 Fragmento Estelar e 1 Gema Amarela.";
+			}else{
+				mes "Para você, posso retirar estas cartas de graça.";
+			}
 			next;
 			if (select ("Continuar!:Desistir...") == 2) close;
 			mes "[Velha Sábia]";
-			if ((Zeny < (200000+(getequipcardcnt(.@menu)*40000))) || (countitem(1000) < 1) || (countitem(715) < 1))
+			if (.@price && (Zeny < .@price || countitem(1000) < 1 || countitem(715) < 1))
 				callsub F_MesThenClose, "Você não tem tudo que é necessário para minha mágica; volte quando conseguir.";
 			if (.@falhar)
 			{
@@ -67,9 +76,11 @@ set .@falhar, 0;	// A remoção pode falhar? [1=Sim/0=Não]
 			mes "Muito bem, vamos começar!";
 			next;
 			mes "[Velha Sábia]";
-			set Zeny, Zeny - (200000+(getequipcardcnt(.@menu)*40000));
-			delitem 1000, 1;
-			delitem 715, 1;
+			if (.@price){
+				set Zeny, Zeny - .@price;
+				delitem 1000, 1;
+				delitem 715, 1;
+			}
 			if (.@falhar)
 			{
 				set .@chancefalhar, rand(100);
