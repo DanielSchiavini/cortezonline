@@ -17,7 +17,7 @@ prontera,65,47,4	script	Negociante	902,{
 	L_HATS:
 		mes	"[^660066 Negociante ^000000]";
 		mes "Chapéus: Veja as opções";
-		menu "Nada disso",L_INICIO,"Olhos Biônicos",L_OlhosBionicos,"Boné de Carteiro",L_1,"Chapéu de Pintinho",L_2,"Máscara da Morte",L_3,"Coroa do Deus-Sol",L_4,"Coroa da Abelha Rainha",L_5,"Chapéu de Angeling",L_6,"Boneca de Alice",L_7,"Chapéu de Olho Mágico",L_8,"Tiara Dourada",L_9,"Chapéu de Menestrel",L_10,"Lendárias Asas de Anjo",L_11,"Chapéu de Deviling",L_12,"Auréolas de Anjo",L_13,"Asas de Peco-Peco",L_14,"Chapéu de Lamen",L_15,"Boneca da Lady Solace",L_16,"Boneca de Tatiana",L_17,"Boneca de Bianca",L_18,"Boneca de Deborah",L_19,"Orelhas Felinas",L_20,"Chifres Majestosos Gigantes",L_21,"Chapéu de Jibóia",L_22,"Chapéu de Galinha",L_23,"Elmo de Anubis",L_24,"Touca de Pijama Azul",L_25,"Chapéu do Pesar de Thanatos",L_26,"Venda Sombria",L_27,"Óculos Vermelhos",L_28,"Máscara do Mason",L_29,"Asinhas de Peco Peco",L_30,"Espírito Olímpico",L_31,"Máscara de Fugitivo",L_32,"Pergaminho de Ninpou",L_33,"Máscara Colorida",L_34,"Orelhas Felinas",L_35,"Gato Tagarela",L_36,"Máscara Colorida",L_37,"Boina Alada",L_38,"Boina Brasileira",L_39,"Boina Charmosa",L_40,"Boina da Páscoa",L_41,"Boina de Coelho",L_42,"Boina Militar de Louyang",L_43,"Boina Romântica",L_44,"Boina Rosa",L_45,"Chifre de Lord Kaho",L_46,"Chapéu de Bebe Selvagem",L_47,"Máscara de Fugitivo",L_48,"Placa de AFK",L_49;
+		menu "Nada disso",L_INICIO,"Olhos Biônicos",L_OlhosBionicos,"Boné de Carteiro",L_1,"Chapéu de Pintinho",L_2,"Máscara da Morte",L_3,"Coroa do Deus-Sol",L_4,"Coroa da Abelha Rainha",L_5,"Chapéu de Angeling",L_6,"Boneca de Alice",L_7,"Chapéu de Olho Mágico",L_8,"Tiara Dourada",L_9,"Chapéu de Menestrel",L_10,"Lendárias Asas de Anjo",L_11,"Chapéu de Deviling",L_12,"Auréolas de Anjo",L_13,"Asas de Peco-Peco",L_14,"Chapéu de Lamen",L_15,"Boneca da Lady Solace",L_16,"Boneca de Tatiana",L_17,"Boneca de Bianca",L_18,"Boneca de Deborah",L_19,"Orelhas Felinas",L_20,"Chifres Majestosos Gigantes",L_21,"Chapéu de Jibóia",L_22,"Chapéu de Galinha",L_23,"Elmo de Anubis",L_24,"Touca de Pijama Azul",L_25,"Chapéu do Pesar de Thanatos",L_26,"Venda Sombria",L_27,"Óculos Vermelhos",L_28,"Máscara do Mason",L_29,"Asinhas de Peco Peco",L_30,"Espírito Olímpico",L_31,"Pergaminho de Ninpou",L_33,"Orelhas Felinas",L_35,"Gato Tagarela",L_36,"Máscara Colorida",L_37,"Boina Alada",L_38,"Boina Brasileira",L_39,"Boina Charmosa",L_40,"Boina da Páscoa",L_41,"Boina de Coelho",L_42,"Boina Militar de Louyang",L_43,"Boina Romântica",L_44,"Boina Rosa",L_45,"Chifre de Lord Kaho",L_46,"Chapéu de Bebe Selvagem",L_47,"Máscara de Fugitivo",L_48,"Placa de AFK",L_49;
 		next;
 
 		
@@ -244,14 +244,7 @@ prontera,65,47,4	script	Negociante	902,{
 			setarray .@qtde[0], 1;
 			set .@preco, 30;
 			goto L_ENTREGA;	
-			
-		L_32:
-			set .@nomePremio$, "Máscara de Fugitivo";
-			setarray .@id[0], 5361;
-			setarray .@qtde[0], 1;
-			set .@preco, 30;
-			goto L_ENTREGA;	
-			
+				
 		L_33:
 			set .@nomePremio$, "Pergaminho de Ninpou";
 			setarray .@id[0], 5362;
@@ -259,12 +252,6 @@ prontera,65,47,4	script	Negociante	902,{
 			set .@preco, 30;
 			goto L_ENTREGA;	
 			
-		L_34:
-			set .@nomePremio$, "Máscara Colorida";
-			setarray .@id[0], 5463;
-			setarray .@qtde[0], 1;
-			set .@preco, 30;
-			goto L_ENTREGA;	
 			
 		L_35:
 			set .@nomePremio$, "Orelhas Felinas";
@@ -504,7 +491,7 @@ prontera,65,47,4	script	Negociante	902,{
 
 		L_Rondel:
 			set .@nomePremio$, "Rondel";
-			setarray .@id[0], 1230;
+			setarray .@id[0], 13017;
 			setarray .@qtde[0], 1;
 			set .@preco, 10;
 			goto L_ENTREGA;
@@ -577,7 +564,7 @@ prontera,65,47,4	script	Negociante	902,{
 	
 		L_Botas:
 			set .@nomePremio$, "Botas";
-			setarray .@id[0], 1406;
+			setarray .@id[0], 2406;
 			setarray .@qtde[0], 1;
 			set .@preco, 4;
 			goto L_ENTREGA;
