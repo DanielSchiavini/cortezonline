@@ -23,7 +23,7 @@
 //1161,67,50 //Balmung: Não pode ser dropado, trocado (ou vendido) e nem posto no armazén do clã. (1+2+64 =67),
 //Apenas GMs de nível 50+ podem burlar isto.
 
-7539,75,100	//Moeda Cortez
+7180,75,100	//Ticket de evento Cortez
 
 // Wedding Related items
 2634,123,100 // Anel do Noivo
