@@ -168,7 +168,7 @@ set @smais,	1;	// Exibir calabouços no menu? (Nota 1)
 			next;
 			switch (select ("Mapa PvP","Astrum","Himinn"))
 			{
-				case 1: callsub F_DoWarp, "poring_w01", 97, 98;
+				case 1: callsub F_DoWarp, "poring_w01", 0,0;
 				case 2: callsub F_DoWarp, "alde_gld", 95, 243;
 				case 3: callsub F_DoWarp, "sch_gld", 287, 115;
 			}
