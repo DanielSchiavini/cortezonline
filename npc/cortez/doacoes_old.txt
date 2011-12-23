@@ -1,0 +1,528 @@
+prontera,62,67,3	script	Doações	803,{		//790//845
+
+if( getgmlevel()==59 || getgmlevel()>=80 ) goto L_GM;
+
+L_START:
+	mes "^336699[Doações]^333333";
+	mes "Olá! Sou eu quem cuida das doações por aqui...";
+	mes "Caso ainda não tenha doado, pode conseguir mais informações.";
+	mes "Se você doou algo pro servidor, pode retirar sua recompensa aqui!";
+	next;
+	menu "Mais informações",L_Info,"Itens Disponíveis",-,"Retirar prêmio",L_CHECK;
+
+L_Itens:
+	mes "^336699[Doações]^333333";
+	mes "Deseja ver qual tipo de item?";
+	next;
+	
+	deletearray @name$[0],getarraysize(@name$);
+	query_sql "SELECT id_tipo,tipo FROM ro.donate_tipos Order By tipo", @id_tipo,@name$;
+	set @menu$, @name$[0];
+	for(set @i, 1; @i < getarraysize(@name$); set @i,@i+1)
+		set @menu$, @menu$ + ":" + @name$[@i];
+	set @menu, (select(@menu$))-1;
+	set @id_tipo, @id_tipo[@menu];
+	set @tipo$,@name$[@menu];
+	
+	mes "^336699[Doações]^333333";
+	mes "Quer ver "+@tipo$+" de que forma?";
+	menu "Desisti",L_START,"Por preço",-,"Por nome",L_Itens_Nome;
+	next;
+	
+	deletearray @items$[0],getarraysize(@items$);
+	query_sql "SELECT `name`,format(`price`,2) FROM ro.donate_item_db WHERE tipo="+@id_tipo+" and serv in (0,"+$serv+") ORDER BY price,name Limit 124", @items$, @itemamount$;
+	
+	mes "^336699[Doações]^333333";
+	mes @tipo$+" por preço:";
+	if(!getarraysize(@items$)){
+		mes "Infelizmente, ainda não há "+@tipo$+" cadastradas.";
+	}else{
+		for(set @i,0; @i<getarraysize(@items$); set @i,@i+1)
+			mes @items$[@i]+" - "+@itemamount$[@i];
+	}
+	next;
+	goto L_START;
+
+L_Itens_Nome:
+	deletearray @items$[0],getarraysize(@items$);
+	query_sql "SELECT `name`,format(`price`,2) FROM ro.donate_item_db WHERE tipo="+@id_tipo+" and serv in (0,"+$serv+") ORDER BY name,price Limit 124", @items$, @itemamount$;
+	mes "^336699[Doações]^333333";
+	mes @tipo$+" por nome:";
+	if(!getarraysize(@items$)){
+		mes "Infelizmente, ainda não há "+@tipo$+" cadastradas.";
+	}else{
+		for(set @i,0; @i<getarraysize(@items$); set @i,@i+1)
+			mes @items$[@i]+" - "+@itemamount$[@i];
+	}
+	next;
+	goto L_START;
+
+L_INFO:
+	mes "^336699[Doações]^333333";
+	mes "Todo mês nós gastamos muito dinheiro com o servidor.";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "Por isso, você poderia nos ajudar doando qualquer quantia.";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "Para mostrar nossa gratidão, iremos te dar alguns prêmios!";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "Alguns itens estão disponíveis aqui! Se quiser outros itens, é só pedir ao [GM] Baltazar.";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "A cada R$ 1,00 doados, você ganha de brinde 2 dias de conta VIP, e 1 crédito no npc. Você pode doar quanto quiser!";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "Se não quiser os créditos nesse NPC, pode escolher por receber 4 dias de conta VIP por R$ 1 doado.";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "Ao adquirir uma conta VIP, você vai poder resetar seu personagem no nível 99!";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "Além disso, vai ganhar mais pontos ao resetar, e vai poder também usar alguns comandos, como @autoloot, @mobinfo, @mobsearch, @storage e @gstorage, por exemplo!";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "E ainda mais! Poderá utilizar vários serviços, como retirada de cartas e resetadora, por exemplo, sem gastar nenhum zeny!";
+	next;
+	mes "^336699[Doações]^333333";
+	mes "O servidor irá melhorar com esse dinheiro, trazendo mais pessoas e menos lag!";
+	next;
+	menu "Voltar",L_START,"Sair",-;
+	close;
+
+L_CHECK:
+	query_sql "SELECT replace(format(amount,2),',',''),replace(format(claimed,2),',','') FROM ro.donate WHERE account_id = "+getcharid(3), @amount$, @claimed$;
+	query_sql "SELECT MIN(price),replace(format('"+@amount$+"' - '"+@claimed$+"',2),',','') FROM ro.donate_item_db", @min$, @value$;
+	query_sql "SELECT '"+@value$+"' >= '"+@min$+"'", @enough;
+	if(@enough) goto L_CLAIM;
+	
+	mes "^336699[Doações]^333333";
+	mes "Desculpe, você não tem mais nenhum crédito em doações.";
+	mes "Se você doou e ainda não retirou seu prêmio, dê a nós um tempo pra processar sua doação.";
+	menu "Eu ainda não doei",-,"Ok, vou esperar",-,"Trocar Vale Carta Mvp",L_MVPCARD;
+	close;
+
+L_CLAIM:
+	mes "^336699[Doações]^333333";
+	mes "Muito obrigado por doar!!!";
+	if(getgmlevel()<5){
+		mes "Se estiver aguardando sua VIP, precisará relogar.";
+		mes " ";
+	}
+	mes "Você tem "+@value$+" créditos!";
+	mes "Deseja retirar um item agora?";
+	next;
+	menu "Não",-,"Sim",L_YES,"Trocar Vale Carta Mvp",L_MVPCARD;
+	mes "^336699[Doações]^333333";
+	mes "Tudo bem, você pode retirar os itens a qualquer hora!";
+	close;
+	
+L_YES:
+	mes "^336699[Doações]^333333";
+	mes "Deseja escolher qual tipo de item?";
+	next;
+	
+	deletearray @name$[0],getarraysize(@name$);
+	query_sql "SELECT id_tipo,tipo FROM ro.donate_tipos Order By tipo", @id_tipo,@name$;
+	set @menu$, @name$[0];
+	for(set @i, 1; @i < getarraysize(@name$); set @i,@i+1)
+		set @menu$, @menu$ + ":" + @name$[@i];
+	set @menu, (select(@menu$))-1;
+	set @id_tipo, @id_tipo[@menu];
+	set @tipo$,@name$[@menu];
+	
+	deletearray @name$[0],getarraysize(@name$);
+	query_sql "SELECT name FROM ro.donate_item_db Where price<='"+@value$+"' and tipo="+@id_tipo+" and serv in (0,"+$serv+") Order By price desc Limit 124",@name$;
+	
+	if(!getarraysize(@name$)){
+		mes "^336699[Doações]^333333";
+		mes "Você não tem créditos suficientes para nenhuma das opções em "+@tipo$+"!";
+		next;
+		goto L_Yes;
+	}
+	mes "^336699[Doações]^333333";
+	mes "Ótimo... Vai querer qual "+@tipo$+"?";
+	next;
+	
+	set .@menu$, @name$[0];
+	for(set @i, 1; @i < getarraysize(@name$); set @i,@i+1)
+		set .@menu$, .@menu$ + ":" + @name$[@i];
+	set @menu, (select(.@menu$))-1;
+	
+	query_sql "SELECT ID FROM ro.donate_item_db WHERE name = '"+@name$[@menu]+"'", @id;
+	query_sql "SELECT format(price,2) FROM ro.donate_item_db WHERE id="+@id, @price$;
+	query_sql "SELECT replace(format(truncate("+@value$+" / "+@price$+",0),2),',','')", @max;
+	
+	mes "^336699[Doações]^333333";
+	mes @name$[@menu]+" custa "+@price$+" créditos cada.";
+	if(!@max){
+		mes "E você tem apenas "+@value$+" créditos disponíveis.";
+		next;
+		goto L_YES;
+	}
+	next;
+	
+	L_EscolheQtde:
+	if((@id>1100 && @id<4000)  ||  (@id>5000 && @id<7000)  ||  @id>13000){
+		set @quantity,1;
+	}else{
+		mes "^336699[Doações]^333333";
+		mes "Quantos "+@name$[@menu]+"s você deseja?";
+		mes "Máximo: "+@max+".";
+		input @quantity;
+		next;
+	}
+	
+	if(@quantity>@max) {
+		mes "^336699[Doações]^333333";
+		mes "Desculpe, você não tem créditos suficientes para pedir "+@quantity+" "+@name$[@menu]+"s.";
+		next;
+		goto L_EscolheQtde;
+	}
+
+	if(!@quantity) {
+		mes "^336699[Doações]^333333";
+		mes "Você não vai poder receber 0...!";
+		next;
+		goto L_YES;
+	}
+	
+	if (checkweight(@id,@quantity) == 0) {
+		mes "^336699[Doações]^333333";
+		mes "Desculpe-me mas você não aguenta carregar "+@quantity+" "+@name$[@menu]+"s.";
+		next;
+		goto L_YES;
+	}
+	
+	mes "^336699[Doações]^333333";
+	query_sql "SELECT "+@quantity+" * "+@price$, @total$;
+	mes "Certeza que quer receber "+@quantity+" "+@name$[@menu]+" por "+@total$+" créditos?";
+	next;
+	menu "Não",L_CLAIM,"Sim",-;
+	query_sql "UPDATE ro.donate SET `claimed` = `claimed` + "+@total$+" WHERE account_id = '"+getcharid(3)+"'";
+	query_sql "INSERT INTO ro.donate_log (dt,item,qtde,vlr,account_id,serv) Values (Now(),"+@id+","+@quantity+","+@total$+","+getcharid(3)+","+$serv+")";
+	getitem @id,@quantity;
+	mes "^336699[Doações]^333333";
+	mes "Obrigado por doar! Esperamos que goste do seu presente!";
+	close;
+
+L_MVPCARD:
+	next;
+	mes "^336699[Doações]^333333";
+	mes "Ok, você deseja trocar um vale carta mvp!";
+	mes "Deseja trocar por qual carta?";
+	next;
+	menu 
+		"Cancelar",-,
+		"Carta Amon Ra",C_Amon,
+		"Carta Bacsojin",C_Bacs,
+		"Carta Baphomet",C_Baph,
+		"Carta Doppelganger",C_Dopp,
+		"Carta Maya",C_Maya,
+		"Carta Moonlight Flower",C_Moon,
+		"Carta Dark Lord",C_Dark,
+		"Carta Drake",C_Drak,
+		"Carta Eddga",C_Eddg,
+		"Carta Evil Snake Lord",C_Evil,
+		"Carta Garm",C_Garm,
+		"Carta Incantation Samuarai",C_Inca,
+		"Carta Lady Tanee",C_Lady,
+		"Carta Lord Of Death",C_Deat,
+		"Carta Mistress",C_Miss,
+		"Carta Orc Hero",C_Hero,
+		"Carta Orc Lord",C_Lord,
+		"Carta Osiris",C_Osir,
+		"Carta Pharaoh",C_Phar,
+		"Carta Phreeoni",C_Phre,
+		"Carta RSX-0806",C_RSX,
+		"Carta Stormy Knight",C_Stor,
+		"Carta Tao Gunka",C_Tao,
+		"Carta Turtle General",C_Turt;
+	close;
+	
+	C_Amon:	set @mvpc$,"Carta Amon Ra";			set @idmvp,4236; goto L_GETMVP;
+	C_Baph:	set @mvpc$,"Carta Baphomet";		set @idmvp,4147; goto L_GETMVP;
+	C_Bacs:	set @mvpc$,"Carta Bacsojin";		set @idmvp,4372; goto L_GETMVP;
+	C_Dopp:	set @mvpc$,"Carta Doppelganger";	set @idmvp,4142; goto L_GETMVP;
+	C_Maya:	set @mvpc$,"Carta Maya";			set @idmvp,4146; goto L_GETMVP;
+	C_Moon:	set @mvpc$,"Carta Moonlight Flower";set @idmvp,4131; goto L_GETMVP;
+	C_Dark:	set @mvpc$,"Carta Dark Lord";		set @idmvp,4168; goto L_GETMVP;
+	C_Drak:	set @mvpc$,"Carta Drake";			set @idmvp,4137; goto L_GETMVP;
+	C_Eddg:	set @mvpc$,"Carta Eddga";			set @idmvp,4123; goto L_GETMVP;
+	C_Evil:	set @mvpc$,"Carta Evil Snake Lord";	set @idmvp,4330; goto L_GETMVP;
+	C_Garm:	set @mvpc$,"Carta Garm";			set @idmvp,4324; goto L_GETMVP;
+	C_Inca:	set @mvpc$,"Carta Incantation Samurai";	set @idmvp,4263; goto L_GETMVP;
+	C_Lady:	set @mvpc$,"Carta Lady Tanee";		set @idmvp,4376; goto L_GETMVP;
+	C_Deat:	set @mvpc$,"Carta Lord Of Death";	set @idmvp,4276; goto L_GETMVP;
+	C_Miss:	set @mvpc$,"Carta Mistress";		set @idmvp,4132; goto L_GETMVP;
+	C_Hero:	set @mvpc$,"Carta Orc Hero";		set @idmvp,4143; goto L_GETMVP;
+	C_Lord:	set @mvpc$,"Carta Orc Lord";		set @idmvp,4135; goto L_GETMVP;
+	C_Osir:	set @mvpc$,"Carta Osiris";			set @idmvp,4144; goto L_GETMVP;
+	C_Phar:	set @mvpc$,"Carta Pharaoh";			set @idmvp,4148; goto L_GETMVP;
+	C_Phre:	set @mvpc$,"Carta Phreeoni";		set @idmvp,4121; goto L_GETMVP;
+	C_RSX:	set @mvpc$,"Carta RSX-0806";		set @idmvp,4342; goto L_GETMVP;
+	C_Stor:	set @mvpc$,"Carta Stormy Knight";	set @idmvp,4318; goto L_GETMVP;
+	C_Tao:	set @mvpc$,"Carta Tao Gunka";		set @idmvp,4302; goto L_GETMVP;
+	C_Turt:	set @mvpc$,"Carta Turtle General";	set @idmvp,4305; goto L_GETMVP;
+	
+L_GETMVP:
+	next;
+	mes "^336699[Doações]^333333";
+	if(countitem(4408)<1) goto L_NOMVPCARD;
+	mes "Você tem certeza que quer a "+@mvpc$+"?";
+	next;
+	menu "Não, quero escolher outra",L_MVPCARD,"Sim, quero esta mesmo!",-;
+	next;
+	
+	mes "^336699[Doações]^333333";
+	mes "Eu insisto em confirmar, a "+@mvpc$+" é a que você quer?";
+	mes "Você tem certeza de qual o efeito dela, e sabe que não poderá trocar depois?";
+	next;
+	menu "Deixe-me pensar mais um pouco",L_MVPCARD,"Vou levar esta carta",-,"Realmente, não sei",L_MVPCARD;
+	next;
+	
+	mes "^336699[Doações]^333333";
+	mes "Ok, ok.. Aí vai a sua "+@mvpc$+"!";
+	mes "Use-a bem! Com grandes poderes, você terá grandes responsabilidades!";
+	logmes "[Doações] cid "+getcharid(0)+" aid "+getcharid(3)+" nameid "+@idmvp+" ("+@mvpc$+")";
+	delitem 4408,1;
+	getitem @idmvp,1;
+	close;
+	
+L_NOMVPCARD:
+	mes "Você não tem nenhum vale carta mvp!";
+	close;
+	
+L_STATS:
+	mes "^336699[Doações]^333333";
+	query_sql "SELECT format(amount,2) FROM ro.donate WHERE account_id = 1",@gastos$;
+	query_sql "SELECT format(SUM(amount)-"+@gastos$+",2) FROM ro.donate where account_id>1", @total$;
+	mes "Temos um total de R$ "+@total$+".";
+	mes "Já foram gastos R$ "+@gastos$+" em melhorias no Cortez.";
+	next;
+	menu "Mais informações",L_INFO,"Retirar prêmio",L_CHECK,"Estatísticas",L_STATS;
+	close;
+
+L_GM:
+	mes "[GM Menu]";
+	mes "Hello GM!";
+	mes "What would you like to do?";
+	next;
+	//menu "Fazer propaganda",L_Anuncia,"Add/Remove Donation",L_GM2,"Add/Remove Items",L_ITEM,"Trocar Vale Carta Mvp",L_MVPCARD,"Test Script",L_START;
+	menu "Sair",-,"Fazer propaganda",L_Anuncia,"Testar NPC",L_START;
+	close;
+
+L_Anuncia:
+		mes "[GM Menu]";
+		mes "Ok, pode deixar!";
+		close2;
+		announce "[Doações] Ajude o servidor doando e ganhando vantagens no jogo!",bc_all;
+		announce "[Doações] Os itens disponíveis estão listados no npc",bc_all;
+		announce "[Doações] A cada R$ 15,00 doados você ganha 30 dias de VIP, e 15 créditos no npc!",bc_all;
+		end;
+
+L_GM2:
+	menu "Add a donation",L_DONATE,"Remove a donation",L_REMOVE,"View all donations",L_VIEWALL;
+	close;
+
+L_ITEM:
+	menu "Add an item",L_NEWITEM,"Remove an item",L_DELITEM,"View all items",L_ALLITEMS,"Return to main menu",L_GM;
+	close;
+
+
+L_NEWITEM:
+	mes "[GM Menu]";
+	mes "Please enter the item name:";
+	input @itemname$;
+	query_sql "SELECT id FROM bd.item WHERE nome2='"+escape_sql(@itemname$)+"'", @iid;
+	query_sql "SELECT id FROM ro.donate_item_db WHERE name= '"+escape_sql(@itemname$)+"'", @check;
+	if(@iid==0) goto L_INONE;
+	mes "[GM Menu]";
+	mes "Please enter the cost of each "+@itemname$+":";
+	input @cost$;
+	query_sql "SELECT "+escape_sql(@cost$)+" = 0", @invalid;
+	if(@invalid) goto L_ZERO;
+	query_sql "SELECT format(CAST('"+escape_sql(@cost$)+"' AS DECIMAL),2)", @cost$;
+	mes "[GM Menu]";
+	mes "You have specified that donators can claim "+@itemname$+"s for R$"+@cost$+" each.";
+	mes "Would you like to continue?";
+	next;
+	menu "No",L_ITEM,"Yes",-;
+	if(@check!=0) goto L_REPLACE;
+	query_sql "INSERT INTO ro.donate_item_db VALUES ('"+@iid+"', '"+escape_sql(@itemname$)+"', '"+@cost$+"')";
+	mes "[GM Menu]";
+	mes "Item added successfully!";
+	next;
+	menu "Add annother item",L_NEWITEM,"Remove an item",L_DELITEM,"View all items",L_ALLITEMS;
+	close;
+
+L_REPLACE:
+	mes "[GM Menu]";
+	mes "Item "+@itemname$+" already exists in the database.";
+	mes "Would you like to replace it?";
+	next;
+	menu "No",L_ITEM,"Yes",-;
+	query_sql "REPLACE INTO ro.donate_item_db VALUES ('"+@iid+"', '"+@itemname$+"', '"+@cost$+"')";
+	mes "[GM Menu]";
+	mes "Item replaced successfully!";
+	next;
+	menu "Add annother item",L_NEWITEM,"Remove an item",L_DELITEM,"View all items",L_ALLITEMS;
+	close;
+
+L_INONE:
+	mes "[GM Menu]";
+	mes "Item "+@itemname$+" does not exist.";
+	next;
+	goto L_ITEM;
+
+L_DELITEM:
+	mes "[GM Menu]";
+	mes "Please enter the item name:";
+	input @itemname$;
+	query_sql "SELECT id FROM ro.donate_item_db WHERE `name` = '"+escape_sql(@itemname$)+"'", @iid;
+	if(@iid==0) goto L_INONE;
+	next;
+	mes "[GM Menu]";
+	mes "You have specified to delete "+@itemname$+" from the database.";
+	mes "Would you like to continue?";
+	next;
+	menu "No",L_ITEM,"Yes",-;
+	query_sql "DELETE FROM ro.donate_item_db WHERE id = '"+@iid+"'";
+	mes "[GM Menu]";
+	mes "Item deleted successfully!";
+	next;
+	menu "Add an item",L_NEWITEM,"Remove another item",L_DELITEM,"View all items",L_ALLITEMS;
+	close;
+
+L_ALLITEMS:
+	mes "[GM Menu]";
+	deletearray @items$[0],getarraysize(@items$);
+	query_sql "SELECT `name` FROM ro.donate_item_db ORDER BY `name` ASC Limit 124", @items$;
+	query_sql "SELECT format(price,2) FROM ro.donate_item_db ORDER BY `name` ASC Limit 124", @itemamount$;
+	for(set @i, 0; @i < getarraysize(@items$); set @i, @i + 1)
+		mes @items$[@i]+" - R$"+@itemamount$[@i];
+	next;
+	goto L_GM;
+
+L_DONATE:
+	mes "[GM Menu]";
+	mes "Please enter the donator's username:";
+	input @donator$;
+	query_sql "SELECT account_id FROM `login` WHERE `userid` = '"+escape_sql(@donator$)+"'", @aid;
+	if(@aid==0) goto L_NONE;
+	query_sql "SELECT format(amount,2) FROM ro.donate WHERE account_id = "+@aid, @donated$;
+	query_sql "SELECT '"+@donated$+"' > 0", @donated;
+	switch(@donated) {
+		case 0:
+			mes @donator$+" has not donated before.";
+			break;
+		case 1:
+			mes @donator$+" has donated R$"+@donated$+".";
+			break;
+		}
+	next;
+	mes "[GM Menu]";
+	mes "Please enter the amount donated by "+@donator$;
+	input @donating$;
+	query_sql "SELECT "+escape_sql(@donating$)+" = 0", @invalid;
+	if(@invalid) goto L_ZERO;
+	query_sql "SELECT format(CAST('"+escape_sql(@donating$)+"' AS DECIMAL),2)", @donating$;
+	mes "[GM Menu]";
+	mes "You have specified that "+@donator$+" has donated R$"+@donating$+".";
+	mes "Would you like to continue?";
+	next;
+	menu "No",L_GM,"Yes",-;
+	switch(@donated) {
+		case 0:
+			query_sql "INSERT INTO ro.donate VALUES ('"+@aid+"', '"+@donating$+"', '0')";
+			break;
+		case 1:
+			query_sql "UPDATE ro.donate SET amount = amount + "+@donating$+" WHERE account_id = '"+@aid+"'";
+			break;
+		}
+	query_sql "SELECT format(amount,2) FROM ro.donate WHERE account_id = "+@aid, @newdonated$;
+	mes "[GM Menu]";
+	mes "Donation added successfully!";
+	mes @donator$+" has donated a total of R$"+@newdonated$;
+	next;
+	goto L_GM;
+
+L_ZERO:
+	mes "[GM Menu]";
+	mes "You can't have 0 as an amount!";
+	next;
+	goto L_GM;
+
+L_NONE:
+	mes "[GM Menu]";
+	mes "Account name "+@donator$+" does not exist.";
+	next;
+	goto L_GM;
+
+L_REMOVE:
+	mes "[GM Menu]";
+	mes "Please enter the donator's username:";
+	input @donator$;
+	query_sql "SELECT account_id FROM `login` WHERE `userid` = '"+escape_sql(@donator$)+"'", @aid;
+	if(@aid==0) goto L_NONE;
+	query_sql "SELECT amount FROM ro.donate WHERE account_id = "+@aid, @donated$;
+	query_sql "SELECT '"+@donated$+"' > 0", @donated;
+
+	if(@donated==0) {
+		query_sql "DELETE FROM ro.donate WHERE account_id = '"+@aid+"'";
+		mes @donator$+" is not a donator and has been deleted from the donation database.";
+		goto L_GM;
+		}
+
+	mes @donator$+" has donated R$"+@donated$+".";
+	next;
+	menu "Deduct an amount from "+@donator$,L_MINUS,"Remove "+@donator$+" from the donation database",L_DELETE;
+	close;
+
+L_MINUS:
+	mes "[GM Menu]";
+	mes "Please enter the amount "+@donator$+" is to be deducted by:";
+	input @deduct$;
+	query_sql "SELECT "+escape_sql(@deduct$)+" = 0", @invalid;
+	if(@invalid) goto L_ZERO;
+	query_sql "SELECT format(CAST('"+escape_sql(@deduct$)+"' AS DECIMAL),2)", @deduct$;
+	mes "[GM Menu]";
+	mes "You have specified that "+@donator$+" is to be deducted by R$"+@deduct$+".";
+	mes "Would you like to continue?";
+	next;
+	menu "No",L_GM,"Yes",-;
+	query_sql "UPDATE ro.donate SET amount = amount - "+@deduct$+" WHERE account_id = '"+@aid+"'";
+	query_sql "SELECT format(amount,2) FROM ro.donate WHERE account_id = "+@aid, @afterdeduct$;
+	mes "[GM Menu]";
+	mes "Donation deducted successfully!";
+	mes @donator$+" has donated a total of R$"+@afterdeduct$;
+	next;
+	goto L_GM;
+
+L_DELETE:
+	mes "[GM Menu]";
+	mes "You have specified to remove "+@donator$+" from the donation database.";
+	mes "Would you like to continue?";
+	next;
+	menu "No",L_GM,"Yes",-;
+	query_sql "DELETE FROM ro.donate WHERE account_id = '"+@aid+"'";
+	mes "[GM Menu]";
+	mes "Donator deleted successfully!";
+	next;
+	goto L_GM;
+
+L_VIEWALL:
+	mes "[GM Menu]";
+	deletearray @donatoraid[0],getarraysize(@donatoraid);
+	query_sql "SELECT account_id FROM ro.donate ORDER BY amount DESC", @donatoraid;
+	query_sql "SELECT amount FROM ro.donate ORDER BY amount DESC", @donatedamount$;
+	for(set @i, 0; @i < getarraysize(@donatoraid); set @i, @i + 1){
+		query_sql "SELECT `userid` FROM `login` WHERE account_id = '"+@donatoraid[@i]+"'", @donateruserid$;
+		for(set @j, 0; @j < getarraysize(@donateruserid$); set @j, @j + 1)
+			mes @donateruserid$[@j]+" - "+@donatedamount$[@i];
+	}
+	next;
+	goto L_GM;
+
+}
