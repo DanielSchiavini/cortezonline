@@ -30,7 +30,7 @@ L_Itens:
 	next;
 	
 	deletearray @items$[0],getarraysize(@items$);
-	query_sql "SELECT `name`,format(`price`,2) FROM ro.donate_item_db WHERE tipo="+@id_tipo+" and serv in (0,"+$serv+") ORDER BY price,name Limit 124", @items$, @itemamount$;
+	query_sql "SELECT `name`,price FROM ro.donate_item_db WHERE tipo="+@id_tipo+" and serv in (0,"+$serv+") ORDER BY price,name Limit 124", @items$, @itemamount$;
 	
 	mes "^336699[Doações]^333333";
 	mes @tipo$+" por preço:";
@@ -45,7 +45,7 @@ L_Itens:
 
 L_Itens_Nome:
 	deletearray @items$[0],getarraysize(@items$);
-	query_sql "SELECT `name`,format(`price`,2) FROM ro.donate_item_db WHERE tipo="+@id_tipo+" and serv in (0,"+$serv+") ORDER BY name,price Limit 124", @items$, @itemamount$;
+	query_sql "SELECT `name`,price FROM ro.donate_item_db WHERE tipo="+@id_tipo+" and serv in (0,"+$serv+") ORDER BY name,price Limit 124", @items$, @itemamount$;
 	mes "^336699[Doações]^333333";
 	mes @tipo$+" por nome:";
 	if(!getarraysize(@items$)){
@@ -92,8 +92,8 @@ L_INFO:
 	close;
 
 L_CHECK:
-	query_sql "SELECT replace(format(amount,2),',',''),replace(format(claimed,2),',','') FROM ro.donate WHERE account_id = "+getcharid(3), @amount$, @claimed$;
-	query_sql "SELECT MIN(price),replace(format('"+@amount$+"' - '"+@claimed$+"',2),',','') FROM ro.donate_item_db", @min$, @value$;
+	query_sql "SELECT amount,claimed FROM ro.donate WHERE account_id = "+getcharid(3), @amount$, @claimed$;
+	query_sql "SELECT MIN(price),"+@amount$+"-"+@claimed$+" FROM ro.donate_item_db", @min$, @value$;
 	query_sql "SELECT '"+@value$+"' >= '"+@min$+"'", @enough;
 	if(@enough) goto L_CLAIM;
 	
@@ -151,8 +151,8 @@ L_YES:
 	set @menu, (select(.@menu$))-1;
 	
 	query_sql "SELECT ID FROM ro.donate_item_db WHERE name = '"+@name$[@menu]+"'", @id;
-	query_sql "SELECT format(price,2) FROM ro.donate_item_db WHERE id="+@id, @price$;
-	query_sql "SELECT replace(format(truncate("+@value$+" / "+@price$+",0),2),',','')", @max;
+	query_sql "SELECT price FROM ro.donate_item_db WHERE id="+@id, @price$;
+	set @max, @value$/@price$;
 	
 	mes "^336699[Doações]^333333";
 	mes @name$[@menu]+" custa "+@price$+" créditos cada.";
@@ -294,16 +294,6 @@ L_NOMVPCARD:
 	mes "Você não tem nenhum vale carta mvp!";
 	close;
 	
-L_STATS:
-	mes "^336699[Doações]^333333";
-	query_sql "SELECT format(amount,2) FROM ro.donate WHERE account_id = 1",@gastos$;
-	query_sql "SELECT format(SUM(amount)-"+@gastos$+",2) FROM ro.donate where account_id>1", @total$;
-	mes "Temos um total de R$ "+@total$+".";
-	mes "Já foram gastos R$ "+@gastos$+" em melhorias no Cortez.";
-	next;
-	menu "Mais informações",L_INFO,"Retirar prêmio",L_CHECK,"Estatísticas",L_STATS;
-	close;
-
 L_GM:
 	mes "[GM Menu]";
 	mes "Hello GM!";
@@ -411,7 +401,7 @@ L_DONATE:
 	input @donator$;
 	query_sql "SELECT account_id FROM `login` WHERE `userid` = '"+escape_sql(@donator$)+"'", @aid;
 	if(@aid==0) goto L_NONE;
-	query_sql "SELECT format(amount,2) FROM ro.donate WHERE account_id = "+@aid, @donated$;
+	query_sql "SELECT amount FROM ro.donate WHERE account_id = "+@aid, @donated$;
 	query_sql "SELECT '"+@donated$+"' > 0", @donated;
 	switch(@donated) {
 		case 0:
@@ -441,7 +431,7 @@ L_DONATE:
 			query_sql "UPDATE ro.donate SET amount = amount + "+@donating$+" WHERE account_id = '"+@aid+"'";
 			break;
 		}
-	query_sql "SELECT format(amount,2) FROM ro.donate WHERE account_id = "+@aid, @newdonated$;
+	query_sql "SELECT amount FROM ro.donate WHERE account_id = "+@aid, @newdonated$;
 	mes "[GM Menu]";
 	mes "Donation added successfully!";
 	mes @donator$+" has donated a total of R$"+@newdonated$;
@@ -493,7 +483,7 @@ L_MINUS:
 	next;
 	menu "No",L_GM,"Yes",-;
 	query_sql "UPDATE ro.donate SET amount = amount - "+@deduct$+" WHERE account_id = '"+@aid+"'";
-	query_sql "SELECT format(amount,2) FROM ro.donate WHERE account_id = "+@aid, @afterdeduct$;
+	query_sql "SELECT amount FROM ro.donate WHERE account_id = "+@aid, @afterdeduct$;
 	mes "[GM Menu]";
 	mes "Donation deducted successfully!";
 	mes @donator$+" has donated a total of R$"+@afterdeduct$;
