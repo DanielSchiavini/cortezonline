@@ -60,9 +60,9 @@ prontera,50,292,6	script	Viajante	50,{
 	case 2:
 		mes "[Coroa de Áries]";
 		mes "Para poder fazer este chapéu, eu vou precisar de:";
-		mes "10x "+getitemname(4109);
-		mes "10x "+getitemname(4099);
-		mes "10x "+getitemname(1258);
+		mes "5x "+getitemname(4109);
+		mes "5x "+getitemname(4099);
+		mes "1x "+getitemname(1258);
 		mes "30x "+getitemname(969);
 		mes "300x "+getitemname(7106);
 		mes "500x "+getitemname(947);
