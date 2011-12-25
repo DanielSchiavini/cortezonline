@@ -71,10 +71,7 @@ L_INFO:
 	mes "Alguns itens estão disponíveis aqui! Se quiser outros itens, é só pedir ao [GM] Baltazar.";
 	next;
 	mes "^336699[Doações]^333333";
-	mes "A cada R$ 1,00 doados, você ganha de brinde 2 dias de conta VIP, e 1 crédito no npc. Você pode doar quanto quiser!";
-	next;
-	mes "^336699[Doações]^333333";
-	mes "Se não quiser os créditos nesse NPC, pode escolher por receber 4 dias de conta VIP por R$ 1 doado.";
+	mes "A cada R$ 1 doados, você ganha de brinde 2 dias de conta VIP, e 100 ROPs. Você pode doar quanto quiser!";
 	next;
 	mes "^336699[Doações]^333333";
 	mes "Ao adquirir uma conta VIP, você vai poder resetar seu personagem no nível 99!";
@@ -93,14 +90,14 @@ L_INFO:
 
 L_CHECK:
 	query_sql "SELECT amount,claimed FROM ro.donate WHERE account_id = "+getcharid(3), @amount$, @claimed$;
-	query_sql "SELECT MIN(price),"+@amount$+"-"+@claimed$+" FROM ro.donate_item_db", @min$, @value$;
+	query_sql "SELECT MIN(price),'"+@amount$+"'-'"+@claimed$+"' FROM ro.donate_item_db", @min$, @value$;
 	query_sql "SELECT '"+@value$+"' >= '"+@min$+"'", @enough;
 	if(@enough) goto L_CLAIM;
 	
 	mes "^336699[Doações]^333333";
 	mes "Desculpe, você não tem mais nenhum crédito em doações.";
 	mes "Se você doou e ainda não retirou seu prêmio, dê a nós um tempo pra processar sua doação.";
-	menu "Eu ainda não doei",-,"Ok, vou esperar",-,"Trocar Vale Carta Mvp",L_MVPCARD;
+	menu "Eu ainda não doei",-,"Ok, vou esperar",-;
 	close;
 
 L_CLAIM:
@@ -110,10 +107,10 @@ L_CLAIM:
 		mes "Se estiver aguardando sua VIP, precisará relogar.";
 		mes " ";
 	}
-	mes "Você tem "+@value$+" créditos!";
+	mes "Você tem "+@value$+" ROPs!";
 	mes "Deseja retirar um item agora?";
 	next;
-	menu "Não",-,"Sim",L_YES,"Trocar Vale Carta Mvp",L_MVPCARD;
+	menu "Não",-,"Sim",L_YES;
 	mes "^336699[Doações]^333333";
 	mes "Tudo bem, você pode retirar os itens a qualquer hora!";
 	close;
@@ -137,7 +134,8 @@ L_YES:
 	
 	if(!getarraysize(@name$)){
 		mes "^336699[Doações]^333333";
-		mes "Você não tem créditos suficientes para nenhuma das opções em "+@tipo$+"!";
+		mes "Você tem somente "+@value$+" ROPs disponíveis!";
+		mes "Isso não é suficiente para nenhuma das opções em "+@tipo$+"!";
 		next;
 		goto L_Yes;
 	}
@@ -152,12 +150,12 @@ L_YES:
 	
 	query_sql "SELECT ID FROM ro.donate_item_db WHERE name = '"+@name$[@menu]+"'", @id;
 	query_sql "SELECT price FROM ro.donate_item_db WHERE id="+@id, @price$;
-	set @max, @value$/@price$;
+	query_sql "SELECT "+@value$+" / "+@price$, @max;
 	
 	mes "^336699[Doações]^333333";
-	mes @name$[@menu]+" custa "+@price$+" créditos cada.";
+	mes @name$[@menu]+" custa "+@price$+" ROPs cada.";
 	if(!@max){
-		mes "E você tem apenas "+@value$+" créditos disponíveis.";
+		mes "E você tem apenas "+@value$+" ROPs disponíveis.";
 		next;
 		goto L_YES;
 	}
@@ -176,7 +174,7 @@ L_YES:
 	
 	if(@quantity>@max) {
 		mes "^336699[Doações]^333333";
-		mes "Desculpe, você não tem créditos suficientes para pedir "+@quantity+" "+@name$[@menu]+"s.";
+		mes "Desculpe, você não tem ROPs suficientes para pedir "+@quantity+" "+@name$[@menu]+"s.";
 		next;
 		goto L_EscolheQtde;
 	}
@@ -197,7 +195,7 @@ L_YES:
 	
 	mes "^336699[Doações]^333333";
 	query_sql "SELECT "+@quantity+" * "+@price$, @total$;
-	mes "Certeza que quer receber "+@quantity+" "+@name$[@menu]+" por "+@total$+" créditos?";
+	mes "Certeza que quer receber "+@quantity+" "+@name$[@menu]+" por "+@total$+" ROPs?";
 	next;
 	menu "Não",L_CLAIM,"Sim",-;
 	query_sql "UPDATE ro.donate SET `claimed` = `claimed` + "+@total$+" WHERE account_id = '"+getcharid(3)+"'";
@@ -207,99 +205,11 @@ L_YES:
 	mes "Obrigado por doar! Esperamos que goste do seu presente!";
 	close;
 
-L_MVPCARD:
-	next;
-	mes "^336699[Doações]^333333";
-	mes "Ok, você deseja trocar um vale carta mvp!";
-	mes "Deseja trocar por qual carta?";
-	next;
-	menu 
-		"Cancelar",-,
-		"Carta Amon Ra",C_Amon,
-		"Carta Bacsojin",C_Bacs,
-		"Carta Baphomet",C_Baph,
-		"Carta Doppelganger",C_Dopp,
-		"Carta Maya",C_Maya,
-		"Carta Moonlight Flower",C_Moon,
-		"Carta Dark Lord",C_Dark,
-		"Carta Drake",C_Drak,
-		"Carta Eddga",C_Eddg,
-		"Carta Evil Snake Lord",C_Evil,
-		"Carta Garm",C_Garm,
-		"Carta Incantation Samuarai",C_Inca,
-		"Carta Lady Tanee",C_Lady,
-		"Carta Lord Of Death",C_Deat,
-		"Carta Mistress",C_Miss,
-		"Carta Orc Hero",C_Hero,
-		"Carta Orc Lord",C_Lord,
-		"Carta Osiris",C_Osir,
-		"Carta Pharaoh",C_Phar,
-		"Carta Phreeoni",C_Phre,
-		"Carta RSX-0806",C_RSX,
-		"Carta Stormy Knight",C_Stor,
-		"Carta Tao Gunka",C_Tao,
-		"Carta Turtle General",C_Turt;
-	close;
-	
-	C_Amon:	set @mvpc$,"Carta Amon Ra";			set @idmvp,4236; goto L_GETMVP;
-	C_Baph:	set @mvpc$,"Carta Baphomet";		set @idmvp,4147; goto L_GETMVP;
-	C_Bacs:	set @mvpc$,"Carta Bacsojin";		set @idmvp,4372; goto L_GETMVP;
-	C_Dopp:	set @mvpc$,"Carta Doppelganger";	set @idmvp,4142; goto L_GETMVP;
-	C_Maya:	set @mvpc$,"Carta Maya";			set @idmvp,4146; goto L_GETMVP;
-	C_Moon:	set @mvpc$,"Carta Moonlight Flower";set @idmvp,4131; goto L_GETMVP;
-	C_Dark:	set @mvpc$,"Carta Dark Lord";		set @idmvp,4168; goto L_GETMVP;
-	C_Drak:	set @mvpc$,"Carta Drake";			set @idmvp,4137; goto L_GETMVP;
-	C_Eddg:	set @mvpc$,"Carta Eddga";			set @idmvp,4123; goto L_GETMVP;
-	C_Evil:	set @mvpc$,"Carta Evil Snake Lord";	set @idmvp,4330; goto L_GETMVP;
-	C_Garm:	set @mvpc$,"Carta Garm";			set @idmvp,4324; goto L_GETMVP;
-	C_Inca:	set @mvpc$,"Carta Incantation Samurai";	set @idmvp,4263; goto L_GETMVP;
-	C_Lady:	set @mvpc$,"Carta Lady Tanee";		set @idmvp,4376; goto L_GETMVP;
-	C_Deat:	set @mvpc$,"Carta Lord Of Death";	set @idmvp,4276; goto L_GETMVP;
-	C_Miss:	set @mvpc$,"Carta Mistress";		set @idmvp,4132; goto L_GETMVP;
-	C_Hero:	set @mvpc$,"Carta Orc Hero";		set @idmvp,4143; goto L_GETMVP;
-	C_Lord:	set @mvpc$,"Carta Orc Lord";		set @idmvp,4135; goto L_GETMVP;
-	C_Osir:	set @mvpc$,"Carta Osiris";			set @idmvp,4144; goto L_GETMVP;
-	C_Phar:	set @mvpc$,"Carta Pharaoh";			set @idmvp,4148; goto L_GETMVP;
-	C_Phre:	set @mvpc$,"Carta Phreeoni";		set @idmvp,4121; goto L_GETMVP;
-	C_RSX:	set @mvpc$,"Carta RSX-0806";		set @idmvp,4342; goto L_GETMVP;
-	C_Stor:	set @mvpc$,"Carta Stormy Knight";	set @idmvp,4318; goto L_GETMVP;
-	C_Tao:	set @mvpc$,"Carta Tao Gunka";		set @idmvp,4302; goto L_GETMVP;
-	C_Turt:	set @mvpc$,"Carta Turtle General";	set @idmvp,4305; goto L_GETMVP;
-	
-L_GETMVP:
-	next;
-	mes "^336699[Doações]^333333";
-	if(countitem(4408)<1) goto L_NOMVPCARD;
-	mes "Você tem certeza que quer a "+@mvpc$+"?";
-	next;
-	menu "Não, quero escolher outra",L_MVPCARD,"Sim, quero esta mesmo!",-;
-	next;
-	
-	mes "^336699[Doações]^333333";
-	mes "Eu insisto em confirmar, a "+@mvpc$+" é a que você quer?";
-	mes "Você tem certeza de qual o efeito dela, e sabe que não poderá trocar depois?";
-	next;
-	menu "Deixe-me pensar mais um pouco",L_MVPCARD,"Vou levar esta carta",-,"Realmente, não sei",L_MVPCARD;
-	next;
-	
-	mes "^336699[Doações]^333333";
-	mes "Ok, ok.. Aí vai a sua "+@mvpc$+"!";
-	mes "Use-a bem! Com grandes poderes, você terá grandes responsabilidades!";
-	logmes "[Doações] cid "+getcharid(0)+" aid "+getcharid(3)+" nameid "+@idmvp+" ("+@mvpc$+")";
-	delitem 4408,1;
-	getitem @idmvp,1;
-	close;
-	
-L_NOMVPCARD:
-	mes "Você não tem nenhum vale carta mvp!";
-	close;
-	
 L_GM:
 	mes "[GM Menu]";
 	mes "Hello GM!";
 	mes "What would you like to do?";
 	next;
-	//menu "Fazer propaganda",L_Anuncia,"Add/Remove Donation",L_GM2,"Add/Remove Items",L_ITEM,"Trocar Vale Carta Mvp",L_MVPCARD,"Test Script",L_START;
 	menu "Sair",-,"Fazer propaganda",L_Anuncia,"Testar NPC",L_START;
 	close;
 
@@ -309,7 +219,7 @@ L_Anuncia:
 		close2;
 		announce "[Doações] Ajude o servidor doando e ganhando vantagens no jogo!",bc_all;
 		announce "[Doações] Os itens disponíveis estão listados no npc",bc_all;
-		announce "[Doações] A cada R$ 15,00 doados você ganha 30 dias de VIP, e 15 créditos no npc!",bc_all;
+		announce "[Doações] A cada R$ 15 doados você ganha 30 dias de VIP, e 1500 ROPs!",bc_all;
 		end;
 
 L_GM2:
