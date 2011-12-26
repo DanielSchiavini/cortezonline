@@ -255,4 +255,6 @@ umbala,110,281,6	duplicate(cWarp)	Teletransportadora#61	721
 bra_dun01,83,47,6	duplicate(cWarp)	Teletransportadora#62	721
 pay_fild04,21,169,6	duplicate(cWarp)	Teletransportadora#63	721
 cmd_fild02,217,373,5	duplicate(cWarp)	Teletransportadora#64	721
-dic_dun01,368,50,5	duplicate(cWarp)	Teletransportadora#65	721//============================================================ 
+dic_dun01,368,50,5	duplicate(cWarp)	Teletransportadora#65	721
+
+//============================================================ 
