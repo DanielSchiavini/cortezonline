@@ -8,7 +8,7 @@ L_START:
 	mes "Caso ainda não tenha doado, pode conseguir mais informações.";
 	mes "Se você doou algo pro servidor, pode retirar sua recompensa aqui!";
 	next;
-	menu "Mais informações",L_Info,"Itens Disponíveis",-,"Retirar prêmio",L_CHECK;
+	menu "Mais informações",L_Info,"Itens Disponíveis",-,"Retirar prêmio",L_CLAIM;
 
 L_Itens:
 	mes "^336699[Doações]^333333";
@@ -88,31 +88,31 @@ L_INFO:
 	menu "Voltar",L_START,"Sair",-;
 	close;
 
-L_CHECK:
-	query_sql "SELECT amount,claimed FROM ro.donate WHERE account_id = "+getcharid(3), @amount$, @claimed$;
-	query_sql "SELECT MIN(price),'"+@amount$+"'-'"+@claimed$+"' FROM ro.donate_item_db", @min$, @value$;
-	query_sql "SELECT '"+@value$+"' >= '"+@min$+"'", @enough;
-	if(@enough) goto L_CLAIM;
-	
-	mes "^336699[Doações]^333333";
-	mes "Desculpe, você não tem mais nenhum crédito em doações.";
-	mes "Se você doou e ainda não retirou seu prêmio, dê a nós um tempo pra processar sua doação.";
-	menu "Eu ainda não doei",-,"Ok, vou esperar",-;
-	close;
-
 L_CLAIM:
+	query_sql "SELECT amount-claimed FROM ro.donate WHERE account_id = "+getcharid(3), @rops;
+	query_sql "SELECT MIN(price) FROM ro.donate_item_db", @min;
 	mes "^336699[Doações]^333333";
-	mes "Muito obrigado por doar!!!";
-	if(getgmlevel()<5){
-		mes "Se estiver aguardando sua VIP, precisará relogar.";
-		mes " ";
+	if(@rops<@min){
+		if(@rops){
+			mes "Desculpe, mas seus "+@rops+" créditos não são suficientes para retirar nenhum item.";
+		}else{
+			mes "Desculpe, você não tem mais nenhum crédito em doações.";
+			mes "Se você doou e ainda não retirou seu prêmio, dê a nós um tempo pra processar sua doação.";
+			menu "Eu ainda não doei",-,"Ok, vou esperar",-;
+		}
+	}else{
+		mes "Muito obrigado por doar!!!";
+		if(getgmlevel()<5){
+			mes "Se estiver aguardando sua VIP, precisará relogar.";
+			mes " ";
+		}
+		mes "Você tem "+@rops+" ROPs!";
+		mes "Deseja retirar um item agora?";
+		next;
+		menu "Não",-,"Sim",L_YES;
+		mes "^336699[Doações]^333333";
+		mes "Tudo bem, você pode retirar os itens a qualquer hora!";
 	}
-	mes "Você tem "+@value$+" ROPs!";
-	mes "Deseja retirar um item agora?";
-	next;
-	menu "Não",-,"Sim",L_YES;
-	mes "^336699[Doações]^333333";
-	mes "Tudo bem, você pode retirar os itens a qualquer hora!";
 	close;
 	
 L_YES:
@@ -130,11 +130,11 @@ L_YES:
 	set @tipo$,@name$[@menu];
 	
 	deletearray @name$[0],getarraysize(@name$);
-	query_sql "SELECT name FROM ro.donate_item_db Where price<='"+@value$+"' and tipo="+@id_tipo+" and serv in (0,"+$serv+") Order By price desc Limit 124",@name$;
+	query_sql "SELECT name FROM ro.donate_item_db Where price<='"+@rops+"' and tipo="+@id_tipo+" and serv in (0,"+$serv+") Order By price desc Limit 124",@name$;
 	
 	if(!getarraysize(@name$)){
 		mes "^336699[Doações]^333333";
-		mes "Você tem somente "+@value$+" ROPs disponíveis!";
+		mes "Você tem somente "+@rops+" ROPs disponíveis!";
 		mes "Isso não é suficiente para nenhuma das opções em "+@tipo$+"!";
 		next;
 		goto L_Yes;
@@ -149,13 +149,13 @@ L_YES:
 	set @menu, (select(.@menu$))-1;
 	
 	query_sql "SELECT ID FROM ro.donate_item_db WHERE name = '"+@name$[@menu]+"'", @id;
-	query_sql "SELECT price FROM ro.donate_item_db WHERE id="+@id, @price$;
-	query_sql "SELECT "+@value$+" / "+@price$, @max;
+	query_sql "SELECT price FROM ro.donate_item_db WHERE id="+@id, @price;
+	set @max, @rops/@price;
 	
 	mes "^336699[Doações]^333333";
-	mes @name$[@menu]+" custa "+@price$+" ROPs cada.";
+	mes @name$[@menu]+" custa "+@price+" ROPs cada.";
 	if(!@max){
-		mes "E você tem apenas "+@value$+" ROPs disponíveis.";
+		mes "E você tem apenas "+@rops+" ROPs disponíveis.";
 		next;
 		goto L_YES;
 	}
@@ -163,44 +163,44 @@ L_YES:
 	
 	L_EscolheQtde:
 	if((@id>1100 && @id<4000)  ||  (@id>5000 && @id<7000)  ||  @id>13000){
-		set @quantity,1;
+		set @qtde,1;
 	}else{
 		mes "^336699[Doações]^333333";
 		mes "Quantos "+@name$[@menu]+"s você deseja?";
 		mes "Máximo: "+@max+".";
-		input @quantity;
+		input @qtde;
 		next;
 	}
 	
-	if(@quantity>@max) {
+	if(@qtde>@max) {
 		mes "^336699[Doações]^333333";
-		mes "Desculpe, você não tem ROPs suficientes para pedir "+@quantity+" "+@name$[@menu]+"s.";
+		mes "Desculpe, você precisa de mais "+(@price * @qtde - @rops)+" ROPs para pedir "+@qtde+"x "+@name$[@menu]+"s.";
 		next;
 		goto L_EscolheQtde;
 	}
 
-	if(!@quantity) {
+	if(!@qtde) {
 		mes "^336699[Doações]^333333";
 		mes "Você não vai poder receber 0...!";
 		next;
 		goto L_YES;
 	}
 	
-	if (checkweight(@id,@quantity) == 0) {
+	if (checkweight(@id,@qtde) == 0) {
 		mes "^336699[Doações]^333333";
-		mes "Desculpe-me mas você não aguenta carregar "+@quantity+" "+@name$[@menu]+"s.";
+		mes "Desculpe-me mas você não aguenta carregar "+@qtde+" "+@name$[@menu]+"s.";
 		next;
 		goto L_YES;
 	}
 	
 	mes "^336699[Doações]^333333";
-	query_sql "SELECT "+@quantity+" * "+@price$, @total$;
-	mes "Certeza que quer receber "+@quantity+" "+@name$[@menu]+" por "+@total$+" ROPs?";
+	query_sql "SELECT "+@qtde+" * "+@price, @total$;
+	mes "Certeza que quer receber "+@qtde+" "+@name$[@menu]+" por "+@total$+" ROPs?";
 	next;
 	menu "Não",L_CLAIM,"Sim",-;
 	query_sql "UPDATE ro.donate SET `claimed` = `claimed` + "+@total$+" WHERE account_id = '"+getcharid(3)+"'";
-	query_sql "INSERT INTO ro.donate_log (dt,item,qtde,vlr,account_id,serv) Values (Now(),"+@id+","+@quantity+","+@total$+","+getcharid(3)+","+$serv+")";
-	getitem @id,@quantity;
+	query_sql "INSERT INTO ro.donate_log (dt,item,qtde,vlr,account_id,serv) Values (Now(),"+@id+","+@qtde+","+@total$+","+getcharid(3)+","+$serv+")";
+	getitem @id,@qtde;
 	mes "^336699[Doações]^333333";
 	mes "Obrigado por doar! Esperamos que goste do seu presente!";
 	close;
