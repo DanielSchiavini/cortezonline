@@ -1,0 +1,76 @@
+//=====Flex Scripts ================================================
+//===== NPC Curandeiro para VIP e Não VIP
+//===== Por: Gui ==========================================================
+//= Flex(Por Criar o Script)
+//= Wish(Por Ajduar a Melhorar o Script)
+//===== Current Version: ==============================================
+//= 2.0
+//===== Compatível com: ===============================================
+//= Cronus
+//= eAthena
+//===== Descrição: ====================================================
+//= Curandeiro com Várias Funções para Ajduar os Players
+//===== Comentários adicionais: =======================================
+//= NPC Que cura quando Você Clica nele ou quando diz Cura.  parte da cura retirada por marcos.
+//= Bem Simples e com Alguns Buffs Básicos para Mid Rates
+//= NPC Que Cura Seu Homunculo . retirado.
+//= NPC Que Retira os Debufs
+//=====================================================================
+
+//======= Coordenadas
+prontera.gat,67,68,5	script	Fenrir	742,{
+
+
+//======= Config
+Set $namenpc$, "Fenrir"; // Nome do NPC
+Set $servername$,"Cortez Online"; //Nome do Servidor
+
+
+//======= NPC
+if(GetGmLevel()>1){
+//======= Parte VIP
+
+//======= Debuf
+sc_end	SC_STONE;
+sc_end	SC_FREEZE;
+sc_end	SC_STUN;
+sc_end	SC_SLEEP;
+sc_end	SC_POISON;
+sc_end	SC_CURSE;
+sc_end	SC_SILENCE;
+sc_end	SC_CONFUSION;
+sc_end	SC_BLIND;
+sc_end	SC_BLEEDING;
+
+//======= NPC
+sc_start 32, 300000, 10; skilleffect 29,0; // Increase Agi
+sc_start 30, 300000, 10; skilleffect 34,0; // Blessing
+sc_start 39, 300000, 4; skilleffect 73,0; // Kyrie Eleison
+sc_start 40, 300000, 3; skilleffect 75,0; // Magnificat
+sc_start 41, 300000, 4; skilleffect 75,0; // Gloria
+dispbottom "#"+$namenpc$+": Se Divirta no Cortez Online, "+strcharinfo(0)+" !";
+}else{
+//======= Parte Não VIP
+
+//======= Debuffs
+sc_end	SC_STONE;
+sc_end	SC_FREEZE;
+sc_end	SC_STUN;
+sc_end	SC_SLEEP;
+sc_end	SC_POISON;
+sc_end	SC_CURSE;
+sc_end	SC_SILENCE;
+sc_end	SC_CONFUSION;
+sc_end	SC_BLIND;
+sc_end	SC_BLEEDING;
+
+//======= NPC
+sc_start 32, 300000, 5; skilleffect 29,0; // Increase Agi
+sc_start 30, 300000, 5; skilleffect 34,0; // Blessing
+sc_start 40, 300000, 2; skilleffect 75,0; // Magnificat
+dispbottom "#"+$namenpc$+": Se Divirta no Cortez Online, "+strcharinfo(0)+" !";
+}
+end;
+
+}
+
