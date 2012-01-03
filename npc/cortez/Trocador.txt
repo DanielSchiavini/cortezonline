@@ -1,0 +1,58 @@
+//=============================================
+//== Cronus Tools :: Gerador de Quest's =======
+//== Versão: ==================================
+//== 1.0
+//== Autor: ===================================
+//== RoM
+//=============================================
+prontera,221,209,4	script	Trocador	66,{
+	mes "[Trocador]";
+	mes "Olá "+StrCharInfo(0)+"!";
+	mes "Eu estou trocando alguns itens, por tickets, deseja saber quais?";
+	next;
+	if( select("Claro!:Talvez mais tarde...") == 2 )
+	{
+		mes "[Trocador]";
+		mes "Tudo bem, estarei aqui se você mudar de idéia.";
+		close;
+	}
+	mes "[Trocador]";
+	mes "Bem, estes são os itens que eu estou trocando...";
+	mes "tem interesse em algum?";
+	next;
+	switch(select("Ovo De Donzela Verde:Nenhum"))
+	{
+	case 1:
+		mes "[Ovo De Donzela Verde]";
+		mes "Vou precisar de:";
+		mes "1x "+getitemname(7774);
+		mes "Para de dar este item...";
+		next;
+		mes "[Trocador]";
+		mes "Deseja Trocar?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Trocador]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(7774) >= 1)
+		{
+			delitem 7774,1;
+			getitem 9030,1;
+			mes "[Trocador]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 2:
+		mes "[Trocador]";
+		mes "Tudo bem, estarei aqui se você mudar de idéia.";
+		close;
+	}
+	mes "[Trocador]";
+	mes "Me desculpe, mas você não tem todos os itens necessários...";
+	mes "Volte quando você tiver todos os itens!";
+	close;
+}
