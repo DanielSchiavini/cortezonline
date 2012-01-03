@@ -1,0 +1,1015 @@
+prontera,75,80,3	script	Yuuko	728,{
+	mes "[Yuuko]";
+	mes "Olá "+StrCharInfo(0)+"!";
+	mes "Eu tenho alguns itens interessantes aqui, deseja dar uma olhada?";
+	next;
+	if( select("Claro!:Talvez mais tarde...") == 2 )
+	{
+		mes "[Yuuko]";
+		mes "Tudo bem, estarei aqui se você mudar de ideia.";
+		close;
+	}
+	mes "[Yuuko]";
+	mes "Bem, estes são os itens que eu tenho...";
+	mes "Sobre qual deles vai querer saber mais?";
+	next;
+	switch(select("Ninho Abandonado:Chapéu de Ninho:Lendárias Asas de Anjo:Asas de Demônio Evoluídas:Peixe Turquesa:Hélices 2.0:Chapéu de Nove Caudas:Coroa de Flor de Lótus:Boneca de Tatiana:Cartola de Coelho:Boné de Carteiro:Cartola Mágica:Boneca de Lady Tanee:Chapéu de Quati:Chapéu de Polvo:Boneco de Gato Folha:Chapéu de Gatinho:Grinalda de Flores:Família Poring:Bandana de Mecânico:Chapéu de Pintinho:Boneca de Deborah:Gorro de Natal 2.0:Chapéu Celestial:Chapéu de Pintinho Rosa:Asas de Anjo Evoluídas:Boneca de Lif:Chapéu de Lamen:Coroa de Ouro:Boneca de Alice:Chapéu de Parada:Diadema Dourada:Boneca de Denise:Máscara de Fugitivo:Nenhum"))
+	{
+	case 1:
+		mes "[Ninho Abandonado]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "3x "+getitemname(4007);
+		mes "250x "+getitemname(7116);
+		mes "250x "+getitemname(925);
+		mes "250x "+getitemname(916);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(4007) >= 3 && countitem(7116) >= 250 && countitem(925) >= 250 && countitem(916) >= 250)
+		{
+			delitem 4007,3;
+			delitem 7116,250;
+			delitem 925,250;
+			delitem 916,250;
+			getitem 5129,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 2:
+		mes "[Chapéu de Ninho]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "250x "+getitemname(905);
+		mes "30x "+getitemname(604);
+		mes "250x "+getitemname(7115);
+		mes "5x "+getitemname(4008);
+		mes "1x "+getitemname(632);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(905) >= 250 && countitem(604) >= 30 && countitem(7115) >= 250 && countitem(4008) >= 5 && countitem(632) >= 1)
+		{
+			delitem 905,250;
+			delitem 604,30;
+			delitem 7115,250;
+			delitem 4008,5;
+			delitem 632,1;
+			getitem 5183,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 3:
+		mes "[Lendárias Asas de Anjo]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "3x "+getitemname(2254);
+		mes "10x "+getitemname(982);
+		mes "100x "+getitemname(7063);
+		mes "300x "+getitemname(949);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(2254) >= 3 && countitem(982) >= 10 && countitem(7063) >= 100 && countitem(949) >= 300)
+		{
+			delitem 2254,3;
+			delitem 982,10;
+			delitem 7063,100;
+			delitem 949,300;
+			getitem 5210,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 4:
+		mes "[Asas de Demônio Evoluídas]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "50x "+getitemname(1039);
+		mes "3x "+getitemname(2255);
+		mes "10x "+getitemname(983);
+		mes "10x "+getitemname(7511);
+		mes "1x "+getitemname(4190);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(1039) >= 50 && countitem(2255) >= 3 && countitem(983) >= 10 && countitem(7511) >= 10 && countitem(4190) >= 1)
+		{
+			delitem 1039,50;
+			delitem 2255,3;
+			delitem 983,10;
+			delitem 7511,10;
+			delitem 4190,1;
+			getitem 5216,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 5:
+		mes "[Peixe Turquesa]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "125x "+getitemname(951);
+		mes "25x "+getitemname(995);
+		mes "50x "+getitemname(720);
+		mes "1x "+getitemname(4067);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(951) >= 125 && countitem(995) >= 25 && countitem(720) >= 50 && countitem(4067) >= 1)
+		{
+			delitem 951,125;
+			delitem 995,25;
+			delitem 720,50;
+			delitem 4067,1;
+			getitem 5216,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 6:
+		mes "[Hélices 2.0]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "15x "+getitemname(4156);
+		mes "50x "+getitemname(996);
+		mes "50x "+getitemname(12117);
+		mes "50x "+getitemname(992);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(4156) >= 15 && countitem(996) >= 50 && countitem(12117) >= 50 && countitem(992) >= 50)
+		{
+			delitem 4156,15;
+			delitem 996,50;
+			delitem 12117,50;
+			delitem 992,50;
+			getitem 5226,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 7:
+		mes "[Chapéu de Nove Caudas]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "250x "+getitemname(1022);
+		mes "3x "+getitemname(4159);
+		mes "5x "+getitemname(976);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(1022) >= 250 && countitem(4159) >= 3 && countitem(976) >= 5)
+		{
+			delitem 1022,250;
+			delitem 4159,3;
+			delitem 976,5;
+			getitem 5252,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 8:
+		mes "[Coroa de Flor de Lótus]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "150x "+getitemname(1032);
+		mes "50x "+getitemname(710);
+		mes "25x "+getitemname(629);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(1032) >= 150 && countitem(710) >= 50 && countitem(629) >= 25)
+		{
+			delitem 1032,150;
+			delitem 710,50;
+			delitem 629,25;
+			getitem 5284,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 9:
+		mes "[Boneca de Tatiana]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "10x "+getitemname(5085);
+		mes "5x "+getitemname(637);
+		mes "15x "+getitemname(2407);
+		mes "150x "+getitemname(7047);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(5085) >= 10 && countitem(637) >= 5 && countitem(2407) >= 15 && countitem(7047) >= 150)
+		{
+			delitem 5085,10;
+			delitem 637,5;
+			delitem 2407,15;
+			delitem 7047,150;
+			getitem 5343,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 10:
+		mes "[Cartola de Coelho]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "3x "+getitemname(4227);
+		mes "3x "+getitemname(622);
+		mes "20x "+getitemname(2262);
+		mes "5x "+getitemname(2250);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(4227) >= 3 && countitem(622) >= 3 && countitem(2262) >= 20 && countitem(2250) >= 5)
+		{
+			delitem 4227,3;
+			delitem 622,3;
+			delitem 2262,20;
+			delitem 2250,5;
+			getitem 5378,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 11:
+		mes "[Boné de Carteiro]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "1x "+getitemname(16001);
+		mes "5x "+getitemname(668);
+		mes "5x "+getitemname(975);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(16001) >= 1 && countitem(668) >= 5 && countitem(975) >= 5)
+		{
+			delitem 16001,1;
+			delitem 668,5;
+			delitem 975,5;
+			getitem 5466,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 12:
+		mes "[Cartola Mágica]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "10x "+getitemname(690);
+		mes "10x "+getitemname(688);
+		mes "10x "+getitemname(692);
+		mes "1x "+getitemname(4416);
+		mes "1x "+getitemname(4433);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(690) >= 10 && countitem(688) >= 10 && countitem(692) >= 10 && countitem(4416) >= 1 && countitem(4433) >= 1)
+		{
+			delitem 690,10;
+			delitem 688,10;
+			delitem 692,10;
+			delitem 4416,1;
+			delitem 4433,1;
+			getitem 5503,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 13:
+		mes "[Boneca de Lady Tanee]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "1x "+getitemname(5116);
+		mes "25x "+getitemname(634);
+		mes "100x "+getitemname(532);
+		mes "150x "+getitemname(513);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(5116) >= 1 && countitem(634) >= 25 && countitem(532) >= 100 && countitem(513) >= 150)
+		{
+			delitem 5116,1;
+			delitem 634,25;
+			delitem 532,100;
+			delitem 513,150;
+			getitem 5526,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 14:
+		mes "[Chapéu de Quati]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "1x "+getitemname(982);
+		mes "1x "+getitemname(983);
+		mes "200x "+getitemname(740);
+		mes "300x "+getitemname(919);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(982) >= 1 && countitem(983) >= 1 && countitem(740) >= 200 && countitem(919) >= 300)
+		{
+			delitem 982,1;
+			delitem 983,1;
+			delitem 740,200;
+			delitem 919,300;
+			getitem 5537,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 15:
+		mes "[Chapéu de Polvo]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "200x "+getitemname(1024);
+		mes "2x "+getitemname(4095);
+		mes "150x "+getitemname(962);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(1024) >= 200 && countitem(4095) >= 2 && countitem(962) >= 150)
+		{
+			delitem 1024,200;
+			delitem 4095,2;
+			delitem 962,150;
+			getitem 5554,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 16:
+		mes "[Boneco de Gato Folha]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "5x "+getitemname(982);
+		mes "100x "+getitemname(7206);
+		mes "250x "+getitemname(7198);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(982) >= 5 && countitem(7206) >= 100 && countitem(7198) >= 250)
+		{
+			delitem 982,5;
+			delitem 7206,100;
+			delitem 7198,250;
+			getitem 5555,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 17:
+		mes "[Chapéu de Gatinho]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "10x "+getitemname(2244);
+		mes "1x "+getitemname(4257);
+		mes "50x "+getitemname(5037);
+		mes "1x "+getitemname(2213);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(2244) >= 10 && countitem(4257) >= 1 && countitem(5037) >= 50 && countitem(2213) >= 1)
+		{
+			delitem 2244,10;
+			delitem 4257,1;
+			delitem 5037,50;
+			delitem 2213,1;
+			getitem 5099,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 18:
+		mes "[Grinalda de Flores]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "2x "+getitemname(5399);
+		mes "250x "+getitemname(2612);
+		mes "5x "+getitemname(4050);
+		mes "150x "+getitemname(993);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(5399) >= 2 && countitem(2612) >= 250 && countitem(4050) >= 5 && countitem(993) >= 150)
+		{
+			delitem 5399,2;
+			delitem 2612,250;
+			delitem 4050,5;
+			delitem 993,150;
+			getitem 5185,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 19:
+		mes "[Família Poring]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "200x "+getitemname(741);
+		mes "5x "+getitemname(5035);
+		mes "5x "+getitemname(4001);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(741) >= 200 && countitem(5035) >= 5 && countitem(4001) >= 5)
+		{
+			delitem 741,200;
+			delitem 5035,5;
+			delitem 4001,5;
+			getitem 5255,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 20:
+		mes "[Bandana de Mecânico]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "25x "+getitemname(7093);
+		mes "250x "+getitemname(7703);
+		mes "3x "+getitemname(13161);
+		mes "50x "+getitemname(7327);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(7093) >= 25 && countitem(7703) >= 250 && countitem(13161) >= 3 && countitem(7327) >= 50)
+		{
+			delitem 7093,25;
+			delitem 7703,250;
+			delitem 13161,3;
+			delitem 7327,50;
+			getitem 5277,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 21:
+		mes "[Chapéu de Pintinho]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "15x "+getitemname(976);
+		mes "200x "+getitemname(949);
+		mes "300x "+getitemname(916);
+		mes "200x "+getitemname(925);
+		mes "50x "+getitemname(7116);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(976) >= 15 && countitem(949) >= 200 && countitem(916) >= 300 && countitem(925) >= 200 && countitem(7116) >= 50)
+		{
+			delitem 976,15;
+			delitem 949,200;
+			delitem 916,300;
+			delitem 925,200;
+			delitem 7116,50;
+			getitem 5283,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 22:
+		mes "[Boneca de Deborah]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "250x "+getitemname(1060);
+		mes "25x "+getitemname(1059);
+		mes "75x "+getitemname(10007);
+		mes "100x "+getitemname(7166);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(1060) >= 250 && countitem(1059) >= 25 && countitem(10007) >= 75 && countitem(7166) >= 100)
+		{
+			delitem 1060,250;
+			delitem 1059,25;
+			delitem 10007,75;
+			delitem 7166,100;
+			getitem 5345,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 23:
+		mes "[Gorro de Natal 2.0]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "40x "+getitemname(2236);
+		mes "5x "+getitemname(4243);
+		mes "50x "+getitemname(7034);
+		mes "50x "+getitemname(529);
+		mes "50x "+getitemname(530);
+		mes "50x "+getitemname(539);
+		mes "2x "+getitemname(4253);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(2236) >= 40 && countitem(4243) >= 5 && countitem(7034) >= 50 && countitem(529) >= 50 && countitem(530) >= 50 && countitem(539) >= 50 && countitem(4253) >= 2)
+		{
+			delitem 2236,40;
+			delitem 4243,5;
+			delitem 7034,50;
+			delitem 529,50;
+			delitem 530,50;
+			delitem 539,50;
+			delitem 4253,2;
+			getitem 5384,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 24:
+		mes "[Chapéu Celestial]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "200x "+getitemname(949);
+		mes "10x "+getitemname(2247);
+		mes "2x "+getitemname(978);
+		mes "2x "+getitemname(976);
+		mes "2x "+getitemname(975);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(949) >= 200 && countitem(2247) >= 10 && countitem(978) >= 2 && countitem(976) >= 2 && countitem(975) >= 2)
+		{
+			delitem 949,200;
+			delitem 2247,10;
+			delitem 978,2;
+			delitem 976,2;
+			delitem 975,2;
+			getitem 5465,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 25:
+		mes "[Chapéu de Pintinho Rosa]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "20x "+getitemname(975);
+		mes "300x "+getitemname(916);
+		mes "1x "+getitemname(5081);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(975) >= 20 && countitem(916) >= 300 && countitem(5081) >= 1)
+		{
+			delitem 975,20;
+			delitem 916,300;
+			delitem 5081,1;
+			getitem 5822,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 26:
+		mes "[Asas de Anjo Evoluídas]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "3x "+getitemname(2254);
+		mes "200x "+getitemname(949);
+		mes "10x "+getitemname(982);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(2254) >= 3 && countitem(949) >= 200 && countitem(982) >= 10)
+		{
+			delitem 2254,3;
+			delitem 949,200;
+			delitem 982,10;
+			getitem 5215,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 27:
+		mes "[Boneca de Lif]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "5x "+getitemname(979);
+		mes "50x "+getitemname(1059);
+		mes "200x "+getitemname(521);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(979) >= 5 && countitem(1059) >= 50 && countitem(521) >= 200)
+		{
+			delitem 979,5;
+			delitem 1059,50;
+			delitem 521,200;
+			getitem 5253,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 28:
+		mes "[Chapéu de Lamen]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "100x "+getitemname(7299);
+		mes "1x "+getitemname(7478);
+		mes "10x "+getitemname(1544);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(7299) >= 100 && countitem(7478) >= 1 && countitem(1544) >= 10)
+		{
+			delitem 7299,100;
+			delitem 7478,1;
+			delitem 1544,10;
+			getitem 5293,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 29:
+		mes "[Coroa de Ouro]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "30x "+getitemname(969);
+		mes "50x "+getitemname(726);
+		mes "25x "+getitemname(723);
+		mes "1x "+getitemname(5007);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(969) >= 30 && countitem(726) >= 50 && countitem(723) >= 25 && countitem(5007) >= 1)
+		{
+			delitem 969,30;
+			delitem 726,50;
+			delitem 723,25;
+			delitem 5007,1;
+			getitem 5313,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 30:
+		mes "[Boneca de Alice]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "5x "+getitemname(4253);
+		mes "100x "+getitemname(7047);
+		mes "2x "+getitemname(2148);
+		mes "150x "+getitemname(1034);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(4253) >= 5 && countitem(7047) >= 100 && countitem(2148) >= 2 && countitem(1034) >= 150)
+		{
+			delitem 4253,5;
+			delitem 7047,100;
+			delitem 2148,2;
+			delitem 1034,150;
+			getitem 5137,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 31:
+		mes "[Chapéu de Parada]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "150x "+getitemname(7063);
+		mes "5x "+getitemname(978);
+		mes "3x "+getitemname(2229);
+		mes "5x "+getitemname(5009);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(7063) >= 150 && countitem(978) >= 5 && countitem(2229) >= 3 && countitem(5009) >= 5)
+		{
+			delitem 7063,150;
+			delitem 978,5;
+			delitem 2229,3;
+			delitem 5009,5;
+			getitem 5225,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 32:
+		mes "[Diadema Dourada]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "30x "+getitemname(969);
+		mes "5x "+getitemname(976);
+		mes "1x "+getitemname(5149);
+		mes "15x "+getitemname(2233);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(969) >= 30 && countitem(976) >= 5 && countitem(5149) >= 1 && countitem(2233) >= 15)
+		{
+			delitem 969,30;
+			delitem 976,5;
+			delitem 5149,1;
+			delitem 2233,15;
+			getitem 5262,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 33:
+		mes "[Boneca de Denise]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "1x "+getitemname(4058);
+		mes "100x "+getitemname(1034);
+		mes "20x "+getitemname(7441);
+		mes "2x "+getitemname(978);
+		mes "2x "+getitemname(983);
+		mes "2x "+getitemname(982);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(4058) >= 1 && countitem(1034) >= 100 && countitem(7441) >= 20 && countitem(978) >= 2 && countitem(983) >= 2 && countitem(982) >= 2)
+		{
+			delitem 4058,1;
+			delitem 1034,100;
+			delitem 7441,20;
+			delitem 978,2;
+			delitem 983,2;
+			delitem 982,2;
+			getitem 5340,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 34:
+		mes "[Máscara de Fugitivo]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "10x "+getitemname(5005);
+		mes "5x "+getitemname(975);
+		mes "200x "+getitemname(507);
+		mes "150x "+getitemname(7216);
+		mes "200000 Zenys";
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(5005) >= 10 && countitem(975) >= 5 && countitem(507) >= 200 && countitem(7216) >= 150 && Zeny >= 200000)
+		{
+			delitem 5005,10;
+			delitem 975,5;
+			delitem 507,200;
+			delitem 7216,150;
+			set Zeny,Zeny-200000;
+			getitem 5361,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 35:
+		mes "[Yuuko]";
+		mes "Tudo bem, estarei aqui se você mudar de ideia.";
+		close;
+	}
+	mes "[Yuuko]";
+	mes "Me desculpe, mas você não tem todos os itens necessários para esta quest.";
+	mes "Volte quando você tiver todos os itens!";
+	close;
+}
