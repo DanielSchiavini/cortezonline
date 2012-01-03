@@ -334,7 +334,7 @@ prontera,65,47,4	script	Negociante	902,{
 			set .@nomePremio$, "Chifre de Lord Kaho";
 			setarray .@id[0], 5013;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 35;
 			goto L_ENTREGA;	
 			
 			L_47:
