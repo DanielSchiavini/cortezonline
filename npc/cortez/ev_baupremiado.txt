@@ -1,0 +1,166 @@
+quiz_02,250,378,5	script	Saída#20	1002,{
+warp "prontera",76,55;
+}
+
+new_1-1,49,126,6	script	Baú Premiado#2	763,{ 
+
+if(getgmlevel()<69) close;
+if($@Evento>=1){
+		mes "O evento já está acontecendo!";
+		close;
+		} Else {
+
+if(getgmlevel() >= 70) {
+mes "Deseja Iniciar o Evento?";
+if(select("Sim, é Claro!:Agora não...")== 2) {
+mes "Ok, tudo bem.";
+close;
+} Else {
+OnEvento:
+	set $@Evento,$@Evento+1;
+mes "Evento Iniciado!";
+disablenpc "Saída#20";
+atcommand "@shownpc Baú Premiado";
+next;
+close2;
+warp "quiz_02",250,370;
+set Ponto,0;
+killmonsterall "quiz_02";
+killmonsterall "quiz_02";
+killmonsterall "quiz_02";
+killmonsterall "quiz_02";
+Announce "O Evento Baú Premiado foi aberto, em 5 minutos ele começará!",bc_all;
+sleep 5000;
+set $sd_map,1;
+		announce "Estou aguardando no centro da cidade!",bc_all;
+		sleep (55000+60000);
+		announce "O Portal do Evento Baú Premiado se fechará em 3 minutos!",bc_all;
+		sleep 5000;
+		announce "Estou aguardando no centro da cidade!",bc_all;
+		sleep (55000+60000);
+		announce "O Portal do Evento Baú Premiado se fechará em 1 minuto!",bc_all;
+		sleep 5000;
+		announce "Estou aguardando no centro da cidade!",bc_all;
+		sleep 55000;
+		Announce "O Evento Baú Premiado começou!",bc_all;
+		initnpctimer; set $status,0;
+set $@Evento,$@Evento+1;
+disablenpc "Baú Premiado";
+set $sd_map,0; set $mob,150;
+areamonster "quiz_02",226,368,273,368,"Baú Premiado",1732,25,"Baú Premiado#2::OnMobMorte";
+areamonster "quiz_02",226,371,273,371,"Baú Premiado",1732,25,"Baú Premiado#2::OnMobMorte";
+areamonster "quiz_02",226,375,275,375,"Baú Premiado",1732,25,"Baú Premiado#2::OnMobMorte";
+areamonster "quiz_02",226,379,273,379,"Baú Premiado",1732,25,"Baú Premiado#2::OnMobMorte";
+areamonster "quiz_02",226,383,273,383,"Baú Premiado",1732,25,"Baú Premiado#2::OnMobMorte";
+areamonster "quiz_02",226,387,273,387,"Baú Premiado",1732,25,"Baú Premiado#2::OnMobMorte"; end;
+
+OnMobMorte: set $mob,$mob-1;
+set Ponto,Ponto+1;
+if($mob == 50) MapAnnounce "quiz_02","Faltam 50 Baús para começar a Segunda rodada",8;
+if($mob == 25) MapAnnounce "quiz_02","Faltam 25 Baús para começar a Segunda rodada",8;
+if($mob == 0) MapAnnounce "quiz_02","Todos os Baús de foram abertos, Começa agora a Segunda Rodada",8;
+if($mob == 0) goto OnSorte02; end;
+
+OnSorte02: if(status ==1) end; set $mob,72;
+areamonster "quiz_02",226,368,273,368,"Baú Premiado",1732,18,"Baú Premiado#2::OnMobMorte2";
+areamonster "quiz_02",226,373,273,373,"Baú Premiado",1732,18,"Baú Premiado#2::OnMobMorte2";
+areamonster "quiz_02",226,378,273,378,"Baú Premiado",1732,18,"Baú Premiado#2::OnMobMorte2";
+areamonster "quiz_02",226,386,273,386,"Baú Premiado",1732,18,"Baú Premiado#2::OnMobMorte2";
+end;
+OnMobMorte2: set $mob,$mob-1;
+set Ponto,Ponto+5;
+if($mob == 25) MapAnnounce "quiz_02","Faltam 25 Baús para começar a Terceira rodada",8;
+if($mob == 5) MapAnnounce "quiz_02","Faltam 5 Baús para começar a Terceira rodada",8;
+if($mob == 0) MapAnnounce "quiz_02","Todos os Baús foram abertos, Começa agora a Terceira rodada",8;
+if($mob == 0) goto OnSorte03; end;
+
+OnSorte03: set $mob,25;
+areamonster "quiz_02",226,368,273,368,"Baú Premiado",1732,6,"Baú Premiado#2::OnMobMorte3";
+areamonster "quiz_02",226,373,273,373,"Baú Premiado",1732,6,"Baú Premiado#2::OnMobMorte3";
+areamonster "quiz_02",226,378,273,378,"Baú Premiado",1732,6,"Baú Premiado#2::OnMobMorte3";
+areamonster "quiz_02",226,386,273,386,"Baú Premiado",1732,7,"Baú Premiado#2::OnMobMorte3";
+OnMobMorte3: set $mob,$mob-1;
+set Ponto,Ponto+15;
+if($mob == 10) MapAnnounce "quiz_02","Faltam 10 Baús para acabar o evento",8;
+if($mob == 5) MapAnnounce "quiz_02","Faltam 5 Baús para acabar o evento",8;
+if($mob == 0) MapAnnounce "quiz_02","Todos os Baús foram abertos.",8;
+if($mob == 0) goto OnSorte04; end;
+
+OnSorte04:
+atcommand "@shownpc Saída#20";
+Announce "O evento terminou Confira seus sub tickets e troque por Tickets de Evento.",8; 
+
+set $@Evento,$@Evento-2;
+set $@Evento, 0;
+disablenpc "Baú Premiado";
+end;
+}
+}
+}
+}
+prontera,65,63,3	script	Baú Premiado	989,{
+if(getgmlevel() > 69) {
+if($@Evento!=1){
+		disablenpc "Baú Premiado";
+		}
+		Else {
+		atcommand "@shownpc Baú Premiado"; }
+		}
+if(getgmlevel() > 69) goto ADM;
+if(getgmlevel() >= 10){ warp "quiz_02",250,370; end; }
+if(getgmlevel() >= 0) {
+set .nome$,"[^FFD700Baú de Premios^000000]";
+mes .nome$;
+mes "O que deseja fazer?";
+mes "Aviso - Você não pode entrar nesse evento usando Carta Bafomé";
+if(Select("Nada","Entrar no Evento"))== 1{
+mes "Ok...";
+close;
+} Else {
+
+next;
+if($sd_map == 1){
+if(checkequipedcard(4147) >= 1) goto sembap;
+if(countitem(4147) >= 1) goto sembap;
+if(checkfalcon()) {
+mes .nome$;
+mes "Hum...";
+mes "Você não pode entrar nesse evento com seu falção";
+mes "solte ele e tente entra novamente no evento.";
+close;
+}
+
+if($sd_map == 0){ mes .nome$; mes "^ff6600O evento Baú Premiado não está aberto, espere até que um [GM] abra.^000000"; close; }
+mes .nome$; 
+mes "^ff6600Bom evento.^000000"; 
+sc_start SC_AGIFood, 800000, 100;
+if(sex == 1){ warp "quiz_02",250,370; end; } 
+warp "quiz_02",250,370; end; }
+if($open == 0) goto aberto;
+close;
+
+aberto:
+next;
+mes "Bom evento";
+next;
+warp "quiz_02",250,370;
+close;
+}
+sembap:
+mes .nome$;
+mes "Guarde sua Carta Bafomé no Armazem";
+close;
+}
+
+ADM:
+mes .nome$;
+mes "O que deseja fazer ^FF4500"+strcharinfo(0)+"^000000?";
+switch(Select( "Entrar no evento","Nada")){
+
+case 1:
+warp "quiz_02",250,370; end;
+case 2:
+mes "Ok...";
+close;
+}
+}

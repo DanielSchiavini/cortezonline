@@ -1,0 +1,148 @@
+// Script desenvolvido por SOLA e BRUNIM
+// Modificado para entrega de sub ticket por Marcos.
+
+new_1-1,63,123,1	script	Entregador de Sub Tickets	802,{
+	if(getgmlevel()<10) close;
+	set .max_premios, 18;
+	
+	mes	"[^660066 Entregador Sub Tickets ^000000]";
+	if($premios_dia>=.max_premios){ // Eventos extras com double rate
+		mes "Os "+.max_premios+" prêmios de hoje foram esgotados.";
+		close;
+	}else{
+		mes "Olá, Sr. GM, você gostaria de premiar alguém?";
+		mes "Ainda podemos dar " + (.max_premios-$premios_dia) + " prêmios hoje";
+	}
+	menu "Sim",-,"Não",L_Fail;
+	
+	L_INICIO:
+		set .@account_id, 0;
+		while(.@vencedor$!="fim" && .@account_id==0){
+			next;
+			mes	"[^660066 Entregador de Sub Tickets ^000000]";
+			mes "Digite o nome do vencedor (fim para cancelar)";
+			input .@vencedor$; //localizando o vencedor
+			set .@account_id, getcharid(3, .@vencedor$);
+			if(!.@account_id)
+				mes .@vencedor$+" não localizado";
+			else if(!isloggedin(.@account_id))
+				mes .@vencedor$+" está offline";
+			else if(.@vencedor$!=rid2name(.@account_id))
+				mes .@vencedor$+" está online no personagem "+rid2name(.@account_id);
+		}
+		if(.@account_id==0) close;
+		set .@vencedor$, rid2name(.@account_id);
+		set .@account_gm, getcharid(3);
+		next;
+		goto L_Escolha;
+
+	L_Escolha:
+		mes "Digite a quantidade de Sub Tickets";
+		input .@qtde[0];
+		if(.@qtde[0]==0)
+			goto L_INICIO;
+		else if(.@qtde[0]==1)
+			set .@nomePremio$, .@qtde[0]+" Sub Ticket de evento";
+		else
+			set .@nomePremio$, .@qtde[0]+" Sub Ticket de evento";
+		setarray .@id[0], 7486;
+		goto L_ENTREGA;
+
+	
+	L_ENTREGA:
+		next;
+		set @qtde, 0;
+		for(set @i, 0; @i < getarraysize(.@id); set @i,@i+1)
+			set @qtde, @qtde + .@qtde[@i];
+		if($premios_dia + @qtde >= .max_premios){
+			mes "Você está entregando itens demais.";
+			mes "O limite diário é "+.max_premios+" mas já foram entregues "+$premios_dia+" prêmios.";
+			close;
+		}
+		mes	"[^660066 Entregador de Prêmios ^000000]";
+		mes "Você dará ^FF9933"+.@nomePremio$+"^000000 para o jogador ^FF9933"+.@vencedor$+"^000000.";
+		mes "Tem certeza?";
+		menu "Sim",-,"Não",L_Escolha;
+		next;
+		mes	"[^660066 Entregador de Prêmios ^000000]";
+		mes "Qual o evento motivo da entrega deste prêmio?";
+		input .@justificativa$;
+		if(.@justificativa$!="") set .@justificativa$, " ("+.@justificativa$+")";
+		
+		if(isloggedin(.@account_id)){
+			close2;
+			warp "new_1-1",60,116;//Jogador ficava travado, não consegui resolver de outra forma
+			
+			if(attachrid(.@account_id)){
+				set @peso, 0;
+				for(set @i, 0; @i < getarraysize(.@id); set @i,@i+1)
+					set @peso, @peso + getiteminfo(.@id[@i],6)*.@qtde[@i];
+				
+				if(MaxWeight/2-Weight>@peso){
+					for(set @i, 0; @i < getarraysize(.@id); set @i,@i+1)
+						getitem .@id[@i], .@qtde[@i];
+					announce "O jogador "+strcharinfo(0)+" recebeu "+.@nomePremio$+" como premiação!"+.@justificativa$,bc_all;
+					logmes "[Premio] Recebeu "+.@nomePremio$+" de "+rid2name(.@account_gm)+.@justificativa$+" ("+.@qtde[0]+"x"+.@id[0]+")";
+					set $premios_dia, $premios_dia+.@qtde[@i];
+				}else{
+					message rid2name(.@account_gm),"Entregador de Sub Tickets: O jogador estava acima do peso!";
+					message strcharinfo(0),"Seu prêmio "+.@nomePremio$+" não foi entregue pois você está com muito peso!";
+					message strcharinfo(0),"Por favor libere "+((@peso+Weight-MaxWeight/2)/10)+" de peso e peça para "+rid2name(.@account_gm)+" tentar novamente!";
+				}
+			}else{
+				message rid2name(.@account_gm),"O jogador não pôde ser contactado";
+			}
+			end;
+		}else{
+			mes	"[^660066 Entregador de Sub Tickets ^000000]";
+			mes "O jogador não pôde ser contactado";
+		}
+		
+	L_FAIL:
+		close;
+	
+	OnClock0400:
+		set $premios_dia, 0;
+}
+
+
+prontera,47,49,1	script	Trocador de Sub Tickets	73,{
+mes "[^660066 Trocador de Sub Tickets ^000000]";
+mes "Olá, estou aqui para trocar seus sub tickets por tickets de eventos!";
+mes "isso te agrada?";
+next;
+if(select("Sim, é claro:Não, obrigado.")==2) {
+mes "[^660066 Trocador de Sub Tickets ^000000]";
+mes "Ok, tudo bem";
+close;
+} Else {
+mes "[^660066 Trocador de Sub Tickets ^000000]";
+mes "Para trocar os seus sub tickets por tickets normais, Eu vou precisar de 4 sub tickets.";
+next;
+mes "[^660066 Trocador de Sub Tickets ^000000]";
+mes "Deseja trocar?";
+if(select("Sim, desejo trocar!:Não, obrigado.")==2) {
+next;
+mes "[^660066 Trocador de Sub Tickets ^000000]";
+mes "Quando precisar dos meus serviços, estarei a disposição!";
+close;
+} Else {
+next;
+
+if(countitem(7486) >= 4)
+		{
+			delitem 7486,4;
+			getitem 7180,1;
+			mes "[Trocador de Sub Tickets]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		Else {
+		mes "[^660066 Trocador de Sub Tickets ^000000]";
+		mes "Você não tem a quantidade de sub tickets necessários...";
+		close;
+		}
+		}
+		}
+		}
+		
