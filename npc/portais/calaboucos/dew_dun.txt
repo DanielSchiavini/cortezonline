@@ -1,0 +1,7 @@
+// nível 1
+
+dew_dun01,294,160,0	warp	dewata_4	1,1,dew_fild01,46,66
+dew_dun01,174,164,0	warp	dewata_5	1,1,dew_dun02,306,31
+
+// nível 2
+dew_dun02,308,31,0	warp	dewata_6	1,1,dew_dun01,174,166
