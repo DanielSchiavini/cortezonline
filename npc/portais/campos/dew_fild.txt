@@ -1,0 +1,2 @@
+dew_fild01,375,213,0	warp	dewata_2	1,1,dewata,45,250
+dew_fild01,48,66,0	warp	dewata_3	1,1,dew_dun01,292,160
