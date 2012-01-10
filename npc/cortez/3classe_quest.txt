@@ -1,0 +1,126 @@
+prontera,45,107,5	script	Third Quests	920,{
+
+set $name$,"^99CC00[Third Quests]^000000";
+
+mes $name$;
+mes "Olá "+StrCharInfo(0)+"!";
+mes "Eu tenho alguns itens interessantes aqui, deseja dar uma olhada?";
+next;
+if( select("Claro!:Talvez mais tarde...") == 2 )
+{
+mes $name$;
+mes "Tudo bem, estarei aqui se você mudar de idéia.";
+close;
+}
+mes $name$;
+mes "Bem, estes são os itens que eu tenho...";
+mes "Sobre qual deles vai querer saber mais?";
+next;
+switch(select("Poder das Runas:Som do Silêncio:Nenhum"))
+{
+case 1:
+mes $name$;
+mes "Para fazer este item, você precisará de:";
+mes "5x "+getitemname(2233);
+mes "1x "+getitemname(12738);
+mes "10x "+getitemname(12725);
+mes "10x "+getitemname(12726);
+mes "10x "+getitemname(12727);
+mes "10x "+getitemname(12728);
+mes "10x "+getitemname(12729);
+mes "10x "+getitemname(12730);
+mes "10x "+getitemname(12731);
+mes "10x "+getitemname(12732);
+mes "10x "+getitemname(13733);
+next;
+mes $name$;
+mes "Deseja fazer esta quest?";
+next;
+if( select("Sim!:Agora não...") == 2 )
+{
+mes $name$;
+mes "Tudo bem... Até mais!";
+close;
+} Else {
+next;
+if(countitem(2233) >= 5 && countitem(12738) >= 1 && countitem(12725) >= 10 && countitem(12726) >= 10 && countitem(12727) >= 10 && countitem(12728) >= 10 && countitem(12729) >= 10 && countitem(12730) >= 10 && countitem(12731) >= 10 && countitem(12732) >= 10 && countitem(12733) >= 10)
+{
+delitem 2233,5;
+delitem 12738,1;
+delitem 12725,10;
+delitem 12726,10;
+delitem 12727,10;
+delitem 12728,10;
+delitem 12729,10;
+delitem 12730,10;
+delitem 12731,10;
+delitem 12732,10;
+delitem 12733,10;
+next;
+getitem 5746,1;
+next;
+mes $name$;
+mes "Parabéns!";
+mes "Aqui está a sua recompensa!";
+close;
+}
+}
+break;
+case 2:
+mes $name$;
+mes "Para fazer este item, você precisará de:";
+mes "50x "+getitemname(12717);
+mes "50x "+getitemname(12718);
+mes "50x "+getitemname(12719);
+mes "50x "+getitemname(12720);
+mes "50x "+getitemname(12721);
+mes "50x "+getitemname(12722);
+mes "50x "+getitemname(12723);
+mes "50x "+getitemname(12724);
+mes "50x "+getitemname(6128);
+mes "5x "+getitemname(678);
+mes "200x "+getitemname(7568);
+next;
+mes $name$;
+mes "Deseja fazer esta quest?";
+next;
+if( select("Sim!:Agora não...") == 2 )
+{
+mes $name$;
+mes "Tudo bem... Até mais!";
+close;
+} Else {
+if(countitem(12717) >= 50 && countitem(12718) >= 50 && countitem(12719) >= 50 && countitem(12720) >= 50 && countitem(12721) >= 50 && countitem(12722) >= 50 && countitem(12723) >= 50 && countitem(12724) >= 50 && countitem(6128) >= 50 && countitem(678) >= 5 && countitem(7568) >= 200)
+{
+delitem 12717,50;
+delitem 12718,50;
+delitem 12719,50;
+delitem 12720,50;
+delitem 12721,50;
+delitem 12722,50;
+delitem 12723,50;
+delitem 12724,50;
+delitem 6128,50;
+delitem 678,5;
+delitem 7568,200;
+next;
+getitem 5755,1;
+next;
+mes $name$;
+mes "Parabéns!";
+mes "Aqui está a sua recompensa!";
+close;
+} 
+}
+break;
+case 3:
+mes $name$;
+mes "Tudo bem, estarei aqui se você mudar de idéia.";
+close;
+}
+mes $name$;
+mes "Me desculpe, mas você não tem todos os itens necessários para esta quest.";
+next;
+mes "Volte quando você tiver todos os itens!";
+close;
+}
