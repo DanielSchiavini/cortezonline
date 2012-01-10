@@ -18,7 +18,7 @@
 //=====================================================================
 
 //======= Coordenadas
-prontera.gat,67,68,5	script	Fenrir	742,{
+prontera.gat,67,68,5	script	Fenrir	65,{
 
 
 //======= Config
