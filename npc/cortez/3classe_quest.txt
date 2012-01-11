@@ -31,7 +31,7 @@ mes "10x "+getitemname(12729);
 mes "10x "+getitemname(12730);
 mes "10x "+getitemname(12731);
 mes "10x "+getitemname(12732);
-mes "10x "+getitemname(13733);
+mes "10x "+getitemname(12733);
 next;
 mes $name$;
 mes "Deseja fazer esta quest?";
