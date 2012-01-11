@@ -1,8 +1,9 @@
 // Script desenvolvido por SOLA e BRUNIM
 // Modificado para entrega de sub ticket por Marcos.
 
-new_1-1,63,123,1	script	Entregador de Sub Tickets	802,{
-	if(getgmlevel()<10) close;
+new_1-1,63,123,1	script	Sub Tickets	802,{
+OnWhisperGlobal:
+	if(getgmlevel()<15) close;
 	set .max_premios, 18;
 	
 	mes	"[^660066 Entregador Sub Tickets ^000000]";
