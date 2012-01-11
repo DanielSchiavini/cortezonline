@@ -1,7 +1,9 @@
 // Script desenvolvido por SOLA e BRUNIM
+// Revisado por Marcos com algumas simplificações adicionadas.
 
-new_1-1,65,116,1	script	Entregador de Prêmios	902,{
-	if(getgmlevel()<10) close;
+new_1-1,65,116,1	script	Tickets	902,{
+OnWhisperGlobal:
+	if(getgmlevel()<15) close;
 	set .max_premios, 6;
 	
 	mes	"[^660066 Entregador de Prêmios ^000000]";
