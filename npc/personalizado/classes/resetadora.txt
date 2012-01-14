@@ -14,7 +14,7 @@
 //= 2.2 Otimizado script [Mara]
 //============================================================
 
-prontera,48,58,0	script	Resetadora	77,{
+gonryun,135,138,0	script	Resetadora	77,{
 
 //===== Configurações: =======================================
 if(getgmlevel()>=5){
