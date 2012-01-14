@@ -15,8 +15,8 @@
 
 // GvG Arenas =============
 guild_vs1	mapflag	gvg
-guild_vs2	mapflag	gvg
-guild_vs3	mapflag	gvg
+//guild_vs2	mapflag	gvg
+//guild_vs3	mapflag	gvg
 guild_vs4	mapflag	gvg
 //guild_vs5	mapflag	gvg
 
