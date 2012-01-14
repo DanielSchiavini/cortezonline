@@ -83,19 +83,19 @@ einbroch,59,203,6	script	Funcionária Kafra#ein1::kaf_einbroch2	861,{
 }
 
 // Gonryun -----------------------------------------------------------------
-gonryun,159,122,4	script	Funcionária Kafra::kaf_gonryun	116,{
-	cutin "kafra_02",2;
-	mes "[Kafra Recepcionista]";
-	mes "Bem-vindo à Corporação Kafra.";
-	mes "Nós sempre estamos ao seu lado.";
-	mes "Em que posso ajudar?";
-	callfunc "F_Kafra",5,3,1,50,700;
-
-	M_Save:
-		savepoint "gonryun",160,62;
-		callfunc "F_KafEnd",0,1,"na cidade de Kunlun";
-}
-
+//gonryun,159,122,4	script	Funcionária Kafra::kaf_gonryun	116,{
+//	cutin "kafra_02",2;
+//	mes "[Kafra Recepcionista]";
+//	mes "Bem-vindo à Corporação Kafra.";
+//	mes "Nós sempre estamos ao seu lado.";
+//	mes "Em que posso ajudar?";
+//	callfunc "F_Kafra",5,3,1,50,700;
+//
+//	M_Save:
+//		savepoint "gonryun",160,62;
+//		callfunc "F_KafEnd",0,1,"na cidade de Kunlun";
+//}
+//
 // Lighthalzen--------------------------------------------------------------
 
 //Outside the hotel
