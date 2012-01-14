@@ -107,7 +107,7 @@ OnWhisperGlobal:
 }
 
 
-prontera,47,49,1	script	Trocador de Sub Tickets	73,{
+gonryun,151,86,1	script	Trocador de Sub Tickets	73,{
 mes "[^660066 Trocador de Sub Tickets ^000000]";
 mes "Olá, estou aqui para trocar seus sub tickets por tickets de eventos!";
 mes "isso te agrada?";
@@ -118,7 +118,7 @@ mes "Ok, tudo bem";
 close;
 } Else {
 mes "[^660066 Trocador de Sub Tickets ^000000]";
-mes "Para trocar os seus sub tickets por tickets normais, Eu vou precisar de 4 sub tickets.";
+mes "Para trocar os seus sub tickets por tickets normais, Eu vou precisar de 3 sub tickets.";
 next;
 mes "[^660066 Trocador de Sub Tickets ^000000]";
 mes "Deseja trocar?";
@@ -130,9 +130,9 @@ close;
 } Else {
 next;
 
-if(countitem(7486) >= 4)
+if(countitem(7486) >= 3)
 		{
-			delitem 7486,4;
+			delitem 7486,3;
 			getitem 7180,1;
 			mes "[Trocador de Sub Tickets]";
 			mes "Parabéns! Aqui está!";

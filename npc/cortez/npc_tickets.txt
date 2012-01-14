@@ -1,4 +1,4 @@
-prontera,65,47,4	script	Negociante	902,{
+gonryun,147,113,4	script	Negociante	902,{
 	
 	mes	"[^660066 Negociante ^000000]";
 	mes "Olá!";

@@ -17,14 +17,14 @@
 //= Module are used.
 //============================================================ 
 
-prontera,96,64,5	script	Anunciante	89,{
+gonryun,165,128,5	script	Anunciante	89,{
 	set $@globalFactor, 1000; //10x
 	set $@bc_showOnline, 1;
 	set @name$, "Anunciante";
 	mes "["+@name$+"]";
 	mes "Olá caro jogador! Eu posso te ajudar a comunicar algo para os outros jogadores!";
 	next;
-	callfunc("F_keBroadcast","prontera");
+	callfunc("F_keBroadcast","gonryun");
 	close;
 }
 

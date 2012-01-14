@@ -1,4 +1,4 @@
-prontera,75,80,3	script	Yuuko	728,{
+gonryun,185,93,3	script	Yuuko	728,{
 	mes "[Yuuko]";
 	mes "Olá "+StrCharInfo(0)+"!";
 	mes "Eu tenho alguns itens interessantes aqui, deseja dar uma olhada?";

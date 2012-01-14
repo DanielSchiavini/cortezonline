@@ -1,4 +1,4 @@
-prontera,45,107,5	script	Third Quests	920,{
+gonryun,124,108,5	script	Third Quests	920,{
 
 set $name$,"^99CC00[Third Quests]^000000";
 

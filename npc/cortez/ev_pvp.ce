@@ -238,7 +238,7 @@ new_1-1,47,117,5	script	Senhor do PvP#1	52,{
 	end;
 }
 
-prontera,69,57,5	script	Senhor do PvP#2	52,{
+gonryun,156,115,5	script	Senhor do PvP#2	52,{
 	if ($eventopvp == 0) goto SEMEVENTO;
 	if (reborn == 0) set reborn, 1;
 	if (reborn-1 < $levelminimo || reborn-1 > $levelmaximo) goto SEMLEVEL;

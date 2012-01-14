@@ -21,7 +21,7 @@
 //= 1.4 - Refeito NPC. [Mara]
 //= 1.5 - Adicionada classes 3-1 e 3-2. [Mara]
 //============================================================
-prontera,78,62,4	script	Mestra das Classes	864,{
+gonryun,154,122,4	script	Mestra das Classes	864,{
 
 	mes "[Mestra das Classes]";
 	if (Class > 22 && Class < 26 || Class > 4029 && Class < 4046 || Class > 4046 && Class < 4080)

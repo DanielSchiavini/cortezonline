@@ -98,14 +98,13 @@ end;
 }
 }
 }
-prontera,65,63,3	script	Baú Premiado	989,{
-if(getgmlevel() > 69) {
+gonryun,158,113,3	script	Baú Premiado	989,{
 if($@Evento!=1){
 		disablenpc "Baú Premiado";
 		}
 		Else {
+		if(getgmlevel() > 69)
 		atcommand "@shownpc Baú Premiado"; }
-		}
 if(getgmlevel() > 69) goto ADM;
 if(getgmlevel() >= 10){ warp "quiz_02",250,370; end; }
 if(getgmlevel() >= 0) {

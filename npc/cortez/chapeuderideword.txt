@@ -5,7 +5,7 @@
 //== Autor: ===================================
 //== RoM
 //=============================================
-prontera,50,292,6	script	Viajante	50,{
+gonryun,175,74,6	script	Viajante	50,{
 	mes "[Viajante]";
 	mes "Olá "+StrCharInfo(0)+"!";
 	mes "Eu tenho alguns itens interessantes aqui, deseja dar uma olhada?";
