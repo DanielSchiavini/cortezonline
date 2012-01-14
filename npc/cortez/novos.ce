@@ -41,7 +41,7 @@ gonryun,159,122,3	script	Funcionária Kafra::kaf_cortez	112,{
 	callfunc "F_Kafra",5,9,0,40,800;
 
 M_Save:
-	savepoint "gonryun",72,55;
+	savepoint "gonryun",159,115;
 	callfunc "F_KafEnd",0,1,"na cidade de Cortez";
 }
 
