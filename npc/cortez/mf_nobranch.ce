@@ -205,7 +205,7 @@ guild_vs1-1	mapflag	nobranch
 guild_vs1-2	mapflag	nobranch
 guild_vs1-3	mapflag	nobranch
 guild_vs1-4	mapflag	nobranch
-guild_vs2	mapflag	nobranch
+//guild_vs2	mapflag	nobranch
 guild_vs2-1	mapflag	nobranch
 guild_vs2-2	mapflag	nobranch
 guild_vs3	mapflag	nobranch

@@ -13,17 +13,14 @@ end;
 			announce "[WoE] Atenção para os horários da guerra do emperium no servidor "+$serv$+"!!!",bc_all;
 			sleep 3000;
 			if($serv$=="Supreme"){
-				announce "[WoE] Quarta-feira, das 20h às 22h, com 2 castelos em prontera (1.0)",bc_all;
+				announce "[WoE] Terças às 19h e quintas às 20h no castelo Astrum (1.0)",bc_all;
 				sleep 3000;
-				announce "[WoE] Sábado, das 14h às 16h, com um castelo em Arunafeltz (2.0)",bc_all;
-				sleep 3000;
-				announce "[WoE] Domingo, das 20h às 22h, com um castelo em Geffen (1.0)",bc_all;
+				announce "[WoE] Domingo às 20h no castelo Himinn (2.0)",bc_all;
+				
 			}else{
-				announce "[WoE] Terça-feira, das 20h às 22h, com 2 castelos em prontera (1.0)",bc_all;
+				announce "[WoE] Terças às 19h e quintas às 20h no castelo Astrum (1.0)",bc_all;
 				sleep 3000;
-				announce "[WoE] Sexta-feira, das 20h às 22h, com um castelo em Arunafeltz (2.0)",bc_all;
-				sleep 3000;
-				announce "[WoE] Domingo, das 14h às 16h, com um castelo em Geffen (1.0)",bc_all;
+				announce "[WoE] Domingo às 20h no castelo Himinn (2.0)",bc_all;
 			}
 			break;
 		case 3:
