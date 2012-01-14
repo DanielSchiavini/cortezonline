@@ -14,7 +14,7 @@
 //= 1.3a Removido show [Keoy]
 //============================================================
 
-prontera,88,63,6	script	Habilidades de Platina	94,{
+gonryun,169,123,6	script	Habilidades de Platina	94,{
 
 //========== Configuração: ==========
 // Custo para receber as habilidades:

@@ -15,7 +15,7 @@
 //= 1.4 Otimizado [Mara]
 //============================================================
 
-prt_in,28,73,4	script	Velha Sábia	863,{
+gonryun,135,114,4	script	Velha Sábia	863,{
 
 //===== Configurações: =======================================
 set .@falhar, 0;	// A remoção pode falhar? [1=Sim/0=Não]

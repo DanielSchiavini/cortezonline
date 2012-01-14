@@ -166,11 +166,12 @@ set @smais,	1;	// Exibir calabouços no menu? (Nota 1)
 			mes "[Teletransportadora]";
 			mes "Selecione o seu destino:";
 			next;
-			switch (select ("Mapa PvP","Astrum","Himinn"))
+			switch (select ("Mapa PvP","Astrum","Himinn","Sala do Galho Seco"))
 			{
-				case 1: callsub F_DoWarp, "poring_w01", 0,0;
+				case 1: callsub F_DoWarp, "guild_vs3", 0,0;
 				case 2: callsub F_DoWarp, "alde_gld", 95, 243;
 				case 3: callsub F_DoWarp, "sch_gld", 287, 115;
+				case 4: callsub F_DoWarp, "guild_vs2", 0,0;
 			}
 	}
 	
@@ -188,7 +189,8 @@ set @smais,	1;	// Exibir calabouços no menu? (Nota 1)
 
 //===== Duplicações: =========================================
 //Cortez
-prontera,76,62,4	duplicate(cWarp)	Teletransportadora#99	721
+//prontera,76,62,4	duplicate(cWarp)	Teletransportadora#99	721
+gonryun,157,122,4	duplicate(cWarp)	Teletransportadora#11	721
 
 //Cidades 
 alberta,187,147,4	duplicate(cWarp)	Teletransportadora#02	721
@@ -200,7 +202,7 @@ einbroch,59,205,4	duplicate(cWarp)	Teletransportadora#07	721
 einbroch,243,189,2	duplicate(cWarp)	Teletransportadora#08	721
 einbech,135,249,4	duplicate(cWarp)	Teletransportadora#09	721
 geffen,113,64,6	duplicate(cWarp)	Teletransportadora#10	721
-gonryun,156,122,4	duplicate(cWarp)	Teletransportadora#11	721
+//gonryun,156,122,4	duplicate(cWarp)	Teletransportadora#11	721
 izlude,133,117,4	duplicate(cWarp)	Teletransportadora#12	721
 hugel,88,151,5	duplicate(cWarp)	Teletransportadora#13	721
 lighthalzen,155,79,6	duplicate(cWarp)	Teletransportadora#14	721

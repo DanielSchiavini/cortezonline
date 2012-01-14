@@ -12,7 +12,7 @@
 //= 1.2 Realizada outra otimização [Mara]
 //= 1.3 Adicionado suporte a Warg, Mado e Grifo. [Mara]
 //=====================================================================
-prontera,54,80,5	script	Garota Negociante	90,{
+gonryun,148,130,5	script	Garota Negociante	90,{
 
 	// Preço do aluguel em zeny. Deixe 0 para que seja grátis.
 	set .@preco, 2000;

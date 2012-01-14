@@ -13,7 +13,7 @@
 //= 1.1b Corrigida sintaxe na frase de boas-vindas do NPC [Mara]
 //============================================================
 
-prontera,170,180,1	script	Estilista	122,{
+gonryun,186,159,1	script	Estilista	122,{
 	mes "[^FF0000Estilista^000000]";
 	mes "Bem-vind"+ (Sex?"o":"a") +" "+strcharinfo(0)+",";
 	mes "o que você gostaria de alterar?";
