@@ -17,7 +17,7 @@
 //= 1.5e Mais otimizações [Mara]
 //============================================================ 
 
-prontera,46,75,5	script	Banqueiro	109,{
+gonryun,188,136,5	script	Banqueiro	109,{
 
 //========== Configurações: ==================================
 set .@custo,	0;			//Custo de cada transferência.
