@@ -81,7 +81,7 @@
 
 // Ano novo Chinês
 7484,123,100 // Símbolo do Guerreiro
-7486,123,100 // Passe para o 3º Andar
+7486,91,100 // Passe para o 3º Andar
 
 // "Kiel Hyre's Cottage" Quest related items
 7487,123,100 // Vinho para Culinária
