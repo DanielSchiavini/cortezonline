@@ -1,5 +1,5 @@
 quiz_02,250,378,5	script	Saída#20	1002,{
-warp "prontera",76,55;
+warp "gonryun",159,114;
 }
 
 new_1-1,49,126,6	script	Baú Premiado#2	763,{ 
