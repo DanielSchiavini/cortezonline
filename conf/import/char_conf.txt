@@ -2,7 +2,7 @@
 char_new_display: 0
 autosave_time: 30 // salva clans a cada 30 segundos
 
-start_point: prontera,76,55
+start_point: gonryun,159,114
 start_weapon: 1201
 start_armor: 2301
 start_zeny: 0
