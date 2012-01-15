@@ -35,7 +35,7 @@
 // Version 23 is the latest Sakexe (above versions are for Renewal clients)
 
 //packet_db_ver: default
-packet_db_ver: 26
+packet_db_ver: 25
 
 packet_ver: 5
 0x0064,55

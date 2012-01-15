@@ -1558,6 +1558,7 @@
 2703,Anel_do_Especialista,Anel do Especialista,5,10000,,150,,0,,1,0xFFFFFFFE,2,2,136,,50,0,0,{ bonus bDelayRate,-5; bonus bUseSPrate,5; },{},{}
 2707,Gusli,Gusli,5,20,,100,,0,,0,0xFFFFFFFF,7,2,136,,0,0,0,{},{},{}
 2710,Bola de Ferro Ensangüentada [A],Bola de Ferro Ensangüentada [A],5,0,,0,,0,,0,0xFFFFFFFE,7,2,136,,1,0,0,{ bonus bBaseAtk,30; },{},{}
+2711,Anel_Espiritual_C,Anel Espiritual,5,1,,0,,0,,1,0xFFFFFFFF,7,2,136,,0,0,0,{ bonus bInt,2; bonus bDex,2; if(isequipped(2607) || isequipped(2608) || isequipped(2626)) { bonus2 bSkillAtk,"AL_HEAL",50; bonus2 bSkillAtk,"PR_MAGNUS",30; bonus bSPrecovRate,9; } },{},{}
 2715,Anel de Caveira,Anel de Caveira,5,10000,,100,,0,,1,0xFFFFFFFF,7,2,136,,0,0,0,{ bonus2 bSubRace,RC_Undead,1; },{},{}
 2716,Luva de Bibliotecário,Luva de Bibliotecário,5,20,,100,,0,,1,0x00810200,7,2,136,,0,0,0,{ bonus bMaxSP,20; if ((isequipped(1572) || isequipped(1573)) && isequipped(2717)) { bonus bInt,5; bonus bMaxHP,700; bonus bAspdRate,5; } },{},{}
 2717,Relógio de Bolso,Relógio de Bolso,5,20,,200,,0,,0,0x00010204,7,2,136,,80,0,0,{},{},{}
@@ -1648,6 +1649,7 @@
 2824,Manual_do_Mago,Manual do Mago,5,,,100,,0,,0,0x00000001,7,2,136,,1,0,0,{ bonus bMaxSP,100; skill "MG_SRECOVERY",1; skill "MG_COLDBOLT",1; skill "MG_FIREWALL",1; skill "MG_FIREBOLT",1; },{},{}
 2853,Esfera_Telecinética,Esfera Telecinética,5,20,10,200,,2,,0,0xFFFFFFFE,8,2,136,,110,0,0,{ bonus2 bSkillAtk,"SO_PSYCHIC_WAVE",10; bonus bMaxSP,30; bonus bInt,3; bonus bMdef,1; },{},{}
 2854,Luva_de_Alquimia,Luva de Alquimia,5,20,10,100,,1,,0,0xFFFFFFFF,8,2,136,,125,0,0,{ bonus2 bSkillAtk,"WL_CRIMSONROCK",10; bonus2 bSkillAtk,"SO_FIREWALK",10; bonus bInt,1; autobonus "{ bonus3 bAutoSpell,MG_FIREBALL,5,100; }",50,100,BF_MAGIC,"{ specialeffect2 EF_FIREBALL; }"; },{},{}
+2855,Rabo_de_Gato_Preto,Rabo de Gato Preto,5,20,,100,,0,,0,0xFFFFFFFF,7,2,136,,45,0,0,{},{},{}
 2892,Assassin's_Glove,Assassin's Glove,5,20,,400,,3,,0,0x00001000,8,2,136,,100,0,0,{ bonus bMaxSP,20; bonus bCritical,3; if(isequipped(1284)){ bonus bBaseAtk,50; bonus2 bSkillAtk,"AS_SONICBLOW",50; bonus bFlee,-30; } if(isequipped(1285)){ bonus bCritAtkRate,40; bonus bCritical,4; bonus bMaxHPRate,-10; } },{},{}
 //=============================================================
 // Cartas
@@ -4043,9 +4045,9 @@
 12388,Runa Raido para Iniciantes,Runa Raido para Iniciantes,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
 12389,Runa Wyrd para Iniciantes,Runa Wyrd para Iniciantes,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
 12390,Runa Berkana para Iniciantes,Runa Berkana para Iniciantes,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
-12392,Reparador_Leve,Reparador Leve,2,220,,100,,,,,0xFFFFFFFF,7,2,,,,,,{ itemheal rand(200,300),0; },{},{}
-12393,Reparador_Moderado,Reparador Moderaddo,2,500,,140,,,,,0xFFFFFFFF,7,2,,,,,,{ itemheal rand(300,400),0; },{},{}
-12394,Reparador_Avançado,Reparador Avançado,2,1100,,180,,,,,0xFFFFFFFF,7,2,,,,,,{ itemheal rand(400,500),0; },{},{}
+12392,Reparador_Leve,Reparador Leve,0,220,,70,,,,,0x00000400,8,2,,,,,,{ itemheal rand(200,300),0; },{},{}
+12393,Reparador_Moderado,Reparador Moderado,0,500,,70,,,,,0x00000400,8,2,,,,,,{ itemheal rand(300,400),0; },{},{}
+12394,Reparador_Avançado,Reparador Avançado,0,1100,,70,,,,,0x00000400,8,2,,,,,,{ itemheal rand(400,500),0; },{},{}
 12395,Guloseima Recheada,Guloseima Recheada,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{ pet 1631; },{},{}
 12396,Caixa Surpresa,Caixa Surpresa,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{ if(rand(1,10)==1) itemskill "AL_TELEPORT",1; else if(rand(1,10)==2) itemskill "AL_TELEPORT",3; else if(rand(1,10)==3) percentheal 50,0; else if(rand(1,10)==4) percentheal 0,50; else if(rand(1,10)==5) end; else if(rand(1,10)==6) getitem 512,1; else if(rand(1,10)==7) itemskill "ALL_REVERSEORCISH",1; else if(rand(1,10)==8) specialeffect2 247; else if(rand(1,10)==9) specialeffect2 338; else specialeffect2 10; },{},{}
 12397,Caixa Surpresa,Caixa Surpresa,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{ if(rand(1,10)==1) itemskill "TF_DETOXIFY",1; else if(rand(1,10)==2) itemskill "TF_PICKSTONE",1; else if(rand(1,10)==3) itemskill "BA_FROSTJOKER",1; else if(rand(1,10)==4) itemskill "DC_SCREAM",1; else if(rand(1,10)==5) end; else if(rand(1,10)==6) getitem 909,1; else if(rand(1,10)==7) itemskill "AL_RUWACH",1; else if(rand(1,10)==8) specialeffect2 328; else if(rand(1,10)==9) specialeffect2 68; else specialeffect2 196; },{},{}

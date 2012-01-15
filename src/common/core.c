@@ -187,7 +187,7 @@ static void display_title(void)
 	ShowMessage(""CL_XXBL"          ("CL_BOLD"              \\/                   \\/           \\/       "CL_XXBL")"CL_CLL""CL_NORMAL"\n");
 	ShowMessage(""CL_XXBL"          ("CL_BT_RED"                          Renewal                        "CL_XXBL")"CL_CLL""CL_NORMAL"\n");
 	ShowMessage(""CL_XXBL"          ("CL_BOLD"                  www.cronus-emulator.com                "CL_XXBL")"CL_CLL""CL_NORMAL"\n");
-	ShowMessage(""CL_XXBL"          ("CL_BT_YELLOW"      Baseado no eAthena (c) 2005-2011 Projeto Cronus    "CL_XXBL")"CL_CLL""CL_NORMAL"\n");
+	ShowMessage(""CL_XXBL"          ("CL_BT_YELLOW"      Baseado no eAthena (c) 2005-2012 Projeto Cronus    "CL_XXBL")"CL_CLL""CL_NORMAL"\n");
 	ShowMessage(""CL_XXBL"          ("CL_BOLD"                                                         "CL_XXBL")"CL_CLL""CL_NORMAL"\n");
 	ShowMessage(""CL_WTBL"          (=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=)"CL_CLL""CL_NORMAL"\n\n");
 
@@ -199,9 +199,7 @@ void usercheck(void)
 {
 #ifndef _WIN32
     if ((getuid() == 0) && (getgid() == 0)) {
-	ShowWarning ("Você está executando o Cronus como root.\n");
-	ShowWarning ("É desnecessário e inseguro executar o Cronus com privilégios root.\n");
-	sleep(3);
+	ShowWarning ("Você está executando o Cronus como root, o que é desnecessário.\n");
     }
 #endif
 }

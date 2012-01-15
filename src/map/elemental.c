@@ -264,8 +264,8 @@ int elemental_clean_single_effect(struct elemental_data *ed, int skill_num)
 			case SC_SOLID_SKIN_OPTION:
 			case SC_CURSED_SOIL_OPTION:
 			case SC_STONE_SHIELD_OPTION:
-			case SC_UPHEAVAL_OPTION:				
-			case SC_CIRCLE_OF_FIRE_OPTION:			
+			case SC_UPHEAVAL_OPTION:
+			case SC_CIRCLE_OF_FIRE_OPTION:
 			case SC_TIDAL_WEAPON_OPTION:
 				if( bl ) status_change_end(bl,type,-1);	// Master
 				status_change_end(&ed->bl,type-1,-1);	// Elemental Spirit
@@ -288,7 +288,7 @@ int elemental_clean_effect(struct elemental_data *ed)
 	nullpo_ret(ed);
 
 	// Elemental side
-	status_change_end(&ed->bl, SC_TROPIC, INVALID_TIMER);	
+	status_change_end(&ed->bl, SC_TROPIC, INVALID_TIMER);
 	status_change_end(&ed->bl, SC_HEATER, INVALID_TIMER);
 	status_change_end(&ed->bl, SC_AQUAPLAY, INVALID_TIMER);
 	status_change_end(&ed->bl, SC_COOLER, INVALID_TIMER);
@@ -307,7 +307,7 @@ int elemental_clean_effect(struct elemental_data *ed)
 	status_change_end(&ed->bl, SC_CURSED_SOIL, INVALID_TIMER);
 	status_change_end(&ed->bl, SC_STONE_SHIELD, INVALID_TIMER);
 	status_change_end(&ed->bl, SC_UPHEAVAL, INVALID_TIMER);
-	status_change_end(&ed->bl, SC_CIRCLE_OF_FIRE, INVALID_TIMER);	
+	status_change_end(&ed->bl, SC_CIRCLE_OF_FIRE, INVALID_TIMER);
 	status_change_end(&ed->bl, SC_TIDAL_WEAPON, INVALID_TIMER);
 
 	skill_clear_unitgroup(&ed->bl);
@@ -474,8 +474,8 @@ int elemental_change_mode(struct elemental_data *ed, int mode)
 	else mode = EL_SKILLMODE_PASIVE;									// Passive spirit mode -> Passive spirit skill.
 
 	// Use a skill inmediately after every change mode.
-	elemental_change_mode_ack(ed,mode);
-
+	if( mode != EL_SKILLMODE_AGGRESSIVE )
+		elemental_change_mode_ack(ed,mode);
 	return 1;
 }
 
@@ -641,7 +641,7 @@ static int elemental_ai_sub_timer(struct elemental_data *ed, struct map_session_
 		target = map_id2bl(ed->ud.target);
 
 		if( !target )
-			map_foreachinrange(elemental_ai_sub_timer_activesearch, &ed->bl, ed->base_status.rhw.range, BL_CHAR, ed, &target, status_get_mode(&ed->bl));
+			map_foreachinrange(elemental_ai_sub_timer_activesearch, &ed->bl, ed->db->range2, BL_CHAR, ed, &target, status_get_mode(&ed->bl));
 
 		if( !target )
 		{ //No targets available.

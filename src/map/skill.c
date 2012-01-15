@@ -293,7 +293,7 @@ int skill_get_range2(struct block_list *bl, int id, int lv)
 			break;
 		case WL_WHITEIMPRISON:
 		case WL_SOULEXPANSION:
-		case WL_FROSTMISTY:
+		//case WL_FROSTMISTY:
 		case WL_MARSHOFABYSS:
 		case WL_SIENNAEXECRATE:
 		case WL_DRAINLIFE:
@@ -1095,7 +1095,7 @@ int skill_additional_effect (struct block_list* src, struct block_list *bl, int 
 		sc_start(bl,SC_FEAR,3+2*skilllv,skilllv,skill_get_time(skillid,skilllv));
 		break;
 	case RK_DRAGONBREATH:
-		sc_start4(bl,SC_BURNING,5+5*skilllv,skilllv,1000,src->id,0,skill_get_time(skillid,skilllv));
+		sc_start4(bl,SC_BURNING,15,skilllv,1000,src->id,0,skill_get_time(skillid,skilllv));
 		break;		
 	case GC_WEAPONCRUSH:// Rate is handled later.
 		skill_castend_nodamage_id(src,bl,skillid,skilllv,tick,BCT_ENEMY);
@@ -1114,7 +1114,7 @@ int skill_additional_effect (struct block_list* src, struct block_list *bl, int 
 		{
 			int rate = 0, i;
 			const int pos[5] = { EQP_WEAPON, EQP_HELM, EQP_SHIELD, EQP_ARMOR, EQP_ACC };
-			rate = (6 + (skilllv > 2)?6:0 + 2 * skilllv) * status_get_lv(src) / 100;
+			rate = (5 + (skilllv > 2)?6:0 + 2 * skilllv) * status_get_lv(src) / 100;
 			rate *= 1 - tstatus->dex / 200; // Reduced by Target Dex
 
 			for( i = 0; i < skilllv; i++ )
@@ -1320,7 +1320,7 @@ int skill_additional_effect (struct block_list* src, struct block_list *bl, int 
 			if( sc )
 			{
 				if(sc->data[SC_GIANTGROWTH])
-					rate += 1;
+					rate += 10;
 				if(sc->data[SC_OVERTHRUST])
 					rate += 10;
 				if(sc->data[SC_MAXOVERTHRUST])
@@ -3989,10 +3989,9 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, int 
 	case WL_DRAINLIFE:
 		{
 			int heal = skill_attack(skill_get_type(skillid), src, src, bl, skillid, skilllv, tick, flag);
-			int rate = 70 + 4 * skilllv + s_job_level / 5;// Is this int at the beginning really needed? [Rytech]
+			int rate = 70 + 5 * skilllv;
 			
-			heal = 8 * skilllv;
-			if( status_get_lv(src) > 100 ) heal = heal * status_get_lv(src) / 100;	// Base level bonus.
+			heal = heal * (5 + 5 * skilllv) / 100;
 
 			if( bl->type == BL_SKILL )
 				heal = 0;	// Don't absorb heal from Ice Walls or other skill units.
@@ -4192,7 +4191,7 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, int 
 		if( tsc && (tsc->option&(OPTION_HIDE|OPTION_CLOAK|OPTION_CHASEWALK) || tsc->data[SC__INVISIBILITY]) )
 			break; // Doesn't hit/cause Freezing to invisible enemy
 		// Causes Freezing status through walls.
-		sc_start(bl,status_skill2sc(skillid),20+12*skilllv+s_job_level/5,skilllv,skill_get_time(skillid,skilllv));
+		sc_start(bl,status_skill2sc(skillid),25+5*skilllv,skilllv,skill_get_time(skillid,skilllv));
 		// Doesn't deal damage through non-shootable walls.
 		if( path_search(NULL,src->m,src->x,src->y,bl->x,bl->y,1,CELL_CHKWALL) )
 			skill_attack(BF_MAGIC,src,src,bl,skillid,skilllv,tick,flag);
@@ -6760,22 +6759,18 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, in
 				clif_skill_nodamage(src,bl,skillid,skilllv,1);
 				break;
 			}
-			sp1 = sstatus->sp;
-			sp2 = tstatus->sp;
 			
 			if(battle_config.renewal_setting&0x20)
 			{
-				tsp1 = tsp1 * 50 / 100;
-				tsp2 = tsp2 * 50 / 100;
-
-				if( sp1>sp2 ){ 
-					sp1 = sp2 + tsp1;//target
-					sp2 = sp1 - tsp2;//caster
-				}else{ //if both are equal caster gains more
-					sp1 = sp2 - tsp1;//target
-					sp2 = sp1 + tsp2;//caster
-				}
+				tsp1 >>= 1;
+				tsp2 >>= 1;
+				
+				sp1 = sp2 + ( ( sp1 > sp2 ) ? tsp1 : ( -tsp1 ) );
+				sp2 = sp1 + ( ( sp1 > sp2 ) ? ( -tsp2 ) : tsp2 );
 			}
+			
+			sp1 = sstatus->sp;
+			sp2 = tstatus->sp;
 
 			status_set_sp(src, sp2, 3);
 			status_set_sp(bl, sp1, 3);
@@ -7241,7 +7236,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, in
 		break;
 	case RK_ENCHANTBLADE:
 		clif_skill_nodamage(src,bl,skillid,skilllv,
-			sc_start2(bl,type,100,skilllv,100+20*skilllv+sstatus->int_/2+status_get_lv(bl)/10,skill_get_time(skillid,skilllv)));
+			sc_start2(bl,type,100,skilllv,(100+20*skilllv)*status_get_lv(bl)/150+sstatus->int_,skill_get_time(skillid,skilllv)));
 		break;
 	case RK_DRAGONHOWLING:
 		if( flag&1)
@@ -7271,7 +7266,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, in
 	case RK_STONEHARDSKIN:
 		if( sd && pc_checkskill(sd,RK_RUNEMASTERY) >= 4 )
 		{
-			int heal = sstatus->hp / 4; // 25% HP
+			int heal = sstatus->hp / 5; // 20% HP
 			if( status_charge(bl,heal,0) )
 				clif_skill_nodamage(src,bl,skillid,skilllv,sc_start2(bl,type,100,skilllv,heal,skill_get_time(skillid,skilllv)));
 			else
@@ -13155,6 +13150,8 @@ int skill_castfix(struct block_list *bl, int skill_id, int skill_lv)
 			variable_time >>= 2;
 		if( sc->data[SC_POEMBRAGI] )
 			variable_time -= variable_time * sc->data[SC_POEMBRAGI]->val2 / 100;
+		if( sc->data[SC_FREEZING] )
+			variable_time += variable_time * 15 / 100;
 		if( sc->data[SC_DANCEWITHWUG] ) //FIXME: Doesn't it affect fixed cast time? [Inkfish]
 			variable_time -= variable_time * sc->data[SC_DANCEWITHWUG]->val3 / 100;
 	}
@@ -13184,8 +13181,6 @@ int skill_castfix(struct block_list *bl, int skill_id, int skill_lv)
 	// fixed cast time mod by status changes
 	if( !(skill_get_castnodex(skill_id, skill_lv)&2) && sc && sc->count )
 	{
-		if( sc->data[SC_FREEZING] )
-			fixed_time += fixed_time * 50 / 100;
 		if( sc->data[SC__LAZINESS] )
 			fixed_time += fixed_time * sc->data[SC__LAZINESS]->val2 / 100;
 
@@ -13194,7 +13189,7 @@ int skill_castfix(struct block_list *bl, int skill_id, int skill_lv)
 	}
 
 	if( sd && pc_checkskill(sd, WL_RADIUS) && skill_id >= WL_WHITEIMPRISON && skill_id <= WL_FREEZE_SP )
-		max_fixedReduction = max(max_fixedReduction, 5+5*pc_checkskill(sd, WL_RADIUS)); // 10 15 20% of Fixed Cast Time reduced.
+		max_fixedReduction = 5*pc_checkskill(sd, WL_RADIUS)+status_get_int(bl)/15+status_get_lv(bl)/15;
 
 	// fixed cast time mod by equip/card bonuses/penalties
 	if( !(skill_get_castnodex(skill_id, skill_lv)&4) && sd )

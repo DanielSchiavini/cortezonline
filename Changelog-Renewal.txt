@@ -9,6 +9,50 @@ Projeto baseado no eAthena http://www.eathena.ws/ ou http://svn.eathena.ws/svn/e
 Vide LICENCE para informações da licença desse projeto (GNU/GPL)
 -------------------------------------------------------------------------------------------------
 
+14/01/2012
+	* Corrigido job_db1.txt dos SA Extended; [Mara]
+	* Pequena atualização nos Elementais; [Mara]
+	* Corrigido bug onde o nível de gm não era salvo. [Mara]
+	- Agradecimentos ao RAthena.
+
+13/01/2012
+	* Modificação na fórmula da habilidade Canhão; [Mara]
+	* Otimização no código da habilidade Exalar Alma; [Mara]
+	* Modificado job_db1.txt e job_db2.txt para Super Aprendiz Extended. [Mara]
+
+10/01/2012
+	* Atualizado NPC da Torre sem Fim; [Mara]
+	* Revertido packet_ver para 25; [Mara]
+	- Muitos tinham problemas com cashshop.
+	* Pequena modificação na battle config referente ao max lv. [Mara]
+
+09/01/2012
+	* Corrigido problema de traduções nas Kafras que impedia o teletransporte de funcionar; [Mara]
+	- issue: 277.
+	* Adicionada redução de SP para a habilidade Erva Daninha; [Mara]
+	- issue: 263.
+	* Adicionado item Rabo de Gato Preto (2855); [Mara]
+	- issue: 255.
+	* Corrigida duração da habilidade Reflexo Amplificado; [Mara]
+	- issue: 230, 263. 
+	* Corrigida habilidade Ritmo Contagiante; [Mara]
+	- issue: 282.
+	* Aplicada as mudanças de Cavaleiro Rúnico e Arcano referentes a 2011; [Mara]
+	- 3CeAM r658 e r659.
+	* Atualizado copyright para bater com o ano atual. [Mara]
+
+05/01/2012
+	* Corrigido checagem de rageball. [Mara]
+	- issue: 268
+	* Corrigido item faltante na item_db. [Mara]
+	- issue: 255
+	* Corrigida as coordenadas de teletransporte do Formigueiro Infernal. [Mara]
+	- issue: 274
+	- Ainda falta ajeitar a duplicata da Teletransportadora para o novo local. [Mara]
+	* Corrigido os reparadores do Mecânico que podiam ser utilizados por todas as classes. [Mara]
+	
+29/11/2011
+	* Corrigido o problema ao tentar atacar com classes que utilizavam flechas o mesmo acusava que o usuário não havia equipado as flechas. [PedroxD
 23/11/2011
 	* Corrigido o Item Sela (12622) agora o mesmo tem um delay de 3 segundos para utilizar o mesmo novamente. [PedroxD]
 	* Realizada pequena otimização no nerf de exp/mob_lv; [Mara]
