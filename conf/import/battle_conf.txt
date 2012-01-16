@@ -1,6 +1,6 @@
 //client.conf
 display_version: no
-packet_ver_flag: 0x20000
+packet_ver_flag: 0x10000
 max_lv: 150
 aura_lv: 150
 
