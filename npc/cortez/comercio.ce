@@ -12,7 +12,7 @@ gonryun,152,139,4	script	Salas de Chat	748,{
 		end;
 }
 
-gonryun,167,139,4	script	Vendas	726,{
+gonryun,167,146,4	script	Vendas	726,{
 	show "[^CC3333 Comércio ^000000]";
 	show "As salas de comércio somente podem ser criadas, em frente a nós!.";
 	show "Assim podemos manter nossa cidade organizada!";
@@ -21,7 +21,7 @@ gonryun,167,139,4	script	Vendas	726,{
 	
 	OnInit:
 		setcell "gonryun",0,0,300,300,cell_novending,1;
-		setcell "gonryun",167,139,167,127,cell_novending,0;
+		setcell "gonryun",167,146,167,127,cell_novending,0;
 		sleep 2000;
 		waitingroom "Vendas na minha frente!",0;
 		end;
