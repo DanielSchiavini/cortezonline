@@ -101,6 +101,7 @@ end;
 gonryun,158,113,3	script	Baú Premiado	989,{
 if($@Evento!=1){
 		disablenpc "Baú Premiado";
+		close;
 		}
 		Else {
 		if(getgmlevel() > 69)
