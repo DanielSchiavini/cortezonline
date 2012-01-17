@@ -21,9 +21,9 @@ guild_vs5	mapflag	pvp_noparty
 guild_vs5	mapflag	pvp_noguild
 
 new_1-1,47,117,5	script	Senhor do PvP#1	52,{
-	if(getgmlevel()<59) close;
+	if(getgmlevel()<49) close;
 	if ($eventopvp == 1) goto EVENTOACONTECENDO;
-	if(getgmlevel()<80){
+	if(getgmlevel()>49){
 		mes "[Senhor do PvP]";
 		mes "Olá Sr.GM!";
 		mes "O que acha de iniciar um evento PvP?";
