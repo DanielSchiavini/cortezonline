@@ -42,37 +42,6 @@ rachel,152,131,3	script	Sakjul	928,{
 		mes " – BAM BAM – ";
 		mes " – BUM – ";
 		next;
-		set .@result,rand(1,10);
-		if (.@result == 4) {
-			delitem 5172,1; //Beret
-			delitem 7063,100; //Soft_Feather
-			delitem 982,1; //White_Dyestuffs
-			mes "[Sakjul]";
-			mes "Ahá, eu tive sucesso na criação do chapéu,";
-			mes "mas não posso deixar que ele caia nas mãos erradas!";
-			mes "A essência de uma boa Boina Alada é";
-			mes "o ângulo preciso formado pela boina e as asas,";
-			mes "mas o ângulo desse chapéu acabou ficando um pouco curvado,";
-			mes "e o produto final está abaixo do meu nível mínimo de qualidade!";
-			next;
-			mes "[Sakjul]";
-			mes "Eu entendo que você esteja um tanto infeliz";
-			mes "com esse resultado. Mas eu insisto para que você não";
-			if (Sex) {
-				mes "fique tão desapontado e permita que eu tente novamente!";
-			} else {
-				mes "fique tão desapontada e permita que eu tente novamente!";
-			}
-			mes "fique tão desapontado e permita que eu tente novamente!";
-			mes "Nada é impossível para quem tem uma vontade verdadeira, e sei que posso fazer o chapéu!";
-			next;
-			mes "[Sakjul]";
-			mes "Agora, recomponha-se!";
-			mes "Você já fez isso uma vez,";
-			mes "então pode fazer tudo de novo.";
-			mes "Se você entende o que quero dizer, vá e colete todos os materiais necessários mais uma vez!";
-			close;
-		} else {
 			delitem 5172,1; //Beret
 			delitem 7063,100; //Soft_Feather
 			delitem 982,1; //White_Dyestuffs
@@ -804,8 +773,6 @@ payon_in03,139,124,3	script	Han Garam	88,{
 
 hugel,147,103,3	script	Ghenirhemin	897,{
 	if (moza_valkylie == 5) {
-		set .@val2,rand(1,10);
-		if (.@val2 == 3) {
 			specialeffect EF_LIGHTSPHERE;
 			mes "[Ghenirhemin]";
 			mes "Os materiais ainda estão sendo fundidos.";
@@ -857,23 +824,6 @@ hugel,147,103,3	script	Ghenirhemin	897,{
 		}
 	}
 	else if (moza_valkylie == 4) {
-		set .@val,rand(1,10);
-		if (.@val == 7) {
-			mes "[Ghenirhemin]";
-			mes "............";
-			next;
-			specialeffect EF_LIGHTSPHERE ;
-			mes "[Ghenirhemin]";
-			mes "Oh... oh?! Eles... eles estão realmente se fundindo!";
-			mes "Veja esse brilho maravilhoso!";
-			mes "Eu não... eu não posso acreditar que";
-			mes "isso seja o que acontece no Valhala!";
-			next;
-			set moza_valkylie,5;
-			mes "[Ghenirhemin]";
-			mes "Estamos testemunhando a graça dos deuses... ah...";
-			close;
-		} else {
 			mes "[Ghenirhemin]";
 			mes "...vamos esperar um pouco mais.";
 			close;
