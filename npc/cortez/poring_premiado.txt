@@ -1,0 +1,107 @@
+new_1-1,49,129,5	script	Poring Premiado	61,{
+
+if(getgmlevel() < 49){ 
+dispbottom "Este npc só é ativos para a equipe de eventos.";
+end; }
+mes "[Poring Premiado]";
+mes "O que você gostaria de fazer?";
+if(select("Começar o Evento:Nada, Obrigado")==2) {
+close;
+} Else {
+if($@Eventos>=1){
+		mes "O evento já está acontecendo!";
+		close;
+		} Else {
+		close2;
+OnEvento:
+set $@Eventos,$@Eventos+1;
+atcommand "@hidenpc Saída#20";
+atcommand "@shownpc Evento Poring";
+killmonsterall "quiz_02";
+warp "quiz_02",250,370;
+Announce "O Evento Poring Prêmiado está aberto, em 3 minutos o evento começa!",8;
+sleep 30000; Announce "Estou aguardando no centro da cidade",8;
+sleep 30000; Announce "O Evento Poring Prêmiado está aberto, em 2 minutos o evento começa!!",8;
+sleep 30000; Announce "Estou aguardando no centro da cidade",8;
+sleep 30000; Announce "O Evento Poring Prêmiado está aberto, em 1 minuto o evento começa!",8;
+sleep 30000; Announce "Estou aguardando no centro da cidade",8;
+sleep 30000; Announce "O Evento Poring Prêmiado começou!",8;
+disablenpc "Evento Poring";
+set $@Eventos,$@Eventos1;
+areamonster "quiz_02",240,376,259,376,"Poring",1002,1,"Poring Premiado::OnMobMorte";
+areamonster "quiz_02",240,376,259,376, "POring",1002,70,"Poring Premiado::OnMobMorte2";
+areamonster "quiz_02",240,376,259,376, "PoRing",1002,70,"Poring Premiado::OnMobMorte2";
+areamonster "quiz_02",240,376,259,376, "PorIng",1002,70,"Poring Premiado::OnMobMorte2";
+areamonster "quiz_02",240,376,259,376, "PoriNg",1002,70,"Poring Premiado::OnMobMorte2";
+areamonster "quiz_02",240,376,259,376, "PorinG",1002,70,"Poring Premiado::OnMobMorte2";
+areamonster "quiz_02",240,376,259,376, "PorinG",1002,70,"Poring Premiado::OnMobMorte2";
+areamonster "quiz_02",240,376,259,376, "PoRiNg",1002,70,"Poring Premiado::OnMobMorte2";
+areamonster "quiz_02",240,376,259,376, "pOrinG",1002,70,"Poring Premiado::OnMobMorte2";
+areamonster "quiz_02",240,376,259,376, "PorinG",1002,70,"Poring Premiado::OnMobMorte2";
+areamonster "quiz_02",250,375,250,386, "PorinG",1002,70,"Poring Premiado::OnMobMorte2";
+areamonster "quiz_02",250,375,250,364, "PoRiNg",1002,70,"Poring Premiado::OnMobMorte2";
+areamonster "quiz_02",240,376,259,376, "pOrinG",1002,70,"Poring Premiado::OnMobMorte2";
+
+OnMobMorte2:
+if(playerattached()) {
+dispbottom "Não foi dessa vez. Tente novamente.";
+}
+end;
+OnMobMorte:
+announce "O Jogador "+StrCharInfo(0)+" Matou o Poring!",bc_all;
+killmonsterall "quiz_02";
+
+additem 7180,1;
+sleep2 10000;
+atcommand "@shownpc Saída#20";
+atcommand "@undisguiseall";
+set $@Eventos,0;
+end;
+}
+}
+}
+gonryun,163,115,5	script	Evento Poring	61,{
+if($@Eventos!=1){
+		disablenpc "Evento Poring";
+		close;
+		}
+		Else {
+		if(getgmlevel() > 69)
+		atcommand "@shownpc Evento Poring"; }
+mes "ATENÇÃO";
+mes "Para Vencer esse evento, basta encontrar o monstro com o nome:";
+mes "Poring";
+mes "Tem apenas um monstro com o nome certo.";
+mes "Deseja entrar no evento?";
+if(select("Entrar no Evento!:Não, obrigado.")==2) {
+mes "Tudo bem.";
+close;
+} Else {
+
+if(checkequipedcard(4172) >= 1) goto sembap;
+if(checkequipedcard(4147) >= 1) goto sembap;
+if(countitem(4172) >= 1) goto sembap;
+if(countitem(4147) >= 1) goto sembap;
+if(checkcart()) { next; mes "Remova o seu Carrinho."; close;}
+sc_start SC_AGIFood, 300000, 100;
+if(checkriding()) { atcommand "@Mountpeco"; }
+atcommand "@disguise poring";
+atcommand "@fakename Jogador";
+warp "quiz_02",250,370;
+sembap:
+next;
+mes "Guarde sua Carta Bafomé no Armazem";
+close;
+}
+}
+
+quiz_02	mapflag	nowarp
+quiz_02	mapflag	nowarpto
+quiz_02	mapflag	noteleport
+quiz_02	mapflag	nosave
+quiz_02	mapflag	nomemo
+quiz_02	mapflag	nobranch
+quiz_02	mapflag	nopenalty
+quiz_02	mapflag	noloot
+quiz_02	mapflag	noskill
+quiz_02	mapflag	nostorage
