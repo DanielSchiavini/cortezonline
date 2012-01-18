@@ -1,0 +1,258 @@
+// Mapflags / Proibir comandos nos mapas
+payg_cas01	mapflag	nopenalty
+payg_cas01	mapflag	nomemo
+payg_cas01	mapflag	monster_noteleport
+payg_cas01	mapflag	nocommand	50
+payg_cas01	mapflag	nosave	SavePoint
+
+payg_cas02	mapflag	nopenalty
+payg_cas02	mapflag	nomemo
+payg_cas02	mapflag	monster_noteleport
+payg_cas02	mapflag	nocommand	50
+payg_cas02	mapflag	nosave	SavePoint
+
+payg_cas03	mapflag	nopenalty
+payg_cas03	mapflag	nomemo
+payg_cas03	mapflag	monster_noteleport
+payg_cas03	mapflag	nocommand	50
+payg_cas03	mapflag	nosave	SavePoint
+
+payg_cas04	mapflag	nopenalty
+payg_cas04	mapflag	nomemo
+payg_cas04	mapflag	monster_noteleport
+payg_cas04	mapflag	nocommand	50
+payg_cas04	mapflag	nosave	SavePoint
+
+payg_cas05	mapflag	nopenalty
+payg_cas05	mapflag	nomemo
+payg_cas05	mapflag	monster_noteleport
+payg_cas05	mapflag	nocommand	50
+payg_cas05	mapflag	nosave	SavePoint
+
+prontera,66,57,5	script	Invasão dos Castelos	47,{
+	if($castelo==0){
+		donpcevent "Evento dos Castelos::OnInit";
+		end;
+	}
+	
+	OnClick:
+		mes "[^666699 Invasão dos Castelos ^000000]";
+		mes "Deseja participar do evento?";
+		menu "Mais informações",OnInfos,"Não, obrigado",-,"Sim, por favor",OnWarp;
+		close;
+	
+	OnInfos:
+		next;
+		mes "[^666699 Invasão dos Castelos ^000000]";
+		mes "Quatro castelos foram invadidos, e agora precisamos reconquistá-los.";
+		next;
+		mes "[^666699 Invasão dos Castelos ^000000]";
+		mes "Para reconquistar um castelo, é preciso matar o chefe.";
+		next;
+		if($castelo>1 && $castelo<5){
+			mes "[^666699 Invasão dos Castelos ^000000]";
+			mes "Até agora, "+($castelo-1)+(($castelo==2)? " castelo já foi reconquistado" : " castelos foram reconquistados");
+			next;
+		}
+		goto OnClick;
+	
+	OnWarp:
+		close2;
+		callfunc "EvCastelosWarp";
+		end;
+}
+
+new_1-1,49,130,5	script	Evento dos Castelos	47,{
+	if(getgmlevel()<59) close;
+	mes "[^666699 Evento dos Castelos ^000000]";
+	if($castelo>0){
+		mes "O evento já está acontecendo!";
+		mes "Os jogadores estão lutando no castelo "+$castelo+".";
+		mes "Deseja ir para o mapa?";
+		menu "Não, obrigado",-,"Sim, por favor",OnWarp,"Cancelar evento",OnCancelar;
+		close;
+	}else{
+		mes "Deseja iniciar o evento de invasão nos castelos?";
+		if(select("Não, obrigado:Sim, por favor")==1) close;
+		close2;
+	}
+	OnIniciaEvento:
+		//Desabilitando entradas dos castelos
+		set $castelo, 1;
+		set $evcity$, "pay";
+		
+		//Criando array com monstros do evento. O primeiro é o chefe default.
+		set @mobqtde, 7;
+		setarray .mobs[0],	1291, 1306, 1131, 1276, 1276, 1276, 1163, 1163, 1208;
+		setarray @mobs1[0],	1389, 1059, 1115, 1157, 1159, 1492, 1511, 1658, 1688, 1734, 1190, 1087;
+		setarray @mobs2[0],	1086, 1038, 1046, 1087, 1147, 1190, 1252, 1272, 1312, 1583, 1039, 1623;
+		setarray @mobs3[0],	2156, 1039, 1150, 1251, 1373, 1418, 1630, 1623, 1685, 1719, 1779, 1583;
+		setarray @mobs4[0],	1272, 1087, 1115, 1147, 1150, 1583, 1708, 1418, 1086, 1087, 1090, 1251;
+		setarray @mobs5[0],	1953, 1954, 1951, 1952, 1877, 1398, 1397, 1396, 1395;	//Chefe é sempre o primeiro
+		
+		//Looping pelos castelos
+		areawarp $evcity$ + "_gld", 0, 0, 300, 300, "prontera", 76, 55;
+		dispbottom "Chefes:";
+		for(set @i, 1; @i<=5; set @i, @i + 1){
+			//Limpando mapa
+			areawarp $evcity$ + "g_cas0" + @i, 0, 0, 300, 300, "prontera", 76, 55;
+			killmonsterall $evcity$ + "g_cas0" + @i;
+			
+			if(@i==5){
+				//Chefe
+				monster $evcity$ + "g_cas0" + @i, 0, 0, "--ja--", @mobs5[0], 1, "Evento dos Castelos::OnChefe";
+				//Criando monstros normais
+				for(set @j, 1; @j<getarraysize(@mobs5); set @j, @j + 1)
+					areamonster $evcity$ + "g_cas0" + @i, 0, 0, 300, 300, "--ja--", @mobs5[@j], @mobqtde, "Evento dos Castelos::OnMob";
+			}else{
+				//Fechando mapa
+				disablenpc $evcity$ + "g0" + (@i + 1);
+				
+				//Sorteando/Mostrando Chefe
+				setd "@chefe" + @i, rand(0, getarraysize(getd("@mobs" + @i)) + 1);			//Chance do primeiro = 3x maior
+				if(!getd("@mobs" + @i + "[" + getd("@chefe" + @i) + "]")) setd "@chefe" + @i, 0;	//Se o chefe não existir, chefe=primeiro
+				set @chefeId, getd("@mobs" + @i + "[" + getd("@chefe" + @i) + "]");
+				dispbottom " " + @i + ". " + strmobinfo(2, @chefeId) + " (" + @chefeId + ")";
+				
+				//Escolhendo local
+				switch(@i){
+					case 1: set .@x, 139; set .@y, 139; break;
+					case 2: set .@x, 39; set .@y, 25; break;
+					case 3: set .@x, 269; set .@y, 265; break;
+					case 4: set .@x, 271; set .@y, 29; break;
+				}
+				
+				//Criando Chefe
+				monster $evcity$ + "g_cas0" + @i, .@x, .@y, "--ja--", @chefeId, 1, "Evento dos Castelos::OnChefe";
+				
+				//Criando MVPs
+				for(set @j, 0; @j<getarraysize(getd("@mobs" + @i)); set @j, @j + 1)
+					if(@j != getd("@chefe" + @i))
+						areamonster $evcity$ + "g_cas0" + @i, 0, 0, 300, 300, "--ja--", getd("@mobs" + @i + "[" + @j + "]"), 1, "Evento dos Castelos::OnMvp";
+				//if(@i==1) dispbottom "mobcount('"+$evcity$ + "g_cas0" + $castelo + "', 'Evento dos Castelos::OnMvp') = "+mobcount($evcity$ + "g_cas0" + $castelo, "Evento dos Castelos::OnMvp");
+				//Criando monstros normais
+				for(set @j, 1; @j<getarraysize(.mobs); set @j, @j + 1)
+					areamonster $evcity$ + "g_cas0" + @i, 0, 0, 300, 300, "--ja--", .mobs[@j], @mobqtde, "Evento dos Castelos::OnMob";
+			}
+			
+			//Limpando variáveis
+			deletearray getd("@mobs" + @i + "[0]"), getarraysize(getd("@mobs" + @i));
+			setd "@chefe" + @i, 0;
+			set @chefeId, 0;
+		}
+		enablenpc "Invasão dos Castelos";
+		logmes "[Castelos] Evento iniciado";
+		callfunc "EvCastelosWarp";
+		announce "[Evento] Olá jogadores do Cortez Online!", bc_all|bc_npc;
+		sleep 4000;
+		announce "[Evento] Um novo evento acaba de começar", bc_all|bc_npc;
+		sleep 4000;
+		announce "[Evento] Quatro castelos foram invadidos", bc_all|bc_npc;
+		sleep 4000;
+		announce "[Evento] E agora precisamos conquistar os castelos novamente", bc_all|bc_npc;
+		sleep 4000;
+		announce "[Evento] Quem quiser ajudar, estarei esperando no centro da cidade", bc_all|bc_npc;
+		end;
+		
+	OnChefe:
+		if($evcity$==""){
+			debugmes "Evento dos Castelos::OnChefe called with empty $evcity$";
+			end;
+		}
+		disablenpc $evcity$ + "g0" + $castelo;
+		if(playerattached()){
+			specialeffect2 573; sleep2 50;
+			specialeffect2 581; sleep2 50;
+			logmes "[Castelo] O chefe do castelo " + $castelo + " foi morto";
+		}else{
+			debugmes "Evento dos Castelos::OnChefe(" + $castelo + ") called without an attached player";
+		}
+		if($castelo<=4){
+			announce "[Evento] O chefe do " + $castelo + "º castelo foi morto", bc_all|bc_npc;
+			sleep 2000;
+			announce "[Evento] "+ ($castelo==4 ? "Os prêmios se encontram no último castelo" : "O próximo castelo foi aberto") +"!", bc_all|bc_npc;
+			sleep 2000;
+			killmonsterall $evcity$ + "g_cas0" + $castelo;
+			set $castelo, $castelo + 1;
+			enablenpc $evcity$ + "g0" + $castelo;
+			sleep 6000;
+			callfunc "EvCastelosWarp";
+		}else{
+			announce "[Evento] Parabéns!! O Tesouro Especial foi localizado!", bc_all|bc_npc;
+			sleep2 2000;
+			if(playerattached()){
+				announce "[Evento] O campeão é " + strcharinfo(0) + ", que achou o prêmio", bc_all|bc_npc;
+				getitem 5210, 1;
+				sleep 2000;
+			}
+			mapannounce $evcity$ + "g_cas0" + 5, "[Evento] Vocês têm 5 minutos para matar os tesouros restantes", bc_map|bc_npc;
+			set $castelo, 0;
+			disablenpc "Invasão dos Castelos";
+			sleep 240000; //4 min
+			mapannounce $evcity$ + "g_cas0" + 5, "[Evento] O mapa será fechado em 1 minuto", bc_map|bc_npc;
+			sleep 60000; //5 min
+			callfunc "EvCastelosWarp";
+			goto OnFim;
+		}
+		end;
+	
+	OnMvp:
+		mapannounce $evcity$ + "g_cas0" + $castelo, "[Evento] Um MVP foi morto... Ainda há " + mobcount($evcity$ + "g_cas0" + $castelo, "Evento dos Castelos::OnMvp") + " vivos!", bc_map;
+		if(playerattached()){
+			specialeffect2 377; sleep2 50;
+			specialeffect2 381; sleep 50;
+		}
+	OnMob:
+		if($castelo>0 && $castelo<5)
+			areamonster $evcity$ + "g_cas0" + $castelo, 0, 0, 300, 300, "--ja--", .mobs[rand(0, getarraysize(.mobs)-1)], 1, "Evento dos Castelos::OnMob";
+		else if($castelo==0 && mobcount($evcity$ + "g_cas05", "Evento dos Castelos::OnMob")<=1)
+			callfunc "EvCastelosWarp";
+		else if(playerattached())
+			dispbottom "Parabéns, você abriu um dos tesouros. Tesouros restantes: " + (mobcount($evcity$ + "g_cas05", "Evento dos Castelos::OnMob") - ($castelo==0));
+		end;
+	
+	OnCancelar:
+		close2;
+		logmes "[Castelos] Evento cancelado";
+		announce "[Evento] O evento dos castelos foi cancelado por problemas técnicos", bc_all|bc_npc;
+		for(set $castelo, 1; $castelo<=5; set $castelo, $castelo + 1){
+			enablenpc $evcity$ + "g0" + $castelo;
+			killmonsterall $evcity$ + "g_cas0" + $castelo;
+			areawarp $evcity$ + "g_cas0" + $castelo, 0, 0, 300, 300, "prontera", 76, 55;
+		}
+		areawarp $evcity$ + "_gld", 0, 0, 300, 300, "prontera", 76, 55;
+		set $castelo, 0;
+		goto OnFim;
+	
+	OnWarp:
+		callfunc "EvCastelosWarp";
+		if(!$castelo) goto OnFim;
+		end;
+		
+	OnInit:
+		set $castelo, 0;
+	OnFim:
+		set $evcity$, "";
+		deletearray .mobs[0], getarraysize(.mobs);
+		disablenpc "Invasão dos Castelos";
+		end;
+}
+
+
+function	script	EvCastelosWarp	{
+	switch($castelo){
+		case 0: break;
+		case 1: set .@x, 110; set .@y, 228; break;
+		case 2: set .@x, 293; set .@y, 135; break;
+		case 3: set .@x, 320; set .@y, 312; break;
+		case 4: set .@x, 146; set .@y, 174; break;
+		case 5: set .@x, 185; set .@y, 273; break;
+	}
+	if(playerattached())
+		warp $evcity$ + "_gld", .@x, .@y;
+	else if($castelo>0)
+		areawarp $evcity$ + "g_cas0" + ($castelo-1), 0, 0, 300, 300, $evcity$ + "_gld", .@x, .@y;
+	else
+		areawarp $evcity$ + "g_cas05", 0, 0, 300, 300, "prontera", 76, 55;
+	return;
+}
