@@ -52,12 +52,16 @@ announce "O Jogador "+StrCharInfo(0)+" Matou o 1º dos três porings premiados!",b
 additem 7180,1;
 sleep2 10;
 areamonster "quiz_02",240,376,259,376,"Poring ",1002,1,"Poring Premiado::OnMobMorte3";
+areamonster "quiz_02",240,376,259,376, "pOrinG",1002,70,"Poring Premiado::OnMobMorte2";
+areamonster "quiz_02",250,375,250,364, "PoRiNg",1002,70,"Poring Premiado::OnMobMorte2";
 end;
 OnMobMorte3:
 announce "O Jogador "+StrCharInfo(0)+" Matou o 2º dos três porings premiados!",bc_all;
 additem 7180,1;
 sleep2 10;
 areamonster "quiz_02",240,376,259,376,"Poring  ",1002,1,"Poring Premiado::OnMobMorte4";
+areamonster "quiz_02",250,375,250,364, "PoRiNg",1002,70,"Poring Premiado::OnMobMorte2";
+areamonster "quiz_02",240,376,259,376, "PoriNg",1002,70,"Poring Premiado::OnMobMorte2";
 end;
 OnMobMorte4:
 announce "O Jogador "+StrCharInfo(0)+" Matou o último poring premiado!",bc_all;
