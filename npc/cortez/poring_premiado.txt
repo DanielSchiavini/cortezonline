@@ -121,6 +121,5 @@ quiz_02	mapflag	nosave
 quiz_02	mapflag	nomemo
 quiz_02	mapflag	nobranch
 quiz_02	mapflag	nopenalty
-quiz_02	mapflag	noloot
 quiz_02	mapflag	noskill
 quiz_02	mapflag	nostorage
