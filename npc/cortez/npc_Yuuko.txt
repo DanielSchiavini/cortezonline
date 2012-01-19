@@ -13,7 +13,7 @@ gonryun,185,93,3	script	Yuuko	728,{
 	mes "Bem, estes são os itens que eu tenho...";
 	mes "Sobre qual deles vai querer saber mais?";
 	next;
-	switch(select("Ninho Abandonado:Chapéu de Ninho:Lendárias Asas de Anjo:Asas de Demônio Evoluídas:Peixe Turquesa:Hélices 2.0:Chapéu de Nove Caudas:Coroa de Flor de Lótus:Boneca de Tatiana:Cartola de Coelho:Boné de Carteiro:Cartola Mágica:Boneca de Lady Tanee:Chapéu de Quati:Chapéu de Polvo:Boneco de Gato Folha:Chapéu de Gatinho:Grinalda de Flores:Família Poring:Bandana de Mecânico:Chapéu de Pintinho:Boneca de Deborah:Gorro de Natal 2.0:Chapéu Celestial:Chapéu de Pintinho Rosa:Asas de Anjo Evoluídas:Boneca de Lif:Chapéu de Lamen:Coroa de Ouro:Boneca de Alice:Chapéu de Parada:Diadema Dourada:Boneca de Denise:Máscara de Fugitivo:Nenhum"))
+	switch(select("Ninho Abandonado:Chapéu de Ninho:Lendárias Asas de Anjo:Asas de Demônio Evoluídas:Peixe Turquesa:Hélices 2.0:Chapéu de Nove Caudas:Coroa de Flor de Lótus:Boneca de Tatiana:Cartola de Coelho:Boné de Carteiro:Cartola Mágica:Boneca de Lady Tanee:Chapéu de Quati:Chapéu de Polvo:Boneco de Gato Folha:Chapéu de Gatinho:Grinalda de Flores:Família Poring:Bandana de Mecânico:Chapéu de Pintinho:Boneca de Deborah:Gorro de Natal 2.0:Chapéu Celestial:Chapéu de Pintinho Rosa:Asas de Anjo Evoluídas:Boneca de Lif:Chapéu de Lamen:Coroa de Ouro:Boneca de Alice:Chapéu de Parada:Diadema Dourada:Boneca de Denise:Máscara de Fugitivo:Antique Pipe:Nenhum"))
 	{
 	case 1:
 		mes "[Ninho Abandonado]";
@@ -1003,7 +1003,49 @@ gonryun,185,93,3	script	Yuuko	728,{
 			close;
 		}
 		break;
+		
 	case 35:
+		mes "[Antique Pipe]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "2x "+getitemname(2268);
+		mes "300x "+getitemname(945);
+		mes "5x "+getitemname(2269);
+		mes "5x "+getitemname(2270);
+		mes "2x "+getitemname(5107);
+		mes "30x "+getitemname(10004);
+		mes "30x "+getitemname(984);
+		mes "30x "+getitemname(985);
+		mes "100x "+getitemname(999);
+		mes "500000 Zenys";
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(2268) >= 2 && countitem(945) >= 300 && countitem(2269) >= 5 && countitem(2270) >= 5 && countitem(5107) >= 2 && countitem(10004) >= 30 && countitem(984) >= 30 && countitem(985) >= 30 && countitem(999) >= 100 && Zeny >= 500000) {
+		delitem 2268,2;
+		delitem 945,300;
+		delitem 2269,5;
+		delitem 2270,5;
+		delitem 5107,2;
+		delitem 10004,30;
+		delitem 984,30;
+		delitem 985,30;
+		delitem 999,100;
+		set Zeny,Zeny-500000;
+		getitem 5377,1;
+		mes "[Yuuko]";
+		mes "Parabéns! Aqui está!";
+		close;
+		}
+		break;
+		
+	case 36:
 		mes "[Yuuko]";
 		mes "Tudo bem, estarei aqui se você mudar de ideia.";
 		close;
