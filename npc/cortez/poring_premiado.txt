@@ -48,11 +48,26 @@ dispbottom "Não foi dessa vez. Tente novamente.";
 }
 end;
 OnMobMorte:
-announce "O Jogador "+StrCharInfo(0)+" Matou o Poring!",bc_all;
+announce "O Jogador "+StrCharInfo(0)+" Matou o 1º dos três porings premiados!",bc_all;
+additem 7180,1;
+sleep2 10;
+areamonster "quiz_02",240,376,259,376,"Poring ",1002,1,"Poring Premiado::OnMobMorte3";
+end;
+OnMobMorte3:
+announce "O Jogador "+StrCharInfo(0)+" Matou o 2º dos três porings premiados!",bc_all;
+additem 7180,1;
+sleep2 10;
+areamonster "quiz_02",240,376,259,376,"Poring  ",1002,1,"Poring Premiado::OnMobMorte4";
+end;
+OnMobMorte4:
+announce "O Jogador "+StrCharInfo(0)+" Matou o último poring premiado!",bc_all;
+additem 7180,1;
+sleep2 10;
 killmonsterall "quiz_02";
 
-additem 7180,1;
+
 sleep2 10000;
+announce "Fale com o Npc Saída, localizado no centro do mapa, para sair do mesmo.",bc_all;
 atcommand "@shownpc Saída#20";
 atcommand "@undisguiseall";
 set $@Eventos,0;
@@ -84,7 +99,7 @@ if(countitem(4172) >= 1) goto sembap;
 if(countitem(4147) >= 1) goto sembap;
 if(checkcart()) { next; mes "Remova o seu Carrinho."; close;}
 sc_start SC_AGIFood, 300000, 100;
-if(checkriding()) { atcommand "@Mountpeco"; }
+if(checkriding()) { mes "Remova a sua montaria."; close; }
 atcommand "@disguise poring";
 atcommand "@fakename Jogador";
 warp "quiz_02",250,370;
