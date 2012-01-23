@@ -676,7 +676,7 @@ gonryun,147,113,4	script	Negociante	902,{
 	L_POT:
 		mes	"[^660066 Negociante ^000000]";
 		mes "Itens de Utilidades: Veja as opções";
-		menu "Nada disso",L_INICIO,"Caixa Da Luz do Sol",L_CaixaLuzDoSol,"Caixa da Sonolência",L_CaixaSonolencia,"Caixa do Ressentimento",L_CaixaRessentimento,"Caixa Do Trovão",L_CaixaTrovao,"Oridecon Enriquecido",L_OrideconEnriquecido,"Elunium Enriquecido",L_EluniumEnriquecido,"Asa de Mosca Gigante 100x",L_AMG,"Erva Azul 1000x",L_EA,"Poção Branca 1000x",L_PB,"Poção Branca Compacta 1000x",L_PBC;
+		menu "Nada disso",L_INICIO,"Caixa Da Luz do Sol",L_CaixaLuzDoSol,"Caixa da Sonolência",L_CaixaSonolencia,"Caixa do Ressentimento",L_CaixaRessentimento,"Caixa Do Trovão",L_CaixaTrovao,"Oridecon Enriquecido",L_OrideconEnriquecido,"Elunium Enriquecido",L_EluniumEnriquecido,"Asa de Mosca Gigante 100x",L_AMG,"Erva Azul 100x",L_EA,"Poção Branca 1000x",L_PB,"Poção Branca Compacta 1000x",L_PBC,"Frasco de Fogo Grego 200x",L_Fogo,"Frasco de Ácido 200x",L_Acido;
 
 		L_CaixaLuzDoSol:
 			set .@nomePremio$, "Caixa Da Luz do Sol";
@@ -728,10 +728,10 @@ gonryun,147,113,4	script	Negociante	902,{
 			goto L_ENTREGA;
 
 		L_EA:
-			set .@nomePremio$, "1000x Erva Azul";
+			set .@nomePremio$, "100x Erva Azul";
 			setarray .@id[0], 510;
-			setarray .@qtde[0], 1000;
-			set .@preco, 13;
+			setarray .@qtde[0], 100;
+			set .@preco, 1;
 			goto L_ENTREGA;
 
 		L_PB:
@@ -746,6 +746,20 @@ gonryun,147,113,4	script	Negociante	902,{
 			setarray .@id[0], 547;
 			setarray .@qtde[0], 1000;
 			set .@preco, 8;
+			goto L_ENTREGA;
+			
+		L_Fogo:
+			set .@nomePremio$, "200x Frascos de Fogo Grego";
+			setarray .@id[0], 7135;
+			setarray .@qtde[0], 200;
+			set .@preco, 2;
+			goto L_ENTREGA;
+			
+		L_Acido:
+			set .@nomePremio$, "200x Frascos de Ácido";
+			setarray .@id[0], 7136;
+			setarray .@qtde[0], 200;
+			set .@preco, 2;
 			goto L_ENTREGA;
 	
 	L_ENTREGA:
