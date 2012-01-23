@@ -64,7 +64,7 @@ set @smais,	1;	// Exibir calabouços no menu? (Nota 1)
 			mes "[Teletransportadora]";
 			mes "Selecione o seu destino:";
 			next;
-			switch (select ("Prontera","Alberta","Aldebaran","Amatsu","Ayothaya","Brasilis","Comodo","Einbech","Einbroch","Esplendor","Geffen","Gonryun",
+			switch (select ("Prontera","Alberta","Aldebaran","Amatsu","Ayothaya","Brasilis","Comodo","Dewata","Einbech","Einbroch","Esplendor","Geffen","Gonryun",
 							"Hugel","Izlude","Jawaii","Juno","Lighthalzen","Louyang","Lutie","Manuka","Morroc","Moscovia","Ilha Esquecida","Niflheim",
 							"Payon","Rachel","Umbala","Veins"))
 			{
@@ -76,27 +76,28 @@ set @smais,	1;	// Exibir calabouços no menu? (Nota 1)
 				case 5: callsub F_DoWarp, "ayothaya", 151, 117;
 				case 6: callsub F_DoWarp, "brasilis", 195, 218;
 				case 7: callsub F_DoWarp, "comodo", 209, 143;
-				case 8: callsub F_DoWarp, "einbech", 70, 95;
-				case 9: callsub F_DoWarp, "einbroch", 64, 200;
-				case 10: callsub F_DoWarp, "splendide", 202, 150;
-				case 11: callsub F_DoWarp, "geffen", 119, 59;;
-				case 12: callsub F_DoWarp, "gonryun", 160, 120;
-				case 13: callsub F_DoWarp, "hugel", 96, 145;
-				case 14: callsub F_DoWarp, "izlude", 128, 114;
-				case 15: callsub F_DoWarp, "jawaii", 249, 127;
-				case 16: callsub F_DoWarp, "yuno", 157, 51;
-				case 17: callsub F_DoWarp, "lighthalzen", 158, 92;
-				case 18: callsub F_DoWarp, "louyang", 217, 40;
-				case 19: callsub F_DoWarp, "xmas", 147, 134;
-				case 20: callsub F_DoWarp, "manuk", 295, 190;
-				case 21: callsub F_DoWarp, "morocc", 156, 93;
-				case 22: callsub F_DoWarp, "moscovia", 223, 184;
-				case 23: callsub F_DoWarp, "nameless_i", 175, 256;
-				case 24: callsub F_DoWarp, "niflheim", 21, 153;
-				case 25: callsub F_DoWarp, "payon", 162, 233;
-				case 26: callsub F_DoWarp, "rachel", 130, 110;
-				case 27: callsub F_DoWarp, "umbala", 89, 157;
-				case 28: callsub F_DoWarp, "veins", 216, 123;
+				case 8: callsub F_DoWarp, "dewata", 200, 180;
+				case 9: callsub F_DoWarp, "einbech", 70, 95;
+				case 10: callsub F_DoWarp, "einbroch", 64, 200;
+				case 11: callsub F_DoWarp, "splendide", 202, 150;
+				case 12: callsub F_DoWarp, "geffen", 119, 59;;
+				case 13: callsub F_DoWarp, "gonryun", 160, 120;
+				case 14: callsub F_DoWarp, "hugel", 96, 145;
+				case 15: callsub F_DoWarp, "izlude", 128, 114;
+				case 16: callsub F_DoWarp, "jawaii", 249, 127;
+				case 17: callsub F_DoWarp, "yuno", 157, 51;
+				case 18: callsub F_DoWarp, "lighthalzen", 158, 92;
+				case 19: callsub F_DoWarp, "louyang", 217, 40;
+				case 20: callsub F_DoWarp, "xmas", 147, 134;
+				case 21: callsub F_DoWarp, "manuk", 295, 190;
+				case 22: callsub F_DoWarp, "morocc", 156, 93;
+				case 23: callsub F_DoWarp, "moscovia", 223, 184;
+				case 24: callsub F_DoWarp, "nameless_i", 175, 256;
+				case 25: callsub F_DoWarp, "niflheim", 21, 153;
+				case 26: callsub F_DoWarp, "payon", 162, 233;
+				case 27: callsub F_DoWarp, "rachel", 130, 110;
+				case 28: callsub F_DoWarp, "umbala", 89, 157;
+				case 29: callsub F_DoWarp, "veins", 216, 123;
 			}
 		
 		case 3:
@@ -257,5 +258,5 @@ bra_dun01,83,47,6	duplicate(cWarp)	Teletransportadora#62	721
 pay_fild04,21,169,6	duplicate(cWarp)	Teletransportadora#63	721
 cmd_fild02,217,373,5	duplicate(cWarp)	Teletransportadora#64	721
 dic_dun01,368,50,5	duplicate(cWarp)	Teletransportadora#65	721
-
+dewata,200,184,5	duplicate(cWarp)	Teletransportadora#66	721
 //============================================================ 
