@@ -16,6 +16,7 @@ niflheim,0,0,0,0	monster	Quve	1508,20,5000,0,0
 niflheim,0,0,0,0	monster	Árvore Maldita	1503,10,5000,0,0
 niflheim,0,0,0,0	monster	Poltergeist	1510,10,5000,0,0
 niflheim,0,0,0,0	monster	Dullahan	1504,5,5000,0,0
+niflheim,0,0,0,0	boss_monster	Senhor dos Mortos	1373,1,7200000,0,0
 
 // nif_fild01 - Skellington, um vilarejo solitário em Niflheim
 nif_fild01,0,0,0,0	monster	Mascarado	1506,50,5000,0,0
