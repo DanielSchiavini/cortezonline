@@ -528,10 +528,14 @@ nguild_prt,84,19,0	warp	nprtg109	1,1,nguild_prt,192,65
 nguild_prt,84,49,0	warp	nprtg101-1	1,1,nguild_prt,61,19
 
 //Guild Dungeons
-gld_dun01,119,14,0	warp	gldd_001	1,1,pay_gld,53,141
-gld_dun02,180,112,0	warp	gldd_002	1,1,alde_gld,242,121
-gld_dun02,20,160,0	warp	gldd_003	1,1,alde_gld,229,185
-gld_dun03,42,30,0	warp	gldd_004	1,1,prt_gld,63,66
-gld_dun03,238,274,0	warp	gldd_005	1,1,prt_gld,252,247
-gld_dun04,37,230,0	warp	gldd_006	1,1,gef_fild13,42,331
-gld_dun04,110,20,0	warp	gldd_007	1,1,gef_fild13,373,62
+gld_dun01,119,14,0	warp	gldd_001	1,1,gld_dun04,40,230
+gld_dun02,180,112,0	warp	gldd_002	1,1,gld_dun04,110,23
+gld_dun02,20,160,0	warp	gldd_003	1,1,gld_dun03,42,33
+gld_dun03,42,30,0	warp	gldd_004	1,1,gld_dun02,24,159
+gld_dun03,238,274,0	warp	gldd_005	1,1,gld_dun01,119,17
+gld_dun04,37,230,0	warp	gldd_006	1,1,gld_dun01,119,17
+gld_dun04,110,20,0	warp	gldd_007	1,1,gld_dun02,177,112
+
+//Guild Dungeons dos castelos 2.0 (add por marcos)
+arug_dun01,200,11,0	warp	gldd_008	1,1,schg_dun01,200,137
+schg_dun01,200,134,0	warp	gldd_009	1,1,arug_dun01,200,13
