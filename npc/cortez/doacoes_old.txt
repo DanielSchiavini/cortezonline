@@ -1,4 +1,4 @@
-gonryun,175,110,3	script	Doações	803,{		//790//845
+gonryun,157,126,3	script	Doações	803,{		//790//845
 
 if( getgmlevel()==59 || getgmlevel()>=80 ) goto L_GM;
 
