@@ -2,7 +2,7 @@
 display_version: no
 packet_ver_flag: 0x10000
 max_lv: 150
-aura_lv: 150
+aura_lv: 0
 
 // drops.conf
 item_rate_common: 1000

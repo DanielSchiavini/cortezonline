@@ -9043,17 +9043,17 @@ int pc_readdb(void)
 		//The reasoning behind the -2 is this... if the max level is 5, then the array
 		//should look like this:
 	   //0: x, 1: x, 2: x: 3: x 4: 0 <- last valid value is at 3.
-		while ((ui = max_level[job][type]) >= 2 && exp_table[job][type][ui-2] <= 0)
-			max_level[job][type]--;
-		if (max_level[job][type] < maxlv) {
-			ShowWarning("pc_readdb: Specified max %u for job %d, but that job's exp table only goes up to level %u.\n", maxlv, job_id, max_level[job][type]);
-			ShowInfo("Filling the missing values with the last exp entry.\n");
-			//Fill the requested values with the last entry.
-			ui = (max_level[job][type] <= 2? 0: max_level[job][type]-2);
-			for (; ui+2 < maxlv; ui++)
-				exp_table[job][type][ui] = exp_table[job][type][ui-1];
-			max_level[job][type] = maxlv;
-		}
+		//while ((ui = max_level[job][type]) >= 2 && exp_table[job][type][ui-2] <= 0)
+		//	max_level[job][type]--;
+		//if (max_level[job][type] < maxlv) {
+		//	ShowWarning("pc_readdb: Specified max %u for job %d, but that job's exp table only goes up to level %u.\n", maxlv, job_id, max_level[job][type]);
+		//	ShowInfo("Filling the missing values with the last exp entry.\n");
+		//	//Fill the requested values with the last entry.
+		//	ui = (max_level[job][type] <= 2? 0: max_level[job][type]-2);
+		//	for (; ui+2 < maxlv; ui++)
+		//		exp_table[job][type][ui] = exp_table[job][type][ui-1];
+		//	max_level[job][type] = maxlv;
+		//}
 //		ShowDebug("%s - Class %d: %d\n", type?"Job":"Base", job_id, max_level[job][type]);
 		for (i = 1; i < job_count; i++) {
 			job_id = jobs[i];
