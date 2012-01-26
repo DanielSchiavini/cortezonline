@@ -1,4 +1,4 @@
-
+// mapa PVP
 guild_vs3	mapflag	pvp
 guild_vs3	mapflag	noteleport
 guild_vs3	mapflag	nomemo
@@ -7,13 +7,26 @@ guild_vs3	mapflag	nowarpto
 guild_vs3	mapflag	nowarp
 guild_vs3	mapflag	nopenalty
 
+// Por que isso??
 new_zone01	mapflag	noloot
+
+// Mapas de 
 gonryun	mapflag	town
 gonryun	mapflag	nodrop
 
+// Mapas de evento
+quiz_01	mapflag	restricted	1
+quiz_02	mapflag	restricted	1
+
+// Mapas de WOE
 aldeg_cas02	mapflag	nocommand	50
 schg_cas01	mapflag	nocommand	50
 
+// Bandeiras de castelos
+gonryun,154,127,4	duplicate(Hohenschwangau2)	Astrum#ctz	722
+gonryun,163,127,4	duplicate(LF_sc01_2)	Himinn#ctz	722
+
+// shops
 gonryun,152,112,7	shop	Poções	58,611:-1,501:-1,502:-1,503:-1,504:-1,506:-1,522:-1,525:-1,509:-1,547:-1,645:-1,656:-1,657:-1,684:-1
 gonryun,152,109,7	shop	Utilidades	59,601:-1,602:-1,1065:-1,7137:-1,7138:-1,7139:-1,717:-1,716:-1,715:-1,1061:-1,911:-1,1093:-1,1092:-1
 
@@ -44,7 +57,3 @@ M_Save:
 	savepoint "gonryun",159,115;
 	callfunc "F_KafEnd",0,1,"na cidade de Cortez";
 }
-
-
-gonryun,154,127,4	duplicate(Hohenschwangau2)	Astrum#ctz	722
-gonryun,163,127,4	duplicate(LF_sc01_2)	Himinn#ctz	722
