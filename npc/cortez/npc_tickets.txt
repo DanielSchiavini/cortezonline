@@ -25,14 +25,14 @@ gonryun,147,113,4	script	Negociante	902,{
 			set .@nomePremio$, "Olhos Biônicos";
 			setarray .@id[0], 5325;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 30;
 			goto L_ENTREGA;	
 			
 		L_1:
 			set .@nomePremio$, "Boné Carteiro";
 			setarray .@id[0], 5466;
 			setarray .@qtde[0], 1;
-			set .@preco, 20;
+			set .@preco, 15;
 			goto L_ENTREGA;
 		
 		L_2:
@@ -46,7 +46,7 @@ gonryun,147,113,4	script	Negociante	902,{
 			set .@nomePremio$, "Máscara da Morte";
 			setarray .@id[0], 5564;
 			setarray .@qtde[0], 1;
-			set .@preco, 20;
+			set .@preco, 15;
 			goto L_ENTREGA;
 
 		L_4:
@@ -60,133 +60,133 @@ gonryun,147,113,4	script	Negociante	902,{
 			set .@nomePremio$, "Coroa da Abelha Rainha";
 			setarray .@id[0], 5081;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 18;
 			goto L_ENTREGA;
 
 		L_6:
 			set .@nomePremio$, "Chapéu de Angeling";
 			setarray .@id[0], 5132;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 18;
 			goto L_ENTREGA;
 
 		L_7:
 			set .@nomePremio$, "Boneca de Alice";
 			setarray .@id[0], 5137;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 22;
 			goto L_ENTREGA;
 
 		L_8:
 			set .@nomePremio$, "Chapéu do Olho Mágico";
 			setarray .@id[0], 5138;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 23;
 			goto L_ENTREGA;
 
 		L_9:
 			set .@nomePremio$, "Tiara Dourada";
 			setarray .@id[0], 5179;
 			setarray .@qtde[0], 1;
-			set .@preco, 28;
+			set .@preco, 25;
 			goto L_ENTREGA;
 
 		L_10:
 			set .@nomePremio$, "Chapéu de Menestrel";
 			setarray .@id[0], 5188;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 20;
 			goto L_ENTREGA;
 
 		L_11:
 			set .@nomePremio$, "Lendárias Asas de Anjo";
 			setarray .@id[0], 5210;
 			setarray .@qtde[0], 1;
-			set .@preco, 28;
+			set .@preco, 25;
 			goto L_ENTREGA;
 
 		L_12:
 			set .@nomePremio$, "Chapéu de Deviling";
 			setarray .@id[0], 5254;
 			setarray .@qtde[0], 1;
-			set .@preco, 28;
+			set .@preco, 23;
 			goto L_ENTREGA;
 
 		L_13:
 			set .@nomePremio$, "Auréolas de Anjo";
 			setarray .@id[0], 5257;
 			setarray .@qtde[0], 1;
-			set .@preco, 28;
+			set .@preco, 22;
 			goto L_ENTREGA;
 
 		L_14:
 			set .@nomePremio$, "Asas de Peco-Peco";
 			setarray .@id[0], 5286;
 			setarray .@qtde[0], 1;
-			set .@preco, 28;
+			set .@preco, 23;
 			goto L_ENTREGA;
 
 		L_15:
 			set .@nomePremio$, "Chapéu de Lamen";
 			setarray .@id[0], 5293;
 			setarray .@qtde[0], 1;
-			set .@preco, 28;
+			set .@preco, 23;
 			goto L_ENTREGA;
 
 		L_16:
 			set .@nomePremio$, "Boneca da Lady Solace";
 			setarray .@id[0], 5324;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 15;
 			goto L_ENTREGA;
 			
 		L_17:
 			set .@nomePremio$, "Boneca de Tatiana";
 			setarray .@id[0], 5343;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 15;
 			goto L_ENTREGA;	
 				
 		L_18:
 			set .@nomePremio$, "Boneca de Bianca";
 			setarray .@id[0], 5344;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 15;
 			goto L_ENTREGA;
 			
 		L_19:
 			set .@nomePremio$, "Boneca de Deborah";
 			setarray .@id[0], 5345;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 15;
 			goto L_ENTREGA;		
 
 		L_20:
 			set .@nomePremio$, "Orelhas Felinas";
 			setarray .@id[0], 5360;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 18;
 			goto L_ENTREGA;
 
 		L_21:
 			set .@nomePremio$, "Chifres Majestosos Gigantes";
 			setarray .@id[0], 5374;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 35;
 			goto L_ENTREGA;
 
 		L_22:
 			set .@nomePremio$, "Chapéu de Jibóia";
 			setarray .@id[0], 5388;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 18;
 			goto L_ENTREGA;
 		
 		L_23:
 			set .@nomePremio$, "Chapéu de Galinha";
 			setarray .@id[0], 5431;
 			setarray .@qtde[0], 1;
-			set .@preco, 20;
+			set .@preco, 15;
 			goto L_ENTREGA;	
 			
 		L_24:
@@ -200,7 +200,7 @@ gonryun,147,113,4	script	Negociante	902,{
 			set .@nomePremio$, "Touca de Pijama Azul";
 			setarray .@id[0], 5506;
 			setarray .@qtde[0], 1;
-			set .@preco, 28;
+			set .@preco, 20;
 			goto L_ENTREGA;	
 			
 		L_26:
@@ -221,35 +221,35 @@ gonryun,147,113,4	script	Negociante	902,{
 			set .@nomePremio$, "Óculos Vermelhos";
 			setarray .@id[0], 5288;
 			setarray .@qtde[0], 1;
-			set .@preco, 30;
+			set .@preco, 18;
 			goto L_ENTREGA;	
 			
 		L_29:
 			set .@nomePremio$, "Máscara do Mason";
 			setarray .@id[0], 5314;
 			setarray .@qtde[0], 1;
-			set .@preco, 30;
+			set .@preco, 18;
 			goto L_ENTREGA;	
 			
 		L_30:
 			set .@nomePremio$, "Asinhas de Peco Peco";
 			setarray .@id[0], 5358;
 			setarray .@qtde[0], 1;
-			set .@preco, 30;
+			set .@preco, 18;
 			goto L_ENTREGA;	
 			
 		L_31:
 			set .@nomePremio$, "Espírito Olímpico";
 			setarray .@id[0], 5389;
 			setarray .@qtde[0], 1;
-			set .@preco, 30;
+			set .@preco, 20;
 			goto L_ENTREGA;	
 				
 		L_33:
 			set .@nomePremio$, "Pergaminho de Ninpou";
 			setarray .@id[0], 5362;
 			setarray .@qtde[0], 1;
-			set .@preco, 30;
+			set .@preco, 18;
 			goto L_ENTREGA;	
 			
 			
@@ -257,77 +257,77 @@ gonryun,147,113,4	script	Negociante	902,{
 			set .@nomePremio$, "Orelhas Felinas";
 			setarray .@id[0], 5360;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 15;
 			goto L_ENTREGA;	
 			
 		L_36:
 			set .@nomePremio$, "Gato Tagarela";
 			setarray .@id[0], 5372;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 15;
 			goto L_ENTREGA;	
 			
 		L_37:
 			set .@nomePremio$, "Máscara Colorida";
 			setarray .@id[0], 5463;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 15;
 			goto L_ENTREGA;	
 			
 		L_38:
 			set .@nomePremio$, "Boina Alada";
 			setarray .@id[0], 5170;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 18;
 			goto L_ENTREGA;	
 			
 		L_39:
 			set .@nomePremio$, "Boina Brasileira";
 			setarray .@id[0], 5601;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 15;
 			goto L_ENTREGA;	
 			
 		L_40:
 			set .@nomePremio$, "Boina Charmosa";
 			setarray .@id[0], 5468;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 15;
 			goto L_ENTREGA;	
 			
 		L_41:
 			set .@nomePremio$, "Boina da Páscoa";
 			setarray .@id[0], 5489;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 15;
 			goto L_ENTREGA;	
 			
 		L_42:
 			set .@nomePremio$, "Boina de Coelho";
 			setarray .@id[0], 5568;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 15;
 			goto L_ENTREGA;	
 			
 		L_43:
 			set .@nomePremio$, "Boina Militar de Louyang";
 			setarray .@id[0], 5535;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 15;
 			goto L_ENTREGA;	
 			
 		L_44:
 			set .@nomePremio$, "Boina Romântica";
 			setarray .@id[0], 5379;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 15;
 			goto L_ENTREGA;	
 			
 		L_45:
 			set .@nomePremio$, "Boina Rosa";
 			setarray .@id[0], 5200;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 15;
 			goto L_ENTREGA;	
 			
 			L_46:
@@ -341,21 +341,21 @@ gonryun,147,113,4	script	Negociante	902,{
 			set .@nomePremio$, "Chapéu de Bebe Selvagem";
 			setarray .@id[0], 5572;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 20;
 			goto L_ENTREGA;	
 			
 			L_48:
 			set .@nomePremio$, "Máscara de Fugitivo";
 			setarray .@id[0], 5361;
 			setarray .@qtde[0], 1;
-			set .@preco, 20;
+			set .@preco, 22;
 			goto L_ENTREGA;	
 			
 			L_49:
 			set .@nomePremio$, "Placa de AFK";
 			setarray .@id[0], 5474;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 17;
 			goto L_ENTREGA;	
 
 	L_ARMOR:
@@ -382,42 +382,42 @@ gonryun,147,113,4	script	Negociante	902,{
 			set .@nomePremio$, "Couraça da Fúria Flamejante";
 			setarray .@id[0], 2345;
 			setarray .@qtde[0], 1;
-			set .@preco, 30;
+			set .@preco, 25;
 			goto L_ENTREGA;	
 			
 		L_CouracaOceanica:
 			set .@nomePremio$, "Couraça da Submissão Oceânica";
 			setarray .@id[0], 2347;
 			setarray .@qtde[0], 1;
-			set .@preco, 30;
+			set .@preco, 25;
 			goto L_ENTREGA;	
 
 		L_CouracaCelestial:
 			set .@nomePremio$, "Couraça da Liberdade Celestial";
 			setarray .@id[0], 2349;
 			setarray .@qtde[0], 1;
-			set .@preco, 30;
+			set .@preco, 25;
 			goto L_ENTREGA;	
 
 		L_CouracaContinental:
 			set .@nomePremio$, "Couraça da Perseverança Continental";
 			setarray .@id[0], 2351;
 			setarray .@qtde[0], 1;
-			set .@preco, 30;
+			set .@preco, 25;
 			goto L_ENTREGA;		
 
 		L_MantodeSeda:
 			set .@nomePremio$, "Manto de Seda";
 			setarray .@id[0], 2322;
 			setarray .@qtde[0], 1;
-			set .@preco, 5;
+			set .@preco, 3;
 			goto L_ENTREGA;
 
 		L_VestimentaArcana:
 			set .@nomePremio$, "Vestimenta Arcana";
 			setarray .@id[0], 2334;
 			setarray .@qtde[0], 1;
-			set .@preco, 10;
+			set .@preco, 5;
 			goto L_ENTREGA;
 
 	L_WEAPON:
@@ -566,7 +566,7 @@ gonryun,147,113,4	script	Negociante	902,{
 			set .@nomePremio$, "Botas";
 			setarray .@id[0], 2406;
 			setarray .@qtde[0], 1;
-			set .@preco, 4;
+			set .@preco, 3;
 			goto L_ENTREGA;
 
 		L_Sapatos:
@@ -585,63 +585,63 @@ gonryun,147,113,4	script	Negociante	902,{
 			set .@nomePremio$, "Anel";
 			setarray .@id[0], 2621;
 			setarray .@qtde[0], 1;
-			set .@preco, 3;
+			set .@preco, 2;
 			goto L_ENTREGA;
 			
 		L_Brinco:
 			set .@nomePremio$, "Brinco";
 			setarray .@id[0], 2622;
 			setarray .@qtde[0], 1;
-			set .@preco, 3;
+			set .@preco, 2;
 			goto L_ENTREGA;
 			
 		L_Colar:
 			set .@nomePremio$, "Colar";
 			setarray .@id[0], 2623;
 			setarray .@qtde[0], 1;
-			set .@preco, 3;
+			set .@preco, 2;
 			goto L_ENTREGA;
 				
 		L_Broche:
 			set .@nomePremio$, "Broche";
 			setarray .@id[0], 2625;
 			setarray .@qtde[0], 1;
-			set .@preco, 3;
+			set .@preco, 2;
 			goto L_ENTREGA;
 			
 		L_Rosario:
 			set .@nomePremio$, "Rosário";
 			setarray .@id[0], 2626;
 			setarray .@qtde[0], 1;
-			set .@preco, 3;
+			set .@preco, 2;
 			goto L_ENTREGA;
 			
 		L_Luva:
 			set .@nomePremio$, "Luva";
 			setarray .@id[0], 2624;
 			setarray .@qtde[0], 1;
-			set .@preco, 3;
+			set .@preco, 2;
 			goto L_ENTREGA;
 			
 		L_AnelEspiritual:
 			set .@nomePremio$, "Anel Espiritual";
 			setarray .@id[0], 2677;
 			setarray .@qtde[0], 1;
-			set .@preco, 23;
+			set .@preco, 20;
 			goto L_ENTREGA;
 
 		L_AneldoSenhor:
 			set .@nomePremio$, "Anel do Senhor das Chamas";
 			setarray .@id[0], 2678;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 20;
 			goto L_ENTREGA;
 
 		L_AneldaRessonancia:
 			set .@nomePremio$, "Anel da Ressonância";
 			setarray .@id[0], 2679;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 20;
 			goto L_ENTREGA;
 
 		L_AneldeDefesa:
@@ -655,21 +655,21 @@ gonryun,147,113,4	script	Negociante	902,{
 			set .@nomePremio$, "Luva de Orleans";
 			setarray .@id[0], 2701;
 			setarray .@qtde[0], 1;
-			set .@preco, 25;
+			set .@preco, 20;
 			goto L_ENTREGA;
 			
 		L_AneldeDiabolus:
 			set .@nomePremio$, "Anel de Diabolus";
 			setarray .@id[0], 2729;
 			setarray .@qtde[0], 1;
-			set .@preco, 28;
+			set .@preco, 23;
 			goto L_ENTREGA;
 			
 		L_AnelCerteiro:
 			set .@nomePremio$, "Anel Certeiro";
 			setarray .@id[0], 2616;
 			setarray .@qtde[0], 1;
-			set .@preco, 30;
+			set .@preco, 25;
 			goto L_ENTREGA;
 
 
