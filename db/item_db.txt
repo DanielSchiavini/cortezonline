@@ -4042,9 +4042,9 @@
 12385,Rubi Arco-Íris,Rubi Arco-Íris,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
 12386,Rubi Arco-Íris,Rubi Arco-Íris,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
 12387,Rubi Arco-Íris,Rubi Arco-Íris,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
-12388,Runa Raido para Iniciantes,Runa Raido para Iniciantes,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
-12389,Runa Wyrd para Iniciantes,Runa Wyrd para Iniciantes,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
-12390,Runa Berkana para Iniciantes,Runa Berkana para Iniciantes,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{},{},{}
+12388,Runstone_Crush,Rhydo Runestone para Iniciantes,11,0,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ if(strcharinfo(3) == "job3_rune02") { itemskill "RK_CRUSHSTRIKE",1; } },{},{}
+12389,Runstone_Storm,Pertz Runestone para Iniciantes,11,0,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ if(strcharinfo(3) == "job3_rune02") { itemskill "RK_STORMBLAST",1; } },{},{}
+12390,Runstone_Millennium,Verkana Runestone para Iniciantes,11,0,,10,,,,,0xFFFFFFFF,7,2,,,,,,{ if(strcharinfo(3) == "job3_rune02") { itemskill "RK_MILLENNIUMSHIELD",1; } },{},{}
 12392,Reparador_Leve,Reparador Leve,0,220,,70,,,,,0x00000400,8,2,,,,,,{ itemheal rand(200,300),0; },{},{}
 12393,Reparador_Moderado,Reparador Moderado,0,500,,70,,,,,0x00000400,8,2,,,,,,{ itemheal rand(300,400),0; },{},{}
 12394,Reparador_Avançado,Reparador Avançado,0,1100,,70,,,,,0x00000400,8,2,,,,,,{ itemheal rand(400,500),0; },{},{}
@@ -4127,20 +4127,20 @@
 12722,Pirexia,Pirexia,2,2,,20,,,,,0x00001000,7,2,,,,,,{ if(rand(10000) < 10) sc_start SC_PYREXIA,300000,0; },{},{}
 12723,Waraitake,Waraitake,2,2,,20,,,,,0x00001000,7,2,,,,,,{ if(rand(10000) < 10) sc_start SC_MAGICMUSHROOM,300000,0; },{},{}
 12724,Beladona,Beladona,2,2,,20,,,,,0x00001000,7,2,,,,,,{ if(rand(10000) < 10) sc_start SC_VENOMBLEED,15000,0; },{},{}
-12725,Runa_Nauthiz,Runa Nauthiz,11,2,,100,,,,,0xFFFFFFFF,7,2,,,,,,{ itemskill "RK_REFRESH",1; },{},{}
-12726,Runa_Raido,Runa Raido,11,2,,100,,,,,0xFFFFFFFF,7,2,,,,,,{ itemskill "RK_CRUSHSTRIKE",1; },{},{}
-12727,Runa_Berkana,Runa Berkana,11,2,,100,,,,,0xFFFFFFFF,7,2,,,,,,{ itemskill "RK_MILLENNIUMSHIELD",1; },{},{}
-12728,Runa_Isa,Runa Isa,11,100,,2,,,,,0xFFFFFFFF,7,2,,,,,,{ itemskill "RK_VITALITYACTIVATION",1; },{},{}
-12729,Runa_Othila,Runa Othila,11,2,,100,,,,,0xFFFFFFFF,7,2,,,,,,{ itemskill "RK_FIGHTINGSPIRIT",1; },{},{}
-12730,Runa_Uruz,Runa Uruz,11,2,,100,,,,,0xFFFFFFFF,7,2,,,,,,{ itemskill "RK_ABUNDANCE",1; },{},{}
-12731,Runa_Thurisaz,Runa Thurisaz,11,2,,100,,,,,0xFFFFFFFF,7,2,,,,,,{ itemskill "RK_GIANTGROWTH",1; },{},{}
-12732,Runa_Wyrd,Runa Wyrd,11,2,,100,,,,,0xFFFFFFFF,7,2,,,,,,{ itemskill "RK_STORMBLAST",1; },{},{}
-12733,Runa_Hagalaz,Runa Hagalaz,11,2,,100,,,,,0xFFFFFFFF,7,2,,,,,,{ itemskill "RK_STONEHARDSKIN",1; },{},{}
-12734,Runa_Bruta_Forte,Runa Bruta Forte,2,2,,100,,,,,0x00000080,8,2,,,,,,{ makerune 1; },{},{}
-12735,Runa_Bruta_Antiga,Runa Bruta Antiga,2,2,,100,,,,,0x00000080,8,2,,,,,,{ makerune 2; },{},{}
-12736,Runa_Bruta_Mística,Runa Bruta Mística,2,2,,100,,,,,0x00000080,8,2,,,,,,{ makerune 3; },{},{}
-12737,Runa_Bruta_Comum,Runa Bruta Comum,2,2,,100,,,,,0x00000080,8,2,,,,,,{ makerune 4; },{},{}
-12738,Runa_Bruta_Rara,Runa Bruta Rara,2,2,,100,,,,,0x00000080,8,2,,,,,,{ makerune 5; },{},{}
+12725,Runstone_Nosiege,Nauthiz Rune,11,100,,100,,,,,0xFFFFFFFF,8,2,,,,,,{ itemskill "RK_REFRESH",1; },{},{}
+12726,Runstone_Rhydo,Raido Rune,11,100,,100,,,,,0xFFFFFFFF,8,2,,,,,,{ itemskill "RK_CRUSHSTRIKE",1; },{},{}
+12727,Runstone_Verkana,Berkana Rune,11,100,,100,,,,,0xFFFFFFFF,8,2,,,,,,{ itemskill "RK_MILLENNIUMSHIELD",1; },{},{}
+12728,Runstone_Isia,Isa Rune,11,100,,100,,,,,0xFFFFFFFF,8,2,,,,,,{ itemskill "RK_VITALITYACTIVATION",1; },{},{}
+12729,Runstone_Asir,Othila Rune,11,100,,100,,,,,0xFFFFFFFF,8,2,,,,,,{ itemskill "RK_FIGHTINGSPIRIT",1; },{},{}
+12730,Runstone_Urj,Uruz Rune,11,100,,100,,,,,0xFFFFFFFF,8,2,,,,,,{ itemskill "RK_ABUNDANCE",1; },{},{}
+12731,Runstone_Turisus,Thurisaz Rune,11,100,,100,,,,,0xFFFFFFFF,8,2,,,,,,{ itemskill "RK_GIANTGROWTH",1; },{},{}
+12732,Runstone_Pertz,Wyrd Rune,11,100,,100,,,,,0xFFFFFFFF,8,2,,,,,,{ itemskill "RK_STORMBLAST",1; },{},{}
+12733,Runstone_Hagalas,Hagalaz Rune,11,100,,100,,,,,0xFFFFFFFF,8,2,,,,,,{ itemskill "RK_STONEHARDSKIN",1; },{},{}
+12734,Runstone_Quality,Luxurious Rune,0,2,,100,,,,,0x00000080,8,2,,,,,,{ makerune 1; },{},{}
+12735,Runstone_Ancient,Ancient Rune,0,2,,100,,,,,0x00000080,8,2,,,,,,{ makerune 2; },{},{}
+12736,Runstone_Mystic,Mystic Rune,0,2,,100,,,,,0x00000080,8,2,,,,,,{ makerune 3; },{},{}
+12737,Runstone_Ordinary,General Rune,0,2,,100,,,,,0x00000080,8,2,,,,,,{ makerune 4; },{},{}
+12738,Runstone_Rare,Rare Rune,0,2,,100,,,,,0x00000080,8,2,,,,,,{ makerune 5; },{},{}
 12742,Caixa de Presente do Dia dos Namorados,Caixa de Presente do Dia dos Namorados,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 7946,1; },{},{}
 12743,Caixa de Presente do Dia dos Namorados,Caixa de Presente do Dia dos Namorados,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 7947,1; },{},{}
 12744,Caixa de Chocolates,Caixa de Chocolates,2,0,,0,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem 558,1; },{},{}
@@ -4729,22 +4729,30 @@
 //=============================================================
 // Sistema de Costumes
 //=============================================================
-19509,Butterfly_Wing_Ears,Butterfly Wing Ears,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,0,695,{},{},{}
-19510,Screw_Stuck_in_Head,Screw Stuck in Head,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,0,696,{},{},{}
-19513,Chicken_Bill,Chicken Bill,5,20,,0,,0,,0,0xFFFFFFFF,7,2,1,,1,0,699,{},{},{}
-19514,Charlies_Beard,Charlies Beard,5,20,,0,,0,,0,0xFFFFFFFF,7,2,1,,1,0,700,{},{},{}
-19515,Yellow_Hat,Yellow Hat,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,1,701,{},{},{}
-19516,Singing_Bird,Singing Bird,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,1,702,{},{},{}
-19517,Chicken_Crest,Chicken Crest,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,1,703,{},{},{}
-19518,Rainbow,Rainbow,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,1,704,{},{},{}
-19519,Thunderstorm_Cloud,Thunderstorm Cloud,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,1,688,{},{},{}
-19520,Rain_Cloud,Rain Cloud,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,1,705,{},{},{}
-19521,Charlies_Hat,Charlies Hat,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,1,706,{},{},{}
-19522,Mini_Crown,Mini Crown,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,1,707,{},{},{}
-19523,Green_Ribbon,Green Ribbon,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,0,244,{},{},{}
-19524,Costume_Green_Feeler,Costume Green Feeler,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,0,85,{},{},{}
-19525,Costume_Mini_Glasses,Costume Mini Glasses,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,0,47,{},{},{}
-19526,Costume_Helm,Costume Helm,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,0,40,{},{},{}
-19527,Costume_Spiky_Band,Costume Spiky Band,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,0,43,{},{},{}
-19528,Costume_Iron_Cain,Costume Iron Cain,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,0,53,{},{},{}
-19529,Costume_Angel_Wing,Costume Angel Wing,5,20,,0,,0,,0,0xFFFFFFFF,7,2,256,,1,0,38,{},{},{}
+19500,T_Mr_Smile,T Mr Smile,5,0,,0,,0,,0,0xFFFFFFFF,7,2,6144,,0,0,65,{},{},{}
+19501,T_Spinx_Helm,T Spinx Helm,5,0,,0,,0,,1,0xFFFFFFFF,7,2,5120,,0,0,137,{},{},{}
+19504,T_Sunglasses,T Sunglasses,5,0,,0,,0,,0,0xFFFFFFFF,7,2,2048,,0,0,12,{},{},{}
+19505,T_Cigarette,T Cigarette,5,0,,0,,0,,0,0xFFFFFFFF,7,2,4096,,0,0,54,{},{},{}
+19506,T_Valkyrie_Feather_Band,T Valkyrie Feather Band,5,0,,0,,0,,0,0xFFFFFFFF,7,2,1024,,0,1,300,{},{},{}
+19507,Clear_Sun,Clear Sun,5,0,,0,,0,,0,0xFFFFFFFF,7,2,1024,,1,0,654,{},{},{}
+19508,T_Gemmed_Sallet,T Gemmed Sallet,5,0,,0,,0,,0,0xFFFFFFFF,7,2,1024,,0,1,0,{},{},{}
+19509,Butterfly_Wing_Ears,Butterfly Wing Ears,5,0,,0,,0,,0,0xFFFFFFFF,7,2,2048,,1,0,695,{},{},{}
+19510,Screw_Stuck_in_Head,Screw Stuck in Head,5,0,,0,,0,,0,0xFFFFFFFF,7,2,2048,,1,0,696,{},{},{}
+19513,Chicken_Bill,Chicken Bill,5,0,,0,,0,,0,0xFFFFFFFF,7,2,4096,,1,0,699,{},{},{}
+19514,Charlies_Beard,Charlies Beard,5,0,,0,,0,,0,0xFFFFFFFF,7,2,4096,,1,0,700,{},{},{}
+19515,Yellow_Hat,Yellow Hat,5,0,,0,,0,,0,0xFFFFFFFF,7,2,1024,,1,0,701,{},{},{}
+19516,Singing_Bird,Singing Bird,5,0,,0,,0,,0,0xFFFFFFFF,7,2,1024,,1,0,702,{},{},{}
+19517,Chicken_Crest,Chicken Crest,5,0,,0,,0,,0,0xFFFFFFFF,7,2,1024,,1,0,703,{},{},{}
+19518,Rainbow,Rainbow,5,0,,0,,0,,0,0xFFFFFFFF,7,2,1024,,1,0,704,{},{},{}
+19519,Thunderstorm_Cloud,Thunderstorm Cloud,5,0,,0,,0,,0,0xFFFFFFFF,7,2,1024,,1,0,688,{},{},{}
+19520,Rain_Cloud,Rain Cloud,5,0,,0,,0,,0,0xFFFFFFFF,7,2,1024,,1,0,705,{},{},{}
+19521,Charlies_Hat,Charlies Hat,5,0,,0,,0,,0,0xFFFFFFFF,7,2,1024,,1,0,706,{},{},{}
+19522,Mini_Crown,Mini Crown,5,0,,0,,0,,0,0xFFFFFFFF,7,2,1024,,1,0,707,{},{},{}
+19523,Green_Ribbon,Green Ribbon,5,0,,0,,0,,0,0xFFFFFFFF,7,2,1024,,1,0,244,{},{},{}
+19524,Costume_Green_Feeler,Costume Green Feeler,5,0,,0,,0,,0,0xFFFFFFFF,7,2,1024,,1,0,85,{},{},{}
+19525,Costume_Mini_Glasses,Costume Mini Glasses,5,0,,0,,0,,0,0xFFFFFFFF,7,2,2048,,1,0,47,{},{},{}
+19526,Costume_Helm,Costume Helm,5,0,,0,,0,,0,0xFFFFFFFF,7,2,1024,,1,0,40,{},{},{}
+19527,Costume_Spiky_Band,Costume Spiky Band,5,0,,0,,0,,0,0xFFFFFFFF,7,2,1024,,1,0,43,{},{},{}
+19528,Costume_Iron_Cain,Costume Iron Cain,5,0,,0,,0,,0,0xFFFFFFFF,7,2,4096,,1,0,53,{},{},{}
+19529,Costume_Angel_Wing,Costume Angel Wing,5,0,,0,,0,,0,0xFFFFFFFF,7,2,1024,,1,0,38,{},{},{}
+19530,Costume_Wild_Rose,Costume Wild Rose,5,20,,0,,0,,0,0xFFFFFFFF,7,2,1024,,1,0,541,{},{},{}

@@ -9,6 +9,33 @@ Projeto baseado no eAthena http://www.eathena.ws/ ou http://svn.eathena.ws/svn/e
 Vide LICENCE para informações da licença desse projeto (GNU/GPL)
 -------------------------------------------------------------------------------------------------
 
+26/01/2012
+	* Adicionada divisão de experiência entre filhos e pais; [Mara]
+	- issue: 288
+	* Nerfado aumento do ataque na habilidade Tempestade Espiritual; [Mara]
+	- issue: 301
+	* Corrigido range da habilidade Abalo Sísmico; [Mara]
+	- issue: 307
+
+25/01/2012
+	* Adicionada atualização referente ao grfio do eAthena; [Mara]
+	* Corrigido warning no comando @costumeitem; [Mara]
+	* Adicionado todos os Costume Item a item_db.txt; [Mara]
+	* Atualizado item_db.sql e mob_db.sql com as versões .txt; [Mara]
+	* Removido pequeno warning na conversão de short para uint8; [Mara]
+	* Retirado txt-converter do emulador; [Mara]
+	* Adicionado suporte ao uso da habilidade Rapidez com Lança para lanças de uma mão; [Mara]
+	- issue: 304
+	* Habilidade Encantar Lâmina pode ser utilizada em outros jogadores no bRO; [Mara]
+	- Segundo uma atualização do kRO referente a 2011 só poderia ser usado no próprio jogador.
+	- issue: 297
+	* Revertida área da habilidade Abalo Sísmico; [Mara]
+	* Aplicado as modificações de 2011 referentes ao Ranger. [Mara]
+
+17/01/2012
+	* Substituida as runas do Lorde Rúnico; [Mara]
+	- issue: 293
+
 14/01/2012
 	* Corrigido job_db1.txt dos SA Extended; [Mara]
 	* Pequena atualização nos Elementais; [Mara]

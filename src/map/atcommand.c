@@ -1851,7 +1851,7 @@ ACMD_FUNC(costumeitem)
 	memset(item_name, '\0', sizeof(item_name));
 
 	if (!message || !*message || (
-		sscanf(message, "\"%99[^\"]\"%s %d", item_name, &number) < 1 &&
+		sscanf(message, "\"%99[^\"]\" %", item_name, &number) < 1 &&
 		sscanf(message, "%99s %d", item_name, &number) < 1
 	)) {
 		clif_displaymessage(fd, "Por favor, entre com todas as informações (uso: @costumeitem <nome/ID do item> <quantidade>).");

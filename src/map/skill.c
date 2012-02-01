@@ -1140,7 +1140,7 @@ int skill_additional_effect (struct block_list* src, struct block_list *bl, int 
 		break;
 	case RA_FIRINGTRAP:
 	case RA_ICEBOUNDTRAP:
-		sc_start(bl, (skillid == RA_FIRINGTRAP) ? SC_BURNING:SC_FREEZING, 40 + 10 * skilllv, skilllv, skill_get_time2(skillid, skilllv));
+		sc_start(bl, (skillid == RA_FIRINGTRAP) ? SC_BURNING:SC_FREEZING, 50 + 10 * skilllv, skilllv, skill_get_time2(skillid, skilllv));
 		break;
 	case NC_PILEBUNKER:
 		if( rand()%100 < 5 + 15*skilllv )
@@ -6747,7 +6747,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, in
 
 	case PF_SOULCHANGE:
 		{
-			unsigned int sp1 = 0, sp2 = 0, tsp1 = 0, tsp2 = 0;
+			unsigned int sp1 = 0, sp2 = 0;
 			if (dstmd) {
 				if (dstmd->state.soul_change_flag) {
 					if(sd) clif_skill_fail(sd,skillid,0,0,0);
@@ -6759,19 +6759,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, in
 				clif_skill_nodamage(src,bl,skillid,skilllv,1);
 				break;
 			}
-			
-			if(battle_config.renewal_setting&0x20)
-			{
-				tsp1 >>= 1;
-				tsp2 >>= 1;
-				
-				sp1 = sp2 + ( ( sp1 > sp2 ) ? tsp1 : ( -tsp1 ) );
-				sp2 = sp1 + ( ( sp1 > sp2 ) ? ( -tsp2 ) : tsp2 );
-			}
-			
 			sp1 = sstatus->sp;
 			sp2 = tstatus->sp;
-
 			status_set_sp(src, sp2, 3);
 			status_set_sp(bl, sp1, 3);
 			clif_skill_nodamage(src,bl,skillid,skilllv,1);
@@ -13089,7 +13078,7 @@ struct skill_condition skill_get_requirement(struct map_session_data* sd, short 
  *----------------------------------------------*/
 int skill_castfix(struct block_list *bl, int skill_id, int skill_lv)
 {
-	int base_time, variable_time, fixed_time = 0, max_fixedReduction = 0, scale = 0, final_time;
+	int base_time, variable_time = 0, fixed_time = 0, max_fixedReduction = 0, scale = 0, final_time = 0;
 	struct map_session_data *sd;
 	struct status_change *sc;
 
@@ -16496,7 +16485,6 @@ void skill_init_unit_layout (void)
 	for( i = 0; i < 8; i++ )
 	{ // For each Direction
 		skill_unit_layout[pos].count = 3; // Temp code being used as the official method makes too much noise in game. [Rytech]
-		//skill_unit_layout[pos].count = 15; // This line is here to replace the above one once gravity changes the animation.
 		switch( i )
 		{
 		case 0: case 1: case 3: case 4: case 5: case 7:

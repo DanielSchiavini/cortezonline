@@ -2595,7 +2595,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 		status_set_viewdata(&nd->bl, nd->class_);
 		status_change_init(&nd->bl);
 		unit_dataset(&nd->bl);
-		nd->ud.dir = nd->bl.m;
+		nd->ud.dir = (uint8)nd->bl.m;
 		clif_spawn(&nd->bl);
 	}
 

@@ -862,4 +862,4 @@ int ShowFatalError(const char *string, ...) {
 	ret = _vShowMessage(MSG_FATALERROR, string, ap); 
 	va_end(ap); 
 	return ret; 
-} 
+}
