@@ -13,7 +13,7 @@ gonryun,185,93,3	script	Yuuko	728,{
 	mes "Bem, estes são os itens que eu tenho...";
 	mes "Sobre qual deles vai querer saber mais?";
 	next;
-	switch(select("Ninho Abandonado:Chapéu de Ninho:Lendárias Asas de Anjo:Asas de Demônio Evoluídas:Peixe Turquesa:Hélices 2.0:Chapéu de Nove Caudas:Coroa de Flor de Lótus:Boneca de Tatiana:Cartola de Coelho:Boné de Carteiro:Cartola Mágica:Boneca de Lady Tanee:Chapéu de Quati:Chapéu de Polvo:Boneco de Gato Folha:Chapéu de Gatinho:Grinalda de Flores:Família Poring:Bandana de Mecânico:Chapéu de Pintinho:Boneca de Deborah:Gorro de Natal 2.0:Chapéu Celestial:Chapéu de Pintinho Rosa:Asas de Anjo Evoluídas:Boneca de Lif:Chapéu de Lamen:Coroa de Ouro:Boneca de Alice:Chapéu de Parada:Diadema Dourada:Boneca de Denise:Máscara de Fugitivo:Antique Pipe:Nenhum"))
+	switch(select("Ninho Abandonado:Chapéu de Ninho:Lendárias Asas de Anjo:Asas de Demônio Evoluídas:Peixe Turquesa:Hélices 2.0:Chapéu de Nove Caudas:Coroa de Flor de Lótus:Boneca de Tatiana:Cartola de Coelho:Boné de Carteiro:Cartola Mágica:Boneca de Lady Tanee:Chapéu de Quati:Chapéu de Polvo:Boneco de Gato Folha:Chapéu de Gatinho:Grinalda de Flores:Família Poring:Bandana de Mecânico:Chapéu de Pintinho:Boneca de Deborah:Gorro de Natal 2.0:Chapéu Celestial:Chapéu de Pintinho Rosa:Asas de Anjo Evoluídas:Boneca de Lif:Chapéu de Lamen:Coroa de Ouro:Boneca de Alice:Chapéu de Parada:Diadema Dourada:Boneca de Denise:Máscara de Fugitivo:Antique Pipe:Rastreador GZ:Chapéu Goma de Mascar:Chapéu de ArchAngeling:Chapéu Alado Vermelho:Laço de Noiva:Venda de Takius:Nenhum"))
 	{
 	case 1:
 		mes "[Ninho Abandonado]";
@@ -1045,7 +1045,193 @@ gonryun,185,93,3	script	Yuuko	728,{
 		}
 		break;
 		
-	case 36:
+		case 36:
+		mes "[Rastreador GZ]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "3x "+getitemname(2296);
+		mes "2x "+getitemname(975);
+		mes "2x "+getitemname(982);
+		mes "150x "+getitemname(999);
+		mes "25x "+getitemname(2220);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(2296) >= 3 && countitem(975) >= 2 && countitem(982) >= 2 && countitem(999) >= 150 && countitem(2220) >= 25)
+		{
+			delitem 2296,3;
+			delitem 975,2;
+			delitem 982,2;
+			delitem 999,150;
+			delitem 2220,25;
+			getitem 5315,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+		
+		case 37:
+		mes "[Chapéu Goma de Mascar]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "50x "+getitemname(529);
+		mes "50x "+getitemname(530);
+		mes "200x "+getitemname(907);
+		mes "10x "+getitemname(14523);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(529) >= 50 && countitem(530) >= 50 && countitem(907) >= 200 && countitem(14523) >= 10)
+		{
+			delitem 529,50;
+			delitem 530,50;
+			delitem 907,200;
+			delitem 14523,10;
+			getitem 5846,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+		
+		case 38:
+		mes "[Chapéu de ArchAngeling]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "1x "+getitemname(2254);
+		mes "2x "+getitemname(2255);
+		mes "50x "+getitemname(617);
+		mes "50x "+getitemname(603);
+		mes "5x "+getitemname(4001);
+		mes "5x "+getitemname(4033);
+		mes "5x "+getitemname(4196);
+		mes "15x "+getitemname(7169);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(2254) >= 1 && countitem(2255) >= 2 && countitem(617) >= 50 && countitem(603) >= 50 && countitem(4001) >= 5 && countitem(4033) >= 5 && countitem(4196) >= 5 && countitem(7169) >= 15)
+		{
+			delitem 2254,1;
+			delitem 2255,2;
+			delitem 617,50;
+			delitem 603,50;
+			delitem 4001,5;
+			delitem 4033,5;
+			delitem 4196,5;
+			delitem 7169,15;
+			getitem 5319,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+		
+		case 39:
+		mes "[Chapéu Alado Vermelho]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "1x "+getitemname(5016);
+		mes "1x "+getitemname(2284);
+		mes "1x "+getitemname(16001);
+		mes "1x "+getitemname(2258);
+		mes "3x "+getitemname(975);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(5016) >= 1 && countitem(2284) >= 1 && countitem(16001) >= 1 && countitem(2258) >= 1 && countitem(975) >= 3)
+		{
+			delitem 5016,1;
+			delitem 2284,1;
+			delitem 16001,1;
+			delitem 2258,1;
+			delitem 975,3;
+			getitem 5690,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+		
+		case 40:
+		mes "[Laço de Noiva]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "50x "+getitemname(10007);
+		mes "5x "+getitemname(2244);
+		mes "5x "+getitemname(2209);
+		mes "1x "+getitemname(2111);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(10007) >= 50 && countitem(2244) >= 5 && countitem(2209) >= 5 && countitem(2111) >= 1)
+		{
+			delitem 10007,50;
+			delitem 2244,5;
+			delitem 2209,5;
+			delitem 2111,1;
+			getitem 5801,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+		
+		case 41:
+		mes "[Venda da Takius]";
+		mes "Para Fazer este item, eu vou precisar de:";
+		mes "4x "+getitemname(5104);
+		next;
+		mes "[Yuuko]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Yuuko]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(5104) >= 4)
+		{
+			delitem 5104,4;
+			getitem 5101,1;
+			mes "[Yuuko]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+		
+	case 42:
 		mes "[Yuuko]";
 		mes "Tudo bem, estarei aqui se você mudar de ideia.";
 		close;
