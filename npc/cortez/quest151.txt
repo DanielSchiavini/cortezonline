@@ -1,6 +1,6 @@
 // NPC de quest de nível
 // Atualizado e Modificado por Marcos.
-gonryun,201,256,4	script	Heremita	58,{
+gonryun,201,256,4	script	Heremita	97,{
 	if(level151 == 1) {
 	mes "Lembre-se, você somente conseguirá conquistar esse poder explorando as mais profundas cavernas de Glast Heim...";
 	close;
