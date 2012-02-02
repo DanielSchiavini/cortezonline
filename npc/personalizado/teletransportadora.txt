@@ -39,7 +39,6 @@ set @lwarp,	1;	// Habilitar último warp gravado? (Nota 1)
 set @sdung,	1;	// Exibir calabouços no menu? (Nota 1)
 set @smais,	1;	// Exibir calabouços no menu? (Nota 1)
 //============================================================ 
-
 	mes "[Teletransportadora]";
 	mes "Olá "+strcharinfo(0)+", seja bem-vindo ao Serviço de Teletransporte!";
 	mes "Para onde você gostaria de ir?";
@@ -168,7 +167,14 @@ set @smais,	1;	// Exibir calabouços no menu? (Nota 1)
 			next;
 			switch (select ("Mapa PvP","Astrum","Himinn","Sala do Galho Seco"))
 			{
-				case 1: callsub F_DoWarp, "guild_vs3", 0,0;
+				case 1: 
+				next;
+				mes "Há "+(getmapusers("guild_vs3"))+" jogadores no mapa!";
+				mes "Deseja Entrar?";
+				if(select("Sim!:Não!")==2) {close;
+				} else {
+				callsub F_DoWarp, "guild_vs3", 0,0;
+				}
 				case 2: callsub F_DoWarp, "alde_gld", 95, 243;
 				case 3: callsub F_DoWarp, "sch_gld", 287, 115;
 				case 4: callsub F_DoWarp, "guild_vs2", 0,0;
