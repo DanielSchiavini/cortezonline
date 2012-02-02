@@ -243,3 +243,9 @@ que_qaru05	mapflag	nopenalty
 
 // Poring War ==================
 poring_w02	mapflag	nopenalty
+
+// colocando esse mapflag nos mapas de pvp e sgs...
+guild_vs2	mapflag	nopenalty
+guild_vs3	mapflag	nopenalty
+pvp_n_4-5	mapflag	nopenalty
+pvp_n_3-5	mapflag	nopenalty
