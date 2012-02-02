@@ -52,3 +52,4 @@ enable_grave_system: no //tava bugado em 2011-11-29
 //player.conf
 hp_rate: 100
 sp_rate: 100
+bone_drop: 1
