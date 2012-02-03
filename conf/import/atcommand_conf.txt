@@ -148,9 +148,9 @@ marry: 40,70
 divorce: 40,70
 adopt: 40,70
 sound: 40,60
-storagelist: 40,70
-cartlist: 40,70
-itemlist: 40,70
+storagelist: 40,75
+cartlist: 40,75
+itemlist: 40,75
 stats: 40,80
 alive: 50,80
 blvl: 50,80
