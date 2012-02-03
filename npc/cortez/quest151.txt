@@ -2,25 +2,35 @@
 // Atualizado e Modificado por Marcos.
 gonryun,201,256,4	script	Heremita	97,{
 	if(level151 == 1) {
+	mes "^006611[ Heremita ]^333333";
 	mes "Lembre-se, você somente conseguirá conquistar esse poder explorando as mais profundas cavernas de Glast Heim...";
 	close;
 	}
-	if(BaseLevel==150  && JobLevel==50){ 
+	if(BaseLevel==150  && JobLevel==50){
+	mes "^006611[ Heremita ]^333333";	
 	mes "Hmm, o que você procura meu jovem?";
-	if(select("Procuro a Força !:Nada, só estou de passagem...") == 2) { next; mes "Azar o seu, fraco !"; close2; warp "gonryun",159,113;
+	if(select("Procuro a Força !:Nada, só estou de passagem...") == 2) { next; mes "^006611[ Heremita ]^333333"; mes "Azar o seu, fraco !"; close2; warp "gonryun",159,113;
 	} else {
+	next;
+	mes "^006611[ Heremita ]^333333";
 	mes "Há uma lenda, que na mais profunda caverna de glast heim, existe um espírito muito poderoso, que pode te dar grande poder";
 	next;
+	mes "^006611[ Heremita ]^333333";
 	mes "Não sei ao certo aonde ele está, essa história é muito antiga e muitos dúvidam desse fato...";
 	next;
+	mes "^006611[ Heremita ]^333333";
 	mes "De qualquer forma, espero ter ajudado, boa sorte explorando esse novo mundo!";
+	next;
+	mes "^006611[ Heremita ]^333333";
 	mes "Espero que você consiga o que deseja...";
+	next;
+	mes "^006611[ Heremita ]^333333";
 	mes "Agora, saia da minha frente!";
 	close2;
 	set level151,1;
 	warp "gonryun",159,113;
 	}
-	} else { mes "Não falo com pessoas fracas!"; close; warp "gonryun",159,113;
+	} else { mes "^006611[ Heremita ]^333333"; mes "Não falo com pessoas fracas!"; close; warp "gonryun",159,113;
 	}
 	}
 gl_dun02,32,119,4	script	Espírito	802,{
@@ -106,7 +116,7 @@ next;
 						mes "50x "+getitemname(991);
 						mes "50x "+getitemname(990);
 						mes "50x "+getitemname(996);
-						mes "550x "+getitemname(994);
+						mes "50x "+getitemname(994);
 						mes "Você vai me trazer os itens?"; 
 						if(select("Não...:Já trouxe!")==1){
 						next;
