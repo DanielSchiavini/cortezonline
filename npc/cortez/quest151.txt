@@ -16,7 +16,7 @@ gonryun,201,256,4	script	Heremita	97,{
 	mes "Há uma lenda, que na mais profunda caverna de glast heim, existe um espírito muito poderoso, que pode te dar grande poder";
 	next;
 	mes "^006611[ Heremita ]^333333";
-	mes "Não sei ao certo aonde ele está, essa história é muito antiga e muitos dúvidam desse fato...";
+	mes "Não sei ao certo aonde ele está, essa história é muito antiga e muitos duvidam desse fato...";
 	next;
 	mes "^006611[ Heremita ]^333333";
 	mes "De qualquer forma, espero ter ajudado, boa sorte explorando esse novo mundo!";
