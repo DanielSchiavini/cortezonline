@@ -33,7 +33,7 @@ gonryun,201,256,4	script	Heremita	97,{
 	} else { mes "^006611[ Heremita ]^333333"; mes "Não falo com pessoas fracas!"; close; warp "gonryun",159,113;
 	}
 	}
-gl_dun02,32,119,4	script	Espírito	802,{
+gl_sew04,293,4,4	script	Espírito	802,{
 if(level151 != 1) {
 mes "[^666699 Espírito ^000000]";
 mes "Quem é você??";
