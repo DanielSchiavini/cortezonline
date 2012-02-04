@@ -1,63 +1,100 @@
 gonryun,132,93,5	script	Canibal	796,{
-set $godlys$,"^006611[ Canibal ]^333333";
-mes $godlys$;
+set $canibal$,"^006611[ Canibal ]^333333";
+mes $canibal$;
 mes "Hmm, se você está me procurando é por que tem um desejo...";
 next;
-mes $godlys$;
+mes $canibal$;
 mes "Estou certo?";
-if(select("Com certeza !:Não, você é louco...") == 2 ) { next; mes $godlys$; mes "..."; close; 
+if(select("Com certeza !:Não, você é louco...") == 2 ) { next; mes $canibal$; mes "..."; close; 
 } else { 
 next;
-mes $godlys$;
+mes $canibal$;
 mes "Então você está procurando a pessoa certa!";
 next;
-mes $godlys$;
+mes $canibal$;
+mes "O que você deseja?";
+switch(select("Trocar Galhos Secos:Não desejo nada:Desejo outra coisa...")) {
+case 1:
+next;
+mes $canibal$;
+mes "Hmm, se você me trazer 100 galhos secos, eu te dou 1 galho sangrento!";
+mes "o que você acha?";
+if(select("Pode trocar!:Acho melhor não...")== 2) { next; mes $canibal$; mes "Ok, tudo certo..."; close; }
+else {
+if(countitem (604) >= 100) { 
+next;
+mes $canibal$;
+mes "Tudo certo, pegue o seu galho!";
+close2;
+delitem 604, 100;
+getitem 12103, 1;
+} else {
+next;
+mes $canibal$;
+mes "Você não tem 100 galhos secos...";
+close;
+}
+}
+break;
+case 2:
+next; 
+mes $canibal$; 
+mes "Ok, tudo certo..."; 
+close;
+break;
+case 3:
+next;
+mes $canibal$;
+mes "Hmm, acho que eu sei o que você quer...";
+next;
+mes $canibal$;
 mes "Me traga alguns crânios que eu te dou um presente que vai satisfazer o seu desejo...";
-if(countitem (7420) == 0) { next; mes $godlys$; mes "Você não tem caveiras..."; next; mes $godlys$; mes "Vá embora daqui!"; close;
+if(countitem (7420) == 0) { next; mes $canibal$; mes "Você não tem caveiras..."; next; mes $canibal$; mes "Vá embora daqui!"; close;
 } else {
 next;
-mes $godlys$;
+mes $canibal$;
 mes "Bom, agora que você tem caveiras, o que eu posso te dar por elas?";
-if(select("Galhos!:Nada, prefiro guardá-las...")== 2) { next; mes $godlys$; mes "..."; close;
+if(select("Galhos!:Nada, prefiro guardá-las...")== 2) { next; mes $canibal$; mes "..."; close;
 } else {
 next;
-mes $godlys$;
+mes $canibal$;
 mes "Qual tipo?";
 if(select("Galho Sangrento:Galho Seco")==2) {
 next;
-mes $godlys$;
+mes $canibal$;
 mes "hmm, eu troco 10 caveiras por 10 desses galhos...";
 next;
-mes $godlys$;
+mes $canibal$;
 mes "aceita?";
-if(select("Sim, é claro!:Não...") ==2) { next; mes $godlys$; mes "..."; close;
+if(select("Sim, é claro!:Não...") ==2) { next; mes $canibal$; mes "..."; close;
 } else {
 if(countitem (7420) >= 10) {
 next;
-mes $godlys$;
+mes $canibal$;
 mes "Tudo certo, agora vá embora daqui!";
 close2;
 delitem 7420,10;
 getitem 604,10;
-} else { next; mes $godlys$; mes "Você não tem 10 caveiras..."; close; }
+} else { next; mes $canibal$; mes "Você não tem 10 caveiras..."; close; }
 }
 } else {
 next;
-mes $godlys$;
+mes $canibal$;
 mes "hmm, eu troco 100 caveiras por 1 desses galhos...";
 next;
-mes $godlys$;
+mes $canibal$;
 mes "aceita?";
-if(select("Sim, é claro!:Não...") ==2) { next; mes $godlys$; mes "..."; close;
+if(select("Sim, é claro!:Não...") ==2) { next; mes $canibal$; mes "..."; close;
 } else {
 if(countitem (7420) >= 100) {
 next;
-mes $godlys$;
+mes $canibal$;
 mes "Tudo certo, agora vá embora daqui!";
 close2;
 delitem 7420,100;
 getitem 12103,1;
-} else { next; mes $godlys$; mes "Você não tem 100 caveiras..."; close; }
+} else { next; mes $canibal$; mes "Você não tem 100 caveiras..."; close; }
+}
 }
 }
 }
