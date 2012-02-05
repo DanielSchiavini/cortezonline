@@ -1,0 +1,155 @@
+// NPC de quest de nível
+// Atualizado e Modificado por Marcos.
+prt_in,235,38,4	script	Sábio#2	97,{
+	if(level153 == 1) {
+	mes "^006611[ Sábio ]^333333";
+	mes "Lembre-se, procure nos grandes campos de mjolnir...";
+	close;
+	}
+	if(BaseLevel==152  && JobLevel==50){
+	mes "^006611[ Sábio ]^333333";	
+	mes "Hmm, o que você procura meu jovem?";
+	if(select("Procuro a Força !:Nada, só estou de passagem...") == 2) { next; mes "^006611[ Sábio ]^333333"; mes "Azar o seu, fraco !"; close2; warp "gonryun",159,113;
+	} else {
+	next;
+	mes "^006611[ Sábio ]^333333";
+	mes "Há uma lenda, que nos campos de mjolnir, existe um espírito muito poderoso, que pode te dar grande poder";
+	next;
+	mes "^006611[ Sábio ]^333333";
+	mes "Não sei ao certo aonde ele está, essa história é muito antiga e muitos duvidam desse fato...";
+	next;
+	mes "^006611[ Sábio ]^333333";
+	mes "De qualquer forma, espero ter ajudado, boa sorte explorando esse novo mundo!";
+	next;
+	mes "^006611[ Sábio ]^333333";
+	mes "Espero que você consiga o que deseja...";
+	next;
+	mes "^006611[ Sábio ]^333333";
+	mes "Agora, saia da minha frente!";
+	close2;
+	set level153,1;
+	warp "gonryun",159,113;
+	}
+	} else { mes "^006611[ Sábio ]^333333"; mes "Não falo com pessoas fracas!"; close; warp "gonryun",159,113;
+	}
+	}
+mjolnir_09,56,153,4	script	Espíritos#3	111,{
+if(level153 != 1) {
+mes "[^666699 Espírito ^000000]";
+mes "Quem é você??";
+next;
+mes "[^666699 Espírito ^000000]";
+mes "Vá embora daqui!!!";
+close2;
+warp "gonryun",159,113;
+ } else {
+mes "[^666699 Espírito ^000000]";
+mes "Percebo que você anseia pelo poder... eu tenho um desafio para você!";
+next;
+mes "[^666699 Espírito ^000000]";
+mes "Eu posso ajudar a melhorar a sua força, se você tiver o nível necessário!";
+next;
+		if(BaseLevel==152  && JobLevel==50){
+			goto L_Quests;
+		}
+		Else {
+		mes "[^666699 Espírito ^000000]";
+		mes "Eu não posso te ajudar...";
+		close;
+		}
+		L_Quests:
+		mes "[^666699 Espírito ^000000]";
+		mes "Aceita o Desafio?";
+		next;
+		if(BaseLevel==152 && JobLevel==50)
+		if(select("Não, você é louco!:Sim, é claro!")==1){
+		mes "[^666699 Espírito ^000000]";
+		mes "Quando precisar de meus serviços estarei à disposição!";
+		close;
+		}
+		Else {
+		if(BaseLevel>152){
+		mes "Você já passou do nível 153! Eu não posso mais te ajudar...";
+		close;
+		} Else {
+		mes "[^666699 Espírito ^000000]";
+		mes "Completando a missão, você conseguirá mais poder no seu novo nível "+(BaseLevel+1)+".";
+					mes "O que acha?";
+					next;
+					if(select("Não me interessa.:Qual a missão?")==1){
+					mes "[^666699 Espírito~ ^000000]";
+		mes "Quando precisar de meus serviços estarei à disposição!";
+		close;
+		}
+		Else {
+		mes "[^666699 Espírito ^000000]";
+		mes "Para lhe contar esse segredo, vou precisar de 15.000.000z e dois jellopy !";
+		next;
+		if(select("Ok, Aceito a sua proposta !:Vá Roubar outro !")==2) {
+		mes "[^666699 Espírito ^000000]";
+		mes "Tudo Bem...";
+		close;
+		} Else {
+		if(countitem (909) >= 2 && Zeny >= 15000000) {
+		set zeny,zeny-15000000; 
+		delitem 909,2;
+		goto L_Nivel;
+		next;
+		} Else {
+		mes "[^666699 Espírito ^000000]";
+		mes "Você não tem os itens necessários para que eu lhe conte esse segredo!";
+		close;
+		}
+		}
+		
+						L_Nivel:
+						mes "[^666699 Espírito~ ^000000]";
+						mes "Tudo Certo!";
+						mes "Para que você consiga o poder do nível "+(BaseLevel+1)+" vou precisar de:";
+						mes "1x "+getitemname(5160);
+						mes "4x "+getitemname(6223);
+						mes "1x "+getitemname(2659);
+						mes "1x "+getitemname(2660);
+						mes "1x "+getitemname(2004);
+						mes "20x "+getitemname(969);
+						mes "2x "+getitemname(1131);
+						mes "1x "+getitemname(5550);
+						mes "100x "+getitemname(518);
+						mes "Você vai me trazer os itens?"; 
+						if(select("Não...:Já trouxe!")==1){
+						next;
+						mes "[^666699 Espírito~ ^000000]";
+						mes "Quando precisar de meus serviços estarei à disposição!";
+						close;
+						} else {
+							//Verificando os itens
+							if(countitem (518) >= 100 && countitem(5160) >= 1 && countitem(6223) >= 4 && countitem(2659) >= 1 && countitem(2660) >= 1 && countitem(2004) >= 1 && countitem(1131) >= 2 && countitem(969) >= 20 && countitem(5550) >= 1) {
+							next;
+							mes "[^666699 Espírito~ ^000000]";
+							mes "Tudo certo.. Parabéns!";
+								close2;
+								delitem 518,100;
+								delitem 5160,1;
+								delitem 6223,4;
+								delitem 2659,1;
+								delitem 2660,1;
+								delitem 2004,1;
+								delitem 969,20;
+								delitem 1131,2;
+								delitem 5550,1;
+								set level153,0;
+										set BaseLevel,BaseLevel+1;
+								logmes "[Level] "+BaseLevel+": "+strcharinfo(0);
+								announce "[Espírito] "+(Sex==0?"A jogadora ":"O jogador ")+strcharinfo(0)+" acaba de chegar ao nível "+BaseLevel+", parabéns!!!",bc_all;
+										
+										
+						} else { next ; mes "[^666699 Espírito~ ^000000]"; mes "Você não tem os itens necessários...";
+						close;}
+						}
+		}
+		
+	}
+	}
+	
+}
+}
