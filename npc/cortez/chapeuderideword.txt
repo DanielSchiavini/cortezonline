@@ -27,7 +27,7 @@ gonryun,175,74,6	script	Viajante	50,{
 		mes "Para poder fazer este chapéu, eu vou precisar de:";
 		mes "500x "+getitemname(1097);
 		mes "130x "+getitemname(7015);
-		mes "10x "+getitemname(4185);
+		mes "10x "+getitemname(1006);
 		mes "100x "+getitemname(7449);
 		mes "10x "+getitemname(4388);
 		mes "15x "+getitemname(2221);
@@ -42,11 +42,11 @@ gonryun,175,74,6	script	Viajante	50,{
 			mes "Tudo bem... Até mais!";
 			close;
 		}
-		if(countitem(1097) >= 500 && countitem(7015) >= 130 && countitem(4185) >= 10 && countitem(7449) >= 100 && countitem(4388) >= 10 && countitem(2221) >= 15 && Zeny >= 20000)
+		if(countitem(1097) >= 500 && countitem(7015) >= 130 && countitem(1006) >= 10 && countitem(7449) >= 100 && countitem(4388) >= 10 && countitem(2221) >= 15 && Zeny >= 20000)
 		{
 			delitem 1097,500;
 			delitem 7015,130;
-			delitem 4185,10;
+			delitem 1006,10;
 			delitem 7449,100;
 			delitem 4388,10;
 			delitem 2221,15;
