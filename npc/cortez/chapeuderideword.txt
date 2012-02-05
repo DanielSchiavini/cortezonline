@@ -20,7 +20,7 @@ gonryun,175,74,6	script	Viajante	50,{
 	mes "Bem, estes são os itens que eu tenho...";
 	mes "Sobre qual deles vai querer saber mais?";
 	next;
-	switch(select("Chapéu de Rideword:Coroa De Áries:Nenhum"))
+	switch(select("Chapéu de Rideword:Coroa De Áries:Coroa de Touro:Nenhum"))
 	{
 	case 1:
 		mes "[Chapéu de Rideword]";
@@ -80,7 +80,7 @@ gonryun,175,74,6	script	Viajante	50,{
 		if(countitem(4109) >= 5 && countitem(4099) >= 5 && countitem(1258) >= 5 && countitem(969) >= 30 && countitem(7106) >= 300 && countitem(947) >= 500 && Zeny >= 20000)
 		{
 			delitem 4109,5;
-			delitem 4099,10;
+			delitem 4099,5;
 			delitem 1258,5;
 			delitem 969,30;
 			delitem 7106,300;
@@ -92,7 +92,43 @@ gonryun,175,74,6	script	Viajante	50,{
 			close;
 		}
 		break;
-	case 3:
+		
+		case 3:
+		mes "[Coroa de Touro]";
+		mes "Para poder fazer este chapéu, eu vou precisar de:";
+		mes "5x "+getitemname(4101);
+		mes "5x "+getitemname(4065);
+		mes "5x "+getitemname(1257);
+		mes "30x "+getitemname(969);
+		mes "50x Conversor Elemental (terra)";
+		mes "2x "+getitemname(2286);
+		mes "20000 Zenys";
+		next;
+		mes "[Viajante]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Viajante]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(4101) >= 5 && countitem(4065) >= 5 && countitem(1257) >= 5 && countitem(969) >= 30 && countitem(12116) >= 50 && countitem(2286) >= 2 && Zeny >= 20000)
+		{
+			delitem 4101,5;
+			delitem 4065,5;
+			delitem 1257,5;
+			delitem 969,30;
+			delitem 12116,50;
+			delitem 2286,2;
+			set Zeny,Zeny-20000;
+			getitem 5550,1;
+			mes "[Viajante]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+	case 4:
 		mes "[Viajante]";
 		mes "Tudo bem, estarei aqui se você mudar de idéia.";
 		close;
