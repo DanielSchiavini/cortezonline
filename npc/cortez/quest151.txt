@@ -34,6 +34,11 @@ gonryun,201,256,4	script	Heremita	97,{
 	}
 	}
 gl_sew04,293,4,4	script	Espíritos#2	111,{
+if(level151 == 2) {
+mes "[^666699 Espírito ^000000]";
+mes "Procure em prontera o seu novo desafio...";
+close;
+}
 if(level151 != 1) {
 mes "[^666699 Espírito ^000000]";
 mes "Quem é você??";
@@ -141,7 +146,7 @@ next;
 								delitem 991,50;
 								delitem 990,50;
 								delitem 996,50;
-								set level151,0;
+								set level151,2;
 										set BaseLevel,BaseLevel+1;
 								logmes "[Level] "+BaseLevel+": "+strcharinfo(0);
 								announce "[Espírito] "+(Sex==0?"A jogadora ":"O jogador ")+strcharinfo(0)+" acaba de chegar ao nível "+BaseLevel+", parabéns!!!",bc_all;
