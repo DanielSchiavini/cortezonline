@@ -29,7 +29,7 @@ payg_cas05	mapflag	monster_noteleport
 payg_cas05	mapflag	nocommand	50
 payg_cas05	mapflag	nosave	SavePoint
 
-prontera,66,57,5	script	Invasão dos Castelos	47,{
+gonryun,161,113,5	script	Invasão dos Castelos	47,{
 	if($castelo==0){
 		donpcevent "Evento dos Castelos::OnInit";
 		end;
@@ -62,7 +62,7 @@ prontera,66,57,5	script	Invasão dos Castelos	47,{
 		end;
 }
 
-new_1-1,49,130,5	script	Evento dos Castelos	47,{
+new_1-1,48,120,5	script	Evento dos Castelos	47,{
 	if(getgmlevel()<49) close;
 	mes "[^666699 Evento dos Castelos ^000000]";
 	if($castelo>0){
