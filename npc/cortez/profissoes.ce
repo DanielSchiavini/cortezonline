@@ -199,10 +199,182 @@ gonryun,154,122,4	script	Mestra das Classes	864,{
 			close;
 		next;
 		jobchange getarg(0);
+		// espadachim
+		if(class == 1) {
+		getitem 501,50;
+		getitem 2456,1;
+		getitem 5583,1;
+		getitem 2560,1;
+		getitem 15009,1;
+		getitem 601,30;
+		getitem 602,5;
+		getitem 13874,1;
+		getitem 2647,2;
+		getitem 1110,1;
+		set Zeny, Zeny+10000;
 		mes "[Mestra das Classes]";
 		callsub S_MesClose, "Parabéns, agora você é um ^0000cd"+jobname(getarg(0))+"^000000!";
 	return;
-	
+	// mago
+	} else if (class == 2) { 
+		getitem 2456,1;
+		getitem 501,50;
+		getitem 5583,1;
+		getitem 2560,1;
+		getitem 601,30;
+		getitem 602,5;
+		getitem 15009,1;
+		getitem 13871,1;
+		getitem 2647,2;
+		getitem 1607,1;
+		set Zeny, Zeny+10000;
+		mes "[Mestra das Classes]";
+		callsub S_MesClose, "Parabéns, agora você é um ^0000cd"+jobname(getarg(0))+"^000000!";
+	return;
+	// arqueiro
+	} else if (class == 3) {
+		getitem 2456,1;
+		getitem 501,50;
+		getitem 5583,1;
+		getitem 601,30;
+		getitem 602,5;
+		getitem 2560,1;
+		getitem 15009,1;
+		getitem 13873,1;
+		getitem 2647,2;
+		getitem 1704,1;
+		getitem 1751,500;
+		set Zeny, Zeny+10000;
+		mes "[Mestra das Classes]";
+		callsub S_MesClose, "Parabéns, agora você é um ^0000cd"+jobname(getarg(0))+"^000000!";
+	return;
+	// noviço
+	} else if (class == 4) {	
+		getitem 2456,1;
+		getitem 601,30;
+		getitem 602,5;
+		getitem 501,50;
+		getitem 5583,1;
+		getitem 2560,1;
+		getitem 15009,1;
+		getitem 1504,1;
+		getitem 2647,2;
+		getitem 13872,1;
+		set Zeny, Zeny+10000;
+		mes "[Mestra das Classes]";
+		callsub S_MesClose, "Parabéns, agora você é um ^0000cd"+jobname(getarg(0))+"^000000!";
+	return;
+	// mercador
+	} else if (class == 5) { 
+		getitem 2456,1;
+		getitem 5583,1;
+		getitem 501,50;
+		getitem 601,30;
+		getitem 602,5;
+		getitem 2560,1;
+		getitem 15009,1;
+		getitem 13876,1;
+		getitem 2647,2;
+		getitem 1304,1;
+		set Zeny, Zeny+10000;
+		mes "[Mestra das Classes]";
+		callsub S_MesClose, "Parabéns, agora você é um ^0000cd"+jobname(getarg(0))+"^000000!";
+	return;
+	// gatuno
+	} else if (class == 6) { 
+		getitem 2456,1;
+		getitem 5583,1;
+		getitem 2560,1;
+		getitem 501,50;
+		getitem 601,30;
+		getitem 602,5;
+		getitem 15009,1;
+		getitem 13875,1;
+		getitem 2647,2;
+		getitem 1207,1;
+		set Zeny, Zeny+10000;
+		mes "[Mestra das Classes]";
+		callsub S_MesClose, "Parabéns, agora você é um ^0000cd"+jobname(getarg(0))+"^000000!";
+	return;
+	// taekwon
+	 } else if (class == 4046) { 
+		getitem 2456,1;
+		getitem 5583,1;
+		getitem 2560,1;
+		getitem 501,50;
+		getitem 15009,1;
+		getitem 2647,2;
+		getitem 4008,1;
+		getitem 601,30;
+		getitem 602,5;
+		getitem 4411,1;
+		getitem 4297,1;
+		getitem 4186,1;
+		set Zeny, Zeny+10000;
+		mes "[Mestra das Classes]";
+		callsub S_MesClose, "Parabéns, agora você é um ^0000cd"+jobname(getarg(0))+"^000000!";
+	return;
+	// ninja
+	} else if (class == 25) { 
+		getitem 2456,1;
+		getitem 5583,1;
+		getitem 2560,1;
+		getitem 15009,1;
+		getitem 601,30;
+		getitem 602,5;
+		getitem 501,50;
+		getitem 2647,2;
+		getitem 13010,1;
+		getitem 4412,1;
+		getitem 4327,1;
+		getitem 4038,1;
+		getitem 4011,1;
+		set Zeny, Zeny+10000;
+		mes "[Mestra das Classes]";
+		callsub S_MesClose, "Parabéns, agora você é um ^0000cd"+jobname(getarg(0))+"^000000!";
+	return;
+	// super aprendiz
+	} else if (class == 23) { 
+		getitem 2456,1;
+		getitem 5583,1;
+		getitem 2560,1;
+		getitem 2647,2;
+		getitem 601,30;
+		getitem 602,5;
+		getitem 501,50;
+		getitem 15009,1;
+		getitem 1207,1;
+		getitem 4008,1;
+		getitem 4043,1;
+		getitem 4411,1;
+		
+		set Zeny, Zeny+10000;
+		mes "[Mestra das Classes]";
+		callsub S_MesClose, "Parabéns, agora você é um ^0000cd"+jobname(getarg(0))+"^000000!";
+	return;
+	// justiceiro
+	} else if (class == 24) { 
+		getitem 2456,1;
+		getitem 5583,1;
+		getitem 2560,1;
+		getitem 501,50;
+		getitem 2647,2;
+		getitem 15009,1;
+		getitem 601,30;
+		getitem 602,5;
+		getitem 13101,1;
+		getitem 13200,500;
+		getitem 13873,1;
+		set Zeny, Zeny+10000;
+		mes "[Mestra das Classes]";
+		callsub S_MesClose, "Parabéns, agora você é um ^0000cd"+jobname(getarg(0))+"^000000!";
+	return;
+	} else {
+	jobchange getarg(0);
+		mes "[Mestra das Classes]";
+		callsub S_MesClose, "Parabéns, agora você é um ^0000cd"+jobname(getarg(0))+"^000000!";
+	return;
+	}
 	F_ReqBaseJobLevel:
 		if (getarg(1,99) < 99 || JobLevel < getarg(0))
 			callsub S_MesClose, "Você precisa ter pelo menos "+((getarg(1,0))?"Nível de Base 99 e ":"")+"Nível de Classe "+getarg(0)+" para poder mudar de classe.";
