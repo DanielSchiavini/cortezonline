@@ -10,13 +10,15 @@ guild_vs3	mapflag	nopenalty
 // Por que isso??
 new_zone01	mapflag	noloot
 
-// Mapas de 
+// Cidades
 gonryun	mapflag	town
 gonryun	mapflag	nodrop
 
 // Mapas de evento
 quiz_01	mapflag	restricted	1
+quiz_01	mapflag	nosave	SavePoint
 quiz_02	mapflag	restricted	1
+quiz_02	mapflag	nosave	SavePoint
 
 // Mapas de WOE
 aldeg_cas02	mapflag	nocommand	50
