@@ -7,7 +7,7 @@ end;
 		case 1:
 			announce "[Eventos] O cortez Galaxy possui uma Equipe de Eventos à sua disposição!",bc_all;
 			sleep 3000;
-			announce "[Eventos] Para tirar qualquer duvida sobre horários, equipe, informações, procure os GMs Vidar e Mjollnir",bc_all;
+			announce "[Eventos] Para tirar qualquer duvida sobre horários, equipe, informações, procure os GMs Vidar e Mjolnir",bc_all;
 			break;
 		case 2:
 			announce "[WoE] Atenção para os horários da guerra do emperium no servidor "+$serv$+"!!!",bc_all;
