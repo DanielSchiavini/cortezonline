@@ -13,10 +13,6 @@ new_1-1,49,129,5	script	Poring Premiado	61,{
 			close;
 		} else {
 			close2;
-			set $@Eventos,$@Eventos+1;
-			atcommand "@hidenpc Saída#20";
-			atcommand "@shownpc Evento Poring";
-			killmonsterall "quiz_02";
 			warp "quiz_02",250,370;
 			goto OnEvento;
 		}
@@ -24,6 +20,11 @@ new_1-1,49,129,5	script	Poring Premiado	61,{
 
 OnSat1400:
 OnEvento:
+	set $@Eventos,$@Eventos+1;
+	disablenpc "Saída#20";
+	enablenpc "Evento Poring";
+	killmonsterall "quiz_02";
+	
 	Announce "O Evento Poring Prêmiado está aberto, em 3 minutos o evento começa!",8;
 	sleep 30000;
 	
@@ -94,7 +95,7 @@ OnMobMorte4:
 	sleep2 10000;
 	
 	announce "Fale com o Npc Saída, localizado no centro do mapa, para sair do mesmo.",bc_all;
-	atcommand "@shownpc Saída#20";
+	enablenpc "Saída#20";
 	atcommand "@undisguiseall";
 	set $@Eventos,0;
 	end;
@@ -105,7 +106,7 @@ gonryun,163,115,5	script	Evento Poring	61,{
 		disablenpc "Evento Poring";
 		close;
 	} else if(getgmlevel() > 69) {
-		atcommand "@shownpc Evento Poring";
+		enablenpc "Evento Poring";
 	}
 	mes "ATENÇÃO";
 	mes "Para Vencer esse evento, basta encontrar o monstro com o nome:";
