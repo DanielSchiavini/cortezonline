@@ -165,7 +165,7 @@ set @smais,	1;	// Exibir calabouços no menu? (Nota 1)
 			mes "[Teletransportadora]";
 			mes "Selecione o seu destino:";
 			next;
-			switch (select ("Mapa PvP","Astrum","Himinn","Sala do Galho Seco 1","Sala do Galho Seco 2","Sala do Galho Seco 3"))
+			switch (select ("Mapa PvP","Astrum","Himinn","Sala do Galho Seco 1","Sala do Galho Seco 2","Sala do Galho Seco 3","Sala de treinamento MVP"))
 			{
 				case 1: 
 				next;
@@ -180,6 +180,7 @@ set @smais,	1;	// Exibir calabouços no menu? (Nota 1)
 				case 4: callsub F_DoWarp, "guild_vs2", 0,0;
 				case 5: callsub F_DoWarp, "pvp_n_4-5", 0,0;
 				case 6: callsub F_DoWarp, "pvp_n_3-5", 0,0;
+				case 7: callsub F_DoWarp, "guild_vs2-2", 0,0;
 			}
 	}
 	
