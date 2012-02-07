@@ -113,6 +113,8 @@ OnAgitBreak:
 		donpcevent "Agit#"+strnpcinfo(2)+"::OnStartArena";
 		end;
 	}
+	callfunc("broke_emperium", strnpcinfo(2));
+	
 	// Adjust Economy Invest Level for Castle
 	set .@Economy,GetCastleData(strnpcinfo(2),2) - 5;
 	if (.@Economy < 0) set .@Economy, 0;

@@ -69,6 +69,17 @@ function	script	F_PercentHeal	{
 	end;
 }
 
+//Function callfunc("broke_emperium", "castle")
+function	script	broke_emperium	{
+	if(playerattached()){
+		//dispbottom gettimetick(0);
+		if((gettimetick(0)%100)<=35){
+			getitem(12103,1);
+		}
+	}
+	return 1;
+}
+
 //Function F_Dispell (int char_id = 0)
 function	script	F_Dispell	{
 	set .@char, getarg(0,0);

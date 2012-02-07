@@ -2692,6 +2692,7 @@ Onstop:
 	end;
 
 OnStartArena:
+	callfunc("broke_emperium", "schg_cas01");
 	set .@GID,getcharid(2);
 	// Lower castle Economy
 	set .@Economy,GetCastleData("schg_cas01",2) - 5;
