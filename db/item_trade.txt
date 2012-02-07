@@ -23,7 +23,17 @@
 //1161,67,50 //Balmung: Não pode ser dropado, trocado (ou vendido) e nem posto no armazén do clã. (1+2+64 =67),
 //Apenas GMs de nível 50+ podem burlar isto.
 
+// Itens Cortez (75) Não podem sair da conta
 7180,75,100	//Ticket de evento Cortez
+
+7025,75,100	// Lamento de Lucifer, quest flor dos divinos
+7341,75,100	// Pingente Velho, quest flor dos divinos
+7305,75,100	// Simbolo dos Nove Reinos, quest flor dos divinos
+7314,75,100	// O sinal, quest flor dos divinos
+7178,75,100	// Gema de Luz Estelar, quest flor dos divinos
+7307,75,100	// Sussurros Espirituais, quest flor dos divinos
+7042,75,100	// Alforje de Couro do Infinito, quest flor dos divinos
+7331,75,100	// Flor Celestial, quest flor dos divinos
 
 // Wedding Related items
 2634,123,100 // Anel do Noivo
