@@ -1,0 +1,8 @@
+job3_war01,33,33,5	script	resolvedor de bug	58,{
+if(countitem (5374) == 1 ) {
+delitem 5374,1;
+getitem 5518,1;
+close;
+} else {
+close; }
+}
