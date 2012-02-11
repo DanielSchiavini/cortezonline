@@ -208,19 +208,19 @@ gonryun,160,115,4	script	Devil Square	705,{
 		next;
 		mes "[ Devil Square ]";
 		mes "Deseja ir para a arena?";
-		mes "O valor da entrada é de 300.000z!";
+		mes "O valor da entrada é de 50.000z!";
 		set #ev_ds_pagou, 0;
 		next;
-		switch(select("Não, obrigado:Pagar 300.000z")){
+		switch(select("Não, obrigado:Pagar 50.000z")){
 			case 2:
-				if(Zeny<300000){
+				if(Zeny<50000){
 					next;
 					mes "[ Devil Square ]";
 					mes "Você não tem os 300.000z necessários...";
 					close;
 				}else{
-					query_logsql "INSERT INTO zenylog(time,char_id,src_id,type,amount,map)VALUES(now(),"+getcharid(0)+","+getcharid(0)+",'N',-300000,'devsquare')";
-					set Zeny, Zeny - 300000;
+					query_logsql "INSERT INTO zenylog(time,char_id,src_id,type,amount,map)VALUES(now(),"+getcharid(0)+","+getcharid(0)+",'N',-50000,'devsquare')";
+					set Zeny, Zeny - 50000;
 					set #cred_loteria,#cred_loteria+1;
 					mes "[ Devil Square ]";
 					mes "Tudo certo, pode entrar!";
