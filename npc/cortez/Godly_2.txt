@@ -1,0 +1,72 @@
+yuno_in05,50,32,4	script	Guardião	730,{
+	mes "^006611[ Guardião ]^333333";
+	if(countitem(7331) < 1){
+		if(countitem(7346) < 1){
+			mes "O que você está fazendo aqui? Vá embora!";
+			close;
+		}else{
+			mes "Como você conseguiu este item??";
+			next;
+			menu "Conversar",-,"Cancelar",L_Fechar;
+		}
+	}else{
+		mes "Como é bom te ver de novo, volte sempre...";
+		next;
+		menu "Ir para Valkyrie",-,"Cancelar",L_Fechar;
+		close2;
+		warp "valkyrie",49,10;
+		end;
+	}
+	
+	mes "^006611[ Guardião ]^333333";
+	mes "Este item é uma das chaves para abrir o portal, mas para abri-lo serão necessários mais alguns itens.";
+	next;
+	mes "^006611[ Guardião ]^333333";
+	mes "São itens raros que só podem ser adquiridos com muitos esforços.";
+	next;
+	mes "^006611[ Guardião ]^333333";
+	mes "Se você for capaz de me trazer esses itens eu abrirei o portal.";
+	next;
+	mes "^006611[ Guardião ]^333333";
+	mes "Os itens necessários são:";
+	mes "- 2x Pingente de Morrigane";
+	mes "- 1x Pingente Velho";
+	mes "- 1x Simbolo dos Nove Reinos";
+	mes "- 1x O sinal";
+	next;
+	mes "^006611[ Guardião ]^333333";
+	mes "Não ficarei aqui esperando por muito tempo";
+	next;
+	menu "Já tenho os itens",L_DarItens,"Ainda não consegui",-;
+	
+	mes "^006611[ Guardião ]^333333";
+	mes "Volte quando conseguir!";
+	close;
+	
+	L_DarItens:
+	mes "^006611[ Guardião ]^333333";
+	mes "Vamos ver se você tem todos os itens necessários...";
+	next;
+	mes "^006611[ Guardião ]^333333";
+	if (countitem(2651) < 2 || countitem(7341) < 1 || countitem(7305) < 1 || countitem(7314) < 1){
+		mes "Você não trouxe todos os itens!";
+		mes "Traga todos, por favor.";
+	}else{
+		mes "Muito Bom...";
+		mes "Abrirei o portal conforme o combinado, e estará aberto para você!";
+		mes "Este aqui é seu passaporte...";
+		next;
+		delitem 2651,2;
+		delitem 7341,1;
+		delitem 7305,1;
+		delitem 7314,1;
+		delitem 7346,1;
+		
+		getitem 7331,1; //Esse item terá que ser intransferivel
+		close2;
+		warp "valkyrie",49,10;
+		end;
+	}
+	L_Fechar:
+		close;
+}

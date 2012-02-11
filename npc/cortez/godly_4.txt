@@ -1,0 +1,132 @@
+nif_fild01,178,53,6	script	Loki	871,{
+set $godlys$,"^006611[ Servo de Loki ]^333333";
+if(countitem(7331) != 1) { mes $godlys$; mes "Eu não falo com meros mortais !!"; close;}
+else {
+if(lokiplay2 == 3) { mes $godlys$; mes "Procure no santuário de Odin, lá você encontrará a sua resposta!"; close;
+}
+if(lokiplay2 == 2) {
+goto g_quest;
+}
+if(lokiplay2 != 1) { 
+mes $godlys$;
+mes "Aonde você conseguiu esta flor???";
+next;
+mes $godlys$;
+mes "Não importa, eu sou um servo de Loki, o Deus da travessura, posso te oferecer conselhos para que você alcance poder...";
+next;
+mes $godlys$;
+mes "...Muito poder";
+if(select("O que eu preciso fazer?:Ir embora") == 2 ) {close; }
+else {
+next;
+mes $godlys$;
+mes "Boa pergunta, meu caro!!";
+next;
+mes $godlys$;
+mes "Eu tenho um artefato muito poderoso que pode te ajudar a encontrar o que você deseja.";
+next;
+mes $godlys$;
+mes "Mas para que você consiga ele, vamos fazer uma brincadeira!!";
+next;
+mes $godlys$;
+mes "Antes disso, me traga 50x ouros";
+set lokiplay2,1;
+close;
+}
+} else {
+mes $godlys$;
+mes "Já trouxe??";
+if(select("Aqui está!:Ainda não..")==2) { next; mes $godlys$; mes "Ora, então o que está esperando??"; close; }
+else {
+if(countitem (969) != 50) { next; mes $godlys$; mes "Você não tem 50x Ouros, achou que poderia me enganar??!!"; close; }
+else {
+next;
+mes $godlys$;
+mes "Agora você terá que adivinhar em qual número eu estou pensando. /heh";
+set @sorteio, rand(1,4);
+next;
+mes $godlys$;
+mes "Estou pensando em um número entre 1 e 4.";
+next;
+mes $godlys$;
+mes "Qual número é?";
+input @numero;
+if (@numero < 1 || @numero > 4)
+{
+next;
+mes $godlys$;
+}
+else if (@numero == @sorteio)
+{
+next;
+mes $godlys$;
+mes "...";
+next;
+mes $godlys$;
+mes "Você acertou o número!";
+delitem 969,50;
+next;
+mes $godlys$;
+mes "Parabéns !!";
+set lokiplay2,2;
+close;
+}
+next;
+mes $godlys$;
+mes "....";
+next;
+mes $godlys$;
+mes "Você errou o número...";
+delitem 969,25;
+close;
+}
+}
+}
+g_quest:
+mes $godlys$;
+mes "Hmm, bom já que você provou que é capaz, então eu vou te dizer o que preciso para te dar esse item poderoso...";
+next;
+mes $godlys$;
+mes "Me Traga:";
+mes "3x "+getitemname(13046);
+mes "1x "+getitemname(1413);
+mes "1x "+getitemname(7020);
+mes "3x "+getitemname(1131);
+mes "5x "+getitemname(1285);
+mes "50x "+getitemname(7211);
+mes "50x "+getitemname(7300);
+mes "50x "+getitemname(968);
+mes "2x "+getitemname(1478);
+mes "3x "+getitemname(2254);
+next;
+mes $godlys$;
+mes "Vai me Trazer?";
+if(select("Está tudo aqui:Mais tarde...") == 2) { next; mes $godlys$; mes "Não demore, não tenho o dia todo..."; close; }
+else {
+if(countitem (13046) >= 3 && countitem(1413) >= 1 && countitem(7020) >= 1 && countitem(1131) >= 3 && countitem(1285) >= 5 && countitem(7211) >= 50 && countitem(7300) >= 50 && countitem(968) >= 50 && countitem(1478) >= 2 && countitem(2254) >= 3) {
+next;
+mes $godlys$;
+mes "Tudo Certo, parabéns...";
+close2;
+delitem 13046,3;
+delitem 1413,1;
+delitem 7020,1;
+delitem 1131,3;
+delitem 1285,5;
+delitem 7211,50;
+delitem 7300,50;
+delitem 968,50;
+delitem 1478,2;
+delitem 2254,3;
+getitem 7058,1;
+set godly3,2;
+set lokiplay2, 3;
+} else {
+next;
+mes $godlys$;
+mes "Você não tem todos os itens, volte quando tiver todos !";
+close;
+}
+}
+}
+}

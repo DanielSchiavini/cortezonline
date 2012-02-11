@@ -1,0 +1,11 @@
+valkyrie,48,82,4	script	Valkyrie	811,{
+	mes "^006611[ Valkyrie ]^333333";
+	mes "Bom. Vejo que você conseguiu chegar até aqui e sei que foi uma tarefa muito difícil, porém sua tarefa ainda não acabou.";
+	next;
+	mes "^006611[ Valkyrie ]^333333";
+	mes "Os itens que você busca são extremamente raros e com um grande poder, não será fácil de conseguir.";
+	next;
+	mes "^006611[ Valkyrie ]^333333";
+	mes "Procure nos campos de nifheim, lá você encontrara outra pessoa para te auxiliar.";
+	close;
+}

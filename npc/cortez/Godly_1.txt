@@ -1,0 +1,80 @@
+yuno_in02,94,206,4	script	Pesquisadora	71,{
+	mes "^006611[ Pesquisadora ]^333333";
+	mes "Humm...";
+	mes "Deseja saber algo?";
+	next;
+	menu "Sim",L_QuerSaber,"Não",-;
+	
+	mes "^006611[ Pesquisadora ]^333333";
+	mes "Ok, Ok... Volte quando quiser";
+	close;
+
+	L_QuerSaber: 
+	mes "^006611[ Pesquisadora ]^333333";
+	mes "Ouvi rumores que aqui neste lugar há uma sala secreta onde se encontra o Coração de Imir.";
+	next;
+	mes "^006611[ Pesquisadora ]^333333";
+	mes "O Coração é protegido por um guardião mágico, capaz de abrir um portal para o elo entre o mundo dos humanos e o mundo dos Deuses.";
+	next;
+	mes "^006611[ Pesquisadora ]^333333";
+	mes "É um lugar misterioso, me disseram que lá você poderia obter informações sobre itens divinos.";
+	mes "Mas não sei se é verdade ou se são apenas boatos.";
+	next;
+	menu "Diga mais Por Favor.",L_DigaMais,"É, são apenas boatos. Até mais.",-;
+
+	mes "^006611[ Pesquisadora ]^333333";
+	mes "Ok... Tenha um bom dia";
+	close;
+
+	L_DigaMais:
+	mes "^006611[ Pesquisadora ]^333333";
+	mes "Bom, eu estou fazendo uma pesquisa e preciso de alguns itens:";
+	mes "- 1x Gema de Luz Estelar(Impression of Starlight)";
+	mes "- 1x Sussurros Espirituais";
+	mes "- 1x Alforje de Couro do Infinito";
+	next;
+	mes "^006611[ Pesquisadora ]^333333";
+	mes "Traga todos esses itens que eu lhe darei algo que possa ajudar em sua busca.";
+	next;
+	menu "Já tenho os itens",L_DarItens,"To sem os itens agora.",-;
+	
+	mes "^006611[ Pesquisadora ]^333333";
+	mes "Pegue-os e volte aqui que eu irei lhe recompensar.";
+	close;
+
+	L_DarItens:
+	mes "^006611[ Pesquisadora ]^333333";
+	mes "Então, deixe-me verificar se você tem todos os items necessários...";
+	next;
+
+	if(countitem(7178) < 1 || countitem(7307) < 1 || countitem(7042) < 1){
+		mes "^006611[ Pesquisadora ]^333333";
+		mes "Você não trouxe todos os itens necessários..";
+		next;
+		mes "^006611[ Pesquisadora ]^333333";
+		mes "Traga todos, por favor.";
+	}else{
+		mes "^006611[ Pesquisadora ]^333333";
+		mes "Que maravilha!!";
+		next;
+		mes "^006611[ Pesquisadora ]^333333";
+		mes "Um tempo atrás eu estava caminhando na Montanha de Mjolnir e encontrei um ancião que estava ferido.";
+		mes "Eu cuidei dele até que ele ficasse bom. Como agradecimento ele me deu um item e disse que era algo que poderia abrir o portal para o elo entre os mundos.";
+		next;
+		mes "^006611[ Pesquisadora ]^333333";
+		mes "Porem só uma pessoa poderia abrir esse portal, essa pessoa seria o guardião do Coração de Imir.";
+		next;
+		mes "^006611[ Pesquisadora ]^333333";
+		mes "Embora o Coração esteja aqui, eu nunca consegui encontra-lo, ele é protegido por corredores que formam labirintos e fazem que você sinta estar andando sempre no mesmo lugar. Boa sorte em sua busca.";
+		next;
+		mes "^006611[ Pesquisadora ]^333333";
+		mes "Esta aqui o item";
+		mes "Boa Sorte.";
+		delitem 7178,1;
+		delitem 7307,1;
+		delitem 7042,1;
+		
+		getitem 7346,1;
+	}
+	close;
+}
