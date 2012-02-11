@@ -24,6 +24,10 @@
 
 // Sealed Catacomb Entrance
 monk_test,309,146,3	script	Friar Patrick#edq	412,{
+	set $fechandobug,5;
+	if($fechandobug == 5) {
+	close;
+	} else {
 	if (checkquest(3040)>=0) erasequest 3040;
 	cutin "ins_cata_pri_n",2;
 	mes "[Friar Patrick]";
@@ -248,7 +252,7 @@ monk_test,309,146,3	script	Friar Patrick#edq	412,{
 	cutin "",255;
 	end;
 }
-
+}
 monk_test,306,151,3	script	Grave of Baphomet#edq	111,{
 	if (countitem(6002) > 0)
 		delitem 6002,countitem(6002); //Token_Of_Apostle
