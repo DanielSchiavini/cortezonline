@@ -1,4 +1,4 @@
-nif_fild01,178,53,6	script	Loki	871,{
+nif_fild01,178,53,6	script	Servo de Loki	871,{
 set $godlys$,"^006611[ Servo de Loki ]^333333";
 if(countitem(7331) != 1) { mes $godlys$; mes "Eu não falo com meros mortais !!"; close;}
 else {
