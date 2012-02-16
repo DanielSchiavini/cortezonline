@@ -1,19 +1,19 @@
 // NPC de quest de nível
 // Atualizado e Modificado por Marcos.
-prt_in,235,38,4	script	Sábio#2	97,{
-	if(level153 == 1) {
+que_job01,64,93,4	script	Sábio#3	97,{
+	if(level155 == 1) {
 	mes "^006611[ Sábio ]^333333";
-	mes "Lembre-se, procure nos grandes campos de mjolnir...";
+	mes "Lembre-se, procure nos grandes campos de morocc...";
 	close;
 	}
-	if(BaseLevel==152  && JobLevel==50){
+	if(BaseLevel==154  && JobLevel==50){
 	mes "^006611[ Sábio ]^333333";	
 	mes "Hmm, o que você procura meu jovem?";
 	if(select("Procuro a Força !:Nada, só estou de passagem...") == 2) { next; mes "^006611[ Sábio ]^333333"; mes "Azar o seu, fraco !"; close2; warp "gonryun",159,113;
 	} else {
 	next;
 	mes "^006611[ Sábio ]^333333";
-	mes "Há uma lenda, que nos campos de mjolnir, existe um espírito muito poderoso, que pode te dar grande poder";
+	mes "Há uma lenda, que nos campos de morocc, existe um espírito muito poderoso, que pode te dar grande poder";
 	next;
 	mes "^006611[ Sábio ]^333333";
 	mes "Não sei ao certo aonde ele está, essa história é muito antiga e muitos duvidam desse fato...";
@@ -27,19 +27,19 @@ prt_in,235,38,4	script	Sábio#2	97,{
 	mes "^006611[ Sábio ]^333333";
 	mes "Agora, saia da minha frente!";
 	close2;
-	set level153,1;
+	set level155,1;
 	warp "gonryun",159,113;
 	}
 	} else { mes "^006611[ Sábio ]^333333"; mes "Não falo com pessoas fracas!"; close; warp "gonryun",159,113;
 	}
 	}
-mjolnir_09,56,153,4	script	Espíritos#3	111,{
-if(level153 == 2) {
+moc_fild02,287,228,4	script	Espíritos#4	111,{
+if(level155 == 2) {
 mes "[^666699 Espírito ^000000]";
-mes "Procure em morocc o seu novo desafio...";
+mes "Aguarde o seu novo desafio...";
 close;
 }
-if(level153 != 1) {
+if(level155 != 1) {
 mes "[^666699 Espírito ^000000]";
 mes "Quem é você??";
 next;
@@ -54,7 +54,7 @@ next;
 mes "[^666699 Espírito ^000000]";
 mes "Eu posso ajudar a melhorar a sua força, se você tiver o nível necessário!";
 next;
-		if(BaseLevel==152  && JobLevel==50){
+		if(BaseLevel==154  && JobLevel==50){
 			goto L_Quests;
 		}
 		Else {
@@ -66,15 +66,15 @@ next;
 		mes "[^666699 Espírito ^000000]";
 		mes "Aceita o Desafio?";
 		next;
-		if(BaseLevel==152 && JobLevel==50)
+		if(BaseLevel==154 && JobLevel==50)
 		if(select("Não, você é louco!:Sim, é claro!")==1){
 		mes "[^666699 Espírito ^000000]";
 		mes "Quando precisar de meus serviços estarei à disposição!";
 		close;
 		}
 		Else {
-		if(BaseLevel>152){
-		mes "Você já passou do nível 153! Eu não posso mais te ajudar...";
+		if(BaseLevel>154){
+		mes "Você já passou do nível 154! Eu não posso mais te ajudar...";
 		close;
 		} Else {
 		mes "[^666699 Espírito ^000000]";
@@ -88,16 +88,16 @@ next;
 		}
 		Else {
 		mes "[^666699 Espírito ^000000]";
-		mes "Para lhe contar esse segredo, vou precisar de 15.000.000z e dois jellopy !";
+		mes "Para lhe contar esse segredo, vou precisar de 20.000.000z e três jellopy !";
 		next;
 		if(select("Ok, Aceito a sua proposta !:Vá Roubar outro !")==2) {
 		mes "[^666699 Espírito ^000000]";
 		mes "Tudo Bem...";
 		close;
 		} Else {
-		if(countitem (909) >= 2 && Zeny >= 15000000) {
-		set zeny,zeny-15000000; 
-		delitem 909,2;
+		if(countitem (909) >= 3 && Zeny >= 20000000) {
+		set zeny,zeny-20000000; 
+		delitem 909,3;
 		goto L_Nivel;
 		next;
 		} Else {
@@ -111,15 +111,16 @@ next;
 						mes "[^666699 Espírito~ ^000000]";
 						mes "Tudo Certo!";
 						mes "Para que você consiga o poder do nível "+(BaseLevel+1)+" vou precisar de:";
-						mes "1x "+getitemname(5160);
-						mes "4x "+getitemname(6223);
-						mes "1x "+getitemname(2659);
-						mes "1x "+getitemname(2660);
-						mes "1x "+getitemname(2004);
-						mes "20x "+getitemname(969);
-						mes "2x "+getitemname(1131);
-						mes "1x "+getitemname(5550);
-						mes "100x "+getitemname(518);
+						mes "1x "+getitemname(5170);
+						mes "1x "+getitemname(5746);
+						mes "1x "+getitemname(2661);
+						mes "1x "+getitemname(2662);
+						mes "1x "+getitemname(7480);
+						mes "100x "+getitemname(12475);
+						mes "2x "+getitemname(2374);
+						mes "2x "+getitemname(2375);
+						mes "15x "+getitemname(1004);
+						mes "25x "+getitemname(7510);
 						mes "Você vai me trazer os itens?"; 
 						if(select("Não...:Já trouxe!")==1){
 						next;
@@ -128,21 +129,22 @@ next;
 						close;
 						} else {
 							//Verificando os itens
-							if(countitem (518) >= 100 && countitem(5160) >= 1 && countitem(6223) >= 4 && countitem(2659) >= 1 && countitem(2660) >= 1 && countitem(2004) >= 1 && countitem(1131) >= 2 && countitem(969) >= 20 && countitem(5550) >= 1) {
+							if(countitem (5570) >= 1 && countitem(5746) >= 1 && countitem(2661) >= 1 && countitem(2662) >= 1 && countitem(7480) >= 1 && countitem(12475) >= 100 && countitem(2374) >= 2 && countitem(2375) >= 2 && countitem(1004) >= 15 && countitem(7510) >= 25) {
 							next;
 							mes "[^666699 Espírito~ ^000000]";
 							mes "Tudo certo.. Parabéns!";
 								close2;
-								delitem 518,100;
-								delitem 5160,1;
-								delitem 6223,4;
-								delitem 2659,1;
-								delitem 2660,1;
-								delitem 2004,1;
-								delitem 969,20;
-								delitem 1131,2;
-								delitem 5550,1;
-								set level153,2;
+								delitem 5570,1;
+								delitem 5746,1;
+								delitem 2661,1;
+								delitem 2662,1;
+								delitem 7480,1;
+								delitem 12475,100;
+								delitem 2374,2;
+								delitem 2375,2;
+								delitem 1004,15;
+								delitem 7510,25;
+								set level155,2;
 										set BaseLevel,BaseLevel+1;
 								logmes "[Level] "+BaseLevel+": "+strcharinfo(0);
 								announce "[Espírito] "+(Sex==0?"A jogadora ":"O jogador ")+strcharinfo(0)+" acaba de chegar ao nível "+BaseLevel+", parabéns!!!",bc_all;
