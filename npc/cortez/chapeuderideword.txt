@@ -20,7 +20,7 @@ gonryun,175,74,6	script	Viajante	50,{
 	mes "Bem, estes são os itens que eu tenho...";
 	mes "Sobre qual deles vai querer saber mais?";
 	next;
-	switch(select("Chapéu de Rideword:Coroa De Áries:Coroa de Touro:Nenhum"))
+	switch(select("Chapéu de Rideword:Coroa De Áries:Coroa de Touro:Coroa de Gêmeos:Nenhum"))
 	{
 	case 1:
 		mes "[Chapéu de Rideword]";
@@ -128,7 +128,46 @@ gonryun,175,74,6	script	Viajante	50,{
 			close;
 		}
 		break;
-	case 4:
+		
+		case 4:
+		mes "[Coroa de Gêmeos]";
+		mes "Para poder fazer este chapéu, eu vou precisar de:";
+		mes "5x "+getitemname(4098);
+		mes "5x "+getitemname(4056);
+		mes "5x "+getitemname(1259);
+		mes "30x "+getitemname(969);
+		mes "50x Conversor Elemental (Vento)";
+		mes "250x "+getitemname(1013);
+		mes "300x "+getitemname(943);
+		mes "20000 Zenys";
+		next;
+		mes "[Viajante]";
+		mes "Deseja fazer esta quest?";
+		next;
+		if( select("Sim!:Agora não...") == 2 )
+		{
+			mes "[Viajante]";
+			mes "Tudo bem... Até mais!";
+			close;
+		}
+		if(countitem(4098) >= 5 && countitem(4056) >= 5 && countitem(1259) >= 5 && countitem(969) >= 30 && countitem(12117) >= 50 && countitem(943) >= 300 && countitem(1013) >= 250 && Zeny >= 20000)
+		{
+			delitem 4098,5;
+			delitem 4056,5;
+			delitem 969,30;
+			delitem 1259,5;
+			delitem 12117,50;
+			delitem 943,300;
+			delitem 1013,250;
+			set Zeny,Zeny-20000;
+			getitem 5570,1;
+			mes "[Viajante]";
+			mes "Parabéns! Aqui está!";
+			close;
+		}
+		break;
+		
+	case 5:
 		mes "[Viajante]";
 		mes "Tudo bem, estarei aqui se você mudar de idéia.";
 		close;
