@@ -20,7 +20,7 @@ item_rate_card_boss: 1000
 item_rate_mvp: 100
 item_rate_adddrop: 100
 item_rate_treasure: 250
-rare_drop_announce: 10
+rare_drop_announce: 20
 
 //exp.conf
 base_exp_rate: 15000
