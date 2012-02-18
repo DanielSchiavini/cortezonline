@@ -1,0 +1,109 @@
+tha_t06,151,224,1	script	Baltazar	871,{
+set $godlysmjol$,"^006611[ Baltazar ]^333333";
+if(mjol != 1) { mes $godlysmjol$; mes "..."; close;}
+if(countitem(7331) == 0) { mes $godlysmjol$; mes "..."; close;}
+if(countitem(7058) == 0) { mes $godlysmjol$; mes "..."; close;}
+else {
+    mes $godlysmjol$;
+    mes "Mortal insolente!";
+    next;
+    mes $godlysmjol$;
+    mes "Como ousa me perturbar?";
+    next;
+    mes $godlysmjol$;
+    mes "Aonde conseguiu essa flor e essa corrente??!!";
+    next;
+    mes $godlysmjol$;
+    mes "Não importa, afinal o que está procurando?!";
+    if( select("Conhecimento sobre um martelo lendário!:Des...Desculpe lhe perturbar...") == 2 )
+    {
+        mes $godlysmjol$;
+        mes "Mortal inútil!";
+        atcommand "@die";
+        close;
+    }
+	next;
+    mes $godlysmjol$;
+    mes "COMO...";
+    next;
+    mes $godlysmjol$;
+    mes "COMO VOCÊ SABE SOBRE ELE?!";
+    next;
+    mes $godlysmjol$;
+    mes "Bom, me parece que você não é como os outros mortais, afinal...";
+    next;
+    mes $godlysmjol$;
+    mes "Conseguiu chegar até mim!";
+    next;
+    mes $godlysmjol$;
+    mes "Terei piedade desta vez!";
+    next;
+    mes $godlysmjol$;
+    mes "Não pense que será fácil!";
+    mes "Tem certeza que quer se apoderar de tal martelo?!";
+    next;
+    switch(select("Sim!:Não!"))
+    {
+    case 1:
+        mes $godlysmjol$;
+        mes "Primeiramente o nome desse martelo é "+getitemname(1530);
+        next;
+        mes $godlysmjol$;
+        mes "Eu estive precisando de alguns itens mesmo...";
+        next;
+        mes $godlysmjol$;
+        mes "Preste atenção que eu só os direi uma vez!";
+        next;
+        mes $godlysmjol$;
+        mes "Consiga:";
+        mes "2000x "+getitemname(6075);
+        mes "25x "+getitemname(13009);
+        mes "250x "+getitemname(7009);
+        mes "50x "+getitemname(7337);
+        mes "2x "+getitemname(4164);
+        next;
+        mes $godlysmjol$;
+        mes "Acha que consegue mero mortal?";
+        next;
+        if( select("Sim eu consigo!:Muito difícil...") == 2 )
+        {
+            mes $godlysmjol$;
+            mes "Mortal inútil!";
+            atcommand "@die";
+            close;
+        }
+        if(countitem(6075) >= 2000 && countitem(13009) >= 25 && countitem(7009) >= 250 && countitem(7337) >= 50 && countitem(4164) >= 2)
+        {
+            delitem 6075,2000;
+            delitem 13009,25;
+            delitem 7009,250;
+            delitem 7337,50;
+            delitem 4164,2;
+            getitem 1530,1;
+            mes $godlysmjol$;
+            mes "...";
+            next;
+            mes $godlysmjol$;
+            mes "Parabéns!";
+            next;
+            mes $godlysmjol$;
+            mes "Você realmente não é como os outros mortais!";
+            close;
+        }
+        break;
+    case 2:
+        mes $godlysmjol$;
+        mes "Mortal inútil!";
+        atcommand "@die";
+        close;
+    }
+    mes $godlysmjol$;
+    mes "O QUE?";
+    next;
+	mes $godlysmjol$;
+    mes "Você acha que iria conseguir enganar um Deus?!";
+	next;
+    atcommand "@die";
+    close;
+}
+}

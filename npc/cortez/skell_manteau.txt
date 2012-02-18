@@ -1,0 +1,113 @@
+abbey03,197,234,5	script	Odin	871,{
+set $godlysskell$,"^006611[ Odin ]^333333";
+if(skele != 1) { mes $godlysskell$; mes "..."; close;}
+if(countitem(7331) == 0) { mes $godlysskell$; mes "..."; close;}
+if(countitem(7058) == 0) { mes $godlysskell$; mes "..."; close;}
+else {
+    mes $godlysskell$;
+    mes "Mortal insolente!";
+    next;
+    mes $godlysskell$;
+    mes "Como ousa me perturbar?";
+    next;
+    mes $godlysskell$;
+    mes "Aonde conseguiu essa flor e essa corrente??!!";
+    next;
+    mes $godlysskell$;
+    mes "Não importa, afinal o que está procurando?!";
+    if( select("Conhecimento sobre uma capa lendária!:Des...Desculpe lhe perturbar...") == 2 )
+    {
+        mes $godlysskell$;
+        mes "Mortal inútil!";
+        atcommand "@die";
+        close;
+    }
+	next;
+    mes $godlysskell$;
+    mes "COMO...";
+    next;
+    mes $godlysskell$;
+    mes "COMO VOCÊ SABE SOBRE ELA?!";
+    next;
+    mes $godlysskell$;
+    mes "Bom, me parece que você não é como os outros mortais, afinal...";
+    next;
+    mes $godlysskell$;
+    mes "Conseguiu chegar até mim!";
+    next;
+    mes $godlysskell$;
+    mes "Terei piedade desta vez!";
+    next;
+    mes $godlysskell$;
+    mes "Não pense que será fácil!";
+    mes "Tem certeza que quer se apoderar de tal capa?!";
+    next;
+    switch(select("Sim!:Não!"))
+    {
+    case 1:
+        mes $godlysskell$;
+        mes "Primeiramente o nome dessa capa é "+getitemname(2511);
+        next;
+        mes $godlysskell$;
+        mes "Eu estive precisando de alguns itens mesmo...";
+        next;
+        mes $godlysskell$;
+        mes "Preste atenção que eu só os direi uma vez!";
+        next;
+        mes $godlysskell$;
+        mes "Consiga:";
+        mes "100x "+getitemname(752);
+        mes "1x "+getitemname(2660);
+        mes "1x "+getitemname(2662);
+        mes "15x "+getitemname(7019);
+        mes "5x "+getitemname(12085);
+        mes "15x "+getitemname(706);
+        mes "5x "+getitemname(6223);
+        next;
+        mes $godlysskell$;
+        mes "Acha que consegue mero mortal?";
+        next;
+        if( select("Sim eu consigo!:Muito difícil...") == 2 )
+        {
+            mes $godlysskell$;
+            mes "Mortal inútil!";
+            atcommand "@die";
+            close;
+        }
+        if(countitem(752) >= 100 && countitem(2660) >= 1 && countitem(2662) >= 1 && countitem(7019) >= 15 && countitem(12085) >= 5 && countitem(706) >= 15 && countitem(6223) >= 5)
+        {
+            delitem 752,100;
+            delitem 2660,1;
+            delitem 2662,1;
+            delitem 7019,15;
+            delitem 12085,5;
+            delitem 706,15;
+            delitem 6223,5;
+            getitem 2511,1;
+            mes $godlysskell$;
+            mes "...";
+            next;
+            mes $godlysskell$;
+            mes "Parabéns!";
+            next;
+            mes $godlysskell$;
+            mes "Você realmente não é como os outros mortais!";
+            close;
+        }
+        break;
+    case 2:
+        mes $godlysskell$;
+        mes "Mortal inútil!";
+        atcommand "@die";
+        close;
+    }
+    mes $godlysskell$;
+    mes "O QUE?";
+    next;
+	mes $godlysskell$;
+    mes "Você acha que iria conseguir enganar um Deus?!";
+	next;
+    atcommand "@die";
+    close;
+}
+}

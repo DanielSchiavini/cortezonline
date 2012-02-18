@@ -1,0 +1,173 @@
+gl_step,170,110,1	script	Loki	871,{
+set $godlysasfrika$,"^006611[ Loki ]^333333";
+if(asfrika != 1) { mes $godlysasfrika$; mes "..."; close;}
+if(countitem(7331) == 0) { mes $godlysasfrika$; mes "..."; close;}
+if(countitem(7058) == 0) { mes $godlysasfrika$; mes "..."; close;}
+if(asfriked == 2) {
+mes $godlysasfrika$;
+mes "Sinto fome, me traga algumas comidas.";
+next;
+mes $godlysasfrika$;
+		mes "5x "+getitemname(12041);
+        mes "5x "+getitemname(12042);
+        mes "5x "+getitemname(12063);
+        mes "5x "+getitemname(12049);
+        mes "5x "+getitemname(12050);
+        mes "5x "+getitemname(12076);
+        mes "5x "+getitemname(12082);
+		mes "5x "+getitemname(12083);
+		mes "5x "+getitemname(12079);
+		
+if(select("Aqui está!:Depois eu trago...")==2) {
+next;
+mes $godlysasfrika$;
+mes "...";
+next;
+atcommand "@die";
+close; } else {
+
+if(countitem(12041) >= 5 && countitem(12042) >= 5 && countitem(12063) >= 5 && countitem(12049) >= 5 && countitem(12050) >= 5 && countitem(12076) >= 5 && countitem(12082) >= 5 && countitem(12083) >= 5 && countitem(12079) >= 5)
+        {
+            delitem 12041,5;
+            delitem 12042,5;
+            delitem 12063,5;
+			delitem 12049,5;
+            delitem 12050,5;
+            delitem 12076,5;
+            delitem 12082,5;
+            delitem 12083,5;
+			delitem 12079,5;
+			next;
+			getitem 2541,1;
+            mes $godlysasfrika$;
+            mes "...";
+			set asfriked,0;
+			close; 
+		}	else { 
+		next;
+	mes $godlysasfrika$;
+    mes "O QUE?";
+    next;
+	mes $godlysasfrika$;
+    mes "Você acha que iria conseguir enganar um Deus?!";
+	next;
+    atcommand "@die";
+    close;
+}
+}
+} else {
+    mes $godlysasfrika$;
+    mes "Mortal insolente!";
+    next;
+    mes $godlysasfrika$;
+    mes "Como ousa me perturbar?";
+    next;
+    mes $godlysasfrika$;
+    mes "Aonde conseguiu essa flor e essa corrente??!!";
+    next;
+    mes $godlysasfrika$;
+    mes "Não importa, afinal o que está procurando?!";
+    if( select("Conhecimento sobre um Manto lendário!:Des...Desculpe lhe perturbar...") == 2 )
+    {
+        mes $godlysasfrika$;
+        mes "Mortal inútil!";
+        atcommand "@die";
+        close;
+    }
+	next;
+    mes $godlysasfrika$;
+    mes "COMO...";
+    next;
+    mes $godlysasfrika$;
+    mes "COMO VOCÊ SABE SOBRE ELE?!";
+    next;
+    mes $godlysasfrika$;
+    mes "Bom, me parece que você não é como os outros mortais, afinal...";
+    next;
+    mes $godlysasfrika$;
+    mes "Conseguiu chegar até mim!";
+    next;
+    mes $godlysasfrika$;
+    mes "Terei piedade desta vez!";
+    next;
+    mes $godlysasfrika$;
+    mes "Não pense que será fácil!";
+    mes "Tem certeza que quer se apoderar de tal Manto?!";
+    next;
+    switch(select("Sim!:Não!"))
+    {
+    case 1:
+        mes $godlysasfrika$;
+        mes "Primeiramente o nome dessa Manto é "+getitemname(2541);
+        next;
+        mes $godlysasfrika$;
+        mes "Eu estive precisando de alguns itens mesmo...";
+        next;
+        mes $godlysasfrika$;
+        mes "Preste atenção que eu só os direi uma vez!";
+        next;
+        mes $godlysasfrika$;
+        mes "Consiga:";
+        mes "50x "+getitemname(751);
+        mes "2x "+getitemname(1181);
+        mes "25x "+getitemname(6091);
+        mes "15x "+getitemname(12075);
+        mes "10x "+getitemname(12074);
+        mes "5x "+getitemname(12073);
+        mes "1x "+getitemname(7481);
+		mes "3x "+getitemname(2661);
+        next;
+        mes $godlysasfrika$;
+        mes "Acha que consegue mero mortal?";
+        next;
+        if( select("Sim eu consigo!:Muito difícil...") == 2 )
+        {
+            mes $godlysasfrika$;
+            mes "Mortal inútil!";
+            atcommand "@die";
+            close;
+        }
+        if(countitem(751) >= 50 && countitem(1181) >= 2 && countitem(6091) >= 25 && countitem(12075) >= 15 && countitem(12074) >= 10 && countitem(12073) >= 5 && countitem(7481) >= 1 && countitem(2661) >= 3)
+        {
+            delitem 751,50;
+            delitem 1181,2;
+            delitem 6091,25;
+            delitem 12075,15;
+            delitem 12074,10;
+            delitem 12073,5;
+            delitem 7481,1;
+			delitem 2661,3;
+            mes $godlysasfrika$;
+            mes "...";
+            next;
+            mes $godlysasfrika$;
+            mes "Parabéns!";
+            next;
+            mes $godlysasfrika$;
+            mes "Você realmente não é como os outros mortais!";
+			next;
+			mes $godlysasfrika$;
+			mes "Mas, eu preciso de outras coisas para te dar esse item...";
+			next;
+			mes $godlysasfrika$;
+			mes "Hmm, vou verificar o que eu quero, mero mortal!";
+			set asfriked,2;
+            close;
+        }
+        break;
+    case 2:
+        mes $godlysasfrika$;
+        mes "Mortal inútil!";
+        atcommand "@die";
+        close;
+    }
+    mes $godlysasfrika$;
+    mes "O QUE?";
+    next;
+	mes $godlysasfrika$;
+    mes "Você acha que iria conseguir enganar um Deus?!";
+	next;
+    atcommand "@die";
+    close;
+}
+}

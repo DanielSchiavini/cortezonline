@@ -1,0 +1,291 @@
+odin_tem03,278,234,5	script	Força de Odin	723,{
+if(countitem(7331) == 0) { mes "..."; close;}
+if(countitem(7058) == 0) { mes "..."; close;}
+if(godly3 != 2) { mes "..."; close;}
+else {
+mes "^006611[ Força de Odin ]^333333";
+mes "Aonde você conseguiu essa flor e essa corrente??!!";
+next;
+mes "^006611[ Força de Odin ]^333333";
+mes "Não importa, eu sou o guardião que pode te levar ao conhecimento do poder divino !";
+next;
+mes "^006611[ Força de Odin ]^333333";
+mes "Eu posso revelar alguns segredos para você.";
+next;
+mes "^006611[ Força de Odin ]^333333";
+mes "Tem interesse?";
+if(select("Mostrar interesse:Você é louco, isso sim!") == 2) { next; mes "hmm, azar o seu..."; close;}
+else 	{
+next;
+mes "^006611[ Força de Odin ]^333333";
+mes "Não pense que será fácil obter esses segredos...";
+next;
+mes "^006611[ Força de Odin ]^333333";
+mes "Afinal, qual item você procura?";
+	next;
+	menu "Nenhum",-,
+		 "Brisingamen",I_Brisin,
+		 "Megingjard",I_Meging,
+		 "Mjolnir",I_Mjolnir,
+		 "Sleipnir",I_Sleipnir,
+		 "Skeleton Manteau",I_Skeleton,
+		 "Manto de Asfrika",I_Asfrika,
+		 "Armadura de Brynhildr",I_Brynhildr;
+		 close;
+		 I_Brisin:
+		 
+		 if(brisin == 0) {
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "hmm, eu vou precisar de um item para que eu lhe conte esse segredo...";
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Consiga 70x "+getitemname(1646);
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Após isso, poderemos conversar...";
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Você já trouxe?";
+		if(select("Sim, está tudo aqui:Ainda não...") == 2) { next; mes "^006611[ Força de Odin ]^333333"; mes "Quando conseguir, me procure!"; close; }
+		 if(countitem (1646) != 70) { next; mes "^006611[ Força de Odin ]^333333"; mes "Me traga os itens exatos..."; close;
+		 } Else { next; mes "^006611[ Força de Odin ]^333333"; mes "Tudo certo, agora eu posso te contar o segredo!";
+		 delitem 1646,70;
+		 set brisin, 1; 
+		 next;
+		 goto L_Bri;}
+		 
+	} else {
+	L_Bri:
+	mes "^006611[ Força de Odin ]^333333";
+	mes "^0000FFBrisingamen^333333";
+	mes "Dizem que Freya, a deusa da beleza, era adorada por todos. Por isso, quatro anões (Alfrik, Berling, Dvalin e Grer) juntaram os itens mais belos de Rune-Midgard e criaram uma jóia de valor inestimável.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "Este colar era capaz de tornar irresistível qualquer um que o usasse. O colar foi objeto de cobiça de muitos, inclusive de Jormungand, que o roubou na esperança de usá-lo para dominar os deuses.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "Talvez você encontre Jormungand e consiga recuperá-lo. Mas será difícil, Jormungand tem uma aparência amigável, mas uma natureza maligna. Ele é calculista e malicioso, uma figura traiçoeira, não se sabe quando se pode confiar nele.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "A última vez que eu tive notícias dele, ele estava no coração do vulcão de thor, em um lugar quase inacessível, onde somnete era possível chegar até ele através de teleporte... Não é certeza, mas se você correr ainda pode encontrá-lo.";
+	close;
+	}
+	I_Meging:
+	if(megin == 0) {
+	mes "^006611[ Força de Odin ]^333333";
+		 mes "hmm, eu vou precisar de um item para que eu lhe conte esse segredo...";
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		mes "Consiga 20x "+getitemname(1163);
+		next;
+		mes "^006611[ Força de Odin ]^333333";
+		 mes "Após isso, poderemos conversar...";
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Você já trouxe?";
+		if(select("Sim, está tudo aqui:Ainda não...") == 2) { next; mes "^006611[ Força de Odin ]^333333"; mes "Quando conseguir, me procure!"; close; }
+		 if(countitem (1163) != 20) { next; mes "^006611[ Força de Odin ]^333333"; mes "Me traga os itens exatos..."; close;
+		 } Else { next; mes "^006611[ Força de Odin ]^333333"; mes "Tudo certo, agora eu posso te contar o segredo!";
+		 delitem 1163,20;
+		 set megin, 1; 
+		 next;
+		 goto I_Meg;}
+		} Else {
+	I_Meg:
+	mes "^006611[ Força de Odin ]^333333";
+	mes "^0000FFMegingjard^333333";
+	mes "Dizem que o Megingjard é o cinturão usado por Thor, sem dúvida é o mais poderoso dos itens selados. Ele garantia ao deus do trovão uma força sem igual, mesmo para uma divindade.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "Foi ele quem permitiu a Thor erguer o martelo Mjolnir, provando ser digno de usar a arma de seu pai. Estes dois equipamentos faziam do deus o mais poderoso de todos os guerreiros.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "Uma vez um poderoso ferreiro tentou criar um Megingjard, mas falhou por não saber os itens necessários, daí em diante ele se dedicou a pesquisar sobre o cinturão na tentativa de descobrir algo e forjar um com poder igual ou até mesmo maior.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "Ele está em um calabouço muito perigoso, onde há muitos seres parecidos com humanos, e são extremamente fortes.";
+	close;
+	}
+	I_Mjolnir:
+	if(mjol == 0) {
+	mes "^006611[ Força de Odin ]^333333";
+		 mes "hmm, eu vou precisar de um item para que eu lhe conte esse segredo...";
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Consiga 35x "+getitemname(1311);
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Após isso, poderemos conversar...";
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Você já trouxe?";
+		if(select("Sim, está tudo aqui:Ainda não...") == 2) { next; mes "^006611[ Força de Odin ]^333333"; mes "Quando conseguir, me procure!"; close; }
+		 if(countitem (1311) != 35) { next; mes "^006611[ Força de Odin ]^333333"; mes "Me traga os itens exatos..."; close;
+		 } Else { next; mes "^006611[ Força de Odin ]^333333"; mes "Tudo certo, agora eu posso te contar o segredo!";
+		 delitem 1311,35;
+		 set mjol, 1; 
+		 next;
+		 goto I_Mjol;}
+		 } Else {
+		 
+	I_Mjol:
+	mes "^006611[ Força de Odin ]^333333";
+	mes "^0000FFMjolnir^333333";
+	mes "O Martelo de Thor é a mais poderosa arma existente, capaz de causar devastação nos campos de batalha.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "Dizem que seu dono será veloz como o trovão, terá grande força e dificilmente errará seu inimigo.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "A ultima vez que eu vi alguem falar disso foi quando eu andava no sexto andar da torre de thanatos.";
+	close;
+	}
+	I_Sleipnir:
+	if(sleipnir == 0) {
+	mes "^006611[ Força de Odin ]^333333";
+		 mes "hmm, eu vou precisar de um item para que eu lhe conte esse segredo...";
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		mes "Consiga 50x "+getitemname(1745);
+		next;
+		mes "^006611[ Força de Odin ]^333333";
+		 mes "Após isso, poderemos conversar...";
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Você já trouxe?";
+		if(select("Sim, está tudo aqui:Ainda não...") == 2) { next; mes "^006611[ Força de Odin ]^333333"; mes "Quando conseguir, me procure!"; close; }
+		 if(countitem (1745) != 50) { next; mes "^006611[ Força de Odin ]^333333"; mes "Me traga os itens exatos..."; close;
+		 } Else { next; mes "^006611[ Força de Odin ]^333333"; mes "Tudo certo, agora eu posso te contar o segredo!";
+		 delitem 1745,50;
+		 set sleipnir, 1; 
+		 next;
+		 goto I_Sleip;}
+		 } Else {
+		 
+	I_Sleip:
+	mes "^006611[ Força de Odin ]^333333";
+	mes "^0000FFSleipnir^333333";
+	mes "Estas botas têm o nome do magnífico e lendário cavalo de Odin. Em certa ocasião Sleipnir foi ferido e Odin o transformou em um par de botas, conservando assim seu poder místico, sendo necessário para sua utilização o poder do sol.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "Toda a velocidade e vigor do lendário animal repousam agora nessa bota.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "Após o final da guerra milenar dos deuses ela se espalhou junto com todos os itens divinos e não se sabe do seu paradeiro, será seu trabalho achar...";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "Este item é muito dificil de se encontrar pois pelo que dizem, quem o porta é muito rápido e some facil na escuridão. Havia boatos que ele vivia nas cavernas de gefenia";
+	close;
+	}
+	I_Skeleton:
+	
+	if(skele == 0) {
+	mes "^006611[ Força de Odin ]^333333";
+		 mes "hmm, eu vou precisar de um item para que eu lhe conte esse segredo...";
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Consiga 500x "+getitemname(7347);
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Após isso, poderemos conversar...";
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Você já trouxe?";
+		if(select("Sim, está tudo aqui:Ainda não...") == 2) { next; mes "^006611[ Força de Odin ]^333333"; mes "Quando conseguir, me procure!"; close; }
+		 if(countitem (7347) != 500) { next; mes "^006611[ Força de Odin ]^333333"; mes "Me traga os itens exatos..."; close;
+		 } Else { next; mes "^006611[ Força de Odin ]^333333"; mes "Tudo certo, agora eu posso te contar o segredo!";
+		 delitem 7347,500;
+		 set skele, 1; 
+		 next;
+		 goto I_Skel;}
+		 } Else {
+	
+	I_Skel:
+	mes "^006611[ Força de Odin ]^333333";
+	mes "^0000FFSkeleton Manteau^333333";
+	mes "Este manto tem esse nome devido o grande número de guerreiros derrotado por seu portador.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "Ele acumulava a energia que havia nos crânios dos oponentes que eram aniquilados, e com isso adquiriu forte resistência contra humanos.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "Diz-se que o portador do manto está em um monastério amaldiçoado...";
+	close;
+	}
+	I_Asfrika:
+	
+	if(asfrika == 0) {
+	mes "^006611[ Força de Odin ]^333333";
+		 mes "hmm, eu vou precisar de um item para que eu lhe conte esse segredo...";
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Consiga 40x "+getitemname(1284);
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Após isso, poderemos conversar...";
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Você já trouxe?";
+		if(select("Sim, está tudo aqui:Ainda não...") == 2) { next; mes "^006611[ Força de Odin ]^333333"; mes "Quando conseguir, me procure!"; close; }
+		 if(countitem (1284) != 40) { next; mes "^006611[ Força de Odin ]^333333"; mes "Me traga os itens exatos..."; close;
+		 } Else { next; mes "^006611[ Força de Odin ]^333333"; mes "Tudo certo, agora eu posso te contar o segredo!";
+		 delitem 1284,40;
+		 set asfrika, 1; 
+		 next;
+		 goto I_Asf;}
+		 } Else {
+		 
+	I_Asf:
+		mes "^006611[ Força de Odin ]^333333";
+	mes "^0000FFManto de Asfrika^333333";
+	mes "Uma asa feita de todas as luzes que existem no mundo.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "Significa ''A luz dos deuses''.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "O portador desse item, é um Deus extremamente malígno e inteligente.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "A última vez que ele foi visto, ele estava nas escadarias de glast heim, um verdadeiro labirinto...";
+	close;
+	}
+	I_Brynhildr:
+	if(brynhil == 0) {
+	mes "^006611[ Força de Odin ]^333333";
+		 mes "hmm, eu vou precisar de um item para que eu lhe conte esse segredo...";
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Consiga 70x "+getitemname(1647);
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Após isso, poderemos conversar...";
+		 next;
+		 mes "^006611[ Força de Odin ]^333333";
+		 mes "Você já trouxe?";
+		if(select("Sim, está tudo aqui:Ainda não...") == 2) { next; mes "^006611[ Força de Odin ]^333333"; mes "Quando conseguir, me procure!"; close; }
+		 if(countitem (1647) != 70) { next; mes "^006611[ Força de Odin ]^333333"; mes "Me traga os itens exatos..."; close;
+		 } Else { next; mes "^006611[ Força de Odin ]^333333"; mes "Tudo certo, agora eu posso te contar o segredo!";
+		 delitem 1647,70;
+		 set brynhil, 1; 
+		 next;
+		 goto I_Bry;}
+		 } Else {
+	I_Bry:
+	mes "^006611[ Força de Odin ]^333333";
+	mes "^0000FFArmadura de Brynhildr^333333";
+	mes "Brynhildr é uma das valentes valquírias.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "O nome significa ''A armadura do Guerreiro''.";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "Por motivos desconhecidos, a dona perdeu a sua armadura, e agora o portador dela é um guerreiro com hábitos muito peculiáres...";
+	next;
+	mes "^006611[ Força de Odin ]^333333";
+	mes "Dizem que ele vive em um lugar extremamente frio, tome cuidado para não congelar ao procurá-lo...";
+	close;
+}
+		}
+	}
+}

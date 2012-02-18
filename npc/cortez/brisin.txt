@@ -1,0 +1,115 @@
+thor_v03,1,3,5	script	Jormungand	871,{
+set $godlysbrisin$,"^006611[ Jormungand ]^333333";
+if(brisin != 1) { mes $godlysbrisin$; mes "..."; close;}
+if(countitem(7331) == 0) { mes $godlysbrisin$; mes "..."; close;}
+if(countitem(7058) == 0) { mes $godlysbrisin$; mes "..."; close;}
+else {
+    mes $godlysbrisin$;
+    mes "Mortal insolente!";
+    next;
+    mes $godlysbrisin$;
+    mes "Como ousa me perturbar?";
+    next;
+    mes $godlysbrisin$;
+    mes "Aonde conseguiu essa flor e essa corrente??!!";
+    next;
+    mes $godlysbrisin$;
+    mes "Não importa, afinal o que está procurando?!";
+    if( select("Conhecimento sobre um colar lendário!:Des...Desculpe lhe perturbar...") == 2 )
+    {
+        mes $godlysbrisin$;
+        mes "Mortal inútil!";
+        atcommand "@die";
+        close;
+    }
+	next;
+    mes $godlysbrisin$;
+    mes "COMO...";
+    next;
+    mes $godlysbrisin$;
+    mes "COMO VOCÊ SABE SOBRE ELE?!";
+    next;
+    mes $godlysbrisin$;
+    mes "Bom, me parece que você não é como os outros mortais, afinal...";
+    next;
+    mes $godlysbrisin$;
+    mes "Conseguiu chegar até mim!";
+    next;
+    mes $godlysbrisin$;
+    mes "Terei piedade desta vez!";
+    next;
+    mes $godlysbrisin$;
+    mes "Não pense que será fácil!";
+    mes "Tem certeza que quer se apoderar de tal colar?!";
+    next;
+    switch(select("Sim!:Não!"))
+    {
+    case 1:
+        mes $godlysbrisin$;
+        mes "Primeiramente o nome desse colar é "+getitemname(2630);
+        next;
+        mes $godlysbrisin$;
+        mes "Eu estive precisando de alguns itens mesmo...";
+        next;
+        mes $godlysbrisin$;
+        mes "Preste atenção que eu só os direi uma vez!";
+        next;
+        mes $godlysbrisin$;
+        mes "Consiga:";
+        mes "25x "+getitemname(641);
+        mes "30x "+getitemname(13156);
+        mes "150x "+getitemname(7262);
+        mes "150x "+getitemname(7125);
+        mes "250x "+getitemname(6257);
+        mes "25x "+getitemname(1572);
+        mes "3x "+getitemname(1737);
+		mes "3x "+getitemname(2532);
+        next;
+        mes $godlysbrisin$;
+        mes "Acha que consegue mero mortal?";
+        next;
+        if( select("Sim eu consigo!:Muito difícil...") == 2 )
+        {
+            mes $godlysbrisin$;
+            mes "Mortal inútil!";
+            atcommand "@die";
+            close;
+        }
+        if(countitem(641) >= 25 && countitem(13156) >= 30 && countitem(7262) >= 150 && countitem(7125) >= 150 && countitem(6257) >= 250 && countitem(1572) >= 25 && countitem(1737) >= 3 && countitem(2532) >= 3)
+        {
+            delitem 641,25;
+            delitem 13156,30;
+            delitem 7262,150;
+            delitem 7125,150;
+            delitem 6257,250;
+            delitem 1572,25;
+            delitem 1737,3;
+			delitem 2532,3;
+            getitem 2630,1;
+            mes $godlysbrisin$;
+            mes "...";
+            next;
+            mes $godlysbrisin$;
+            mes "Parabéns!";
+            next;
+            mes $godlysbrisin$;
+            mes "Você realmente não é como os outros mortais!";
+            close;
+        }
+        break;
+    case 2:
+        mes $godlysbrisin$;
+        mes "Mortal inútil!";
+        atcommand "@die";
+        close;
+    }
+    mes $godlysbrisin$;
+    mes "O QUE?";
+    next;
+	mes $godlysbrisin$;
+    mes "Você acha que iria conseguir enganar um Deus?!";
+	next;
+    atcommand "@die";
+    close;
+}
+}
