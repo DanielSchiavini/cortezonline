@@ -111,7 +111,7 @@ next;
 						mes "[^666699 Espírito~ ^000000]";
 						mes "Tudo Certo!";
 						mes "Para que você consiga o poder do nível "+(BaseLevel+1)+" vou precisar de:";
-						mes "1x "+getitemname(5170);
+						mes "1x "+getitemname(5570);
 						mes "1x "+getitemname(5746);
 						mes "1x "+getitemname(2661);
 						mes "1x "+getitemname(2662);
