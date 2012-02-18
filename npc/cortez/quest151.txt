@@ -121,7 +121,7 @@ next;
 						mes "50x "+getitemname(991);
 						mes "50x "+getitemname(990);
 						mes "50x "+getitemname(996);
-						mes "50x "+getitemname(994);
+						mes "35x "+getitemname(994);
 						mes "Você vai me trazer os itens?"; 
 						if(select("Não...:Já trouxe!")==1){
 						next;
@@ -130,7 +130,7 @@ next;
 						close;
 						} else {
 							//Verificando os itens
-							if(countitem(5755) >= 1 && countitem(5546) >= 1 && countitem(12436) >= 50 && countitem(944) >= 400 && countitem(995) >= 50 && countitem(994) >= 50 && countitem(993) >= 50 && countitem(992) >= 50 && countitem(991) >= 50 && countitem(990) >= 50 && countitem(996) >= 50) {
+							if(countitem(5755) >= 1 && countitem(5546) >= 1 && countitem(12436) >= 50 && countitem(944) >= 400 && countitem(995) >= 50 && countitem(994) >= 35 && countitem(993) >= 50 && countitem(992) >= 50 && countitem(991) >= 50 && countitem(990) >= 50 && countitem(996) >= 50) {
 							next;
 							mes "[^666699 Espírito~ ^000000]";
 							mes "Tudo certo.. Parabéns!";
@@ -140,7 +140,7 @@ next;
 								delitem 12436,50;
 								delitem 944,400;
 								delitem 995,50;
-								delitem 994,50;
+								delitem 994,35;
 								delitem 993,50;
 								delitem 992,50;
 								delitem 991,50;
