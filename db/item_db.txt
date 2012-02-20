@@ -3841,7 +3841,7 @@
 12098,Bolinho de Arroz com Morango,Bolinho de Arroz com Morango,0,60000,,400,,,,,0xFFFFFFFF,7,2,,,,,,{ sc_start SC_LUKFOOD, 1200000, 8; percentheal 9,3; },{},{}
 12099,Refrigerante Sangrento,Refrigerante Sangrento,0,80000,,1000,,,,,0xFFFFFFFF,7,2,,,,,,{ sc_start SC_LUKFOOD, 1200000, 9; percentheal 10,4; },{},{}
 12100,Nove Caudas Cozidas,Nove Caudas Cozidas,0,100000,,500,,,,,0xFFFFFFFF,7,2,,,,,,{ sc_start SC_LUKFOOD, 1200000, 10; percentheal 14,8; },{},{}
-12103,Galho Sangrento,Galho Sangrento,2,10000,,200,,,,,0xFFFFFFFF,7,2,,,,,,{ monster "this",-1,-1,"--ja--",-3,1,""; },{},{}
+12103,Galho Sangrento,Galho Sangrento,2,10000,,200,,,,,0xFFFFFFFF,7,2,,,,,,{ if(getgmlevel()>=70) monster "this",-1,-1,"--ja--",-3,1,""; },{},{}
 12104,Aljave Aleatório,Aljave Aleatório,2,10000,,200,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem groupranditem(IG_Quiver),1; },{},{}
 12105,Kit de Domesticação,Kit de Domesticação,2,10000,,200,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem groupranditem(IG_Taming),1; getitem groupranditem(IG_Taming),1; getitem groupranditem(IG_Taming),1; },{},{}
 12106,Caixa de Jóias,Caixa de Jóias,2,10000,,200,,,,,0xFFFFFFFF,7,2,,,,,,{ getitem groupranditem(IG_Accesory),1; },{},{}
