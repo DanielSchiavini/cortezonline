@@ -90,7 +90,9 @@ L_VerCreditos:
 	close;
 
 OnBuyItem:
+	debugmes "Transação iniciada.";
 	for(set @i, 0; @i < getarraysize(@bought_nameid); set @i, @i + 1){
+		debugmes "Doacoes: "+@bought_quantity[@i]+"x "+@bought_nameid[@i]+".";
 		if(@bought_quantity[@i] <= 0){
 			dispbottom "Nenhum "+@bought_nameid[@i]+"?";
 			break;
@@ -111,7 +113,7 @@ OnBuyItem:
 	deletearray @bought_quantity, getarraysize(@bought_quantity);
 	deletearray @bought_nameid, getarraysize(@bought_nameid);
 	dispbottom "Transação concluída.";
-	close;
+	end;
 
 OnInit:
 	sleep 5000;
